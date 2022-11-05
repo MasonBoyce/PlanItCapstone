@@ -6,13 +6,31 @@
 //
 
 import Foundation
+import UIKit
 
-class WelcomeCoordinator: WelcomeCoordinatorProtocol {
-    init() {
-        
+
+
+class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
+    var navigationController: UINavigationController
+    
+    var parentCoordinator: Coordinator?
+    var children: [Coordinator] = []
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+       
     }
     
     func start() {
+        print("welcome Coordinator Start")
+        let viewController: WelcomeViewController = WelcomeViewController(str: "LETS GOOO")
+        let model: WelcomeModel = WelcomeModel()
         
+        viewController.model = model
+        model.viewController = viewController
+        
+        model.coordinator = self
+        
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

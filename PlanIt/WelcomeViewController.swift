@@ -11,6 +11,7 @@ import UIKit
 class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     var model: WelcomeModelProtocol?
     var welcome: String
+    
     lazy var viewContainter: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -37,8 +38,6 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
         view.backgroundColor = .red
         setUpView()
         super.viewDidLoad()
-        
-        
     }
     
     @objc func doSomething() {
@@ -58,14 +57,9 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     }
    
     func setUpView() {
-        
         view.addSubview(viewContainter)
         viewContainter.addSubview(welcomeLabel)
         viewContainter.addSubview(button)
-        
-//        welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        welcomeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
         
         viewContainter.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         viewContainter.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 150).isActive = true
