@@ -10,6 +10,7 @@ import UIKit
 
 protocol WelcomeViewControllerProtocol: AnyObject {
     var welcomeLabel: UILabel {get}
+    
 }
 
 protocol WelcomeModelProtocol: AnyObject {
@@ -17,7 +18,7 @@ protocol WelcomeModelProtocol: AnyObject {
 }
 
 protocol WelcomeCoordinatorProtocol: AnyObject {
-    
+    func goToBlank()
 }
 
 protocol Coordinator {

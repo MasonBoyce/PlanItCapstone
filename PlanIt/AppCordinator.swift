@@ -19,7 +19,6 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        print("App Cordinator Start")
         goToWelcome()
     }
     

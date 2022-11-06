@@ -20,16 +20,19 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
         self.navigationController = navigationController
        
     }
+    
     func start() {
-        print("welcome Coordinator Start")
         let viewController: WelcomeViewController = WelcomeViewController()
         let model: WelcomeModel = WelcomeModel()
         
         viewController.model = model
         model.viewController = viewController
-        
         model.coordinator = self
         
         navigationController.pushViewController(viewController, animated: true)
+    }
+    func goToBlank() {
+        let blank = UIViewController()
+        navigationController.pushViewController(blank,animated: false)
     }
 }

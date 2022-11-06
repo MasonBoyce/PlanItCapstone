@@ -39,6 +39,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5059DCAD2917E1AD0060E470 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				50D45CD2291283A100CCBCA3 /* WelcomeCoordinator.swift */,
+				50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */,
+				50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */,
+				50D45CD5291283B800CCBCA3 /* WelcomeProtocol.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		50D4806A28FD995900F90294 = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +71,7 @@
 			children = (
 				50D4807628FD995900F90294 /* AppDelegate.swift */,
 				50CF942329154E8E00772D1C /* AppCordinator.swift */,
-				50D45CD2291283A100CCBCA3 /* WelcomeCoordinator.swift */,
-				50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */,
-				50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */,
-				50D45CD5291283B800CCBCA3 /* WelcomeProtocol.swift */,
+				5059DCAD2917E1AD0060E470 /* Welcome */,
 				50D4807F28FD995B00F90294 /* Assets.xcassets */,
 				50D4808428FD995B00F90294 /* Info.plist */,
 			);

@@ -69,7 +69,6 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
         button.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor,constant: -20).isActive = true
         button.centerXAnchor.constraint(equalTo: welcomeLabel.centerXAnchor).isActive = true
         button.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -50).isActive = true
         
     }
     
