@@ -17,6 +17,7 @@ class AppCoordinator: Coordinator {
     init(navCon : UINavigationController) {
         self.navigationController = navCon
     }
+    
     func start() {
         print("App Cordinator Start")
         goToWelcome()

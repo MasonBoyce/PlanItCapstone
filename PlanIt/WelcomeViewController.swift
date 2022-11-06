@@ -10,7 +10,6 @@ import UIKit
 
 class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     var model: WelcomeModelProtocol?
-    var welcome: String
     
     lazy var viewContainter: UIView = {
         let view = UIView()
@@ -29,7 +28,7 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     lazy var button: UIButton =  {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("YOUR MOM", for: .normal)
+        button.setTitle("Click Button", for: .normal)
         button.addTarget(self, action: #selector(doSomething), for: .touchUpInside)
         return button
     }()
@@ -45,14 +44,11 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     }
    
     required init?(coder: NSCoder) {
-        self.welcome = ""
         super.init(coder: coder)
         fatalError("init(coder:) has not been implemented")
-        
-        
     }
-    required init(str: String) {
-        self.welcome = str
+    
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
    
@@ -62,8 +58,8 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
         viewContainter.addSubview(button)
         
         viewContainter.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        viewContainter.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 150).isActive = true
-        viewContainter.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -150).isActive = true
+        viewContainter.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        viewContainter.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10).isActive = true
         viewContainter.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -100).isActive = true
 
         welcomeLabel.topAnchor.constraint(equalTo: viewContainter.topAnchor, constant: 10).isActive  =  true

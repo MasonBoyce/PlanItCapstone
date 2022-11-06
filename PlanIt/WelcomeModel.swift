@@ -16,7 +16,7 @@ class WelcomeModel: WelcomeModelProtocol {
         
     }
     func doSomething(button: UIButton) {
-        button.setTitle("NO YOUR MOM", for: .normal)
+        button.setTitle("mason was here", for: .normal)
     }
     
     

@@ -20,10 +20,9 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
         self.navigationController = navigationController
        
     }
-    
     func start() {
         print("welcome Coordinator Start")
-        let viewController: WelcomeViewController = WelcomeViewController(str: "LETS GOOO")
+        let viewController: WelcomeViewController = WelcomeViewController()
         let model: WelcomeModel = WelcomeModel()
         
         viewController.model = model
