@@ -1,16 +1,14 @@
 //
-//  WelcomeCoordinator.swift
+//  MapCoordinator.swift
 //  PlanIt
 //
-//  Created by Mason Boyce on 11/2/22.
+//  Created by Mason Boyce on 11/11/22.
 //
 
 import Foundation
 import UIKit
 
-
-
-class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
+class MapCoordinator: MapCoordinatorProtocol, Coordinator {
     var navigationController: UINavigationController
     
     var parentCoordinator: Coordinator?
@@ -22,8 +20,8 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     }
     
     func start() {
-        let viewController: WelcomeViewController = WelcomeViewController()
-        let model: WelcomeModel = WelcomeModel()
+        let viewController: MapViewController = MapViewController()
+        let model: MapModel = MapModel()
         
         viewController.model = model
         model.viewController = viewController
@@ -32,9 +30,7 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     func goToMap() {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController)
-        mapCoordinator.parentCoordinator = self
-        children.append(mapCoordinator)
-        mapCoordinator.start()
+        let map = MapViewController()
+        navigationController.pushViewController(map,animated: false)
     }
 }

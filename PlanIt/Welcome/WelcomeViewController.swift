@@ -30,6 +30,7 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Click Button", for: .normal)
         button.addTarget(self, action: #selector(doSomething), for: .touchUpInside)
+        button.backgroundColor = .yellow
         return button
     }()
     
@@ -68,7 +69,7 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
 
         button.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor,constant: -20).isActive = true
         button.centerXAnchor.constraint(equalTo: welcomeLabel.centerXAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: viewContainter.bottomAnchor).isActive = true
         
     }
     
