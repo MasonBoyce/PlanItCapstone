@@ -27,5 +27,12 @@ class AppCoordinator: Coordinator {
         welcomeCoordinator.parentCoordinator = self
         children.append(welcomeCoordinator)
         welcomeCoordinator.start()
+        something()
         }
+    
+    func something(){
+        let testPlayground = Playground(testVar: 4)
+        testPlayground.testPrint()
+        print("Hello world")
+    }
 }
