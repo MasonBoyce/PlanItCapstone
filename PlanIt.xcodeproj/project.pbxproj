@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */; };
+		50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A13291FE09900C3F272 /* CustomAnnotationView.swift */; };
 		508C47EA291E68B5009F89E0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47E9291E68B5009F89E0 /* MapModel.swift */; };
 		508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47ED291E68D6009F89E0 /* MapViewController.swift */; };
 		508C47F1291E68ED009F89E0 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47F0291E68ED009F89E0 /* MapCoordinator.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		50409A13291FE09900C3F272 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		508C47E9291E68B5009F89E0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		508C47ED291E68D6009F89E0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		508C47F0291E68ED009F89E0 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50409A0E291FE07500C3F272 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */,
+				50409A13291FE09900C3F272 /* CustomAnnotationView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		5059DCAD2917E1AD0060E470 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +81,7 @@
 				508C47ED291E68D6009F89E0 /* MapViewController.swift */,
 				508C47F0291E68ED009F89E0 /* MapCoordinator.swift */,
 				508C47F3291E6900009F89E0 /* MapProtocol.swift */,
+				50409A0E291FE07500C3F272 /* Components */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -177,9 +191,11 @@
 				50D45CCD2912837700CCBCA3 /* WelcomeModel.swift in Sources */,
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,
 				50D45CD6291283B800CCBCA3 /* WelcomeProtocol.swift in Sources */,
+				50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */,
 				E15EFC74291C48580046FB3A /* Playground.swift in Sources */,
 				50CF942429154E8E00772D1C /* AppCordinator.swift in Sources */,
 				50D45CD3291283A100CCBCA3 /* WelcomeCoordinator.swift in Sources */,
+				50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

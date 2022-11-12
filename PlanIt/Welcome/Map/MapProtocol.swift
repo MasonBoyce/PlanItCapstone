@@ -14,7 +14,7 @@ protocol MapViewControllerProtocol: AnyObject {
 }
 
 protocol MapModelProtocol: AnyObject {
-    var annotations: [MKPointAnnotation] { get set }
+    var annotations: [CustomAnnotation] { get set }
 }
 
 protocol MapCoordinatorProtocol: AnyObject {
