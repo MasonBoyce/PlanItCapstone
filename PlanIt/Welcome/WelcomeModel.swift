@@ -13,8 +13,9 @@ class WelcomeModel: WelcomeModelProtocol {
     var coordinator: WelcomeCoordinatorProtocol?
     
     init() {
-        
+    
     }
+    
     func doSomething(button: UIButton) {
         button.setTitle("mason was here", for: .normal)
         coordinator?.goToMap()

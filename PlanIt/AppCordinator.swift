@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-
+//The initial AppCordinator
 class AppCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
@@ -21,14 +21,14 @@ class AppCoordinator: Coordinator {
     func start() {
         goToWelcome()
     }
-    
+    //Itilizes welcome as a child coordinator and go to it
     func goToWelcome() {
         let welcomeCoordinator = WelcomeCoordinator(navigationController: navigationController)
         welcomeCoordinator.parentCoordinator = self
         children.append(welcomeCoordinator)
         welcomeCoordinator.start()
         something()
-        }
+    }
     
     func something(){
         let testPlayground = Playground(testVar: 4)

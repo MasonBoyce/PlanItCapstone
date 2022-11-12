@@ -11,6 +11,7 @@ import UIKit
 class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     var model: WelcomeModelProtocol?
     
+    //MARK: View Elements
     lazy var viewContainter: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +35,7 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
         return button
     }()
     
+    //MARK: Functions
     override func viewDidLoad() {
         view.backgroundColor = .red
         setUpView()
@@ -43,7 +45,7 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     @objc func doSomething() {
         model?.doSomething(button: button)
     }
-   
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         fatalError("init(coder:) has not been implemented")
@@ -52,7 +54,7 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-   
+    
     func setUpView() {
         view.addSubview(viewContainter)
         viewContainter.addSubview(welcomeLabel)
@@ -62,16 +64,13 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
         viewContainter.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         viewContainter.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10).isActive = true
         viewContainter.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -100).isActive = true
-
+        
         welcomeLabel.topAnchor.constraint(equalTo: viewContainter.topAnchor, constant: 10).isActive  =  true
         welcomeLabel.centerXAnchor.constraint(equalTo: viewContainter.centerXAnchor).isActive = true
         welcomeLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
-
+        
         button.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor,constant: -20).isActive = true
         button.centerXAnchor.constraint(equalTo: welcomeLabel.centerXAnchor).isActive = true
         button.bottomAnchor.constraint(equalTo: viewContainter.bottomAnchor).isActive = true
-        
     }
-    
-
 }

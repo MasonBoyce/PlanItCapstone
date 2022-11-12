@@ -9,11 +9,12 @@ import Foundation
 import MapKit
 import UIKit
 
+//Not currently needed
+
 class CustomAnnotationView: MKAnnotationView {
     let identifier = "Custom"
     init(annotation: MKAnnotation?) {
         super.init(annotation: annotation, reuseIdentifier: identifier)
-
     }
 
     required init?(coder aDecoder: NSCoder) {

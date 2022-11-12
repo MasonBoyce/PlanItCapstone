@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */; };
 		50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A13291FE09900C3F272 /* CustomAnnotationView.swift */; };
+		507C5E0A29204A4300020C49 /* UIImage+Extensions.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507C5E0929204A4300020C49 /* UIImage+Extensions.swift.swift */; };
 		508C47EA291E68B5009F89E0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47E9291E68B5009F89E0 /* MapModel.swift */; };
 		508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47ED291E68D6009F89E0 /* MapViewController.swift */; };
 		508C47F1291E68ED009F89E0 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47F0291E68ED009F89E0 /* MapCoordinator.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		50409A13291FE09900C3F272 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		507C5E0929204A4300020C49 /* UIImage+Extensions.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift.swift"; sourceTree = "<group>"; };
 		508C47E9291E68B5009F89E0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		508C47ED291E68D6009F89E0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		508C47F0291E68ED009F89E0 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				50D4807628FD995900F90294 /* AppDelegate.swift */,
 				E15EFC73291C48580046FB3A /* Playground.swift */,
 				50CF942329154E8E00772D1C /* AppCordinator.swift */,
+				507C5E0929204A4300020C49 /* UIImage+Extensions.swift.swift */,
 				5059DCAD2917E1AD0060E470 /* Welcome */,
 				50D4807F28FD995B00F90294 /* Assets.xcassets */,
 				50D4808428FD995B00F90294 /* Info.plist */,
@@ -191,6 +194,7 @@
 				50D45CCD2912837700CCBCA3 /* WelcomeModel.swift in Sources */,
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,
 				50D45CD6291283B800CCBCA3 /* WelcomeProtocol.swift in Sources */,
+				507C5E0A29204A4300020C49 /* UIImage+Extensions.swift.swift in Sources */,
 				50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */,
 				E15EFC74291C48580046FB3A /* Playground.swift in Sources */,
 				50CF942429154E8E00772D1C /* AppCordinator.swift in Sources */,

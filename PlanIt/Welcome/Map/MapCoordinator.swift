@@ -10,7 +10,6 @@ import UIKit
 
 class MapCoordinator: MapCoordinatorProtocol, Coordinator {
     var navigationController: UINavigationController
-    
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     
@@ -18,6 +17,8 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
         self.navigationController = navigationController
     }
     
+    //Initializes view controller model and connects them.
+    //Pushes the view controller to the top of the screen
     func start() {
         let viewController: MapViewController = MapViewController()
         let model: MapModel = MapModel()
