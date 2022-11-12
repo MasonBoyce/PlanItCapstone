@@ -59,9 +59,9 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
 
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView!.canShowCallout = true
+            annotationView?.canShowCallout = true
         } else {
-            annotationView!.annotation = annotation
+            annotationView?.annotation = annotation
         }
 
         return annotationView

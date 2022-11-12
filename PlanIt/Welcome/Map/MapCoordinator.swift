@@ -16,7 +16,6 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-       
     }
     
     func start() {
