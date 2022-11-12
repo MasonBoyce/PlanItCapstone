@@ -60,7 +60,7 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-}
+
 
 //MARK: Extensions
 //Takes in annotations when created and creates the view for it
@@ -99,6 +99,7 @@ func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnota
     }
     
     return annotationView
+}
 }
 
 //MARK: Extensions
