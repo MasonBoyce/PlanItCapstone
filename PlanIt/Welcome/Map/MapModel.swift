@@ -36,6 +36,7 @@ class MapModel: MapModelProtocol {
         
         annotation3.coordinate =  CLLocationCoordinate2D(latitude: 29.94467, longitude: -90.1166)
         annotation3.title = "Yulman Stadium"
+        annotation3.subtitle = "hosts the best team in the country"
         
         annotations.append(annotation1)
         annotations.append(annotation2)
