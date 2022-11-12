@@ -21,22 +21,22 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         let region = MKCoordinateRegion(center: currentCoordinator, span: span)
         map.region = region
         map.translatesAutoresizingMaskIntoConstraints = false
+        var prevAnnotation: MKPointAnnotation?
         model?.annotations.forEach {
-            
             map.addAnnotation($0)
+            if prevAnnotation != nil {
+                createDirections(sourceLocation: prevAnnotation!.coordinate, destinationLocation: $0.coordinate)
+            }
+            prevAnnotation = $0
         }
         return map
     }()
-    
-    
     
     override func viewDidLoad() {
         setUpView()
         super.viewDidLoad()
         mapView.delegate = self
-        let coordinate1:CLLocationCoordinate2D = model?.annotations[0].coordinate ?? CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
-        let coordinate2:CLLocationCoordinate2D = model?.annotations[1].coordinate ?? CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
-        createDirections(sourceLocation: coordinate1, destinationLocation: coordinate2)
+       
     }
     
     required init?(coder: NSCoder) {
