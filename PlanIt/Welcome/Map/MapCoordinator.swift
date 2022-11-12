@@ -29,8 +29,5 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
         
         navigationController.pushViewController(viewController, animated: true)
     }
-    func goToMap() {
-        let map = MapViewController()
-        navigationController.pushViewController(map,animated: false)
-    }
+    
 }

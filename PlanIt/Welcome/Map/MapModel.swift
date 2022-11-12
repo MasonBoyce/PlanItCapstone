@@ -7,17 +7,28 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class MapModel: MapModelProtocol {
     var viewController: MapViewControllerProtocol?
     var coordinator: MapCoordinatorProtocol?
     
+    var annotations: [MKPointAnnotation] = []
+    let annotation: MKPointAnnotation = MKPointAnnotation()
+    
+    
     init() {
-        
+        defaultAnntotations()
     }
-    func doSomething(button: UIButton) {
-        button.setTitle("mason was here", for: .normal)
-        coordinator?.goToMap()
+    
+    func addAnnotation(annotation: MKPointAnnotation) {
+        annotations.append(annotation)
+    }
+    
+    func defaultAnntotations() {
+        annotation.coordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+        annotation.title = "Monroe Hall"
+        annotations.append(annotation)
     }
     
     

@@ -7,15 +7,16 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 protocol MapViewControllerProtocol: AnyObject {
-    //var welcomeLabel: UILabel {get}
+    
 }
 
 protocol MapModelProtocol: AnyObject {
-    func doSomething(button: UIButton)
+    var annotations: [MKPointAnnotation] { get set }
 }
 
 protocol MapCoordinatorProtocol: AnyObject {
-    func goToMap()
+    
 }
