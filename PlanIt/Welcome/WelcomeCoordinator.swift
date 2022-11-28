@@ -20,16 +20,39 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
+    //Old View Controller
+
+//    func start() {
+//        let viewController: WelcomeViewController = WelcomeViewController()
+//        let model: WelcomeModel = WelcomeModel()
+    
+//        viewController.model = model
+////        model.viewController = viewController
+//        model.coordinator = self
+//    navigationController.pushViewController(viewController, animated: true)
+//    }
+    
     func start() {
-        let viewController: WelcomeViewController = WelcomeViewController()
-        let model: WelcomeModel = WelcomeModel()
-        
-        viewController.model = model
-        model.viewController = viewController
-        model.coordinator = self
-        
-        navigationController.pushViewController(viewController, animated: true)
+         // The first time this coordinator started, is to launch login page.
+    goToLoginPage()
     }
+    
+    let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
+    func goToLoginPage(){
+         // Instantiate LoginViewController
+         let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+         // Instantiate LoginViewModel
+//         let loginViewModel = LoginViewModel.init()
+         // Set the Coordinator to the ViewModel
+//         loginViewModel.appCoordinator = self
+         // Set the ViewModel to ViewController
+//         loginViewController.viewModel = loginViewModel
+         // Push it.
+        navigationController.pushViewController(loginViewController, animated: true)
+    }
+    
+    
+    
     //Intilize mapCoordinator as a child coordinator then starts it
     func goToMap() {
         let mapCoordinator = MapCoordinator(navigationController: navigationController)
