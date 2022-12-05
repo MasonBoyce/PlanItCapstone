@@ -105,7 +105,7 @@ func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnota
     
     return annotationView
 }
-}
+
 
 //MARK: Extensions
 
