@@ -15,10 +15,12 @@ class MapModel: MapModelProtocol {
     
     var viewController: MapViewControllerProtocol?
     var coordinator: MapCoordinatorProtocol?
+    
     var currentCoordinate: CLLocationCoordinate2D
     var span: MKCoordinateSpan
     var region: MKCoordinateRegion
     var transportType: MKDirectionsTransportType = .walking
+    var venues: [Venue] = []
     
     //Setting up custom annotations preinputed values
     var annotations: [CustomAnnotation] = []
@@ -33,6 +35,8 @@ class MapModel: MapModelProtocol {
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
         defaultAnntotations()
+        getYelpData()
+        
     }
     
     func addAnnotation(annotation: CustomAnnotation) {
@@ -44,6 +48,30 @@ class MapModel: MapModelProtocol {
         annotations.append(annotation2)
         annotations.append(annotation3)
     }
+    
+    
+    func getYelpData(){
+        let latitude = currentCoordinate.latitude
+        let longitude = currentCoordinate.longitude
+        let category = "gyms"
+        let limit = 5
+        let sortBy = "distance"
+        let locale = "en_US"
+        
+        let yelpApi = YelpApi()
+        yelpApi.retriveVenues(latitude: latitude, longitude: longitude, category: category, limit: limit, sortBy: sortBy, locale: locale) {
+            (response, error) in
+            if let response = response {
+                print("here sucker \(response)")
+                self.venues = response
+                
+                //HANDLE ERROR
+            }
+        }
+        
+        
+    }
+    
     
     //Create a directions request send the source and destination
     //Then calculate the route and tthe add an overlay
