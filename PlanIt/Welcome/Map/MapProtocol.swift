@@ -11,6 +11,7 @@ import MapKit
 
 protocol MapViewControllerProtocol: AnyObject {
     var mapView: MKMapView {get set}
+    func updateAnnotations(annotations: [CustomAnnotation])
 }
 
 protocol MapModelProtocol: AnyObject {
@@ -20,6 +21,7 @@ protocol MapModelProtocol: AnyObject {
     var region: MKCoordinateRegion { get set }
     
     func createOverlay(sourceLocation: CLLocationCoordinate2D,destinationLocation: CLLocationCoordinate2D)
+    func viewDidLoad()
 }
 
 protocol MapCoordinatorProtocol: AnyObject {
