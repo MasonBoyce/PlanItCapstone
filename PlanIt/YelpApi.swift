@@ -36,7 +36,7 @@ class YelpApi{
                 completionHandler(nil,error)
             }
             do {
-                //read
+                
                 let json = try JSONSerialization.jsonObject(with: data!, options: [])
                 
                 guard let resp = json as? NSDictionary else {return}
