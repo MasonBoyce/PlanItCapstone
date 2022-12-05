@@ -15,16 +15,15 @@ class MapModel: MapModelProtocol {
     
     var viewController: MapViewControllerProtocol?
     var coordinator: MapCoordinatorProtocol?
+    
     var currentCoordinate: CLLocationCoordinate2D
     var span: MKCoordinateSpan
     var region: MKCoordinateRegion
     var transportType: MKDirectionsTransportType = .walking
+    var venues: [Venue] = []
     
     //Setting up custom annotations preinputed values
     var annotations: [CustomAnnotation] = []
-    var annotation1 = CustomAnnotation(index: 0, coordinate: CLLocationCoordinate2D(latitude: 29.93885, longitude: -90.11857), title: "Monroe Hall", subtitle: "former home")
-    var annotation2 = CustomAnnotation(index: 1, coordinate: CLLocationCoordinate2D(latitude: 29.94159, longitude: -90.11996), title: "Warren Hall", subtitle: nil)
-    var annotation3 = CustomAnnotation(index: 2, coordinate:  CLLocationCoordinate2D(latitude: 29.94467, longitude: -90.1166), title: "Yulman Stadium", subtitle: "hosts the best team in the country")
     
     //MARK: FUNCTIONS
     
@@ -32,18 +31,59 @@ class MapModel: MapModelProtocol {
         currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
-        defaultAnntotations()
+        getYelpData()
+        print(venues)
+        
+    }
+    func viewDidLoad() {
+         
     }
     
     func addAnnotation(annotation: CustomAnnotation) {
         annotations.append(annotation)
     }
     
-    func defaultAnntotations() {
-        annotations.append(annotation1)
-        annotations.append(annotation2)
-        annotations.append(annotation3)
+    func addAnnotations() {
+        var index = 0
+        for venue in venues {
+            let venueLatitude: Double = venue.latitude ?? 0.0
+            let venueLongitude: Double = venue.longitude ?? 0.0
+            let venueName: String = venue.name ?? "Unknown"
+            
+            let annotation = CustomAnnotation(index: index, coordinate: CLLocationCoordinate2D(latitude: venueLatitude, longitude: venueLongitude), title: venueName, subtitle: nil)
+            
+            annotations.append(annotation)
+            index += 1
+        }
+        viewController?.updateAnnotations(annotations: annotations)
+        
     }
+    
+    
+    func getYelpData(){
+        let latitude = currentCoordinate.latitude
+        let longitude = currentCoordinate.longitude
+        let category = "gyms"
+        let limit = 5
+        let sortBy = "distance"
+        let locale = "en_US"
+        
+        let yelpApi = YelpApi()
+        yelpApi.retriveVenues(latitude: latitude, longitude: longitude, category: category, limit: limit, sortBy: sortBy, locale: locale) {
+            (response, error) in
+            if let response = response {
+                self.venues = response
+                DispatchQueue.main.async {
+                    self.addAnnotations()
+                    
+                }
+                //HANDLE ERROR
+            }
+        }
+        
+        
+    }
+    
     
     //Create a directions request send the source and destination
     //Then calculate the route and tthe add an overlay

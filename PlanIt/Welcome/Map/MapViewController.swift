@@ -22,14 +22,7 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         map.region = model?.region ?? MKCoordinateRegion(center: CLLocationCoordinate2D(), latitudinalMeters: 10.0, longitudinalMeters: 10.0)
         map.translatesAutoresizingMaskIntoConstraints = false
         
-        var prevAnnotation: CustomAnnotation?
-        model?.annotations.forEach {
-            map.addAnnotation($0)
-            if prevAnnotation != nil {
-                model?.createOverlay(sourceLocation: prevAnnotation!.coordinate, destinationLocation: $0.coordinate)
-            }
-            prevAnnotation = $0
-        }
+        
         return map
     }()
     
@@ -39,6 +32,7 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
     override func viewDidLoad() {
         setUpView()
         super.viewDidLoad()
+        model?.viewDidLoad()
         mapView.delegate = self
     }
     
@@ -60,7 +54,18 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-
+    func updateAnnotations(annotations: [CustomAnnotation]) {
+        var prevAnnotation: CustomAnnotation?
+        model?.annotations.forEach {
+            mapView.addAnnotation($0)
+            if prevAnnotation != nil {
+                model?.createOverlay(sourceLocation: prevAnnotation!.coordinate, destinationLocation: $0.coordinate)
+            }
+            prevAnnotation = $0
+        }
+    }
+    
+}
 
 //MARK: Extensions
 //Takes in annotations when created and creates the view for it
