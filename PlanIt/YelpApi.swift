@@ -14,6 +14,8 @@ struct Venue {
     var is_closed: Bool?
     var distance: Double?
     var address: String?
+    var latitude: Double?
+    var longitude: Double?
 }
 
 class YelpApi{
@@ -55,6 +57,8 @@ class YelpApi{
                     venue.is_closed = business.value(forKey: "is_closed") as? Bool
                     venue.distance = business.value(forKey: "distance") as? Double
                     venue.address = address?.joined(separator: "\n")
+                    venue.latitude = business.value(forKeyPath: "coordinates.latitude") as? Double
+                    venue.longitude = business.value(forKeyPath: "coordinates.longitude") as? Double
                     
                     venuesList.append(venue)
                 
