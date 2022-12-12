@@ -16,8 +16,8 @@ class WelcomeModel: WelcomeModelProtocol {
     
     }
     
-    func doSomething(button: UIButton) {
-        button.setTitle("mason was here", for: .normal)
+    func doSomething() {
+//        button.setTitle("Logged In as User", for: .normal)
         coordinator?.goToMap()
     }
     

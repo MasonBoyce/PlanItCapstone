@@ -40,15 +40,11 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
     func goToLoginPage(){
          // Instantiate LoginViewController
-         let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-         // Instantiate LoginViewModel
-//         let loginViewModel = LoginViewModel.init()
-         // Set the Coordinator to the ViewModel
-//         loginViewModel.appCoordinator = self
-         // Set the ViewModel to ViewController
-//         loginViewController.viewModel = loginViewModel
-         // Push it.
-        navigationController.pushViewController(loginViewController, animated: true)
+        let WelcomeViewController  = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! WelcomeViewController
+        let model = WelcomeModel()
+        WelcomeViewController.model = model
+        model.coordinator = self
+        navigationController.pushViewController(WelcomeViewController , animated: true)
     }
     
     

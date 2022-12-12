@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,18 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Planit Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-Ai-ZAi">
-                                <rect key="frame" x="95.333333333333329" y="200" width="200" height="200"/>
+                                <rect key="frame" x="94.517347187502537" y="199.99999999999818" width="200" height="200.00000000000011"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imu-th-7RW">
-                                <rect key="frame" x="121.33333333333333" y="650" width="150.33333333333337" height="55"/>
+                                <rect key="frame" x="104.66417037475844" y="649.99999999999386" width="180" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="ham-3y-pQe"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="LOGIN">
+                                        <fragment content="CALCULATE">
                                             <attributes>
                                                 <font key="NSFont" size="25" name="Futura-Bold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -43,7 +42,6 @@
                                 <connections>
                                     <action selector="Button:" destination="hUI-75-aZU" eventType="touchUpInside" id="BeI-nU-zH0"/>
                                     <action selector="didTapButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7BY-zb-T6C"/>
-                                    <action selector="didTapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MgW-XM-Zch"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,8 +50,8 @@
                         <color key="backgroundColor" red="0.094117647058823528" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Imu-th-7RW" secondAttribute="bottom" constant="112.99999999985334" id="3SZ-LO-hmi"/>
-                            <constraint firstItem="Imu-th-7RW" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="5LS-55-zcr"/>
-                            <constraint firstItem="Imu-th-7RW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="121.37896284439012" id="ZmU-0J-OdU"/>
+                            <constraint firstItem="Imu-th-7RW" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" constant="-1.8358296252415585" id="5LS-55-zcr"/>
+                            <constraint firstItem="Imu-th-7RW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="104.66417037475844" id="ZmU-0J-OdU"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
@@ -63,28 +61,6 @@
                 <exit id="hUI-75-aZU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="948.85496183206101" y="-2.1126760563380285"/>
-        </scene>
-        <!--Map View Controller-->
-        <scene sceneID="tpj-eY-ouE">
-            <objects>
-                <viewController storyboardIdentifier="MapView" id="Nuu-AT-rXE" customClass="MapViewController" customModule="PlanIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EnZ-PA-3UH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghz-G1-iJs">
-                                <rect key="frame" x="76" y="163" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="SrU-VR-aVT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="05K-s1-gzc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1807" y="-7"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OBv-is-OBH">
@@ -109,12 +85,6 @@
         <image name="Planit Logo" width="1016" height="1080"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

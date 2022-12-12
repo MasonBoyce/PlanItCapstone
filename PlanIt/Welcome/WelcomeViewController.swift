@@ -21,7 +21,8 @@ class WelcomeViewController: UIViewController {
     
     
     @IBAction func didTapButton() {
-        coordinator?.goToMap()
+        model?.doSomething()
+//        self.presentViewController(MapViewController, animated: true, completion: nil)
         
 //        let controller = instantiateViewController(identifier: "MapViewController") as MapViewController
 //        self.present(controller, animated: true, completion: nil)
