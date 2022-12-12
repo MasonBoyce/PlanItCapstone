@@ -7,17 +7,31 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class WelcomeViewController: UIViewController {
 //class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     var model: WelcomeModelProtocol?
+    var coordinator: WelcomeCoordinatorProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = .link
     }
     
-    @IBAction func didTapButton(){
+    
+    @IBAction func didTapButton() {
+        coordinator?.goToMap()
+        
+//        let controller = instantiateViewController(identifier: "MapViewController") as MapViewController
+//        self.present(controller, animated: true, completion: nil)
+                    
+//        guard let vc = storyboard?.instantiateViewController(identifier: "MapView") as? MapViewController
+//        else print ("failed to get vc from storyboard")
+//        return
+//    }
+    
+//        present(vc, animated: true)
         
     }
     
