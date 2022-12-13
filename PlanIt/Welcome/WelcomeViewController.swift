@@ -19,6 +19,12 @@ class WelcomeViewController: UIViewController {
 //        view.backgroundColor = .link
     }
     
+    func setStatusBarBackgroundColor(color: UIColor) {
+
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+
+        statusBar.backgroundColor = .white
+    }
     
     @IBAction func didTapButton() {
         model?.doSomething()
