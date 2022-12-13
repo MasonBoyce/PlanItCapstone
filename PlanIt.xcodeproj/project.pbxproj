@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */; };
 		50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A13291FE09900C3F272 /* CustomAnnotationView.swift */; };
-		507C5E0A29204A4300020C49 /* UIImage+Extensions.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507C5E0929204A4300020C49 /* UIImage+Extensions.swift.swift */; };
+		507C5E0A29204A4300020C49 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507C5E0929204A4300020C49 /* UIImage+Extensions.swift */; };
 		508C47EA291E68B5009F89E0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47E9291E68B5009F89E0 /* MapModel.swift */; };
 		508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47ED291E68D6009F89E0 /* MapViewController.swift */; };
 		508C47F1291E68ED009F89E0 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47F0291E68ED009F89E0 /* MapCoordinator.swift */; };
@@ -22,12 +22,13 @@
 		50D4807728FD995900F90294 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4807628FD995900F90294 /* AppDelegate.swift */; };
 		50D4808028FD995B00F90294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D4807F28FD995B00F90294 /* Assets.xcassets */; };
 		50DD17C5293E0F4E00528F66 /* YelpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD17C4293E0F4E00528F66 /* YelpApi.swift */; };
+		D324EFB72923463A00B8AFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D324EFB62923463A00B8AFB3 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		50409A13291FE09900C3F272 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
-		507C5E0929204A4300020C49 /* UIImage+Extensions.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift.swift"; sourceTree = "<group>"; };
+		507C5E0929204A4300020C49 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		508C47E9291E68B5009F89E0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		508C47ED291E68D6009F89E0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		508C47F0291E68ED009F89E0 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
@@ -42,6 +43,8 @@
 		50D4807F28FD995B00F90294 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50D4808428FD995B00F90294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50DD17C4293E0F4E00528F66 /* YelpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpApi.swift; sourceTree = "<group>"; };
+		D324EFB62923463A00B8AFB3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D3C868392927F58E00045605 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +113,11 @@
 				50D4807628FD995900F90294 /* AppDelegate.swift */,
 				50DD17C4293E0F4E00528F66 /* YelpApi.swift */,
 				50CF942329154E8E00772D1C /* AppCordinator.swift */,
-				507C5E0929204A4300020C49 /* UIImage+Extensions.swift.swift */,
+				507C5E0929204A4300020C49 /* UIImage+Extensions.swift */,
 				5059DCAD2917E1AD0060E470 /* Welcome */,
 				50D4807F28FD995B00F90294 /* Assets.xcassets */,
-				50D4808428FD995B00F90294 /* Info.plist */,
+				D3C868392927F58E00045605 /* Info.plist */,
+				D324EFB62923463A00B8AFB3 /* Main.storyboard */,
 			);
 			path = PlanIt;
 			sourceTree = "<group>";
@@ -176,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D4808028FD995B00F90294 /* Assets.xcassets in Resources */,
+				D324EFB72923463A00B8AFB3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +200,7 @@
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,
 				50DD17C5293E0F4E00528F66 /* YelpApi.swift in Sources */,
 				50D45CD6291283B800CCBCA3 /* WelcomeProtocol.swift in Sources */,
-				507C5E0A29204A4300020C49 /* UIImage+Extensions.swift.swift in Sources */,
+				507C5E0A29204A4300020C49 /* UIImage+Extensions.swift in Sources */,
 				50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */,
 				50CF942429154E8E00772D1C /* AppCordinator.swift in Sources */,
 				50D45CD3291283A100CCBCA3 /* WelcomeCoordinator.swift in Sources */,
@@ -330,6 +335,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GN79ATQKVV;
 				INFOPLIST_FILE = PlanIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -349,6 +355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GN79ATQKVV;
 				INFOPLIST_FILE = PlanIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

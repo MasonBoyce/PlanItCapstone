@@ -13,7 +13,7 @@ protocol WelcomeViewControllerProtocol: AnyObject {
 }
 
 protocol WelcomeModelProtocol: AnyObject {
-    func doSomething(button: UIButton)
+    func doSomething()
 }
 
 protocol WelcomeCoordinatorProtocol: AnyObject {
