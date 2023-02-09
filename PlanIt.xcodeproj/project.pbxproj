@@ -14,7 +14,7 @@
 		508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47ED291E68D6009F89E0 /* MapViewController.swift */; };
 		508C47F1291E68ED009F89E0 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47F0291E68ED009F89E0 /* MapCoordinator.swift */; };
 		508C47F4291E6900009F89E0 /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47F3291E6900009F89E0 /* MapProtocol.swift */; };
-		50CF942429154E8E00772D1C /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF942329154E8E00772D1C /* AppCordinator.swift */; };
+		50CF942429154E8E00772D1C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF942329154E8E00772D1C /* AppCoordinator.swift */; };
 		50D45CCD2912837700CCBCA3 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */; };
 		50D45CD02912838C00CCBCA3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */; };
 		50D45CD3291283A100CCBCA3 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D45CD2291283A100CCBCA3 /* WelcomeCoordinator.swift */; };
@@ -23,6 +23,8 @@
 		50D4808028FD995B00F90294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D4807F28FD995B00F90294 /* Assets.xcassets */; };
 		50DD17C5293E0F4E00528F66 /* YelpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD17C4293E0F4E00528F66 /* YelpApi.swift */; };
 		D324EFB72923463A00B8AFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D324EFB62923463A00B8AFB3 /* Main.storyboard */; };
+		D3917C942993732100B85086 /* SelectionUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3917C932993732100B85086 /* SelectionUI.storyboard */; };
+		D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3917C952993744F00B85086 /* SelectionUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,7 @@
 		508C47ED291E68D6009F89E0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		508C47F0291E68ED009F89E0 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		508C47F3291E6900009F89E0 /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
-		50CF942329154E8E00772D1C /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
+		50CF942329154E8E00772D1C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 		50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		50D45CD2291283A100CCBCA3 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
@@ -43,6 +45,8 @@
 		50D4807F28FD995B00F90294 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50DD17C4293E0F4E00528F66 /* YelpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpApi.swift; sourceTree = "<group>"; };
 		D324EFB62923463A00B8AFB3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D3917C932993732100B85086 /* SelectionUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectionUI.storyboard; sourceTree = "<group>"; };
+		D3917C952993744F00B85086 /* SelectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionUIViewController.swift; sourceTree = "<group>"; };
 		D3C868392927F58E00045605 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +85,7 @@
 		508C47EC291E68BD009F89E0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				D3917C9729937BA700B85086 /* SelectionUI */,
 				508C47E9291E68B5009F89E0 /* MapModel.swift */,
 				508C47ED291E68D6009F89E0 /* MapViewController.swift */,
 				508C47F0291E68ED009F89E0 /* MapCoordinator.swift */,
@@ -111,7 +116,7 @@
 			children = (
 				50D4807628FD995900F90294 /* AppDelegate.swift */,
 				50DD17C4293E0F4E00528F66 /* YelpApi.swift */,
-				50CF942329154E8E00772D1C /* AppCordinator.swift */,
+				50CF942329154E8E00772D1C /* AppCoordinator.swift */,
 				507C5E0929204A4300020C49 /* UIImage+Extensions.swift */,
 				5059DCAD2917E1AD0060E470 /* Welcome */,
 				50D4807F28FD995B00F90294 /* Assets.xcassets */,
@@ -119,6 +124,16 @@
 				D324EFB62923463A00B8AFB3 /* Main.storyboard */,
 			);
 			path = PlanIt;
+			sourceTree = "<group>";
+		};
+		D3917C9729937BA700B85086 /* SelectionUI */ = {
+			isa = PBXGroup;
+			children = (
+				D3917C952993744F00B85086 /* SelectionUIViewController.swift */,
+				D3917C932993732100B85086 /* SelectionUI.storyboard */,
+			);
+			name = SelectionUI;
+			path = ../../SelectionUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3917C942993732100B85086 /* SelectionUI.storyboard in Resources */,
 				50D4808028FD995B00F90294 /* Assets.xcassets in Resources */,
 				D324EFB72923463A00B8AFB3 /* Main.storyboard in Resources */,
 			);
@@ -199,9 +215,10 @@
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,
 				50DD17C5293E0F4E00528F66 /* YelpApi.swift in Sources */,
 				50D45CD6291283B800CCBCA3 /* WelcomeProtocol.swift in Sources */,
+				D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */,
 				507C5E0A29204A4300020C49 /* UIImage+Extensions.swift in Sources */,
 				50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */,
-				50CF942429154E8E00772D1C /* AppCordinator.swift in Sources */,
+				50CF942429154E8E00772D1C /* AppCoordinator.swift in Sources */,
 				50D45CD3291283A100CCBCA3 /* WelcomeCoordinator.swift in Sources */,
 				50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */,
 			);

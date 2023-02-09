@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background tinted" translatesAutoresizingMaskIntoConstraints="NO" id="bOY-sP-5vd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Background tinted" translatesAutoresizingMaskIntoConstraints="NO" id="bOY-sP-5vd">
                                 <rect key="frame" x="-559.66666666666663" y="0.0" width="1500.333333333333" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="AccentColor"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imu-th-7RW">
-                                <rect key="frame" x="104.66666666666669" y="650" width="180" height="55"/>
+                                <rect key="frame" x="104.66666666666667" y="650" width="178.66666666666663" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="ham-3y-pQe"/>
                                 </constraints>
@@ -48,7 +48,7 @@
                                     <action selector="didTapButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7BY-zb-T6C"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLANIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haH-ah-n6n">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLANIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haH-ah-n6n">
                                 <rect key="frame" x="127" y="450" width="134" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="IWR-6J-bMl"/>
@@ -65,6 +65,28 @@
                                     <constraint firstAttribute="height" constant="200" id="f3V-yw-YcP"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCw-by-lJr">
+                                <rect key="frame" x="101" y="572" width="179" height="55"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="SELECT">
+                                            <attributes>
+                                                <font key="NSFont" size="25" name="Futura-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button:" destination="hUI-75-aZU" eventType="touchUpInside" id="gg2-Zd-ELu"/>
+                                    <action selector="didTapButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ffr-f2-67S"/>
+                                    <segue destination="6Tj-1O-7hg" kind="show" id="CcO-Di-70A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <keyboardLayoutGuide key="keyboard" id="wdI-ch-vZL"/>
@@ -72,14 +94,19 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Imu-th-7RW" secondAttribute="bottom" constant="112.99999999985334" id="3SZ-LO-hmi"/>
                             <constraint firstItem="Imu-th-7RW" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" constant="-1.8358296252415585" id="5LS-55-zcr"/>
+                            <constraint firstItem="dCw-by-lJr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="101" id="8gw-HM-CMo"/>
                             <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="59" id="Di2-Hu-OOr"/>
+                            <constraint firstItem="Imu-th-7RW" firstAttribute="top" secondItem="dCw-by-lJr" secondAttribute="bottom" constant="23" id="M2p-wY-aZO"/>
+                            <constraint firstItem="dCw-by-lJr" firstAttribute="centerX" secondItem="bOY-sP-5vd" secondAttribute="centerX" id="Rx8-Ya-svm"/>
                             <constraint firstItem="haH-ah-n6n" firstAttribute="top" secondItem="Q2k-Ai-ZAi" secondAttribute="bottom" constant="36" id="YG7-ZW-FYp"/>
                             <constraint firstItem="Imu-th-7RW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="104.66417037475844" id="ZmU-0J-OdU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="haH-ah-n6n" secondAttribute="trailing" constant="132" id="h9P-jn-s0n"/>
                             <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="97" id="od3-qv-dln"/>
+                            <constraint firstItem="dCw-by-lJr" firstAttribute="top" secondItem="haH-ah-n6n" secondAttribute="bottom" constant="89" id="pgi-Rg-7mg"/>
                             <constraint firstItem="haH-ah-n6n" firstAttribute="centerX" secondItem="Imu-th-7RW" secondAttribute="centerX" id="rsr-Q0-UUb"/>
                             <constraint firstItem="haH-ah-n6n" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="127" id="ubs-8Y-2tv"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Q2k-Ai-ZAi" secondAttribute="trailing" constant="109" id="wCf-yq-OWb"/>
+                            <constraint firstItem="dCw-by-lJr" firstAttribute="centerX" secondItem="Q2k-Ai-ZAi" secondAttribute="centerX" id="x9L-TN-LB7"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
@@ -107,6 +134,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9b-0c-KFy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="22.137404580152669" y="-2.1126760563380285"/>
+        </scene>
+        <!--SelectionUI-->
+        <scene sceneID="TDC-U5-FVH">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SelectionUI" storyboardName="SelectionUI" referencedIdentifier="SelectionUI" id="6Tj-1O-7hg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LWx-5l-isB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="atw-OA-rOm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1623" y="-125"/>
         </scene>
     </scenes>
     <resources>
