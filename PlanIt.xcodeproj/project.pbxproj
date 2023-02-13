@@ -25,6 +25,7 @@
 		D324EFB72923463A00B8AFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D324EFB62923463A00B8AFB3 /* Main.storyboard */; };
 		D3917C942993732100B85086 /* SelectionUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3917C932993732100B85086 /* SelectionUI.storyboard */; };
 		D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3917C952993744F00B85086 /* SelectionUIViewController.swift */; };
+		E1352E172999882C00401F30 /* TripSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1352E162999882C00401F30 /* TripSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D3917C932993732100B85086 /* SelectionUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectionUI.storyboard; sourceTree = "<group>"; };
 		D3917C952993744F00B85086 /* SelectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionUIViewController.swift; sourceTree = "<group>"; };
 		D3C868392927F58E00045605 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1352E162999882C00401F30 /* TripSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				50D4807628FD995900F90294 /* AppDelegate.swift */,
+				E1352E162999882C00401F30 /* TripSession.swift */,
 				50DD17C4293E0F4E00528F66 /* YelpApi.swift */,
 				50CF942329154E8E00772D1C /* AppCoordinator.swift */,
 				507C5E0929204A4300020C49 /* UIImage+Extensions.swift */,
@@ -221,6 +224,7 @@
 				50CF942429154E8E00772D1C /* AppCoordinator.swift in Sources */,
 				50D45CD3291283A100CCBCA3 /* WelcomeCoordinator.swift in Sources */,
 				50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */,
+				E1352E172999882C00401F30 /* TripSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
