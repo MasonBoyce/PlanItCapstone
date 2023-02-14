@@ -1,14 +1,14 @@
 //
-//  SelectionCoordinator.swift
+//  SelectVenuesCoordinator.swift
 //  PlanIt
 //
-//  Created by Mason Boyce on 2/13/23.
+//  Created by Mason Boyce on 2/14/23.
 //
 
 import Foundation
 import UIKit
 
-class SelectionCoordinator: Coordinator {
+class SelectVenuesCoordinator: Coordinator {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
@@ -22,13 +22,14 @@ class SelectionCoordinator: Coordinator {
     //MAIN???
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
     func start() {
-        let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectionUI") as! SelectionUIViewController
-        let model: SelectionModel = SelectionModel()
+        let viewController  = SelectVenuesViewController()
+        let model: SelectVenuesModel = SelectVenuesModel()
 
         viewController.model = model
         model.viewController = viewController
         model.coordinator = self
         
+
         navigationController.pushViewController(viewController, animated: true)
     }
 
@@ -38,5 +39,6 @@ class SelectionCoordinator: Coordinator {
         children.append(mapCoordinator)
         mapCoordinator.start()
     }
+    
     
 }

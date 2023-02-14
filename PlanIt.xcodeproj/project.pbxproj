@@ -17,6 +17,10 @@
 		5097B558299B2F9800048435 /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B557299B2F9800048435 /* SelectionModel.swift */; };
 		5097B55B299B2FE800048435 /* SelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B55A299B2FE800048435 /* SelectionCoordinator.swift */; };
 		5097B561299B315900048435 /* SelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B560299B315900048435 /* SelectionProtocol.swift */; };
+		5097B566299BFECF00048435 /* SelectVenuesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B565299BFECF00048435 /* SelectVenuesCoordinator.swift */; };
+		5097B569299BFEDE00048435 /* SelectVenuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B568299BFEDE00048435 /* SelectVenuesModel.swift */; };
+		5097B56C299BFEEC00048435 /* SelectVenuesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B56B299BFEEC00048435 /* SelectVenuesProtocol.swift */; };
+		5097B56F299BFF1300048435 /* SelectVenuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B56E299BFF1300048435 /* SelectVenuesViewController.swift */; };
 		50CF942429154E8E00772D1C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF942329154E8E00772D1C /* AppCoordinator.swift */; };
 		50D45CCD2912837700CCBCA3 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */; };
 		50D45CD02912838C00CCBCA3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */; };
@@ -41,6 +45,10 @@
 		5097B557299B2F9800048435 /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
 		5097B55A299B2FE800048435 /* SelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCoordinator.swift; sourceTree = "<group>"; };
 		5097B560299B315900048435 /* SelectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionProtocol.swift; sourceTree = "<group>"; };
+		5097B565299BFECF00048435 /* SelectVenuesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVenuesCoordinator.swift; sourceTree = "<group>"; };
+		5097B568299BFEDE00048435 /* SelectVenuesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVenuesModel.swift; sourceTree = "<group>"; };
+		5097B56B299BFEEC00048435 /* SelectVenuesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVenuesProtocol.swift; sourceTree = "<group>"; };
+		5097B56E299BFF1300048435 /* SelectVenuesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVenuesViewController.swift; sourceTree = "<group>"; };
 		50CF942329154E8E00772D1C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 		50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +92,6 @@
 				50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */,
 				50D45CD5291283B800CCBCA3 /* WelcomeProtocol.swift */,
 				5097B55F299B307B00048435 /* Selection */,
-				508C47EC291E68BD009F89E0 /* Map */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -104,12 +111,25 @@
 		5097B55F299B307B00048435 /* Selection */ = {
 			isa = PBXGroup;
 			children = (
+				D3917C9729937BA700B85086 /* SelectionUI */,
 				5097B557299B2F9800048435 /* SelectionModel.swift */,
 				5097B55A299B2FE800048435 /* SelectionCoordinator.swift */,
 				5097B560299B315900048435 /* SelectionProtocol.swift */,
-				D3917C9729937BA700B85086 /* SelectionUI */,
+				5097B564299BFE9D00048435 /* SelectVenues */,
 			);
 			path = Selection;
+			sourceTree = "<group>";
+		};
+		5097B564299BFE9D00048435 /* SelectVenues */ = {
+			isa = PBXGroup;
+			children = (
+				5097B565299BFECF00048435 /* SelectVenuesCoordinator.swift */,
+				5097B568299BFEDE00048435 /* SelectVenuesModel.swift */,
+				5097B56B299BFEEC00048435 /* SelectVenuesProtocol.swift */,
+				5097B56E299BFF1300048435 /* SelectVenuesViewController.swift */,
+				508C47EC291E68BD009F89E0 /* Map */,
+			);
+			path = SelectVenues;
 			sourceTree = "<group>";
 		};
 		50D4806A28FD995900F90294 = {
@@ -223,14 +243,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				508C47EA291E68B5009F89E0 /* MapModel.swift in Sources */,
+				5097B569299BFEDE00048435 /* SelectVenuesModel.swift in Sources */,
+				5097B56C299BFEEC00048435 /* SelectVenuesProtocol.swift in Sources */,
 				50D45CD02912838C00CCBCA3 /* WelcomeViewController.swift in Sources */,
 				50D4807728FD995900F90294 /* AppDelegate.swift in Sources */,
 				508C47F4291E6900009F89E0 /* MapProtocol.swift in Sources */,
 				508C47F1291E68ED009F89E0 /* MapCoordinator.swift in Sources */,
+				5097B566299BFECF00048435 /* SelectVenuesCoordinator.swift in Sources */,
 				5097B55B299B2FE800048435 /* SelectionCoordinator.swift in Sources */,
 				50D45CCD2912837700CCBCA3 /* WelcomeModel.swift in Sources */,
 				5097B558299B2F9800048435 /* SelectionModel.swift in Sources */,
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,
+				5097B56F299BFF1300048435 /* SelectVenuesViewController.swift in Sources */,
 				50DD17C5293E0F4E00528F66 /* YelpApi.swift in Sources */,
 				50D45CD6291283B800CCBCA3 /* WelcomeProtocol.swift in Sources */,
 				D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */,

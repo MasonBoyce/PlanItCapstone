@@ -31,8 +31,8 @@ class MapModel: MapModelProtocol {
         currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
-        getYelpData()
-        print(venues)
+        
+       
         
     }
     func viewDidLoad() {
@@ -60,29 +60,7 @@ class MapModel: MapModelProtocol {
     }
     
     
-    func getYelpData(){
-        let latitude = currentCoordinate.latitude
-        let longitude = currentCoordinate.longitude
-        let category = "gyms"
-        let limit = 5
-        let sortBy = "distance"
-        let locale = "en_US"
-        
-        let yelpApi = YelpApi()
-        yelpApi.retriveVenues(latitude: latitude, longitude: longitude, category: category, limit: limit, sortBy: sortBy, locale: locale) {
-            (response, error) in
-            if let response = response {
-                self.venues = response
-                DispatchQueue.main.async {
-                    self.addAnnotations()
-                    
-                }
-                //HANDLE ERROR
-            }
-        }
-        
-        
-    }
+   
     
     
     //Create a directions request send the source and destination
