@@ -11,6 +11,7 @@ import UIKit
 //Coordinator for the Welcome Page
 class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     var navigationController: UINavigationController
+    var sCoordinator: SelectionCoordinator?
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     
@@ -45,12 +46,17 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
         selectionCoordinator.parentCoordinator = self
         selectionCoordinator.start()
         
-        let mapCoordinator = MapCoordinator(navigationController: navigationController)
-        mapCoordinator.parentCoordinator = self
-        children.append(mapCoordinator)
-        mapCoordinator.start()
+//        let mapCoordinator = MapCoordinator(navigationController: navigationController)
+//        mapCoordinator.parentCoordinator = self
+//        children.append(mapCoordinator)
+//        mapCoordinator.start()
         
         
         
+    }
+    
+    func goToMap() {
+        // Code to navigate to the map screen goes here
+        sCoordinator?.goToMap()
     }
 }
