@@ -22,15 +22,6 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     //Pushes the view controller to the top of the screen
     //Old View Controller
 
-//    func start() {
-//        let viewController: WelcomeViewController = WelcomeViewController()
-//        let model: WelcomeModel = WelcomeModel()
-    
-//        viewController.model = model
-////        model.viewController = viewController
-//        model.coordinator = self
-//    navigationController.pushViewController(viewController, animated: true)
-//    }
     
     func start() {
          // The first time this coordinator started, is to launch login page.
@@ -47,13 +38,13 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
         navigationController.pushViewController(WelcomeViewController , animated: true)
     }
     
-    
-    
     //Intilize mapCoordinator as a child coordinator then starts it
-    func goToMap() {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController)
-        mapCoordinator.parentCoordinator = self
-        children.append(mapCoordinator)
-        mapCoordinator.start()
+    func goToSelection() {
+        let SelectionUI  = storyboard.instantiateViewController(withIdentifier: "SelectionUI") as! SelectionUIViewController
+        let selectionCoordinator =  SelectionCoordinator(navigationController: navigationController)
+        selectionCoordinator.parentCoordinator = self
+        navigationController.pushViewController(SelectionUI, animated: true)
+        
+        selectionCoordinator.start()
     }
 }

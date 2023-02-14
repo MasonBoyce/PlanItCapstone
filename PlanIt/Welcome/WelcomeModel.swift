@@ -11,14 +11,9 @@ import UIKit
 class WelcomeModel: WelcomeModelProtocol {
     var viewController: WelcomeViewControllerProtocol?
     var coordinator: WelcomeCoordinatorProtocol?
-    
-    init() {
-    
-    }
-    
+  
     func doSomething() {
-//        button.setTitle("Logged In as User", for: .normal)
-        coordinator?.goToMap()
+        coordinator?.goToSelection()
     }
     
     

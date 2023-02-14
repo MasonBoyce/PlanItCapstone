@@ -11,22 +11,22 @@ import UIKit
 class SelectionUIViewController: UIViewController {
     
     //class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
-//    var model: WelcomeModelProtocol?
-//    var coordinator: WelcomeCoordinatorProtocol?
+    var model: SelectionModel?
+    var coordinator: SelectionCoordinator?
     
-    @IBOutlet weak var SearchTextField: UITextField!
-    @IBOutlet weak var SearchTextView: UITextView!
+    @IBOutlet weak var SearchTextField: UITextField?
+    @IBOutlet weak var SearchTextView: UITextView?
 //    
     @IBAction func SearchButton(_ sender: UIButton) {
         //get text from text field
-        let mText = SearchTextField.text
-        SearchTextView.text = mText
+        let mText = SearchTextField?.text
+        SearchTextView?.text = mText
     }
     
         override func viewDidLoad() {
         super.viewDidLoad()
-            SearchTextField.returnKeyType = .done
-            SearchTextField.autocorrectionType = .no
+            SearchTextField?.returnKeyType = .done
+            SearchTextField?.autocorrectionType = .no
 //                view.backgroundColor = .link
     }
 }

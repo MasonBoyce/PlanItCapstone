@@ -1,0 +1,40 @@
+//
+//  SelectionCoordinator.swift
+//  PlanIt
+//
+//  Created by Mason Boyce on 2/13/23.
+//
+
+import Foundation
+import UIKit
+
+class SelectionCoordinator: MapCoordinatorProtocol, Coordinator {
+    var navigationController: UINavigationController
+    var parentCoordinator: Coordinator?
+    var children: [Coordinator] = []
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+
+    //Initializes view controller model and connects them.
+    //Pushes the view controller to the top of the screen
+    func start() {
+        let viewController: SelectionUIViewController = SelectionUIViewController()
+        let model: SelectionModel = SelectionModel()
+
+        viewController.model = model
+        model.viewController = viewController
+        model.coordinator = self
+
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func goToMap() {
+        let mapCoordinator = MapCoordinator(navigationController: navigationController)
+        mapCoordinator.parentCoordinator = self
+        children.append(mapCoordinator)
+        mapCoordinator.start()
+    }
+    
+}

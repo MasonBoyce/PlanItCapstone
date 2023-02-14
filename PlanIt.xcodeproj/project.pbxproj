@@ -14,6 +14,9 @@
 		508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47ED291E68D6009F89E0 /* MapViewController.swift */; };
 		508C47F1291E68ED009F89E0 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47F0291E68ED009F89E0 /* MapCoordinator.swift */; };
 		508C47F4291E6900009F89E0 /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47F3291E6900009F89E0 /* MapProtocol.swift */; };
+		5097B558299B2F9800048435 /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B557299B2F9800048435 /* SelectionModel.swift */; };
+		5097B55B299B2FE800048435 /* SelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B55A299B2FE800048435 /* SelectionCoordinator.swift */; };
+		5097B561299B315900048435 /* SelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097B560299B315900048435 /* SelectionProtocol.swift */; };
 		50CF942429154E8E00772D1C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF942329154E8E00772D1C /* AppCoordinator.swift */; };
 		50D45CCD2912837700CCBCA3 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */; };
 		50D45CD02912838C00CCBCA3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */; };
@@ -35,6 +38,9 @@
 		508C47ED291E68D6009F89E0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		508C47F0291E68ED009F89E0 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		508C47F3291E6900009F89E0 /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
+		5097B557299B2F9800048435 /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
+		5097B55A299B2FE800048435 /* SelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCoordinator.swift; sourceTree = "<group>"; };
+		5097B560299B315900048435 /* SelectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionProtocol.swift; sourceTree = "<group>"; };
 		50CF942329154E8E00772D1C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 		50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 				50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */,
 				50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */,
 				50D45CD5291283B800CCBCA3 /* WelcomeProtocol.swift */,
+				5097B55F299B307B00048435 /* Selection */,
 				508C47EC291E68BD009F89E0 /* Map */,
 			);
 			path = Welcome;
@@ -85,7 +92,6 @@
 		508C47EC291E68BD009F89E0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				D3917C9729937BA700B85086 /* SelectionUI */,
 				508C47E9291E68B5009F89E0 /* MapModel.swift */,
 				508C47ED291E68D6009F89E0 /* MapViewController.swift */,
 				508C47F0291E68ED009F89E0 /* MapCoordinator.swift */,
@@ -93,6 +99,17 @@
 				50409A0E291FE07500C3F272 /* Components */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		5097B55F299B307B00048435 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				5097B557299B2F9800048435 /* SelectionModel.swift */,
+				5097B55A299B2FE800048435 /* SelectionCoordinator.swift */,
+				5097B560299B315900048435 /* SelectionProtocol.swift */,
+				D3917C9729937BA700B85086 /* SelectionUI */,
+			);
+			path = Selection;
 			sourceTree = "<group>";
 		};
 		50D4806A28FD995900F90294 = {
@@ -132,8 +149,7 @@
 				D3917C952993744F00B85086 /* SelectionUIViewController.swift */,
 				D3917C932993732100B85086 /* SelectionUI.storyboard */,
 			);
-			name = SelectionUI;
-			path = ../../SelectionUI;
+			path = SelectionUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,11 +227,14 @@
 				50D4807728FD995900F90294 /* AppDelegate.swift in Sources */,
 				508C47F4291E6900009F89E0 /* MapProtocol.swift in Sources */,
 				508C47F1291E68ED009F89E0 /* MapCoordinator.swift in Sources */,
+				5097B55B299B2FE800048435 /* SelectionCoordinator.swift in Sources */,
 				50D45CCD2912837700CCBCA3 /* WelcomeModel.swift in Sources */,
+				5097B558299B2F9800048435 /* SelectionModel.swift in Sources */,
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,
 				50DD17C5293E0F4E00528F66 /* YelpApi.swift in Sources */,
 				50D45CD6291283B800CCBCA3 /* WelcomeProtocol.swift in Sources */,
 				D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */,
+				5097B561299B315900048435 /* SelectionProtocol.swift in Sources */,
 				507C5E0A29204A4300020C49 /* UIImage+Extensions.swift in Sources */,
 				50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */,
 				50CF942429154E8E00772D1C /* AppCoordinator.swift in Sources */,
@@ -352,7 +371,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AJCHX76W83;
 				INFOPLIST_FILE = PlanIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,7 +392,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AJCHX76W83;
 				INFOPLIST_FILE = PlanIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
