@@ -12,7 +12,7 @@ class SelectionUIViewController: UIViewController {
     
     //class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     var model: SelectionModel?
-    var coordinator: SelectionCoordinator?
+    
     
     @IBOutlet weak var SearchTextField: UITextField?
     @IBOutlet weak var SearchTextView: UITextView?
@@ -21,6 +21,15 @@ class SelectionUIViewController: UIViewController {
         //get text from text field
         let mText = SearchTextField?.text
         SearchTextView?.text = mText
+    }
+    
+    @IBAction func didTapMapButton(_ sender: UIButton) {
+        goToMap()
+    }
+
+    func goToMap() {
+        // Code to navigate to the map screen goes here
+        model?.goToMap()
     }
     
         override func viewDidLoad() {

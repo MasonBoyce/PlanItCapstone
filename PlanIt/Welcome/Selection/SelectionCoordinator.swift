@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SelectionCoordinator: MapCoordinatorProtocol, Coordinator {
+class SelectionCoordinator: Coordinator {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
@@ -19,13 +19,16 @@ class SelectionCoordinator: MapCoordinatorProtocol, Coordinator {
 
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
+    //MAIN
+    let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
     func start() {
-        let viewController: SelectionUIViewController = SelectionUIViewController()
+        let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectionUI") as! SelectionUIViewController
         let model: SelectionModel = SelectionModel()
 
         viewController.model = model
         model.viewController = viewController
         model.coordinator = self
+        
 
         navigationController.pushViewController(viewController, animated: true)
     }

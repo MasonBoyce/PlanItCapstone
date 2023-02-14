@@ -40,11 +40,17 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     
     //Intilize mapCoordinator as a child coordinator then starts it
     func goToSelection() {
-        let SelectionUI  = storyboard.instantiateViewController(withIdentifier: "SelectionUI") as! SelectionUIViewController
+        
         let selectionCoordinator =  SelectionCoordinator(navigationController: navigationController)
         selectionCoordinator.parentCoordinator = self
-        navigationController.pushViewController(SelectionUI, animated: true)
-        
         selectionCoordinator.start()
+        
+        let mapCoordinator = MapCoordinator(navigationController: navigationController)
+        mapCoordinator.parentCoordinator = self
+        children.append(mapCoordinator)
+        mapCoordinator.start()
+        
+        
+        
     }
 }

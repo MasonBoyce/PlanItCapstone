@@ -13,4 +13,8 @@ class SelectionModel {
     var coordinator: SelectionCoordinator?
     
     
+    func goToMap(){
+        coordinator?.goToMap()
+    }
+    
 }
