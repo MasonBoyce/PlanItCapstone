@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +14,7 @@
             <objects>
                 <navigationController id="QpL-Yw-vhq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="S7h-Vf-aH6">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -32,15 +33,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKe-A0-k1g">
-                                <rect key="frame" x="123" y="255" width="149" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Search"/>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hz-cB-ODq">
-                                <rect key="frame" x="96" y="374" width="200" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hz-cB-ODq">
+                                <rect key="frame" x="105.5" y="374" width="200" height="58"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -48,34 +42,58 @@
                                     <action selector="SearchInput:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pzR-Vu-uD9"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-DH-ImR">
-                                <rect key="frame" x="122" y="255" width="149" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Sample" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-8k-Vri">
+                                <rect key="frame" x="119.74364896070847" y="478.99999999996771" width="169.99999999995566" height="79"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I9-G2-Pn7">
+                                <rect key="frame" x="119.5" y="634" width="170" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="WoK-ZY-iIM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="MapView">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="filled" title="MapView">
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.094117647060000004" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapMapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fks-fh-ET5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-DH-ImR">
+                                <rect key="frame" x="96.83371824479741" y="254.99999999998272" width="220" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
                                     <action selector="SearchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xoM-Oz-0Mo"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sample" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-8k-Vri">
-                                <rect key="frame" x="126" y="479" width="141" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I9-G2-Pn7">
-                                <rect key="frame" x="155" y="634" width="83" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="didTapMapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fks-fh-ET5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1I9-G2-Pn7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="119.74364896074121" id="1ug-fc-mdh"/>
+                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="centerX" secondItem="W4F-8k-Vri" secondAttribute="centerX" id="EMP-x2-0ZQ"/>
+                            <constraint firstItem="NXF-DH-ImR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="96.83371824479741" id="GMv-of-mbm"/>
+                            <constraint firstItem="NXF-DH-ImR" firstAttribute="centerX" secondItem="4Hz-cB-ODq" secondAttribute="centerX" constant="1.3337182447974101" id="a2H-RI-Bqn"/>
+                            <constraint firstItem="W4F-8k-Vri" firstAttribute="top" secondItem="4Hz-cB-ODq" secondAttribute="bottom" constant="46.999999999967713" id="cUM-B3-YdJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4Hz-cB-ODq" secondAttribute="trailing" constant="108.5" id="g4Q-iZ-llX"/>
+                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="105.5" id="iiL-Nn-oCa"/>
+                            <constraint firstItem="W4F-8k-Vri" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="119.74364896070847" id="kwj-GO-meR"/>
+                            <constraint firstItem="1I9-G2-Pn7" firstAttribute="top" secondItem="W4F-8k-Vri" secondAttribute="bottom" constant="76.000000000032287" id="mnm-L6-WJs"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1I9-G2-Pn7" secondAttribute="bottom" constant="158" id="q5l-I9-ubT"/>
+                            <constraint firstItem="NXF-DH-ImR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="162.99999999998272" id="qeg-xV-tGk"/>
+                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="top" secondItem="NXF-DH-ImR" secondAttribute="bottom" constant="47.00000000001728" id="uFi-La-sGq"/>
+                            <constraint firstItem="1I9-G2-Pn7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" constant="-2.2563510392587887" id="vQh-pf-JEL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QeL-P5-pwH"/>
                     <connections>
@@ -90,7 +108,7 @@
     </scenes>
     <resources>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
