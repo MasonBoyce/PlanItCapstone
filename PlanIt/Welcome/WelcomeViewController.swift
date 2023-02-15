@@ -26,6 +26,8 @@ class WelcomeViewController: UIViewController {
         statusBar.backgroundColor = .white
     }
     
+    
+    
     @IBAction func didTapButton() {
         model?.doSomething()
     }

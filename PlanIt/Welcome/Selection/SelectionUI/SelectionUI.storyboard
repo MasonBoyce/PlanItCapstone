@@ -25,34 +25,29 @@
             </objects>
             <point key="canvasLocation" x="-1016" y="-11"/>
         </scene>
-        <!--SelectionUI View Controller-->
+        <!--Selection Page-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="SelectionUI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SelectionUIViewController" customModule="PlanIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hz-cB-ODq">
-                                <rect key="frame" x="105.5" y="374" width="200" height="58"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Desired Categories ..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hz-cB-ODq">
+                                <rect key="frame" x="67" y="219" width="280" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0ba-01-aLr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" textContentType="location"/>
                                 <connections>
                                     <action selector="SearchInput:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pzR-Vu-uD9"/>
                                 </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Sample" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-8k-Vri">
-                                <rect key="frame" x="119.74364896070847" y="478.99999999996771" width="169.99999999995566" height="79"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I9-G2-Pn7">
-                                <rect key="frame" x="119.5" y="634" width="170" height="70"/>
+                                <rect key="frame" x="119" y="634" width="170" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="WoK-ZY-iIM"/>
+                                    <constraint firstAttribute="height" constant="70" id="gOr-91-sBb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -68,10 +63,25 @@
                                     <action selector="didTapMapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fks-fh-ET5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-DH-ImR">
-                                <rect key="frame" x="96.83371824479741" y="254.99999999998272" width="220" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" layoutManager="textKit1" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-8k-Vri">
+                                <rect key="frame" x="21" y="410" width="370" height="79"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="Ygv-Di-OcB"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" lookupSuggestion="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-DH-ImR">
+                                <rect key="frame" x="106" y="277" width="200" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Search"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Search">
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="SearchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xoM-Oz-0Mo"/>
                                 </connections>
@@ -80,22 +90,22 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1I9-G2-Pn7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="119.74364896074121" id="1ug-fc-mdh"/>
-                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="centerX" secondItem="W4F-8k-Vri" secondAttribute="centerX" id="EMP-x2-0ZQ"/>
-                            <constraint firstItem="NXF-DH-ImR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="96.83371824479741" id="GMv-of-mbm"/>
-                            <constraint firstItem="NXF-DH-ImR" firstAttribute="centerX" secondItem="4Hz-cB-ODq" secondAttribute="centerX" constant="1.3337182447974101" id="a2H-RI-Bqn"/>
-                            <constraint firstItem="W4F-8k-Vri" firstAttribute="top" secondItem="4Hz-cB-ODq" secondAttribute="bottom" constant="46.999999999967713" id="cUM-B3-YdJ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4Hz-cB-ODq" secondAttribute="trailing" constant="108.5" id="g4Q-iZ-llX"/>
-                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="105.5" id="iiL-Nn-oCa"/>
-                            <constraint firstItem="W4F-8k-Vri" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="119.74364896070847" id="kwj-GO-meR"/>
-                            <constraint firstItem="1I9-G2-Pn7" firstAttribute="top" secondItem="W4F-8k-Vri" secondAttribute="bottom" constant="76.000000000032287" id="mnm-L6-WJs"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1I9-G2-Pn7" secondAttribute="bottom" constant="158" id="q5l-I9-ubT"/>
-                            <constraint firstItem="NXF-DH-ImR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="162.99999999998272" id="qeg-xV-tGk"/>
-                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="top" secondItem="NXF-DH-ImR" secondAttribute="bottom" constant="47.00000000001728" id="uFi-La-sGq"/>
-                            <constraint firstItem="1I9-G2-Pn7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" constant="-2.2563510392587887" id="vQh-pf-JEL"/>
+                            <constraint firstItem="1I9-G2-Pn7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="119" id="0BN-DV-jhQ"/>
+                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="67" id="0xb-ZQ-9Fx"/>
+                            <constraint firstItem="W4F-8k-Vri" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="8Qo-uT-nDO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1I9-G2-Pn7" secondAttribute="trailing" constant="125" id="8z8-n9-NQg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NXF-DH-ImR" secondAttribute="trailing" constant="108" id="PjA-N4-hQX"/>
+                            <constraint firstItem="NXF-DH-ImR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="106" id="bzJ-cR-O4A"/>
+                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="127" id="gck-mp-lBB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1I9-G2-Pn7" secondAttribute="bottom" constant="158" id="id3-H4-T6g"/>
+                            <constraint firstItem="W4F-8k-Vri" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="410" id="pb2-qA-an8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="W4F-8k-Vri" secondAttribute="trailing" constant="23" id="xrw-Sl-zYU"/>
+                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="top" secondItem="NXF-DH-ImR" secondAttribute="top" constant="-58" id="ybL-UU-zRZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QeL-P5-pwH"/>
+                    <navigationItem key="navigationItem" title="Selection Page" id="QeL-P5-pwH">
+                        <barButtonItem key="backBarButtonItem" title="Select" id="qmz-R0-erZ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="SearchTextField" destination="4Hz-cB-ODq" id="2RH-cZ-xg7"/>
                         <outlet property="SearchTextView" destination="W4F-8k-Vri" id="Ry2-ji-QLs"/>
