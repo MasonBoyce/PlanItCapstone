@@ -29,6 +29,15 @@ class SelectionUIViewController: UIViewController {
         
     }
     
+    @IBAction func restaurants(_ sender: UIButton) {
+    }
+    
+    @IBAction func cafés(_ sender: UIButton) {
+    }
+    
+    @IBAction func gyms(_ sender: UIButton) {
+    }
+    
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
         goToMap()
