@@ -18,7 +18,7 @@ class SelectionUIViewController: UIViewController, SelectionViewControllerProtoc
         //get text from text field
         let nText = SearchTextField?.text
         SearchTextView?.text = nText
-        model?.yelpApiCall(categorytype: nText ?? "")
+//        model?.yelpApiCall(categorytype: nText ?? "")
     }
     
     @IBAction func restaurants(_ sender: UIButton) {

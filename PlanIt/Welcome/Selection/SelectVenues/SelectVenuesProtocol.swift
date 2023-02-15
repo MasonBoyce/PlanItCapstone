@@ -8,17 +8,14 @@
 import Foundation
 
 
-protocol SelectionViewControllerProtocol: AnyObject {
+protocol SelectVenuesViewControllerProtocol: AnyObject {
     
 }
 
-protocol SelectionModelProtocol: AnyObject {
-    func yelpApiCall(categorytype: String)
-    func goToSelctVenues(categoryType: String)
-    func goToMap()
+protocol SelectVenuesModelProtocol: AnyObject {
+    
 }
 
-protocol SelectionCoordinatorProtocol: AnyObject {
-    func goToSelctVenues(categoryType: String)
-    func goToMap()
+protocol SelectVenuesCoordinatorProtocol: AnyObject {
+   
 }

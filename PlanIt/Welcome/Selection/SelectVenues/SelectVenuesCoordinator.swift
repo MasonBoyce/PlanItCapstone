@@ -12,9 +12,11 @@ class SelectVenuesCoordinator: Coordinator {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
+    var categoryType: String
 
     init(navigationController: UINavigationController, categoryType: String) {
         self.navigationController = navigationController
+        self.categoryType = categoryType
     }
 
     //Initializes view controller model and connects them.
@@ -23,11 +25,12 @@ class SelectVenuesCoordinator: Coordinator {
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
     func start() {
         let viewController  = SelectVenuesViewController()
-        let model: SelectVenuesModel = SelectVenuesModel()
+        let model: SelectVenuesModel = SelectVenuesModel(categoryType: categoryType)
         
         viewController.model = model
         model.viewController = viewController
         model.coordinator = self
+        
         
         navigationController.pushViewController(viewController, animated: true)
     }

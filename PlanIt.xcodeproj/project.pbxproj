@@ -123,10 +123,10 @@
 		5097B564299BFE9D00048435 /* SelectVenues */ = {
 			isa = PBXGroup;
 			children = (
+				5097B56E299BFF1300048435 /* SelectVenuesViewController.swift */,
 				5097B565299BFECF00048435 /* SelectVenuesCoordinator.swift */,
 				5097B568299BFEDE00048435 /* SelectVenuesModel.swift */,
 				5097B56B299BFEEC00048435 /* SelectVenuesProtocol.swift */,
-				5097B56E299BFF1300048435 /* SelectVenuesViewController.swift */,
 				508C47EC291E68BD009F89E0 /* Map */,
 			);
 			path = SelectVenues;
