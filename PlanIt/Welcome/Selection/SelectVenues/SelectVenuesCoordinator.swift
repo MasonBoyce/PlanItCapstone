@@ -13,7 +13,7 @@ class SelectVenuesCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, categoryType: String) {
         self.navigationController = navigationController
     }
 
@@ -24,7 +24,7 @@ class SelectVenuesCoordinator: Coordinator {
     func start() {
         let viewController  = SelectVenuesViewController()
         let model: SelectVenuesModel = SelectVenuesModel()
-
+        
         viewController.model = model
         model.viewController = viewController
         model.coordinator = self

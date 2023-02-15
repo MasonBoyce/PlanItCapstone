@@ -9,10 +9,7 @@ import Foundation
 import UIKit
 
 class SelectionUIViewController: UIViewController, SelectionViewControllerProtocol {
-    
-    //class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     var model: SelectionModel?
-    
     
     @IBOutlet weak var SearchTextField: UITextField?
     @IBOutlet weak var SearchTextView: UITextView?
@@ -22,18 +19,22 @@ class SelectionUIViewController: UIViewController, SelectionViewControllerProtoc
         let nText = SearchTextField?.text
         SearchTextView?.text = nText
         model?.yelpApiCall(categorytype: nText ?? "")
-//        result = nText
-        
     }
     
+    @IBAction func restaurants(_ sender: UIButton) {
+        model?.goToSelctVenues(categoryType: "restaurants")
+    }
+    
+    @IBAction func cafés(_ sender: UIButton) {
+        model?.goToSelctVenues(categoryType: "cafes")
+    }
+    
+    @IBAction func gyms(_ sender: UIButton) {
+        model?.goToSelctVenues(categoryType: "gyms")
+    }
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
-        goToSelctVenues()
-    }
-
-    func goToSelctVenues() {
-        // Code to navigate to the map screen goes here
-        model?.goToSelctVenues()
+        model?.goToMap()
     }
     
     override func viewDidLoad() {

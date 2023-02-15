@@ -15,17 +15,15 @@ class SelectionModel: SelectionModelProtocol {
     let currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
     var venues: [Venue] = []
     
-//    init() {
-//        self.yelpApiCall()
-//    }
-    
-    
-    func goToSelctVenues(){
-        coordinator?.goToSelctVenues()
+    func goToSelctVenues(categoryType: String){
+        coordinator?.goToSelctVenues(categoryType: categoryType)
     }
     
-    func yelpApiCall(categorytype: String) {
-        
+    func goToMap() {
+        coordinator?.goToMap()
+    }
+    
+    func yelpApiCall( categorytype: String) {
             let latitude = currentCoordinate.latitude
             let longitude = currentCoordinate.longitude
             let category = categorytype
@@ -38,7 +36,7 @@ class SelectionModel: SelectionModelProtocol {
                 (response, error) in
                 if let response = response {
                     self.venues = response
-                    print (response)
+        
 //                    DispatchQueue.main.async {
 //                        
 //                        

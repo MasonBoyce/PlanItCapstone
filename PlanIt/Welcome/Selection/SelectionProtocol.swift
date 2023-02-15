@@ -13,11 +13,13 @@ protocol SelectionViewControllerProtocol: AnyObject {
 }
 
 protocol SelectionModelProtocol: AnyObject {
-    func yelpApiCall(buttonType: String)
-    func goToSelctVenues()
+    func yelpApiCall(categorytype: String)
+    func goToSelctVenues(categoryType: String)
+    func goToMap()
 }
 
 protocol SelectionCoordinatorProtocol: AnyObject {
-    func goToSelctVenues()
+    func goToSelctVenues(categoryType: String)
+    func goToMap()
 }
 

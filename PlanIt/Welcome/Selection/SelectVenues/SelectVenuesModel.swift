@@ -11,4 +11,6 @@ import UIKit
 class SelectVenuesModel {
     var viewController: SelectVenuesViewController?
     var coordinator: SelectVenuesCoordinator?
+    var venues: [Venue] = []
+    
 }
