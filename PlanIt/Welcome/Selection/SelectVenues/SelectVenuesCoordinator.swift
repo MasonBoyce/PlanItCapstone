@@ -29,7 +29,6 @@ class SelectVenuesCoordinator: Coordinator {
         model.viewController = viewController
         model.coordinator = self
         
-
         navigationController.pushViewController(viewController, animated: true)
     }
 

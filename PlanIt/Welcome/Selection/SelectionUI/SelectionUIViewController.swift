@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SelectionUIViewController: UIViewController {
+class SelectionUIViewController: UIViewController, SelectionViewControllerProtocol {
     
     //class WelcomeViewController: UIViewController, WelcomeViewControllerProtocol {
     var model: SelectionModel?
@@ -24,12 +24,12 @@ class SelectionUIViewController: UIViewController {
     }
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
-        goToMap()
+        goToSelctVenues()
     }
 
-    func goToMap() {
+    func goToSelctVenues() {
         // Code to navigate to the map screen goes here
-        model?.goToMap()
+        model?.goToSelctVenues()
     }
     
         override func viewDidLoad() {

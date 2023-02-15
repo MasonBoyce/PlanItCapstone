@@ -9,15 +9,15 @@ import Foundation
 import MapKit
 
 
-class SelectionModel {
-    var viewController: SelectionUIViewController?
-    var coordinator: SelectionCoordinator?
+class SelectionModel: SelectionModelProtocol {
+    var viewController: SelectionViewControllerProtocol?
+    var coordinator: SelectionCoordinatorProtocol?
     let currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
     var venues: [Venue] = []
     
     
-    func goToMap(){
-        coordinator?.goToMap()
+    func goToSelctVenues(){
+        coordinator?.goToSelctVenues()
     }
     
     func yelpApiCall(buttonType: String) {

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SelectionCoordinator: Coordinator {
+class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
@@ -32,7 +32,7 @@ class SelectionCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func goToMap() {
+    func goToSelctVenues() {
         let mapCoordinator = MapCoordinator(navigationController: navigationController)
         mapCoordinator.parentCoordinator = self
         children.append(mapCoordinator)
