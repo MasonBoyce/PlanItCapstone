@@ -38,9 +38,7 @@ class SelectionModel: SelectionModelProtocol {
                     self.venues = response
         
 //                    DispatchQueue.main.async {
-//                        
-//                        
-//                    }
+//             }
                     //HANDLE ERROR
                 }
             }
