@@ -11,6 +11,7 @@ import UIKit
 //Coordinator for the Welcome Page
 class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     var navigationController: UINavigationController
+    var sCoordinator: SelectionCoordinator?
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     
@@ -45,9 +46,6 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
         selectionCoordinator.parentCoordinator = self
         selectionCoordinator.start()
         
-      
-        
-        
-        
     }
+    
 }

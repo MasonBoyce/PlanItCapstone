@@ -16,12 +16,16 @@ class SelectionUIViewController: UIViewController, SelectionViewControllerProtoc
     
     @IBOutlet weak var SearchTextField: UITextField?
     @IBOutlet weak var SearchTextView: UITextView?
-//    
+    //
     @IBAction func SearchButton(_ sender: UIButton) {
         //get text from text field
-        let mText = SearchTextField?.text
-        SearchTextView?.text = mText
+        let nText = SearchTextField?.text
+        SearchTextView?.text = nText
+        model?.yelpApiCall(categorytype: nText ?? "")
+//        result = nText
+        
     }
+    
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
         goToSelctVenues()
@@ -32,10 +36,21 @@ class SelectionUIViewController: UIViewController, SelectionViewControllerProtoc
         model?.goToSelctVenues()
     }
     
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-            SearchTextField?.returnKeyType = .done
-            SearchTextField?.autocorrectionType = .no
-//                view.backgroundColor = .link
+        SearchTextField?.returnKeyType = .search
+        SearchTextField?.autocorrectionType = .no
+        SearchTextField?.borderStyle = .roundedRect
+        SearchTextField?.textAlignment = .center
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        //                view.backgroundColor = .link
     }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+
 }

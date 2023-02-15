@@ -15,6 +15,7 @@ class MapModel: MapModelProtocol {
     
     var viewController: MapViewControllerProtocol?
     var coordinator: MapCoordinatorProtocol?
+    var sController: SelectionUIViewController?
     
     var currentCoordinate: CLLocationCoordinate2D
     var span: MKCoordinateSpan
@@ -31,13 +32,19 @@ class MapModel: MapModelProtocol {
         currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
+//        getYelpData()
         
-       
+//        result = sController?.sendoverresults()
         
     }
     func viewDidLoad() {
          
     }
+    
+//    func converttostring(){
+//        var array = venues
+//        let result = venues[Venue].joined(separator: "-")
+//    }
     
     func addAnnotation(annotation: CustomAnnotation) {
         annotations.append(annotation)
@@ -59,8 +66,31 @@ class MapModel: MapModelProtocol {
         
     }
     
+
     
-   
+//    func getYelpData(){
+//        let latitude = currentCoordinate.latitude
+//        let longitude = currentCoordinate.longitude
+//        let category = result
+//        let limit = 5
+//        let sortBy = "distance"
+//        let locale = "en_US"
+//
+//        let yelpApi = YelpApi()
+//        yelpApi.retriveVenues(latitude: latitude, longitude: longitude, category: category!, limit: limit, sortBy: sortBy, locale: locale) {
+//            (response, error) in
+//            if let response = response {
+//                self.venues = response
+//                DispatchQueue.main.async {
+//                    self.addAnnotations()
+//
+//                }
+//                //HANDLE ERROR
+//            }
+//        }
+//
+//
+//    }
     
     
     //Create a directions request send the source and destination

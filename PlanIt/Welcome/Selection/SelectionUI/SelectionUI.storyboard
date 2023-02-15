@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +14,7 @@
             <objects>
                 <navigationController id="QpL-Yw-vhq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="S7h-Vf-aH6">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -24,60 +25,87 @@
             </objects>
             <point key="canvasLocation" x="-1016" y="-11"/>
         </scene>
-        <!--SelectionUI View Controller-->
+        <!--Selection Page-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="SelectionUI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SelectionUIViewController" customModule="PlanIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKe-A0-k1g">
-                                <rect key="frame" x="123" y="255" width="149" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Search"/>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hz-cB-ODq">
-                                <rect key="frame" x="96" y="374" width="200" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Desired Categories ..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hz-cB-ODq">
+                                <rect key="frame" x="67" y="219" width="280" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0ba-01-aLr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" textContentType="location"/>
                                 <connections>
                                     <action selector="SearchInput:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pzR-Vu-uD9"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-DH-ImR">
-                                <rect key="frame" x="122" y="255" width="149" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Search"/>
-                                <connections>
-                                    <action selector="SearchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xoM-Oz-0Mo"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sample" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-8k-Vri">
-                                <rect key="frame" x="126" y="479" width="141" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I9-G2-Pn7">
-                                <rect key="frame" x="155" y="634" width="83" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I9-G2-Pn7">
+                                <rect key="frame" x="119" y="634" width="170" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="gOr-91-sBb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="MapView">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="filled" title="MapView">
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.094117647060000004" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="didTapMapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fks-fh-ET5"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" layoutManager="textKit1" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-8k-Vri">
+                                <rect key="frame" x="21" y="410" width="370" height="79"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="Ygv-Di-OcB"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" lookupSuggestion="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-DH-ImR">
+                                <rect key="frame" x="106" y="277" width="200" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Search"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Search">
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="SearchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xoM-Oz-0Mo"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1I9-G2-Pn7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="119" id="0BN-DV-jhQ"/>
+                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="67" id="0xb-ZQ-9Fx"/>
+                            <constraint firstItem="W4F-8k-Vri" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="8Qo-uT-nDO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1I9-G2-Pn7" secondAttribute="trailing" constant="125" id="8z8-n9-NQg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NXF-DH-ImR" secondAttribute="trailing" constant="108" id="PjA-N4-hQX"/>
+                            <constraint firstItem="NXF-DH-ImR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="106" id="bzJ-cR-O4A"/>
+                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="127" id="gck-mp-lBB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1I9-G2-Pn7" secondAttribute="bottom" constant="158" id="id3-H4-T6g"/>
+                            <constraint firstItem="W4F-8k-Vri" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="410" id="pb2-qA-an8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="W4F-8k-Vri" secondAttribute="trailing" constant="23" id="xrw-Sl-zYU"/>
+                            <constraint firstItem="4Hz-cB-ODq" firstAttribute="top" secondItem="NXF-DH-ImR" secondAttribute="top" constant="-58" id="ybL-UU-zRZ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QeL-P5-pwH"/>
+                    <navigationItem key="navigationItem" title="Selection Page" id="QeL-P5-pwH">
+                        <barButtonItem key="backBarButtonItem" title="Select" id="qmz-R0-erZ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="SearchTextField" destination="4Hz-cB-ODq" id="2RH-cZ-xg7"/>
                         <outlet property="SearchTextView" destination="W4F-8k-Vri" id="Ry2-ji-QLs"/>
@@ -90,7 +118,7 @@
     </scenes>
     <resources>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
