@@ -149,4 +149,32 @@ class TripSession {
         }
     }
     
+    func find_optimal_venue_id_perm() -> ([Int], Double) {
+        
+        var all_perms = get_venue_permutations()
+        let num_venues = venue_ids.count
+        
+        var source_id = -1
+        var destination_id = -1
+        var curr_cost_sum = 0.0
+        var cost_min = Double.infinity
+        var optimal_venue_id_perm: [Int] = []
+        
+        for venue_id_perm in all_perms {
+            for venue_id_spot in (0 ... num_venues - 2) {
+                source_id = venue_id_perm[venue_id_spot]
+                destination_id = venue_id_perm[venue_id_spot + 1]
+                curr_cost_sum = curr_cost_sum + get_route_cost(source_id: source_id, destination_id: destination_id)
+            }
+            
+            if curr_cost_sum < cost_min {
+                optimal_venue_id_perm = venue_id_perm
+                cost_min = curr_cost_sum
+            }
+            
+            curr_cost_sum = 0.0
+        }
+        return (optimal_venue_id_perm, cost_min)
+    }
+    
 }
