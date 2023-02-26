@@ -20,6 +20,7 @@ class AppCoordinator: Coordinator {
     
     func start() {
         goToWelcome()
+        
     }
     //Itilizes welcome as a child coordinator and go to it
     func goToWelcome() {
