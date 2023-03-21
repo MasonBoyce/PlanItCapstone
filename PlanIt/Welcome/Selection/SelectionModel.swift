@@ -10,13 +10,13 @@ import MapKit
 
 
 class SelectionModel: SelectionModelProtocol {
-    var viewController: SelectionViewControllerProtocol?
+    var viewController: SelectionUIViewControllerProtocol?
     var coordinator: SelectionCoordinatorProtocol?
    
     var venues: [Venue] = []
     
-    func goToSelctVenues(categoryType: String){
-        coordinator?.goToSelctVenues(categoryType: categoryType)
+    func goToSelectVenues(categoryType: String){
+        coordinator?.goToSelectVenues(categoryType: categoryType)
     }
     
     func goToMap() {

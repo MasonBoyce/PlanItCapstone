@@ -32,7 +32,7 @@ class SelectVenuesModel {
                 (response, error) in
                 if let response = response {
                     self.venues = response
-        
+                    print (self.venues)
 //                    DispatchQueue.main.async {
 //             }
                     //HANDLE ERROR

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SelectionUIViewController: UIViewController, SelectionViewControllerProtocol {
+class SelectionUIViewController: UIViewController, SelectionUIViewControllerProtocol {
     var model: SelectionModel?
     
     @IBOutlet weak var SearchTextField: UITextField?
@@ -22,15 +22,15 @@ class SelectionUIViewController: UIViewController, SelectionViewControllerProtoc
     }
     
     @IBAction func restaurants(_ sender: UIButton) {
-        model?.goToSelctVenues(categoryType: "restaurants")
+        model?.goToSelectVenues(categoryType: "restaurants")
     }
     
     @IBAction func cafés(_ sender: UIButton) {
-        model?.goToSelctVenues(categoryType: "cafes")
+        model?.goToSelectVenues(categoryType: "cafes")
     }
     
     @IBAction func gyms(_ sender: UIButton) {
-        model?.goToSelctVenues(categoryType: "gyms")
+        model?.goToSelectVenues(categoryType: "gyms")
     }
     
     @IBAction func didTapMapButton(_ sender: UIButton) {

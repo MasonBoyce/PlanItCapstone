@@ -16,6 +16,8 @@ struct Venue {
     var address: String?
     var latitude: Double?
     var longitude: Double?
+    
+    static let locations = [Venue(name:"Common")]
 }
 
 class YelpApi{

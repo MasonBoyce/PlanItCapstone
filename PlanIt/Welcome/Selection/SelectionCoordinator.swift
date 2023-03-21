@@ -32,7 +32,7 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func goToSelctVenues(categoryType: String) {
+    func goToSelectVenues(categoryType: String) {
         let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType)
         selectVenues.parentCoordinator = self
         children.append(selectVenues)

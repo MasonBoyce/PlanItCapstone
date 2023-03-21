@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-protocol SelectionViewControllerProtocol: AnyObject {
+protocol SelectionUIViewControllerProtocol: AnyObject {
     
 }
 
 protocol SelectionModelProtocol: AnyObject {
-    func goToSelctVenues(categoryType: String)
+    func goToSelectVenues(categoryType: String)
     func goToMap()
 }
 
 protocol SelectionCoordinatorProtocol: AnyObject {
-    func goToSelctVenues(categoryType: String)
+    func goToSelectVenues(categoryType: String)
     func goToMap()
 }
 

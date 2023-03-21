@@ -28,7 +28,7 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLANIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haH-ah-n6n">
-                                <rect key="frame" x="127" y="2191" width="155" height="33"/>
+                                <rect key="frame" x="127" y="2176" width="155" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="155" id="HY6-X4-k6P"/>
                                     <constraint firstAttribute="height" constant="33" id="hjA-Sr-rJB"/>
@@ -73,13 +73,14 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Imu-th-7RW" secondAttribute="bottom" constant="113" id="7Be-xb-jHE"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Imu-th-7RW" secondAttribute="trailing" constant="109.5" id="KvV-hv-Ib8"/>
                             <constraint firstItem="bOY-sP-5vd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Nd6-Fw-gQg"/>
+                            <constraint firstItem="haH-ah-n6n" firstAttribute="top" secondItem="bOY-sP-5vd" secondAttribute="bottom" constant="1270" id="ZMB-Xh-OCv"/>
                             <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="aGj-mP-Axo"/>
                             <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="200.70933795565225" id="d8m-tm-TS7"/>
                             <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="dVn-rA-hEq"/>
                             <constraint firstItem="Imu-th-7RW" firstAttribute="centerX" secondItem="haH-ah-n6n" secondAttribute="centerX" id="ps0-uT-4D3"/>
                             <constraint firstItem="Imu-th-7RW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="104.5" id="tGn-BH-jel"/>
                             <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="102.70513634139706" id="vkE-Jx-g34"/>
-                            <constraint firstItem="haH-ah-n6n" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="2191" id="yrf-4c-DQF"/>
+                            <constraint firstItem="haH-ah-n6n" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="2176" id="yrf-4c-DQF"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
@@ -111,12 +112,12 @@
         <!--SelectionUI-->
         <scene sceneID="TDC-U5-FVH">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SelectionUI" storyboardName="SelectionUI" referencedIdentifier="SelectionUI" id="6Tj-1O-7hg" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="SelectionUI" storyboardName="SelectionUI" referencedIdentifier="SelectionUI" id="6Tj-1O-7hg" propertyAccessControl="all" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="LWx-5l-isB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atw-OA-rOm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623" y="-125"/>
+            <point key="canvasLocation" x="1622" y="-106"/>
         </scene>
     </scenes>
     <resources>

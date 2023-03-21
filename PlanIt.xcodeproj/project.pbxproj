@@ -30,9 +30,10 @@
 		50D4808028FD995B00F90294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D4807F28FD995B00F90294 /* Assets.xcassets */; };
 		50DD17C5293E0F4E00528F66 /* YelpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD17C4293E0F4E00528F66 /* YelpApi.swift */; };
 		D324EFB72923463A00B8AFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D324EFB62923463A00B8AFB3 /* Main.storyboard */; };
-		D3917C942993732100B85086 /* SelectionUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3917C932993732100B85086 /* SelectionUI.storyboard */; };
+		D353E4A629C3DB67004136B3 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353E4A429C3DB67004136B3 /* RestaurantTableViewCell.swift */; };
+		D353E4A729C3DB67004136B3 /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D353E4A529C3DB67004136B3 /* RestaurantTableViewCell.xib */; };
 		D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3917C952993744F00B85086 /* SelectionUIViewController.swift */; };
-		E1352E172999882C00401F30 /* TripSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1352E162999882C00401F30 /* TripSession.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +60,10 @@
 		50D4807628FD995900F90294 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D4807F28FD995B00F90294 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50DD17C4293E0F4E00528F66 /* YelpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpApi.swift; sourceTree = "<group>"; };
+		D31C2DE329A952A4005658B2 /* SelectVenues.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectVenues.storyboard; sourceTree = "<group>"; };
 		D324EFB62923463A00B8AFB3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D353E4A429C3DB67004136B3 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		D353E4A529C3DB67004136B3 /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
 		D3917C932993732100B85086 /* SelectionUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectionUI.storyboard; sourceTree = "<group>"; };
 		D3917C952993744F00B85086 /* SelectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionUIViewController.swift; sourceTree = "<group>"; };
 		D3C868392927F58E00045605 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,9 +129,9 @@
 		5097B564299BFE9D00048435 /* SelectVenues */ = {
 			isa = PBXGroup;
 			children = (
-				5097B56E299BFF1300048435 /* SelectVenuesViewController.swift */,
-				5097B565299BFECF00048435 /* SelectVenuesCoordinator.swift */,
+				D31C2DE229A95296005658B2 /* VenuesUI */,
 				5097B568299BFEDE00048435 /* SelectVenuesModel.swift */,
+				5097B565299BFECF00048435 /* SelectVenuesCoordinator.swift */,
 				5097B56B299BFEEC00048435 /* SelectVenuesProtocol.swift */,
 				508C47EC291E68BD009F89E0 /* Map */,
 			);
@@ -164,6 +168,17 @@
 				D324EFB62923463A00B8AFB3 /* Main.storyboard */,
 			);
 			path = PlanIt;
+			sourceTree = "<group>";
+		};
+		D31C2DE229A95296005658B2 /* VenuesUI */ = {
+			isa = PBXGroup;
+			children = (
+				5097B56E299BFF1300048435 /* SelectVenuesViewController.swift */,
+				D31C2DE329A952A4005658B2 /* SelectVenues.storyboard */,
+				D353E4A429C3DB67004136B3 /* RestaurantTableViewCell.swift */,
+				D353E4A529C3DB67004136B3 /* RestaurantTableViewCell.xib */,
+			);
+			path = VenuesUI;
 			sourceTree = "<group>";
 		};
 		D3917C9729937BA700B85086 /* SelectionUI */ = {
@@ -232,7 +247,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3917C942993732100B85086 /* SelectionUI.storyboard in Resources */,
+				D3B7314129B29457004D4E4D /* SelectVenues.storyboard in Resources */,
+				D3B7314029B2937D004D4E4D /* SelectionUI.storyboard in Resources */,
+				D353E4A729C3DB67004136B3 /* RestaurantTableViewCell.xib in Resources */,
 				50D4808028FD995B00F90294 /* Assets.xcassets in Resources */,
 				D324EFB72923463A00B8AFB3 /* Main.storyboard in Resources */,
 			);
@@ -259,6 +276,7 @@
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,
 				5097B56F299BFF1300048435 /* SelectVenuesViewController.swift in Sources */,
 				50DD17C5293E0F4E00528F66 /* YelpApi.swift in Sources */,
+				D353E4A629C3DB67004136B3 /* RestaurantTableViewCell.swift in Sources */,
 				50D45CD6291283B800CCBCA3 /* WelcomeProtocol.swift in Sources */,
 				D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */,
 				5097B561299B315900048435 /* SelectionProtocol.swift in Sources */,
