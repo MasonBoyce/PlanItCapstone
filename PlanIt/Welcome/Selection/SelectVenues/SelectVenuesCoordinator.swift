@@ -24,7 +24,6 @@ class SelectVenuesCoordinator: Coordinator {
     
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
-    //MAIN???
     let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
     func start() {
         

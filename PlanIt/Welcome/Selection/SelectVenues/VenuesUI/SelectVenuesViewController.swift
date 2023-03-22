@@ -43,7 +43,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         tableView.register(nib, forCellReuseIdentifier: "RestaurantTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-//        data = model!.venues
+        data = coordinator!.venues
         print (data)
 //        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("text"), object: nil)
         
