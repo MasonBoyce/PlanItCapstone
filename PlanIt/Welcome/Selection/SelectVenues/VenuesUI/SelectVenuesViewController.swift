@@ -24,6 +24,7 @@ import UIKit
 
 class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol{
     var model: SelectVenuesModel?
+    var coordinator: SelectVenuesCoordinator?
 //retrive Veneus
     var data = [Venue]()
 //    var data: Array <String>?
@@ -32,9 +33,9 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        self.fetchVenues = fetchVenues
 //    }
     
-    func runyelpapi(){
-        model?.yelpApiCall(categoryType:"restaurants")
-    }
+//    func runyelpapi(){
+//        model?.yelpApiCall(categoryType:"restaurants")
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         tableView.register(nib, forCellReuseIdentifier: "RestaurantTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        data = model!.venues
+//        data = model!.venues
         print (data)
 //        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("text"), object: nil)
         
@@ -76,14 +77,15 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     //Required TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print("YOUR  MOM", coordinator!.venues)
         return data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let Venues = data[indexPath.row]
+//        print("YOUR  MOM", coordinator!.venues)
         let restaurants = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
-        
-        let restaurant = data [indexPath.row]
+                let restaurant = data [indexPath.row]
         restaurants.myLabel?.text = restaurant.name
 //        let restaurants = table.dequeueReusableCell(withIdentifier: "restaurants", for: indexPath) as! CustomTableViewCell
 //        restaurants.textLabel?.text = data[indexPath.row]
