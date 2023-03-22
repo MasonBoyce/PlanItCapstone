@@ -10,7 +10,9 @@ import UIKit
 class RestaurantTableViewCell: UITableViewCell {
     
     @IBOutlet var myLabel: UILabel!
-    @IBOutlet var myImageView: UIImageView!
+    @IBOutlet var priceLabel: UILabel!
+//    @IBOutlet var myImageView: UIImageView!
+    @IBOutlet var mySwitch: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()
