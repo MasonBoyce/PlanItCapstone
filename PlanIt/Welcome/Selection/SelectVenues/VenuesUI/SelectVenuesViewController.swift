@@ -77,13 +77,11 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     //Required TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print("YOUR  MOM", coordinator!.venues)
         return data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let Venues = data[indexPath.row]
-//        print("YOUR  MOM", coordinator!.venues)
         let restaurants = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
                 let restaurant = data [indexPath.row]
         restaurants.myLabel?.text = restaurant.name

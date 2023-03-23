@@ -19,7 +19,7 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
 
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
-    //MAIN???
+    
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
     func start() {
         let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectionUI") as! SelectionUIViewController
@@ -36,7 +36,7 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
         let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType)
         selectVenues.parentCoordinator = self
         children.append(selectVenues)
-        selectVenues.start()
+        selectVenues.yelpAPICall()
     }
     
     func goToMap() {
