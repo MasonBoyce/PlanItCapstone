@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class SelectVenuesCoordinator: Coordinator {
+class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
@@ -21,25 +21,31 @@ class SelectVenuesCoordinator: Coordinator {
         self.navigationController = navigationController
         self.categoryType = categoryType
     }
+    func start() {
+        //just  for coordinator protocol should be unused
+    }
     
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
-    let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
     
-    func start() {
+    
+    func start(delegate: SelectionDelegateProtocol) {
+        let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
         let model: SelectVenuesModel = SelectVenuesModel()
-        let viewController  = self.storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
+        let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
 
         viewController.model = model
         viewController.coordinator = self
+        model.delegate = delegate
         model.viewController = viewController
         model.coordinator = self
         
         self.navigationController.pushViewController(viewController, animated: true)
         
     }
+    
     //calls api and starts coordinator
-    func yelpAPICall() {
+    func yelpAPICall(delegate: SelectionDelegateProtocol) {
         let latitude = currentCoordinate.latitude
         let longitude = currentCoordinate.longitude
         let category = categoryType
@@ -52,7 +58,7 @@ class SelectVenuesCoordinator: Coordinator {
             if let response = response {
                 DispatchQueue.main.async {
                 self.venues = response
-                    self.start()
+                    self.start(delegate: delegate)
                 }
             }
         }
@@ -64,6 +70,5 @@ class SelectVenuesCoordinator: Coordinator {
         children.append(mapCoordinator)
         mapCoordinator.start()
     }
-    
     
 }

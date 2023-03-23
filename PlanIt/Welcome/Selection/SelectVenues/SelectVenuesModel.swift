@@ -12,7 +12,7 @@ import MapKit
 class SelectVenuesModel {
     var viewController: SelectVenuesViewController?
     var coordinator: SelectVenuesCoordinator?
-    
+    weak var delegate: SelectionDelegateProtocol?
     
     
     

@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
+    
+    var model: SelectionModelProtocol?
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
@@ -35,14 +37,25 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     func goToSelectVenues(categoryType: String) {
         let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType)
         selectVenues.parentCoordinator = self
+        
         children.append(selectVenues)
-        selectVenues.yelpAPICall()
+        selectVenues.yelpAPICall(delegate: self)
     }
     
-    func goToMap() {
+    func goToMap(venues: [Venue]) {
         let mapCoordinator = MapCoordinator(navigationController: navigationController)
         mapCoordinator.parentCoordinator = self
         children.append(mapCoordinator)
         mapCoordinator.start()
     }
+    
+    func finish(venues: [Venue]) {
+        model?.update(venues: venues)
+    }
 }
+extension SelectionCoordinator: SelectionDelegateProtocol {
+    func didFinish(venues: [Venue]) {
+        finish(venues: venues)
+    }
+}
+
