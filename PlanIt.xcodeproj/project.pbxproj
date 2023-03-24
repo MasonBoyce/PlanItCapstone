@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */; };
 		50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A13291FE09900C3F272 /* CustomAnnotationView.swift */; };
+		506DFDEA29CE05E900D9FF18 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DFDE929CE05E900D9FF18 /* LocationManager.swift */; };
 		507C5E0A29204A4300020C49 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507C5E0929204A4300020C49 /* UIImage+Extensions.swift */; };
 		508C47EA291E68B5009F89E0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47E9291E68B5009F89E0 /* MapModel.swift */; };
 		508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C47ED291E68D6009F89E0 /* MapViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		50409A13291FE09900C3F272 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		506DFDE929CE05E900D9FF18 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		507C5E0929204A4300020C49 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		508C47E9291E68B5009F89E0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		508C47ED291E68D6009F89E0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				50DD17C4293E0F4E00528F66 /* YelpApi.swift */,
 				50CF942329154E8E00772D1C /* AppCoordinator.swift */,
 				507C5E0929204A4300020C49 /* UIImage+Extensions.swift */,
+				506DFDE929CE05E900D9FF18 /* LocationManager.swift */,
 				5059DCAD2917E1AD0060E470 /* Welcome */,
 				50D4807F28FD995B00F90294 /* Assets.xcassets */,
 				D3C868392927F58E00045605 /* Info.plist */,
@@ -266,6 +269,7 @@
 			files = (
 				508C47EA291E68B5009F89E0 /* MapModel.swift in Sources */,
 				5097B569299BFEDE00048435 /* SelectVenuesModel.swift in Sources */,
+				506DFDEA29CE05E900D9FF18 /* LocationManager.swift in Sources */,
 				5097B56C299BFEEC00048435 /* SelectVenuesProtocol.swift in Sources */,
 				50D45CD02912838C00CCBCA3 /* WelcomeViewController.swift in Sources */,
 				50D4807728FD995900F90294 /* AppDelegate.swift in Sources */,
@@ -417,7 +421,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AJCHX76W83;
+				DEVELOPMENT_TEAM = GN79ATQKVV;
 				INFOPLIST_FILE = PlanIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -438,7 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AJCHX76W83;
+				DEVELOPMENT_TEAM = GN79ATQKVV;
 				INFOPLIST_FILE = PlanIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -35,6 +35,7 @@ class MapModel: MapModelProtocol {
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
         self.venues = venues
         tripSession = TripSession(newVenues: venues)
+        tripSession?.find_optimal_venue_id_perm()
     }
     
     func viewDidLoad() {
