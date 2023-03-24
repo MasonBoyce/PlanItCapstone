@@ -55,6 +55,21 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         delegate?.didFinish(venues: venues)
     }
     
+    func didSave() {
+        let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
+        let model: SelectVenuesModel = SelectVenuesModel()
+        let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
+        
+        viewController.model = model
+        viewController.coordinator = self
+        
+        model.viewController = viewController
+        model.coordinator = self
+        model.venues = self.venues
+        
+        self.navigationController.popViewController(animated: true)
+    }
+    
     //calls api and starts coordinator
     func yelpAPICall() {
         

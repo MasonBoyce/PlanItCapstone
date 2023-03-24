@@ -137,8 +137,10 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
             data[selectedIndexPath.row].selected = !(data [selectedIndexPath.row].selected ?? false)
 //            data[selectedIndexPath.row].selected = true
             tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
-//            print ("success")
-//            print (data[selectedIndexPath.row].name)
+            //** DEBUGGING **//
+            print ("success")
+            print (data[selectedIndexPath.row].name)
+            print (data [selectedIndexPath.row].selected)
 //            savedata()
         }
     }
@@ -157,11 +159,31 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        didTapButton(sender: RestaurantTableViewCell)
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             let restaurant = data [selectedIndexPath.row]
-            nText = restaurant.name
-//            print ("GOOD")
-//            print (nText)
+            if restaurant.selected == true {
+                nText = restaurant.name
+                print (data [selectedIndexPath.row].selected)
+            } else {
+                nText = ""
+            }
+            
+            //** NOT WORKING **//
+//            if #available(iOS 15.0, *) {
+//                if saveButton.isSelected == true {
+//                    nText = restaurant.name
+//                    print (data [selectedIndexPath.row].selected)
+//                } else {
+//                    nText = ""
+//                }
+//            } else {
+//                nText = ""
+//            }
+            
+            //** DEBUGGING **//
+            print ("GOOD")
+            print (nText)
         }
 //        self.present(SelectVenuesViewController(), animated: true)
+        coordinator?.didSave()
     }
     
 

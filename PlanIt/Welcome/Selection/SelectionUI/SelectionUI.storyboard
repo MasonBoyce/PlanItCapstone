@@ -12,7 +12,6 @@
         <!--Navigation Controller-->
         <scene sceneID="3M6-kh-ODy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KMj-Bm-LI7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="QpL-Yw-vhq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="S7h-Vf-aH6">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
@@ -22,6 +21,7 @@
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Lgf-jH-6CR"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMj-Bm-LI7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1016" y="-11"/>
         </scene>
@@ -68,7 +68,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Search"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Search">
+                                <buttonConfiguration key="configuration" style="tinted" title="Show Selected">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>

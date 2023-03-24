@@ -36,6 +36,12 @@ class RestaurantTableViewCell: UITableViewCell {
 //    }
     
     
+    //** PORPERTY OBSERVER **//
+//    var selectedItem : Venue! {
+//        didSet{
+//        }
+//    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
