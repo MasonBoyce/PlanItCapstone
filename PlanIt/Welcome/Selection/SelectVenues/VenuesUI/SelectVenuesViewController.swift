@@ -136,13 +136,14 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         if let selectedIndexPath = tableView.indexPath(for: sender) {
             data[selectedIndexPath.row].selected = !(data [selectedIndexPath.row].selected ?? false)
 //            data[selectedIndexPath.row].selected = true
-//            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
-            print ("success")
-            print (data[selectedIndexPath.row].selected)
+            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+//            print ("success")
+//            print (data[selectedIndexPath.row].name)
 //            savedata()
         }
     }
-    
+
+//** Prepare Segue **//
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "ShowRestaurantsDetail" || segue.identifier == "ShowCafesDetail" || segue.identifier == "ShowGymsDetail"{
 //            let destination = segue.destination as! SelectionUIViewController
@@ -157,13 +158,12 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             let restaurant = data [selectedIndexPath.row]
             nText = restaurant.name
-            print ("GOOD")
-            print (nText)
+//            print ("GOOD")
+//            print (nText)
         }
 //        self.present(SelectVenuesViewController(), animated: true)
     }
     
-    //** Prepare Segue **//
 
     
     override func viewDidLoad() {

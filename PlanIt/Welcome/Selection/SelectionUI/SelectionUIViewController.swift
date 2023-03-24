@@ -21,8 +21,10 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     //
     @IBAction func SearchButton(_ sender: UIButton) {
         //get text from text field
-        let nText = SearchTextField?.text
+//        let nText = SearchTextField?.text
         SearchTextView?.text = nText
+        print (nText)
+        print ("HI")
 //        model?.yelpApiCall(categorytype: nText ?? "")
     }
     

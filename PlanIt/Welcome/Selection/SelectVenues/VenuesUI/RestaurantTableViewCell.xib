@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smk-2l-lqy">
+                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smk-2l-lqy">
                         <rect key="frame" x="5" y="15" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="9qD-HK-709"/>
@@ -29,7 +30,9 @@
                         <state key="normal" image="circle" catalog="system">
                             <color key="titleColor" systemColor="labelColor"/>
                         </state>
-                        <state key="selected" image="checkmark.circle" catalog="system"/>
+                        <state key="selected">
+                            <imageReference key="image" image="checkmark.circle.fill" catalog="system" variableValue="0.0"/>
+                        </state>
                         <connections>
                             <action selector="buttonTappedWith_sender:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dfh-0A-Z6x"/>
                         </connections>
@@ -71,12 +74,13 @@
             <connections>
                 <outlet property="myButton" destination="smk-2l-lqy" id="c2Q-vp-QEd"/>
                 <outlet property="myLabel" destination="kkU-uM-Zzi" id="kCG-bC-QXf"/>
+                <outlet property="priceLabel" destination="87i-Cd-O0X" id="X0v-BR-Gd8"/>
             </connections>
             <point key="canvasLocation" x="1.5267175572519083" y="35.211267605633807"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

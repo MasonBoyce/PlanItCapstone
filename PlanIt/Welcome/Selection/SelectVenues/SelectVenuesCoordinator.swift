@@ -63,7 +63,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         print(locationManager.currentLocation?.coordinate)
         print("HERE BITCH",latitude,longitude)
         let category = categoryType
-        let limit = 5
+        let limit = 50
         let sortBy = "distance"
         let locale = "en_US"
         let yelpApi = YelpApi()
