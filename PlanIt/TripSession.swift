@@ -149,7 +149,7 @@ class TripSession {
         }
     }
     
-    func find_optimal_venue_id_perm() -> ([Int], Double) {
+    func find_optimal_venue_id_perm() -> ([MKRoute], Double) {
         
         var all_perms = get_venue_permutations()
         let num_venues = venue_ids.count
@@ -174,7 +174,22 @@ class TripSession {
             
             curr_cost_sum = 0.0
         }
-        return (optimal_venue_id_perm, cost_min)
+        
+        var ordered_routes = [MKRoute]()
+        
+        var temp_source_venue_id = -1
+        var temp_destination_venue_id = -1
+        
+        print(optimal_venue_id_perm)
+        for venue_index in (0 ... optimal_venue_id_perm.count - 2) {
+            temp_source_venue_id = optimal_venue_id_perm[venue_index]
+            temp_destination_venue_id = optimal_venue_id_perm[venue_index + 1]
+            print(temp_source_venue_id, terminator: "")
+            print(temp_destination_venue_id)
+            ordered_routes.append(route_matrix[temp_source_venue_id][temp_destination_venue_id])
+        }
+        
+        return (ordered_routes, cost_min)
     }
     
 }
