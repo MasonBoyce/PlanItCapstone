@@ -35,15 +35,15 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     }
 
     func goToSelectVenues(categoryType: String) {
-        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType)
+        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType, delegate: self)
         selectVenues.parentCoordinator = self
         
         children.append(selectVenues)
-        selectVenues.yelpAPICall(delegate: self)
+        selectVenues.yelpAPICall()
     }
     
     func goToMap(venues: [Venue]) {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController)
+        let mapCoordinator = MapCoordinator(navigationController: navigationController, venues: venues)
         mapCoordinator.parentCoordinator = self
         children.append(mapCoordinator)
         mapCoordinator.start()
@@ -53,6 +53,7 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
         model?.update(venues: venues)
     }
 }
+
 extension SelectionCoordinator: SelectionDelegateProtocol {
     func didFinish(venues: [Venue]) {
         finish(venues: venues)

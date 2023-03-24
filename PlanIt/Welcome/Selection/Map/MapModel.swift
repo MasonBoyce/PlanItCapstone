@@ -21,22 +21,22 @@ class MapModel: MapModelProtocol {
     var span: MKCoordinateSpan
     var region: MKCoordinateRegion
     var transportType: MKDirectionsTransportType = .walking
-    var venues: [Venue] = []
+    var venues: [Venue]
+    var tripSession: TripSession?
     
     //Setting up custom annotations preinputed values
     var annotations: [CustomAnnotation] = []
     
     //MARK: FUNCTIONS
     
-    init() {
+    init(venues: [Venue]) {
         currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
-//        getYelpData()
-        
-//        result = sController?.sendoverresults()
-        
+        self.venues = venues
+        tripSession = TripSession(newVenues: venues)
     }
+    
     func viewDidLoad() {
          
     }

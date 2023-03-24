@@ -10,42 +10,46 @@ import UIKit
 import MapKit
 
 class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
+    
+    
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var categoryType: String
     let currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
     var venues: [Venue] = []
+    weak var delegate: SelectionDelegateProtocol?
     
-    init(navigationController: UINavigationController, categoryType: String) {
+    init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol) {
         self.navigationController = navigationController
         self.categoryType = categoryType
+        self.delegate = delegate
     }
-    func start() {
-        //just  for coordinator protocol should be unused
-    }
+   
     
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
-    
-    
-    func start(delegate: SelectionDelegateProtocol) {
+    func start() {
         let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
         let model: SelectVenuesModel = SelectVenuesModel()
         let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
-
+        
         viewController.model = model
         viewController.coordinator = self
-        model.delegate = delegate
+        
         model.viewController = viewController
         model.coordinator = self
+        model.venues = self.venues
         
         self.navigationController.pushViewController(viewController, animated: true)
-        
+    }
+    
+    func didFinish(venues: [Venue]) {
+        delegate?.didFinish(venues: venues)
     }
     
     //calls api and starts coordinator
-    func yelpAPICall(delegate: SelectionDelegateProtocol) {
+    func yelpAPICall() {
         let latitude = currentCoordinate.latitude
         let longitude = currentCoordinate.longitude
         let category = categoryType
@@ -57,18 +61,13 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
             (response, error) in
             if let response = response {
                 DispatchQueue.main.async {
-                self.venues = response
-                    self.start(delegate: delegate)
+                    self.venues = response
+                    self.start()
                 }
             }
         }
     }
     
-    func goToMap() {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController)
-        mapCoordinator.parentCoordinator = self
-        children.append(mapCoordinator)
-        mapCoordinator.start()
-    }
+    
     
 }

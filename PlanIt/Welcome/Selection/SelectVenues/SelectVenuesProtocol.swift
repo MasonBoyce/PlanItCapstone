@@ -17,5 +17,5 @@ protocol SelectVenuesModelProtocol: AnyObject {
 }
 
 protocol SelectVenuesCoordinatorProtocol: AnyObject {
-   
+    func didFinish(venues: [Venue])
 }
