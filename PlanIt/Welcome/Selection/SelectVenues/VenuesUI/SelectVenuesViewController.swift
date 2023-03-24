@@ -159,12 +159,12 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        didTapButton(sender: RestaurantTableViewCell)
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             let restaurant = data [selectedIndexPath.row]
-            if restaurant.selected == true {
+//            if restaurant.selected == true {
                 nText = restaurant.name
-                print (data [selectedIndexPath.row].selected)
-            } else {
-                nText = ""
-            }
+//                print (data [selectedIndexPath.row].selected)
+//            } else {
+//                nText = ""
+//            }
             
             //** NOT WORKING **//
 //            if #available(iOS 15.0, *) {
