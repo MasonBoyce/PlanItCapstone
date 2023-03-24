@@ -7,156 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A849AAEA-B50E-4440-8003-D869392821D1"
+            uuid = "616BF30E-835A-4462-A899-9E3CECD69CC6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/Selection/SelectionUI/SelectionUIViewController.swift"
+            filePath = "PlanIt/Welcome/WelcomeCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "SelectionUIViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "A849AAEA-B50E-4440-8003-D869392821D1 - e5f32f78d46fda53"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PlanIt.SelectionUIViewController.SearchTextField.getter : Swift.Optional&lt;__C.UITextField&gt;"
-                  moduleName = "PlanIt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/masonboyce/Developer/PlanIt/PlanIt/Welcome/Selection/SelectionUI/SelectionUIViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "88">
-               </Location>
-               <Location
-                  uuid = "A849AAEA-B50E-4440-8003-D869392821D1 - 4ed8b8c75298e5f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PlanIt.SelectionUIViewController.SearchTextField.setter : Swift.Optional&lt;__C.UITextField&gt;"
-                  moduleName = "PlanIt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/masonboyce/Developer/PlanIt/PlanIt/Welcome/Selection/SelectionUI/SelectionUIViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "155">
-               </Location>
-               <Location
-                  uuid = "A849AAEA-B50E-4440-8003-D869392821D1 - b6d59b73a1247363"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PlanIt.SelectionUIViewController.SearchTextField.modify : Swift.Optional&lt;__C.UITextField&gt;"
-                  moduleName = "PlanIt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/masonboyce/Developer/PlanIt/PlanIt/Welcome/Selection/SelectionUI/SelectionUIViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "59">
-               </Location>
-               <Location
-                  uuid = "A849AAEA-B50E-4440-8003-D869392821D1 - 8c0c0636f2c8e8ab"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PlanIt.SelectionUIViewController.SearchTextField.modify : Swift.Optional&lt;__C.UITextField&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "PlanIt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/masonboyce/Developer/PlanIt/PlanIt/Welcome/Selection/SelectionUI/SelectionUIViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "A849AAEA-B50E-4440-8003-D869392821D1 - 8178ea6227e382ec"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PlanIt.SelectionUIViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; PlanIt.SelectionUIViewController"
-                  moduleName = "PlanIt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/masonboyce/Developer/PlanIt/PlanIt/Welcome/Selection/SelectionUI/SelectionUIViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "322">
-               </Location>
-               <Location
-                  uuid = "A849AAEA-B50E-4440-8003-D869392821D1 - bc03c4c0f4f42c83"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PlanIt.SelectionUIViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;PlanIt.SelectionUIViewController&gt;"
-                  moduleName = "PlanIt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/masonboyce/Developer/PlanIt/PlanIt/Welcome/Selection/SelectionUI/SelectionUIViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "236">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9E3D64A7-F39B-4D64-8A68-124D3E206465"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/Selection/SelectVenues/VenuesUI/SelectVenuesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init(navigationController:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AB89FCAF-1641-41EA-A590-7D48575DC715"
-            shouldBeEnabled = "Yes"
+            uuid = "1A54CACD-CC89-4D12-A6FF-F041344953CC"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/Selection/SelectVenues/VenuesUI/SelectVenuesViewController.swift"
+            filePath = "PlanIt/LocationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "requestWhenInUseAuthorization()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "400BE26F-B9B0-4488-930B-5F3B52C688BB"
+            uuid = "9E4B0841-8F25-4216-91CE-CED103EC19B6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/Selection/SelectionCoordinator.swift"
+            filePath = "PlanIt/LocationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "goToMap(venues:)"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "requestWhenInUseAuthorization()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

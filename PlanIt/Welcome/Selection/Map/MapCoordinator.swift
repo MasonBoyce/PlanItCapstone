@@ -14,7 +14,7 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
     var children: [Coordinator] = []
     var venues: [Venue]  = []
     
-    init(navigationController: UINavigationController,venues: [Venue]) {
+    init(navigationController: UINavigationController,venues: [Venue],locationManager:LocationManager) {
         self.navigationController = navigationController
         self.venues = venues
     }

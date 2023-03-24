@@ -9,21 +9,28 @@ import Foundation
 import UIKit
 import MapKit
 
-class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
-    
-    
+class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {    
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var categoryType: String
-    let currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+    var locationManager: LocationManager
+
+    
+    var currentCoordinate: CLLocationCoordinate2D {
+         return locationManager.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+    }
+    
     var venues: [Venue] = []
     weak var delegate: SelectionDelegateProtocol?
     
-    init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol) {
+    init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol,locationManager:LocationManager) {
         self.navigationController = navigationController
         self.categoryType = categoryType
         self.delegate = delegate
+        self.locationManager = locationManager
+        
+        yelpAPICall()
     }
    
     
@@ -43,15 +50,18 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         
         self.navigationController.pushViewController(viewController, animated: true)
     }
-    
+    //passes back the data to the 
     func didFinish(venues: [Venue]) {
         delegate?.didFinish(venues: venues)
     }
     
     //calls api and starts coordinator
     func yelpAPICall() {
+        
         let latitude = currentCoordinate.latitude
         let longitude = currentCoordinate.longitude
+        print(locationManager.currentLocation?.coordinate)
+        print("HERE BITCH",latitude,longitude)
         let category = categoryType
         let limit = 5
         let sortBy = "distance"

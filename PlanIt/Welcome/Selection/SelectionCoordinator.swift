@@ -14,9 +14,11 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
+    var locationManager:LocationManager
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,locationManager:LocationManager) {
         self.navigationController = navigationController
+        self.locationManager = locationManager
     }
 
     //Initializes view controller model and connects them.
@@ -35,15 +37,14 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     }
 
     func goToSelectVenues(categoryType: String) {
-        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType, delegate: self)
+        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType, delegate: self, locationManager:locationManager)
         selectVenues.parentCoordinator = self
         
         children.append(selectVenues)
-        selectVenues.yelpAPICall()
     }
     
     func goToMap(venues: [Venue]) {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController, venues: venues)
+        let mapCoordinator = MapCoordinator(navigationController: navigationController, venues: venues, locationManager: locationManager)
         mapCoordinator.parentCoordinator = self
         children.append(mapCoordinator)
         mapCoordinator.start()
