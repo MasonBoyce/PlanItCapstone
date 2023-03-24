@@ -8,8 +8,13 @@
 import Foundation
 import UIKit
 
+var nText: String?
+
 class SelectionUIViewController: UIViewController, SelectionUIViewControllerProtocol {
     var model: SelectionModel?
+    
+    //* Catch Data passed from TableView*//
+    var CheckedItem: String!
     
     @IBOutlet weak var SearchTextField: UITextField?
     @IBOutlet weak var SearchTextView: UITextView?
@@ -23,14 +28,20 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     
     @IBAction func restaurants(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "restaurants")
+//        self.present(SelectVenuesViewController(), animated: true)
+//        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
     @IBAction func cafés(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "cafes")
+//        self.present(SelectVenuesViewController(), animated: true)
+//        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
     @IBAction func gyms(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "gyms")
+//        self.present(SelectVenuesViewController(), animated: true)
+//        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
@@ -45,6 +56,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         SearchTextField?.textAlignment = .center
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+//        SearchTextView?.text = CheckedItem
         //                view.backgroundColor = .link
     }
     

@@ -134,7 +134,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Selection Page" id="QeL-P5-pwH">
-                        <barButtonItem key="backBarButtonItem" title="Select" id="qmz-R0-erZ"/>
+                        <barButtonItem key="backBarButtonItem" title="Login" id="qmz-R0-erZ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="SearchTextField" destination="4Hz-cB-ODq" id="2RH-cZ-xg7"/>
@@ -148,7 +148,9 @@
         <!--SelectVenues-->
         <scene sceneID="GJe-ec-hWm">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SelectVenues" storyboardName="SelectVenues" referencedIdentifier="SelectVenues" id="JzJ-kv-5em" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="SelectVenues" storyboardName="SelectVenues" referencedIdentifier="SelectVenues" id="JzJ-kv-5em" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8Ia-0p-kyp"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgc-On-xNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="704" y="90"/>

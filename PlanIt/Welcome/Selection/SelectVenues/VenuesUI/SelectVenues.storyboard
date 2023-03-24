@@ -43,8 +43,19 @@
                     </view>
                     <navigationItem key="navigationItem" title="Venue List" id="djN-Uf-ZOm">
                         <barButtonItem key="backBarButtonItem" title="Categories" id="7Yf-d2-OAd"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pEn-wf-4ua">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="V14-16-VGV" id="ndA-OK-jz7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="7rH-YC-DUV">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="V14-16-VGV" id="KcR-ID-2xy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="7rH-YC-DUV" id="9eT-c1-Eed"/>
                         <outlet property="tableView" destination="D2W-j2-vn1" id="fG1-qv-Yg0"/>
                     </connections>
                 </viewController>
@@ -52,14 +63,17 @@
             </objects>
             <point key="canvasLocation" x="122" y="-2"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--SelectVenuesNavigationController-->
         <scene sceneID="keA-fr-vgp">
             <objects>
-                <navigationController id="22l-nx-Byg" sceneMemberID="viewController">
+                <navigationController title="SelectVenuesNavigationController" id="22l-nx-Byg" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nmk-1P-wcw">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aqY-kX-nGe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="V14-16-VGV" kind="relationship" relationship="rootViewController" id="PDG-As-JE8"/>
                     </connections>

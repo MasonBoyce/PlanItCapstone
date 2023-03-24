@@ -7,10 +7,34 @@
 
 import UIKit
 
+protocol RestaurantTableViewCellDelegate: AnyObject {
+    func didTapButton(sender: RestaurantTableViewCell)
+}
+
 class RestaurantTableViewCell: UITableViewCell {
     
+    weak var delegate: RestaurantTableViewCellDelegate?
+    
+    @IBOutlet var myButton: UIButton!
     @IBOutlet var myLabel: UILabel!
-    @IBOutlet var myImageView: UIImageView!
+    @IBOutlet var priceLabel: UILabel!
+//    @IBOutlet var myImageView: UIImageView!
+    
+    
+    
+//** Switch && Label **//
+//    @IBOutlet var mySwitch: UISwitch!
+//    private var title: String = ""
+//
+    @IBAction func buttonTapped(_sender: UIButton){
+        delegate?.didTapButton(sender: self)
+    }
+//
+//    func configure(with title: String) {
+//        self.title = title
+//        myLabel.setTitle(title, for: .normal)
+//    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
