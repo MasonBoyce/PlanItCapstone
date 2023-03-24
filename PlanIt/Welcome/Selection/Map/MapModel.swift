@@ -41,11 +41,6 @@ class MapModel: MapModelProtocol {
          
     }
     
-//    func converttostring(){
-//        var array = venues
-//        let result = venues[Venue].joined(separator: "-")
-//    }
-    
     func addAnnotation(annotation: CustomAnnotation) {
         annotations.append(annotation)
     }
@@ -63,67 +58,6 @@ class MapModel: MapModelProtocol {
             index += 1
         }
         viewController?.updateAnnotations(annotations: annotations)
-        
     }
     
-
-    
-//    func getYelpData(){
-//        let latitude = currentCoordinate.latitude
-//        let longitude = currentCoordinate.longitude
-//        let category = result
-//        let limit = 5
-//        let sortBy = "distance"
-//        let locale = "en_US"
-//
-//        let yelpApi = YelpApi()
-//        yelpApi.retriveVenues(latitude: latitude, longitude: longitude, category: category!, limit: limit, sortBy: sortBy, locale: locale) {
-//            (response, error) in
-//            if let response = response {
-//                self.venues = response
-//                DispatchQueue.main.async {
-//                    self.addAnnotations()
-//
-//                }
-//                //HANDLE ERROR
-//            }
-//        }
-//
-//
-//    }
-    
-    
-    //Create a directions request send the source and destination
-    //Then calculate the route and tthe add an overlay
-    func createOverlay(sourceLocation: CLLocationCoordinate2D,destinationLocation: CLLocationCoordinate2D) {
-        let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
-        let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-        
-        let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
-        let destinationItem = MKMapItem(placemark: destinationPlaceMark)
-        
-        let directionRequest = MKDirections.Request()
-        directionRequest.source = sourceMapItem
-        directionRequest.destination = destinationItem
-        directionRequest.transportType = transportType
-        
-        let direction = MKDirections(request: directionRequest)
-        
-        direction.calculate { (response, error) in
-            guard let response = response else {
-                if let error = error {
-                    print("ERROR FOUND : \(error.localizedDescription)")
-                }
-                return
-            }
-            
-            let route = response.routes[0]
-            self.viewController?.mapView.addOverlay(route.polyline)
-            
-            //        let rect = route.polyline.boundingMapRect
-            //
-            //        self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
-        }
-        
-    }
 }

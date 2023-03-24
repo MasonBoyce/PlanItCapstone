@@ -61,7 +61,7 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         model?.annotations.forEach {
             mapView.addAnnotation($0)
             if prevAnnotation != nil {
-                model?.createOverlay(sourceLocation: prevAnnotation!.coordinate, destinationLocation: $0.coordinate)
+//                model?.createOverlay(sourceLocation: prevAnnotation!.coordinate, destinationLocation: $0.coordinate)
             }
             prevAnnotation = $0
         }

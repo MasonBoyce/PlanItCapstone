@@ -19,8 +19,6 @@ protocol MapModelProtocol: AnyObject {
     var currentCoordinate: CLLocationCoordinate2D { get set }
     var span: MKCoordinateSpan { get set }
     var region: MKCoordinateRegion { get set }
-    
-    func createOverlay(sourceLocation: CLLocationCoordinate2D,destinationLocation: CLLocationCoordinate2D)
     func viewDidLoad()
 }
 
