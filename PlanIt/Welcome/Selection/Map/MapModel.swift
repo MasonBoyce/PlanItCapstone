@@ -61,4 +61,12 @@ class MapModel: MapModelProtocol {
         viewController?.updateAnnotations(annotations: annotations)
     }
     
+    func addOverlays(routes: [MKRoute]) {
+            for route in routes {
+                let polyline = route.polyline
+                viewController?.mapView.addOverlay(polyline)
+            }
+        }
+    
+    
 }

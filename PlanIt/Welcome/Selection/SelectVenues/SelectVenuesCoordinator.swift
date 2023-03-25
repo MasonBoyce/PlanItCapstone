@@ -76,7 +76,6 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         let latitude = currentCoordinate.latitude
         let longitude = currentCoordinate.longitude
         print(locationManager.currentLocation?.coordinate)
-        print("HERE BITCH",latitude,longitude)
         let category = categoryType
         let limit = 50
         let sortBy = "distance"
