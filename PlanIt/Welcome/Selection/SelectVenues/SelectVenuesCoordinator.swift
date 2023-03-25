@@ -72,10 +72,8 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     
     //calls api and starts coordinator
     func yelpAPICall() {
-        
         let latitude = currentCoordinate.latitude
         let longitude = currentCoordinate.longitude
-        print(locationManager.currentLocation?.coordinate)
         let category = categoryType
         let limit = 50
         let sortBy = "distance"
