@@ -44,7 +44,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         data = coordinator!.venues
-        print (data)
+//        print (data)
 //        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("text"), object: nil)
         
         
@@ -83,10 +83,19 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let Venues = data[indexPath.row]
         let restaurants = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
-                let restaurant = data [indexPath.row]
+        let restaurant = data [indexPath.row]
         restaurants.myLabel?.text = restaurant.name
+        restaurants.priceLabel?.text = restaurant.price
 //        let restaurants = table.dequeueReusableCell(withIdentifier: "restaurants", for: indexPath) as! CustomTableViewCell
 //        restaurants.textLabel?.text = data[indexPath.row]
+        
+/*switch*/
+        let mySwitch = UISwitch()
+//Defaults turning on
+//mySwitch.isOn = true
+        mySwitch.addTarget(self, action: #selector(didChangeSwitch(_:)), for: .valueChanged)
+        restaurants.accessoryView = mySwitch
+        
         return restaurants
     }
     
@@ -95,8 +104,17 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        print("Hi")
 //    }
 
+/*switch auxiliary*/
+    @objc func didChangeSwitch(_ sender: UISwitch){
+        if sender.isOn {
+            print ("Turned On")
+        }
+        else {
+            print ("Turned Off")
+        }
+    }
 
-    
+/*Passing Data*/
 //    @objc func didGetNotification(_ notification: Notification) {
 //        let text = notification.object as! Array<Any>?
 //        myLabel.text = text
