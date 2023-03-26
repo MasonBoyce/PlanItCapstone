@@ -20,6 +20,7 @@ class TripSession {
     var all_venue_permutations: [[Int]]
     var all_venue_pairs: [(Int, Int)]
     var time_groups : [String: [Int]] // (morning,afternoon,evening,any)
+    var all_time_group_perms : [ String: [[Int]] ]
     
     init(newVenues: [Venue]) {
         venues = newVenues
@@ -33,24 +34,29 @@ class TripSession {
         id_to_venue_dict = [Int: Venue]()
         venue_ids = [Int]()
         
-        time_groups [String: [Int]]()
+        time_groups = [String: [Int]]()
         time_groups["Morning"] = [Int]()
         time_groups["Afternoon"] = [Int]()
         time_groups["Evening"] = [Int]()
         time_groups["Any"] = [Int]()
+        all_time_group_perms = [String: [[Int]]]()
         
         for (index, venue) in venues.enumerated(){
             id_to_venue_dict[index] = venue
             venue_ids.append(index)
             switch venue.time_of_day{
             case "Morning":
-                time_groups["Morning"].append(index)
+                self.time_groups["Morning"]?.append(index)
+                self.all_time_group_perms["Morning"] = []
             case "Afternoon":
-                time_groups["Afternoon"].append(index)
+                self.time_groups["Afternoon"]?.append(index)
+                self.all_time_group_perms["Afternoon"] = []
             case "Evening":
-                time_groups["Evening"].append(index)
+                self.time_groups["Evening"]?.append(index)
+                self.all_time_group_perms["Evening"] = []
             default:
-                time_groups["Any"].append(index)
+                self.time_groups["Any"]?.append(index)
+                self.all_time_group_perms["Any"] = []
             }
         }
         
@@ -169,15 +175,26 @@ class TripSession {
     
     // With help from https://en.wikipedia.org/wiki/Heap%27s_algorithm (Heap's Algorithm)
     // k is length of venues list; venues list is original order of routes
-    func set_timed_permutations(k: Int, time: String, venues: [Int]){
-        //print(" ")
+    func set_timed_permutations(){
+        var time_group_size = 0
+        var time_group_ids = [Int]()
+        for time in time_groups.keys{
+            time_group_ids = time_groups[time] ?? []
+            time_group_size = time_groups[time]?.count ?? 0
+            print("SETTING " + String(time))
+            set_indiv_time_perm(k: time_group_size, time: time, venues: time_group_ids)
+        }
+    }
+    
+    func set_indiv_time_perm(k: Int, time: String, venues: [Int]) {
         var coords = venues
         if k == 1 {
-            time_groups[time].append(coords)
+            self.all_time_group_perms[time]?.append(coords)
+            print(coords)
         } else {
             // Generate permutations with k-th unaltered
             // Initially k = length(A)
-            set_timed_permutations(k: k - 1, time: time, venues: coords)
+            set_indiv_time_perm(k: k - 1, time: time, venues: coords)
             var temp: Int
             //print("k:", k)
             // Generate permutations for k-th swapped with each k-1 initial
@@ -192,7 +209,7 @@ class TripSession {
                     coords[0] = coords[k - 1]
                     coords[k - 1] = temp
                 }
-                set_timed_permutations(k: k - 1, time: time, venues: coords)
+                set_indiv_time_perm(k: k - 1, time: time, venues: coords)
             }
         }
     }

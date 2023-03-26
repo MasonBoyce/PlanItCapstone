@@ -29,16 +29,21 @@ class AppCoordinator: Coordinator {
         children.append(welcomeCoordinator)
         welcomeCoordinator.start()
         
-        var venues = testTripSessionHardCoded(numVenues: 3)
+        var venues = testTripSessionHardCoded(numVenues: 10)
         var session = TripSession(newVenues: venues)
-        var venue_perms = session.get_venue_perms(k: venues.count, venues: session.venue_ids)
-        print(venue_perms)
+        print("ALL")
+        print(session.all_venue_permutations)
+        print("TIME GROUPS")
+        print(session.time_groups)
+        print("ALL TIMED PERMS")
+        session.set_timed_permutations()
+        print(session.all_time_group_perms)
         
     }
     
     func testTripSessionHardCoded(numVenues: Int) -> [Venue]{
         var venues = [Venue]()
-        var time = ["Morning","Afternoon","Evening",""]
+        var time = ["Morning","Afternoon","Evening","Any"]
         for index in (0...numVenues){
             var venue: Venue = Venue()
             venue.name = "Venue " + String(index)
