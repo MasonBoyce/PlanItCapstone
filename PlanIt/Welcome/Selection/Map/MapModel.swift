@@ -23,19 +23,21 @@ class MapModel: MapModelProtocol {
     var transportType: MKDirectionsTransportType = .walking
     var venues: [Venue]
     var tripSession: TripSession?
+    var locationManager: LocationManager
     
     //Setting up custom annotations preinputed values
     var annotations: [CustomAnnotation] = []
     
     //MARK: FUNCTIONS
     
-    init(venues: [Venue]) {
-        currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+    init(venues: [Venue], locationManager:LocationManager) {
+        self.locationManager = locationManager
+        currentCoordinate = locationManager.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
         self.venues = venues
-        tripSession = TripSession(newVenues: venues)
-        tripSession?.find_optimal_venue_id_perm()
+//        tripSession = TripSession(newVenues: venues)
+//        tripSession?.find_optimal_venue_id_perm()
     }
     
     func viewDidLoad() {
