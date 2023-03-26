@@ -19,7 +19,7 @@ class SelectionModel: SelectionModelProtocol {
     }
     
     func update(venues: [Venue]) {
-        self.venues = venues
+        self.venues += venues
     }
     
     func goToMap() {
