@@ -32,6 +32,7 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
         viewController.model = model
         model.viewController = viewController
         model.coordinator = self
+        self.model =  model
         
         navigationController.pushViewController(viewController, animated: true)
     }
@@ -51,13 +52,13 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     }
     
     func finish(venues: [Venue]) {
-        model?.update(venues: venues)
+        self.model!.update(venues: venues)
     }
 }
 
 extension SelectionCoordinator: SelectionDelegateProtocol {
     func didFinish(venues: [Venue]) {
-        finish(venues: venues)
+        self.finish(venues: venues)
     }
 }
 

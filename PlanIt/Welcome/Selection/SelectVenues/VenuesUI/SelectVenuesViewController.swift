@@ -175,12 +175,13 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        didTapButton(sender: RestaurantTableViewCell)
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             for x in data  {
-//                print("we here",x)
-          
-//            if restaurant.selected == true {
-//                nText = restaurant.name
-            
-                selecteddata.insert(x, at: 0)
+                //                print("we here",x)
+                
+                if x.selected == true {
+                    //                nText = restaurant.name
+                    
+                    selecteddata.insert(x, at: 0)
+                }
             }
             
 //                print (data [selectedIndexPath.row].selected)
@@ -202,18 +203,15 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
             
             //** DEBUGGING **//
             print ("GOOD")
-            print (nText)
+//            print (nText)
             print (selecteddata)
         }
 //        self.present(SelectVenuesViewController(), animated: true)
-        model?.finishedSelectionTapped(venues: selecteddata)
+        model?.finishedSelectionTapped(selectedvenues: selecteddata)
         coordinator?.didSave()
         
     }
     
-    func printpasseddata(){
-        print (selecteddata)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
