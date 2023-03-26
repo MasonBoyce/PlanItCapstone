@@ -173,6 +173,13 @@ class TripSession {
         }
     }
     
+    func get_time_group_perms() -> [String: [[Int]]] {
+        if all_time_group_perms.count == 0 {
+            set_timed_permutations()
+        }
+        return all_time_group_perms
+    }
+    
     // With help from https://en.wikipedia.org/wiki/Heap%27s_algorithm (Heap's Algorithm)
     // k is length of venues list; venues list is original order of routes
     func set_timed_permutations(){
@@ -260,7 +267,7 @@ class TripSession {
     func find_time_of_day_route_perm() -> ([MKRoute], Double) {
         
         
-        var all_perms = get_venue_permutations()
+        var time_group_perms = get_time_group_perms()
         let num_venues = venue_ids.count
         
         var source_id = -1
@@ -268,21 +275,25 @@ class TripSession {
         var curr_cost_sum = 0.0
         var cost_min = Double.infinity
         var optimal_venue_id_perm: [Int] = []
+        var time_group_perms: [[Int]] = []
         
-        for venue_id_perm in all_perms {
-            for venue_id_spot in (0 ... num_venues - 2) {
-                source_id = venue_id_perm[venue_id_spot]
-                destination_id = venue_id_perm[venue_id_spot + 1]
-                curr_cost_sum = curr_cost_sum + get_route_cost(source_id: source_id, destination_id: destination_id)
+        // Calculate all time-relevant routes
+        for time in all_time_group_perms.keys {
+            time_group_perms = all_time_group_perms[time]
+            for venue_id_perm in time_group_perms {
+                for venue_id_spot in (0 ... num_venues - 2) {
+                    source_id = venue_id_perm[venue_id_spot]
+                    destination_id = venue_id_perm[venue_id_spot + 1]
+                    calculate_route(source_id: source_id, destination_id: destination_id)
+                }
             }
-            
-            if curr_cost_sum < cost_min {
-                optimal_venue_id_perm = venue_id_perm
-                cost_min = curr_cost_sum
-            }
-            
-            curr_cost_sum = 0.0
         }
+        
+        
+        
+        
+        
+        
         
         var ordered_routes = [MKRoute]()
         
