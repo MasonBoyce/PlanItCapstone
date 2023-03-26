@@ -16,6 +16,7 @@ struct Venue {
     var address: String?
     var latitude: Double?
     var longitude: Double?
+    var time_of_day: String? // 'Morning' | 'Afternoon' | 'Evening' ONLY
 }
 
 class YelpApi{

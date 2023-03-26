@@ -19,6 +19,7 @@ class TripSession {
     var id_to_venue_dict: [Int: Venue]
     var all_venue_permutations: [[Int]]
     var all_venue_pairs: [(Int, Int)]
+    var time_groups : ([Int],[Int],[Int],[Int]) // (morning,afternoon,evening,any)
     
     init(newVenues: [Venue]) {
         venues = newVenues
@@ -31,9 +32,20 @@ class TripSession {
         
         id_to_venue_dict = [Int: Venue]()
         venue_ids = [Int]()
+        time_groups = ([Int],[Int],[Int],[Int])()
         for (index, venue) in venues.enumerated(){
             id_to_venue_dict[index] = venue
             venue_ids.append(index)
+            switch venue.time_of_day{
+            case "Morning":
+                time_groups[0].append(index)
+            case "Afternoon":
+                time_groups[1].append(index)
+            case "Evening":
+                time_groups[2].append(index)
+            case "":
+                time_groups[3].append(index)
+            }
         }
         
         all_venue_permutations = [[Int]]()
@@ -149,7 +161,83 @@ class TripSession {
         }
     }
     
-    func find_optimal_venue_id_perm() -> ([MKRoute], Double) {
+    // With help from https://en.wikipedia.org/wiki/Heap%27s_algorithm (Heap's Algorithm)
+    // k is length of venues list; venues list is original order of routes
+    func get_venue_perms(k: Int, venues: [Int]) -> [[Int]]{
+        var venue_perms = []
+        //print(" ")
+        var coords = venues
+        if k == 1 {
+            return coords
+        } else {
+            // Generate permutations with k-th unaltered
+            // Initially k = length(A)
+            venue_perms.append(get_venue_perms(k: k - 1, venues: coords))
+            var temp: Int
+            //print("k:", k)
+            // Generate permutations for k-th swapped with each k-1 initial
+            for i in (0 ... (k - 2)) {
+                //print("i:", i)
+                if k % 2 == 0 { // swap venues[i], venues[i+1]
+                    temp = coords[i]
+                    coords[i] = coords[k - 1]
+                    coords[k - 1] = temp
+                } else {
+                    temp = coords[0]
+                    coords[0] = coords[k - 1]
+                    coords[k - 1] = temp
+                }
+                venue_perms.append(get_venue_perms(k: k - 1, venues: coords))
+            }
+        }
+        return venue_perms
+    }
+    
+    func find_optimal_venue_route_perm() -> ([MKRoute], Double) {
+        
+        var all_perms = get_venue_permutations()
+        let num_venues = venue_ids.count
+        
+        var source_id = -1
+        var destination_id = -1
+        var curr_cost_sum = 0.0
+        var cost_min = Double.infinity
+        var optimal_venue_id_perm: [Int] = []
+        
+        for venue_id_perm in all_perms {
+            for venue_id_spot in (0 ... num_venues - 2) {
+                source_id = venue_id_perm[venue_id_spot]
+                destination_id = venue_id_perm[venue_id_spot + 1]
+                curr_cost_sum = curr_cost_sum + get_route_cost(source_id: source_id, destination_id: destination_id)
+            }
+            
+            if curr_cost_sum < cost_min {
+                optimal_venue_id_perm = venue_id_perm
+                cost_min = curr_cost_sum
+            }
+            
+            curr_cost_sum = 0.0
+        }
+        
+        var ordered_routes = [MKRoute]()
+        
+        var temp_source_venue_id = -1
+        var temp_destination_venue_id = -1
+        
+        print(optimal_venue_id_perm)
+        for venue_index in (0 ... optimal_venue_id_perm.count - 2) {
+            temp_source_venue_id = optimal_venue_id_perm[venue_index]
+            temp_destination_venue_id = optimal_venue_id_perm[venue_index + 1]
+            print(temp_source_venue_id, terminator: "")
+            print(temp_destination_venue_id)
+            ordered_routes.append(route_matrix[temp_source_venue_id][temp_destination_venue_id])
+        }
+        
+        return (ordered_routes, cost_min)
+    }
+    
+    func find_time_of_day_route_perm() -> ([MKRoute], Double) {
+        
         
         var all_perms = get_venue_permutations()
         let num_venues = venue_ids.count
