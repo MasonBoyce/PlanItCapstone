@@ -29,6 +29,34 @@ class AppCoordinator: Coordinator {
         children.append(welcomeCoordinator)
         welcomeCoordinator.start()
         
+        var venues = testTripSessionHardCoded(numVenues: 3)
+        var session = TripSession(newVenues: venues)
+        var venue_perms = session.get_venue_perms(k: venues.count, venues: session.venue_ids)
+        print(venue_perms)
+        
+    }
+    
+    func testTripSessionHardCoded(numVenues: Int) -> [Venue]{
+        var venues = [Venue]()
+        var time = ["Morning","Afternoon","Evening",""]
+        for index in (0...numVenues){
+            var venue: Venue = Venue()
+            venue.name = "Venue " + String(index)
+            venue.yelpID = String(index) + String(index) + String(index) + "venue" + String(index) + String(index) + String(index)
+            venue.internalID = index
+            venue.rating = Float(index) + (Float(index) * 0.1)
+            venue.price = "$"
+            venue.is_closed = false
+            venue.distance = Double(index) + (Double(index) * 0.1)
+            venue.address = String(index) + String(index) + String(index) + String(index) + " Tulane St."
+            venue.longitude = Double(index) + (Double(index) * 0.1)
+            venue.latitude = Double(index) + (Double(index) * 0.1)
+            venue.time_of_day = time[index % 4]
+            venues.append(venue)
+        }
+        
+        print(venues)
+        return venues
     }
     
    

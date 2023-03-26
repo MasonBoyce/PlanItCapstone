@@ -8,7 +8,8 @@
 import Foundation
 struct Venue {
     var name: String?
-    var id: String?
+    var yelpID: String?
+    var internalID: Int?
     var rating: Float?
     var price: String?
     var is_closed: Bool?
@@ -52,7 +53,7 @@ class YelpApi{
                     
                     var venue = Venue()
                     venue.name = business.value(forKey: "name") as? String
-                    venue.id = business.value(forKey: "id") as? String
+                    venue.internalID = business.value(forKey: "id") as? Int
                     venue.rating = business.value(forKey: "rating") as? Float
                     venue.price = business.value(forKey: "price") as? String
                     venue.is_closed = business.value(forKey: "is_closed") as? Bool
