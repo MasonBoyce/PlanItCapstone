@@ -8,6 +8,21 @@
 import Foundation
 import UIKit
 import CoreLocation
+import MapKit
+
+class Geocoder {
+    func geocodeAddress(_ address: String, completion: @escaping (CLLocationCoordinate2D?, Error?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            if let placemark = placemarks?.first {
+                let coordinates = placemark.location?.coordinate
+                completion(coordinates, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+}
 
 class WelcomeModel: WelcomeModelProtocol {
     var description: String?
@@ -27,11 +42,21 @@ class WelcomeModel: WelcomeModelProtocol {
                 break
             case .denied, .restricted:
                 print("denied")
-                // Handle location access denied or restricted
+                let geocoder = Geocoder()
+
+                // Call the geocodeAddress function with the address "Paris, France"
+                geocoder.geocodeAddress("Paris, France") { (coordinates, error) in
+                    if let error = error {
+                        print("Error geocoding address: \(error.localizedDescription)")
+                    } else if let coordinates = coordinates {
+                        self.locationManager.currentLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+                    }
+                }
+//                locationManager.currentLocation = geocodeAddress("Paris,France", completion:  )
                 break
             case .notDetermined:
                 print("here")
-//                self.locationManager.requestWhenInUseAuthorization()
+//
                 // Handle location access not yet determined
 
             case .authorizedAlways:
@@ -48,6 +73,18 @@ class WelcomeModel: WelcomeModelProtocol {
     func doSomething() {
         coordinator?.goToSelection(locationManager:locationManager)
     }
+    
+//    func geocodeAddress(_ address: String, completion: @escaping (CLLocationCoordinate2D?, Error?) -> Void) {
+//           let geocoder = CLGeocoder()
+//           geocoder.geocodeAddressString(address) { (placemarks, error) in
+//               if let placemark = placemarks?.first {
+//                   let coordinates = placemark.location?.coordinate
+//                   completion(coordinates, nil)
+//               } else {
+//                   completion(nil, error)
+//               }
+//           }
+//       }
     
     
     
