@@ -41,7 +41,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     var coordinator: SelectVenuesCoordinator?
 //retrive Veneus
     var data = [Venue]()
-//    var selecteddata = [SelectedVenue] ()
+    var selecteddata : [Venue] = []
 //    var data: Array <String>?
     
 //    init model?.venues{
@@ -144,6 +144,22 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //            savedata()
         }
     }
+    
+//    func passoverdata (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        print ("SBB")
+//        let restaurant = data [indexPath.row]
+//            if restaurant.selected == true{
+//                selecteddata.insert(restaurant.name!, at: 0)
+//                print ("PERFECT")
+//                print (selecteddata)
+//            }
+//        else {
+//            print ("SAD")
+//        }
+//        nText = restaurant.name
+//        print ("GOOD")
+//        print (nText)
+//    }
 
 //** Prepare Segue **//
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -158,35 +174,46 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func saveButtonPressed(_ Sender:UIBarButtonItem){
 //        didTapButton(sender: RestaurantTableViewCell)
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            let restaurant = data [selectedIndexPath.row]
+            for x in data  {
+//                print("we here",x)
+          
 //            if restaurant.selected == true {
-                nText = restaurant.name
+//                nText = restaurant.name
+            
+                selecteddata.insert(x, at: 0)
+            }
+            
 //                print (data [selectedIndexPath.row].selected)
 //            } else {
 //                nText = ""
 //            }
             
             //** NOT WORKING **//
-//            if #available(iOS 15.0, *) {
-//                if saveButton.isSelected == true {
-//                    nText = restaurant.name
-//                    print (data [selectedIndexPath.row].selected)
-//                } else {
-//                    nText = ""
-//                }
-//            } else {
-//                nText = ""
-//            }
+            //            if #available(iOS 15.0, *) {
+            //                if RestaurantTableViewCell?.myButton.isSelected == true {
+            //                    nText = restaurant.name
+            //                    print (data [selectedIndexPath.row].selected)
+            //                } else {
+            //                    nText = ""
+            //                }
+            //            } else {
+            //                nText = ""
+            //            }
             
             //** DEBUGGING **//
             print ("GOOD")
             print (nText)
+            print (selecteddata)
         }
 //        self.present(SelectVenuesViewController(), animated: true)
+        model?.finishedSelectionTapped(venues: selecteddata)
         coordinator?.didSave()
+        
     }
     
-
+    func printpasseddata(){
+        print (selecteddata)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

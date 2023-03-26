@@ -15,7 +15,7 @@ class SelectVenuesModel {
     var venues: [Venue] = []
    
    //sumbit button
-   func finishedSelectionTapped() {
+    func finishedSelectionTapped(venues: [Venue]) {
        coordinator?.didFinish(venues: venues)
    }
     

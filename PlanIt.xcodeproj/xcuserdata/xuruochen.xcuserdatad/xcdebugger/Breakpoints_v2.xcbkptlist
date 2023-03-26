@@ -219,8 +219,8 @@
             filePath = "PlanIt/Welcome/Selection/SelectVenues/VenuesUI/SelectVenuesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -235,8 +235,8 @@
             filePath = "PlanIt/Welcome/Selection/SelectVenues/VenuesUI/SelectVenuesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
