@@ -12,10 +12,12 @@ import MapKit
 class SelectVenuesModel {
     var viewController: SelectVenuesViewController?
     var coordinator: SelectVenuesCoordinator?
-    
-    
-    
-    
-    
+    var venues: [Venue] = []
+   
+   //sumbit buttone
+    func finishedSelectionTapped(selectedvenues: [Venue]) {
+       coordinator?.didFinish(venues: selectedvenues)
+//        print("selectVeneusModel",selectedvenues)
+   }
     
 }

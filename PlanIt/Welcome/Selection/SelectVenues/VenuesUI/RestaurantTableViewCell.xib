@@ -10,49 +10,84 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantTableViewCell" rowHeight="70" id="KGk-i7-Jjw" customClass="RestaurantTableViewCell" customModule="PlanIt" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantTableViewCell" rowHeight="50" id="KGk-i7-Jjw" customClass="RestaurantTableViewCell" customModule="PlanIt" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkU-uM-Zzi">
-                        <rect key="frame" x="15" y="15" width="240" height="40"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzz-pT-TOL">
+                        <rect key="frame" x="15" y="19" width="22" height="22"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="240" id="Nh3-5g-M8a"/>
-                            <constraint firstAttribute="height" constant="40" id="Vac-aI-QEl"/>
+                            <constraint firstAttribute="width" constant="22" id="YK0-Kv-JNX"/>
+                            <constraint firstAttribute="height" constant="22" id="ynS-hI-fvv"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="info.circle" catalog="system"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkU-uM-Zzi">
+                        <rect key="frame" x="42" y="10" width="238" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Vac-aI-QEl"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="qpb-e4-Mch"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87i-Cd-O0X">
-                        <rect key="frame" x="260" y="15" width="50" height="40"/>
+                        <rect key="frame" x="285" y="10" width="30" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="HXg-20-pab"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="6XA-jp-LMr"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="8BH-jF-zfS"/>
+                            <constraint firstAttribute="width" constant="30" id="C5m-Ft-UCZ"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="uB1-C2-1la"/>
                             <constraint firstAttribute="height" constant="40" id="wjh-Qh-k1I"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="xwP-kz-tvw"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+<<<<<<< HEAD
                     <constraint firstAttribute="bottom" secondItem="87i-Cd-O0X" secondAttribute="bottom" constant="15" id="8wz-x2-Hmg"/>
                     <constraint firstItem="kkU-uM-Zzi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="hIO-gh-qYW"/>
                     <constraint firstAttribute="bottom" secondItem="kkU-uM-Zzi" secondAttribute="bottom" constant="15" id="r8s-tu-xHS"/>
                     <constraint firstItem="87i-Cd-O0X" firstAttribute="leading" secondItem="kkU-uM-Zzi" secondAttribute="trailing" constant="5" id="sQp-7k-fmL"/>
                     <constraint firstItem="kkU-uM-Zzi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="wOn-jp-5Kz"/>
                     <constraint firstItem="87i-Cd-O0X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="zD9-rM-FNC"/>
+=======
+                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4bm-pl-VSN"/>
+                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="leading" secondItem="pzz-pT-TOL" secondAttribute="trailing" constant="5" id="BTf-ZT-FIg"/>
+                    <constraint firstItem="87i-Cd-O0X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="LEh-a1-Nld"/>
+                    <constraint firstItem="pzz-pT-TOL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="TyL-EU-32U"/>
+                    <constraint firstAttribute="bottom" secondItem="pzz-pT-TOL" secondAttribute="bottom" constant="19" id="W1y-uq-xND"/>
+                    <constraint firstAttribute="bottom" secondItem="87i-Cd-O0X" secondAttribute="bottom" constant="10" id="Xxn-G9-tvb"/>
+                    <constraint firstItem="87i-Cd-O0X" firstAttribute="leading" secondItem="kkU-uM-Zzi" secondAttribute="trailing" constant="5" id="fNa-nb-nkI"/>
+                    <constraint firstAttribute="bottom" secondItem="kkU-uM-Zzi" secondAttribute="bottom" constant="10" id="nNn-vB-VbF"/>
+                    <constraint firstAttribute="trailing" secondItem="87i-Cd-O0X" secondAttribute="trailing" constant="5" id="vM1-xv-2vi"/>
+                    <constraint firstItem="pzz-pT-TOL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="yAc-UA-iwd"/>
+>>>>>>> connection
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="myLabel" destination="kkU-uM-Zzi" id="kCG-bC-QXf"/>
+<<<<<<< HEAD
                 <outlet property="priceLabel" destination="87i-Cd-O0X" id="dqG-3e-d4w"/>
             </connections>
             <point key="canvasLocation" x="0.0" y="28.87323943661972"/>
+=======
+                <outlet property="priceLabel" destination="87i-Cd-O0X" id="X0v-BR-Gd8"/>
+            </connections>
+            <point key="canvasLocation" x="1.5267175572519083" y="35.211267605633807"/>
+>>>>>>> connection
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
+    </resources>
 </document>

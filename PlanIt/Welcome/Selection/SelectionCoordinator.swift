@@ -9,12 +9,16 @@ import Foundation
 import UIKit
 
 class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
+    
+    var model: SelectionModelProtocol?
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
+    var locationManager:LocationManager
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,locationManager:LocationManager) {
         self.navigationController = navigationController
+        self.locationManager = locationManager
     }
 
     //Initializes view controller model and connects them.
@@ -28,21 +32,33 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
         viewController.model = model
         model.viewController = viewController
         model.coordinator = self
+        self.model =  model
         
         navigationController.pushViewController(viewController, animated: true)
     }
 
     func goToSelectVenues(categoryType: String) {
-        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType)
+        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType, delegate: self, locationManager:locationManager)
         selectVenues.parentCoordinator = self
+        
         children.append(selectVenues)
-        selectVenues.yelpAPICall()
     }
     
-    func goToMap() {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController)
+    func goToMap(venues: [Venue]) {
+        let mapCoordinator = MapCoordinator(navigationController: navigationController, venues: venues, locationManager: locationManager)
         mapCoordinator.parentCoordinator = self
         children.append(mapCoordinator)
         mapCoordinator.start()
     }
+    
+    func finish(venues: [Venue]) {
+        self.model!.update(venues: venues)
+    }
 }
+
+extension SelectionCoordinator: SelectionDelegateProtocol {
+    func didFinish(venues: [Venue]) {
+        self.finish(venues: venues)
+    }
+}
+

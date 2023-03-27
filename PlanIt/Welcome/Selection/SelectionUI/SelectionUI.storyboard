@@ -33,8 +33,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Desired Categories ..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hz-cB-ODq">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Desired Categories ..." textAlignment="center" minimumFontSize="17" id="4Hz-cB-ODq">
                                 <rect key="frame" x="67" y="219" width="280" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0ba-01-aLr"/>
                                 </constraints>
@@ -63,20 +64,22 @@
                                     <action selector="didTapMapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fks-fh-ET5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-DH-ImR">
-                                <rect key="frame" x="106" y="277" width="200" height="33.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="NXF-DH-ImR">
+                                <rect key="frame" x="106" y="277" width="200" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Search"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Search">
+                                <buttonConfiguration key="configuration" style="tinted" title="Show Selected">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="SearchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xoM-Oz-0Mo"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" layoutManager="textKit1" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-8k-Vri">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" layoutManager="textKit1" id="W4F-8k-Vri">
                                 <rect key="frame" x="19" y="110" width="370" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="79" id="Ygv-Di-OcB"/>
@@ -86,24 +89,27 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" lookupSuggestion="YES"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tax-5y-Vmz">
-                                <rect key="frame" x="150" y="360.5" width="115" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Tax-5y-Vmz">
+                                <rect key="frame" x="150" y="361" width="115" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Restaurants"/>
                                 <connections>
                                     <action selector="restaurants:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="u5i-JC-sZM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjZ-mJ-bv5">
-                                <rect key="frame" x="172" y="444" width="66" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="TjZ-mJ-bv5">
+                                <rect key="frame" x="172" y="445" width="66" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="cafés"/>
                                 <connections>
                                     <action selector="cafés:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PSj-c0-p6y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fic-fz-RrT">
-                                <rect key="frame" x="173" y="511" width="68" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Fic-fz-RrT">
+                                <rect key="frame" x="173" y="510" width="68" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Gyms"/>
                                 <connections>
@@ -134,7 +140,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Selection Page" id="QeL-P5-pwH">
-                        <barButtonItem key="backBarButtonItem" title="Select" id="qmz-R0-erZ"/>
+                        <barButtonItem key="backBarButtonItem" title="Login" id="qmz-R0-erZ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="SearchTextField" destination="4Hz-cB-ODq" id="2RH-cZ-xg7"/>
@@ -148,7 +154,9 @@
         <!--SelectVenues-->
         <scene sceneID="GJe-ec-hWm">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SelectVenues" storyboardName="SelectVenues" referencedIdentifier="SelectVenues" id="JzJ-kv-5em" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="SelectVenues" storyboardName="SelectVenues" referencedIdentifier="SelectVenues" id="JzJ-kv-5em" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8Ia-0p-kyp"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgc-On-xNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="704" y="90"/>

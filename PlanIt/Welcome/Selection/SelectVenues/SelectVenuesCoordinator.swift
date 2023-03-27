@@ -9,35 +9,67 @@ import Foundation
 import UIKit
 import MapKit
 
-class SelectVenuesCoordinator: Coordinator {
+class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {    
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var categoryType: String
-    let currentCoordinate =  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
-    var venues: [Venue] = []
+    var locationManager: LocationManager
+
     
-    init(navigationController: UINavigationController, categoryType: String) {
+    var currentCoordinate: CLLocationCoordinate2D {
+         return locationManager.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+    }
+    
+    var venues: [Venue] = []
+    weak var delegate: SelectionDelegateProtocol?
+    
+    init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol,locationManager:LocationManager) {
         self.navigationController = navigationController
         self.categoryType = categoryType
+        self.delegate = delegate
+        self.locationManager = locationManager
+        
+        yelpAPICall()
     }
+   
     
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
-    let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
-    
     func start() {
+        let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
         let model: SelectVenuesModel = SelectVenuesModel()
-        let viewController  = self.storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
-
+        let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
+        
         viewController.model = model
         viewController.coordinator = self
+        
         model.viewController = viewController
         model.coordinator = self
+        model.venues = self.venues
         
         self.navigationController.pushViewController(viewController, animated: true)
-        
     }
+    //passes back the data to the 
+    func didFinish(venues: [Venue]) {
+        delegate?.didFinish(venues: venues)
+    }
+    
+    func didSave() {
+        let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
+        let model: SelectVenuesModel = SelectVenuesModel()
+        let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
+        
+        viewController.model = model
+        viewController.coordinator = self
+        
+        model.viewController = viewController
+        model.coordinator = self
+        model.venues = self.venues
+        
+        self.navigationController.popViewController(animated: true)
+    }
+    
     //calls api and starts coordinator
     func yelpAPICall() {
         let latitude = currentCoordinate.latitude
@@ -51,19 +83,13 @@ class SelectVenuesCoordinator: Coordinator {
             (response, error) in
             if let response = response {
                 DispatchQueue.main.async {
-                self.venues = response
+                    self.venues = response
                     self.start()
                 }
             }
         }
     }
     
-    func goToMap() {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController)
-        mapCoordinator.parentCoordinator = self
-        children.append(mapCoordinator)
-        mapCoordinator.start()
-    }
     
     
 }

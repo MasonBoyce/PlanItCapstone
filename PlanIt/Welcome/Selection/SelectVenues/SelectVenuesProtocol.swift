@@ -13,9 +13,10 @@ protocol SelectVenuesViewControllerProtocol: AnyObject {
 }
 
 protocol SelectVenuesModelProtocol: AnyObject {
-    
+    var veunes: [Venue] {get set}
 }
 
 protocol SelectVenuesCoordinatorProtocol: AnyObject {
-   
+    func didFinish(venues: [Venue])
+    
 }
