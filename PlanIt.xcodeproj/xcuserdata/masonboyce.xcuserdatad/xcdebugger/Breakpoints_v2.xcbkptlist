@@ -7,48 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E6F59190-1F6B-4538-9A86-A53AD2022F34"
-            shouldBeEnabled = "Yes"
+            uuid = "616BF30E-835A-4462-A899-9E3CECD69CC6"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/Map/MapModel.swift"
+            filePath = "PlanIt/Welcome/WelcomeCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init(navigationController:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EF9D880E-656E-490D-A244-1590AE9D1AE9"
-            shouldBeEnabled = "Yes"
+            uuid = "1A54CACD-CC89-4D12-A6FF-F041344953CC"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/Map/MapModel.swift"
+            filePath = "PlanIt/LocationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "init()"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "requestWhenInUseAuthorization()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8DE77216-E32A-4043-A72F-344DB5840A2F"
-            shouldBeEnabled = "Yes"
+            uuid = "9E4B0841-8F25-4216-91CE-CED103EC19B6"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/Map/MapModel.swift"
+            filePath = "PlanIt/LocationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "init()"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "requestWhenInUseAuthorization()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

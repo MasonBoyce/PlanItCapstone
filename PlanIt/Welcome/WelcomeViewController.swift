@@ -14,8 +14,12 @@ class WelcomeViewController: UIViewController {
     var model: WelcomeModelProtocol?
     var coordinator: WelcomeCoordinatorProtocol?
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    
 //        view.backgroundColor = .link
     }
     
@@ -25,6 +29,8 @@ class WelcomeViewController: UIViewController {
 
         statusBar.backgroundColor = .white
     }
+    
+    
     
     @IBAction func didTapButton() {
         model?.doSomething()

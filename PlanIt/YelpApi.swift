@@ -18,11 +18,15 @@ struct Venue {
     var latitude: Double?
     var longitude: Double?
     var time_of_day: String? // 'Morning' | 'Afternoon' | 'Evening' ONLY
+    var selected: Bool? = false
+//    var selected: String?
+//    static let locations = [Venue(name:"Common")]
 }
 
 class YelpApi{
 //    TUTORIAL By https://medium.com/@khansaryan/yelp-fusion-api-integration-af50dd186a6e
     
+//    var viewcontroller: SelectVenuesViewController?
     func retriveVenues(latitude: Double, longitude: Double, category: String, limit: Int, sortBy: String, locale:String, completionHandler: @escaping([Venue]?, Error?)-> Void ) {
         let apiKey = "mvMizN0RpyOsWy8v9KDxnYw_e-RARw_7NR-KhyHhnI8dgX3SYGKE-q2-9XVLEY12FAKiSEpSjYUzG6VLPpjwgQYfD5lmrTi18hvk7mDnrEL-bfL44X1-HLaQideNY3Yx"
         let baseUrl = "https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&categories=\(category)&limit=\(limit)&sort_by=\(sortBy)&locale=\(locale)"
