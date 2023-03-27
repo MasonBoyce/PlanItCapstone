@@ -264,10 +264,10 @@ class TripSession {
         return (ordered_routes, cost_min)
     }
     
+    // THIS IS NOT READY BY ANY MEANS
     func find_time_of_day_route_perm() -> ([MKRoute], Double) {
         
-        
-        var time_group_perms = get_time_group_perms()
+        //var time_group_perms_dict = get_time_group_perms()
         let num_venues = venue_ids.count
         
         var source_id = -1
@@ -279,7 +279,7 @@ class TripSession {
         
         // Calculate all time-relevant routes
         for time in all_time_group_perms.keys {
-            time_group_perms = all_time_group_perms[time]
+            time_group_perms = all_time_group_perms[time] ?? []
             for venue_id_perm in time_group_perms {
                 for venue_id_spot in (0 ... num_venues - 2) {
                     source_id = venue_id_perm[venue_id_spot]

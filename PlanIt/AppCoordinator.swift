@@ -39,6 +39,9 @@ class AppCoordinator: Coordinator {
         session.set_timed_permutations()
         print(session.all_time_group_perms)
         
+        
+        
+        print(array_ex.permutations)
     }
     
     func testTripSessionHardCoded(numVenues: Int) -> [Venue]{
@@ -64,5 +67,4 @@ class AppCoordinator: Coordinator {
         return venues
     }
     
-   
 }
