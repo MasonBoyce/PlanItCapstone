@@ -116,6 +116,14 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        print ([Venue].self())
 //        print("Hi")
 //    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.isSelected {
+                data[indexPath.row].selected = !(data [indexPath.row].selected ?? false)
+            }
+        }
+    }
 
 /*switch auxiliary*/
 //    @objc func didChangeSwitch(_ sender: UISwitch){
@@ -132,15 +140,15 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        let text = notification.object as! String`?
 //        myLabel.text = text
 //    }
+    
     func didTapButton(sender: RestaurantTableViewCell) {
         if let selectedIndexPath = tableView.indexPath(for: sender) {
             data[selectedIndexPath.row].selected = !(data [selectedIndexPath.row].selected ?? false)
-//            data[selectedIndexPath.row].selected = true
             tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
             //** DEBUGGING **//
-            print ("success")
-            print (data[selectedIndexPath.row].name)
-            print (data [selectedIndexPath.row].selected)
+//            print ("success")
+//            print (data[selectedIndexPath.row].name)
+//            print (data [selectedIndexPath.row].selected)
 //            savedata()
         }
     }
