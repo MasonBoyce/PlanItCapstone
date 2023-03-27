@@ -123,6 +123,10 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
+            cell.backgroundColor = UIColor(red: 0, green: 252, blue: 0, alpha: 0.1)
+            UIView.animate(withDuration: 0.2, animations: {
+                tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
+            })
             if cell.isSelected {
                 data[indexPath.row].selected = !(data [indexPath.row].selected ?? false)
             }
@@ -132,6 +136,10 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 252, green: 0, blue: 0, alpha: 0.1)
+        UIView.animate(withDuration: 0.2, animations: {
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
+        })
     }
 
 /*switch auxiliary*/
