@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 import MapKit
 
+var isAPICalled = false
+
 class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {    
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
@@ -23,6 +25,16 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     
     var venues: [Venue] = []
     weak var delegate: SelectionDelegateProtocol?
+    
+//    func callAPI() {
+//        if isAPICalled {
+//            print ("API not called",isAPICalled)
+//        }
+//        yelpAPICall()
+//        self.start()
+//        isAPICalled = true
+//        print ("API called",isAPICalled)
+//        }
     
     init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol,locationManager:LocationManager) {
         self.navigationController = navigationController
@@ -48,8 +60,17 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         model.coordinator = self
         model.venues = self.venues
         
-        self.navigationController.pushViewController(viewController, animated: true)
+//        navigationController.modalTransitionStyle = .crossDissolve
+//        self.navigationController.pushViewController(viewController, animated: true)
+        
+        //** Navigationcontroller needs to be wrapped to be presented modally **//
+        let navcontroller = UINavigationController(rootViewController: viewController)
+        self.navigationController.present(navcontroller, animated: true, completion: nil)
+        navcontroller.isToolbarHidden = false
+        navcontroller.isNavigationBarHidden = false
+        navcontroller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
     }
+    
     //passes back the data to the 
     func didFinish(venues: [Venue]) {
         delegate?.didFinish(venues: venues)
@@ -67,7 +88,8 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         model.coordinator = self
         model.venues = self.venues
         
-        self.navigationController.popViewController(animated: true)
+//        self.navigationController.popViewController(animated: true)
+        self.navigationController.dismiss(animated: true, completion: nil)
     }
     
     //calls api and starts coordinator

@@ -12,6 +12,7 @@ var nText: String?
 
 class SelectionUIViewController: UIViewController, SelectionUIViewControllerProtocol {
     var model: SelectionModel?
+    var coordinator: SelectVenuesCoordinator?
     
     //* Catch Data passed from TableView*//
     var CheckedItem: String!
@@ -31,18 +32,21 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     
     @IBAction func restaurants(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "restaurants")
+//        coordinator?.callAPI()
 //        self.present(SelectVenuesViewController(), animated: true)
 //        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
     @IBAction func cafés(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "cafes")
+//        coordinator?.callAPI()
 //        self.present(SelectVenuesViewController(), animated: true)
 //        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
     @IBAction func gyms(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "gyms")
+//        coordinator?.callAPI()
 //        self.present(SelectVenuesViewController(), animated: true)
 //        performSegue(withIdentifier: "ShowTableview", sender: self)
     }

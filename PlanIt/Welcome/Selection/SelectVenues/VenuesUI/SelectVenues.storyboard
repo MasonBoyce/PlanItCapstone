@@ -37,7 +37,7 @@
                             <constraint firstItem="D2W-j2-vn1" firstAttribute="leading" secondItem="NMq-be-wzk" secondAttribute="leading" id="0lO-Ei-DMY"/>
                             <constraint firstItem="NMq-be-wzk" firstAttribute="trailing" secondItem="D2W-j2-vn1" secondAttribute="trailing" id="DlG-yb-DIy"/>
                             <constraint firstItem="NMq-be-wzk" firstAttribute="bottom" secondItem="D2W-j2-vn1" secondAttribute="bottom" id="FBV-RV-dvk"/>
-                            <constraint firstItem="D2W-j2-vn1" firstAttribute="top" secondItem="NMq-be-wzk" secondAttribute="top" id="dfh-u2-m46"/>
+                            <constraint firstItem="D2W-j2-vn1" firstAttribute="top" secondItem="NMq-be-wzk" secondAttribute="top" id="x5T-Np-G3X"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -88,6 +88,7 @@
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="aqY-kX-nGe">
                         <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <toolbarAppearance key="standardAppearance"/>
                     </toolbar>
                     <connections>
                         <segue destination="V14-16-VGV" kind="relationship" relationship="rootViewController" id="PDG-As-JE8"/>

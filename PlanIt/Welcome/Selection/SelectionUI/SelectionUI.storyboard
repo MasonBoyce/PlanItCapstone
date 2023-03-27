@@ -46,7 +46,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I9-G2-Pn7">
-                                <rect key="frame" x="119" y="634" width="169" height="70"/>
+                                <rect key="frame" x="119" y="631.5" width="170" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="gOr-91-sBb"/>
                                 </constraints>

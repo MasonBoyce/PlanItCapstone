@@ -24,8 +24,16 @@ import UIKit
 //** OPTIONAL ANIMATION TUTORIAL ADOPTED FROM https://medium.com/@shubham_iosdev/animate-the-boring-tableviews-in-your-ios-app-a98bc6dee3e9 **//
 //** ANIMATION CODE ENDS HERE **//
 
+class ResultsVC: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .red
+    }
+}
 
-class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate {
+class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate , UISearchResultsUpdating{
+    
+    let searchController = UISearchController(searchResultsController: ResultsVC())
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -79,13 +87,20 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        let result = parent.venues[Venue].joined(separator: "-")
 //        }
 
-    
+    //** Search Functionality **//
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        let vc = searchController.searchResultsController as? ResultsVC
+        vc?.view.backgroundColor = .blue
+    }
     
     //Required TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let Venues = data[indexPath.row]
         let restaurants = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
@@ -243,6 +258,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         data = coordinator?.venues ?? []
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
 //        print (data)
 //        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("text"), object: nil)
         
