@@ -21,6 +21,9 @@ import UIKit
 //    }
 //}
 
+//** OPTIONAL ANIMATION TUTORIAL ADOPTED FROM https://medium.com/@shubham_iosdev/animate-the-boring-tableviews-in-your-ios-app-a98bc6dee3e9 **//
+//** ANIMATION CODE ENDS HERE **//
+
 
 class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate {
     
@@ -88,7 +91,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         restaurants.delegate = self
         restaurants.myLabel?.text = restaurant.name
         restaurants.priceLabel?.text = restaurant.price
-        restaurants.myButton?.isSelected = restaurant.selected ?? false
+//        restaurants.myButton?.isSelected = restaurant.selected ?? false
+        restaurants.selectionStyle = .none
 //        let restaurants = table.dequeueReusableCell(withIdentifier: "restaurants", for: indexPath) as! CustomTableViewCell
 //        restaurants.textLabel?.text = data[indexPath.row]
         
@@ -122,7 +126,12 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
             if cell.isSelected {
                 data[indexPath.row].selected = !(data [indexPath.row].selected ?? false)
             }
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .none
     }
 
 /*switch auxiliary*/
@@ -141,17 +150,17 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        myLabel.text = text
 //    }
     
-    func didTapButton(sender: RestaurantTableViewCell) {
-        if let selectedIndexPath = tableView.indexPath(for: sender) {
-            data[selectedIndexPath.row].selected = !(data [selectedIndexPath.row].selected ?? false)
-            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
-            //** DEBUGGING **//
-//            print ("success")
-//            print (data[selectedIndexPath.row].name)
-//            print (data [selectedIndexPath.row].selected)
-//            savedata()
-        }
-    }
+//    func didTapButton(sender: RestaurantTableViewCell) {
+//        if let selectedIndexPath = tableView.indexPath(for: sender) {
+//            data[selectedIndexPath.row].selected = !(data [selectedIndexPath.row].selected ?? false)
+//            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+//            //** DEBUGGING **//
+////            print ("success")
+////            print (data[selectedIndexPath.row].name)
+////            print (data [selectedIndexPath.row].selected)
+////            savedata()
+//        }
+//    }
     
 //    func passoverdata (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        print ("SBB")

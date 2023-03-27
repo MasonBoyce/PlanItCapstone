@@ -4,9 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,39 +17,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smk-2l-lqy">
-                        <rect key="frame" x="5" y="15" width="30" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzz-pT-TOL">
+                        <rect key="frame" x="15" y="19" width="22" height="22"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="9qD-HK-709"/>
-                            <constraint firstAttribute="width" constant="30" id="O4R-BC-w6t"/>
+                            <constraint firstAttribute="width" constant="22" id="YK0-Kv-JNX"/>
+                            <constraint firstAttribute="height" constant="22" id="ynS-hI-fvv"/>
                         </constraints>
-                        <color key="tintColor" systemColor="labelColor"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" image="circle" catalog="system">
-                            <color key="titleColor" systemColor="labelColor"/>
-                        </state>
-                        <state key="selected">
-                            <imageReference key="image" image="checkmark.circle.fill" catalog="system" variableValue="0.0"/>
-                        </state>
-                        <connections>
-                            <action selector="buttonTappedWith_sender:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dfh-0A-Z6x"/>
-                        </connections>
+                        <state key="normal" image="info.circle" catalog="system"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkU-uM-Zzi">
-                        <rect key="frame" x="40" y="10" width="240" height="40"/>
+                        <rect key="frame" x="42" y="10" width="238" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="240" id="Nh3-5g-M8a"/>
                             <constraint firstAttribute="height" constant="40" id="Vac-aI-QEl"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="qpb-e4-Mch"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87i-Cd-O0X">
-                        <rect key="frame" x="288" y="10" width="30" height="40"/>
+                        <rect key="frame" x="285" y="10" width="30" height="40"/>
                         <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="6XA-jp-LMr"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="8BH-jF-zfS"/>
                             <constraint firstAttribute="width" constant="30" id="C5m-Ft-UCZ"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="uB1-C2-1la"/>
                             <constraint firstAttribute="height" constant="40" id="wjh-Qh-k1I"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="xwP-kz-tvw"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
                         <nil key="textColor"/>
@@ -59,20 +52,20 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="smk-2l-lqy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="6Z9-Dw-PhT"/>
-                    <constraint firstItem="87i-Cd-O0X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="79T-cZ-ont"/>
-                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="B0k-W0-39w"/>
-                    <constraint firstAttribute="bottom" secondItem="87i-Cd-O0X" secondAttribute="bottom" constant="10" id="EE6-6F-9cO"/>
-                    <constraint firstAttribute="trailing" secondItem="87i-Cd-O0X" secondAttribute="trailing" constant="2" id="LVW-Be-WJt"/>
-                    <constraint firstItem="smk-2l-lqy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="O17-Uj-N7B"/>
-                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="leading" secondItem="smk-2l-lqy" secondAttribute="trailing" constant="5" id="PYm-y0-zxe"/>
-                    <constraint firstAttribute="bottom" secondItem="kkU-uM-Zzi" secondAttribute="bottom" constant="10" id="Zjp-xn-xt6"/>
-                    <constraint firstAttribute="bottom" secondItem="smk-2l-lqy" secondAttribute="bottom" constant="15" id="fKP-RA-afm"/>
+                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4bm-pl-VSN"/>
+                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="leading" secondItem="pzz-pT-TOL" secondAttribute="trailing" constant="5" id="BTf-ZT-FIg"/>
+                    <constraint firstItem="87i-Cd-O0X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="LEh-a1-Nld"/>
+                    <constraint firstItem="pzz-pT-TOL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="TyL-EU-32U"/>
+                    <constraint firstAttribute="bottom" secondItem="pzz-pT-TOL" secondAttribute="bottom" constant="19" id="W1y-uq-xND"/>
+                    <constraint firstAttribute="bottom" secondItem="87i-Cd-O0X" secondAttribute="bottom" constant="10" id="Xxn-G9-tvb"/>
+                    <constraint firstItem="87i-Cd-O0X" firstAttribute="leading" secondItem="kkU-uM-Zzi" secondAttribute="trailing" constant="5" id="fNa-nb-nkI"/>
+                    <constraint firstAttribute="bottom" secondItem="kkU-uM-Zzi" secondAttribute="bottom" constant="10" id="nNn-vB-VbF"/>
+                    <constraint firstAttribute="trailing" secondItem="87i-Cd-O0X" secondAttribute="trailing" constant="5" id="vM1-xv-2vi"/>
+                    <constraint firstItem="pzz-pT-TOL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="yAc-UA-iwd"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="myButton" destination="smk-2l-lqy" id="c2Q-vp-QEd"/>
                 <outlet property="myLabel" destination="kkU-uM-Zzi" id="kCG-bC-QXf"/>
                 <outlet property="priceLabel" destination="87i-Cd-O0X" id="X0v-BR-Gd8"/>
             </connections>
@@ -80,10 +73,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="circle" catalog="system" width="128" height="123"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
     </resources>
 </document>

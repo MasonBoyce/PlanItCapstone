@@ -8,14 +8,14 @@
 import UIKit
 
 protocol RestaurantTableViewCellDelegate: AnyObject {
-    func didTapButton(sender: RestaurantTableViewCell)
+//    func didTapButton(sender: RestaurantTableViewCell)
 }
 
 class RestaurantTableViewCell: UITableViewCell {
     
     weak var delegate: RestaurantTableViewCellDelegate?
     
-    @IBOutlet var myButton: UIButton!
+//    @IBOutlet var myButton: UIButton!
     @IBOutlet var myLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
 //    @IBOutlet var myImageView: UIImageView!
@@ -26,9 +26,10 @@ class RestaurantTableViewCell: UITableViewCell {
 //    @IBOutlet var mySwitch: UISwitch!
 //    private var title: String = ""
 //
-    @IBAction func buttonTapped(_sender: UIButton){
-        delegate?.didTapButton(sender: self)
-    }
+
+//    @IBAction func buttonTapped(_sender: UIButton){
+//        delegate?.didTapButton(sender: self)
+//    }
 //
 //    func configure(with title: String) {
 //        self.title = title
