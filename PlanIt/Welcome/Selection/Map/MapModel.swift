@@ -36,6 +36,7 @@ class MapModel: MapModelProtocol {
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
         self.venues = venues
+       
 //        tripSession = TripSession(newVenues: venues)
 //        tripSession?.find_optimal_venue_id_perm()
     }
@@ -51,6 +52,7 @@ class MapModel: MapModelProtocol {
     func addAnnotations() {
         var index = 0
         for venue in venues {
+            print("MASON BOYCE",venue)
             let venueLatitude: Double = venue.latitude ?? 0.0
             let venueLongitude: Double = venue.longitude ?? 0.0
             let venueName: String = venue.name ?? "Unknown"

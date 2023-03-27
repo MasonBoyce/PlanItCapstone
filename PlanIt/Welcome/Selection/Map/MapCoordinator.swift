@@ -24,14 +24,13 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
     func start() {
-        let viewController: MapViewController = MapViewController()
-        let model: MapModel = MapModel(venues: self.venues, locationManager:locationManager)
         
+        let model: MapModel = MapModel(venues: self.venues, locationManager:locationManager)
+        let viewController: MapViewController = MapViewController()
         viewController.model = model
         model.viewController = viewController
         model.coordinator = self
-        model.locationManager = self.locationManager
-        
+        model.addAnnotations()
         navigationController.pushViewController(viewController, animated: true)
     }
     
