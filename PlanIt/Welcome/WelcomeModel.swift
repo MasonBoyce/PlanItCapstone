@@ -37,7 +37,7 @@ class WelcomeModel: WelcomeModelProtocol {
             switch status {
 
             case .authorizedWhenInUse:
-                print("hello")
+                print("🤩 Welcome to Planit!")
                 // Handle location access granted when in use
                 break
             case .denied, .restricted:

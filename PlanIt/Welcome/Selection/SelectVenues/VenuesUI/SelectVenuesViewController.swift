@@ -190,13 +190,9 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 
     @IBAction func saveButtonPressed(_ Sender:UIBarButtonItem){
 //        didTapButton(sender: RestaurantTableViewCell)
-        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+        if tableView.indexPathForSelectedRow != nil {
             for x in data  {
-                //                print("we here",x)
-                
                 if x.selected == true {
-                    //                nText = restaurant.name
-                    
                     selecteddata.insert(x, at: 0)
                 }
             }
@@ -219,7 +215,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
             //            }
             
             //** DEBUGGING **//
-            print ("GOOD")
+            print ("🥺 Selecteddata Printed!")
 //            print (nText)
             print (selecteddata)
         }

@@ -49,9 +49,10 @@
                                 <state key="normal" title="MapView"/>
                                 <buttonConfiguration key="configuration" style="filled">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Welcome">
+                                        <fragment content="Planit">
                                             <attributes>
                                                 <font key="NSFont" size="25" name="Futura-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
