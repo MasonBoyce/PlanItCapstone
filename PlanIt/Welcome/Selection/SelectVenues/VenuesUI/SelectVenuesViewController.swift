@@ -55,20 +55,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        model?.yelpApiCall(categoryType:"restaurants")
 //    }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let nib = UINib(nibName: "RestaurantTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "RestaurantTableViewCell")
-        tableView.delegate = self
-        tableView.dataSource = self
-        data = coordinator!.venues
-//        print (data)
-//        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("text"), object: nil)
-        
-        
-//        test()
-//        view.backgroundColor = .black
-    }
+    
     
     @IBOutlet var tableView: UITableView!
 //    func fetchVenues(parent:SelectVenuesModel){

@@ -52,14 +52,6 @@
                     </label>
                 </subviews>
                 <constraints>
-<<<<<<< HEAD
-                    <constraint firstAttribute="bottom" secondItem="87i-Cd-O0X" secondAttribute="bottom" constant="15" id="8wz-x2-Hmg"/>
-                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="hIO-gh-qYW"/>
-                    <constraint firstAttribute="bottom" secondItem="kkU-uM-Zzi" secondAttribute="bottom" constant="15" id="r8s-tu-xHS"/>
-                    <constraint firstItem="87i-Cd-O0X" firstAttribute="leading" secondItem="kkU-uM-Zzi" secondAttribute="trailing" constant="5" id="sQp-7k-fmL"/>
-                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="wOn-jp-5Kz"/>
-                    <constraint firstItem="87i-Cd-O0X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="zD9-rM-FNC"/>
-=======
                     <constraint firstItem="kkU-uM-Zzi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4bm-pl-VSN"/>
                     <constraint firstItem="kkU-uM-Zzi" firstAttribute="leading" secondItem="pzz-pT-TOL" secondAttribute="trailing" constant="5" id="BTf-ZT-FIg"/>
                     <constraint firstItem="87i-Cd-O0X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="LEh-a1-Nld"/>
@@ -70,21 +62,14 @@
                     <constraint firstAttribute="bottom" secondItem="kkU-uM-Zzi" secondAttribute="bottom" constant="10" id="nNn-vB-VbF"/>
                     <constraint firstAttribute="trailing" secondItem="87i-Cd-O0X" secondAttribute="trailing" constant="5" id="vM1-xv-2vi"/>
                     <constraint firstItem="pzz-pT-TOL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="yAc-UA-iwd"/>
->>>>>>> connection
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="myLabel" destination="kkU-uM-Zzi" id="kCG-bC-QXf"/>
-<<<<<<< HEAD
-                <outlet property="priceLabel" destination="87i-Cd-O0X" id="dqG-3e-d4w"/>
-            </connections>
-            <point key="canvasLocation" x="0.0" y="28.87323943661972"/>
-=======
                 <outlet property="priceLabel" destination="87i-Cd-O0X" id="X0v-BR-Gd8"/>
             </connections>
             <point key="canvasLocation" x="1.5267175572519083" y="35.211267605633807"/>
->>>>>>> connection
         </tableViewCell>
     </objects>
     <resources>
