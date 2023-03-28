@@ -30,6 +30,13 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     }
     
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
+    
+    //** OPTIONAL - For Launch Screen Animation **//
+//    func launchAnimation(){
+//        let LaunchViewController  = storyboard.instantiateViewController(withIdentifier: "LaunchViewController") as! LaunchViewController
+//        navigationController.pushViewController(LaunchViewController , animated: true)
+//    }
+    
     func goToLoginPage(){
          // Instantiate LoginViewController
         let WelcomeViewController  = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! WelcomeViewController

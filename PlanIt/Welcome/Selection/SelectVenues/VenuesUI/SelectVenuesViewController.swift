@@ -27,7 +27,7 @@ import UIKit
 class ResultsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+//        view.backgroundColor = .red
     }
 }
 
@@ -93,7 +93,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
             return
         }
         let vc = searchController.searchResultsController as? ResultsVC
-        vc?.view.backgroundColor = .blue
+//        vc?.view.backgroundColor = .blue
     }
     
     //Required TableView Functions
@@ -140,7 +140,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            cell.backgroundColor = UIColor(red: 0, green: 252, blue: 0, alpha: 0.1)
+//            cell.backgroundColor = UIColor(red: 0, green: 252, blue: 0, alpha: 0.1)
+            cell.backgroundColor = .systemGray3
             UIView.animate(withDuration: 0.2, animations: {
                 tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
             })
@@ -153,7 +154,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 252, green: 0, blue: 0, alpha: 0.1)
+//        tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 252, green: 0, blue: 0, alpha: 0.1)
+        tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
         UIView.animate(withDuration: 0.2, animations: {
             tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
         })
