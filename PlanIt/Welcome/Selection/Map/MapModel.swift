@@ -24,6 +24,8 @@ class MapModel: MapModelProtocol {
     var venues: [Venue]
     var tripSession: TripSession?
     var locationManager: LocationManager
+    var optimal_route: [MKRoute]?
+    var optimal_route_cost: Double?
     
     //Setting up custom annotations preinputed values
     var annotations: [CustomAnnotation] = []
@@ -37,8 +39,19 @@ class MapModel: MapModelProtocol {
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
         self.venues = venues
        
-//        tripSession = TripSession(newVenues: venues)
-//        tripSession?.find_optimal_venue_id_perm()
+        /*
+        
+        tripSession = TripSession(newVenues: venues)
+        (self.optimal_route, self.optimal_route_cost) = tripSession?.find_optimal_venue_route_perm()!!
+        
+        for route in optimal_route {
+            print(route.description)
+        }
+        
+        addOverlays(optimal_route)
+        
+         */
+        
     }
     
     func viewDidLoad() {

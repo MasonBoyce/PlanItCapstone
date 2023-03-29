@@ -41,7 +41,7 @@ class AppCoordinator: Coordinator {
         
         
         
-        print(array_ex.permutations)
+        //print(array_ex.permutations)
     }
     
     func testTripSessionHardCoded(numVenues: Int) -> [Venue]{
