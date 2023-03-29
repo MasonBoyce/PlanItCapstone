@@ -31,6 +31,24 @@ class ResultsVC: UIViewController {
     }
 }
 
+//** Loading Screen Helper func - Adpted from https://www.hackingwithswift.com/example-code/uikit/how-to-use-uiactivityindicatorview-to-show-a-spinner-when-work-is-happening **//
+
+//class SpinnerViewController: UIViewController {
+//    var spinner = UIActivityIndicatorView(style: .large)
+//
+//    override func loadView() {
+//        view = UIView()
+//        view.backgroundColor = UIColor(white: 0, alpha: 0.7)
+//
+//        spinner.translatesAutoresizingMaskIntoConstraints = false
+//        spinner.startAnimating()
+//        view.addSubview(spinner)
+//
+//        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//    }
+//}
+
 class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate , UISearchResultsUpdating{
     
     let searchController = UISearchController(searchResultsController: ResultsVC())
@@ -251,6 +269,27 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         coordinator?.didSave()
         
     }
+    
+    //** Enable Load Screen **//
+    
+//    func createSpinnerView() {
+//        
+//        let child = SpinnerViewController()
+//
+//        // add the spinner view controller
+//        addChild(child)
+//        child.view.frame = view.frame
+//        view.addSubview(child.view)
+//        child.didMove(toParent: self)
+//
+//        // wait two seconds to simulate some work happening
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            // then remove the spinner view controller
+//            child.willMove(toParent: nil)
+//            child.view.removeFromSuperview()
+//            child.removeFromParent()
+//        }
+//    }
     
     
     override func viewDidLoad() {
