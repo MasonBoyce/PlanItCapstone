@@ -19,7 +19,7 @@ class TripSession {
     var id_to_venue_dict: [Int: Venue]
     var all_venue_permutations: [[Int]]
     var all_venue_pairs: [(Int, Int)]
-    var time_groups : [String: [Int]] // (morning,afternoon,evening,any)
+    var time_groups : [String: [Int]] // (morning,afternoon,evening) // MAYBE add 'any' later
     var all_time_group_perms : [ String: [[Int]] ]
     
     init(newVenues: [Venue]) {
@@ -38,7 +38,7 @@ class TripSession {
         time_groups["Morning"] = [Int]()
         time_groups["Afternoon"] = [Int]()
         time_groups["Evening"] = [Int]()
-        time_groups["Any"] = [Int]()
+        //time_groups["Any"] = [Int]()
         all_time_group_perms = [String: [[Int]]]()
         
         for (index, venue) in venues.enumerated(){
@@ -48,15 +48,13 @@ class TripSession {
             case "Morning":
                 self.time_groups["Morning"]?.append(index)
                 self.all_time_group_perms["Morning"] = []
-            case "Afternoon":
-                self.time_groups["Afternoon"]?.append(index)
-                self.all_time_group_perms["Afternoon"] = []
             case "Evening":
                 self.time_groups["Evening"]?.append(index)
                 self.all_time_group_perms["Evening"] = []
             default:
-                self.time_groups["Any"]?.append(index)
-                self.all_time_group_perms["Any"] = []
+                self.time_groups["Afternoon"]?.append(index)
+                self.all_time_group_perms["Afternoon"] = []
+            // default should be 'any' once that's incorporated
             }
         }
         
@@ -272,9 +270,6 @@ class TripSession {
         
         var source_id = -1
         var destination_id = -1
-        var curr_cost_sum = 0.0
-        var cost_min = Double.infinity
-        var optimal_venue_id_perm: [Int] = []
         var time_group_perms: [[Int]] = []
         
         // Calculate all time-relevant routes
@@ -289,12 +284,45 @@ class TripSession {
             }
         }
         
+        // Grab time-bucket perms
+        var morning_perms = all_time_group_perms["Morning"]
+        var afternoon_perms = all_time_group_perms["Afternoon"]
+        var evening_perms = all_time_group_perms["Evening"]
+        var curr_id_order: [Int] = []
         
+        // Set up min-cost-calculating vars
+        var curr_cost_sum = 0.0
+        var cost_min = Double.infinity
+        var optimal_venue_id_perm: [Int] = []
         
+        // Loop through all possible combinations of morning, afternoon, and evening venue permutations
+        for morn in morning_perms ?? [] {
+            for after in afternoon_perms ?? [] {
+                for even in evening_perms ?? [] {
+                    curr_id_order += morn + after + even
+                    
+                    // Calculate cost of current route
+                    for venue_id_spot in (0 ... curr_id_order.count - 2) {
+                        source_id = curr_id_order[venue_id_spot]
+                        destination_id = curr_id_order[venue_id_spot + 1]
+                        curr_cost_sum += get_route_cost(source_id: source_id, destination_id: destination_id)
+                    }
+                    
+                    // Replace optimal_venue_id_perm is a lower cost id order is found
+                    if curr_cost_sum < cost_min {
+                        optimal_venue_id_perm = curr_id_order
+                        cost_min = curr_cost_sum
+                    }
+                    
+                    // Reset variables to calcualte next iteration's route cost
+                    curr_cost_sum = 0.0
+                    curr_id_order = []
+                    
+                }
+            }
+        }
         
-        
-        
-        
+        // Stuff to turn order of venue_id into actual MKRoute objects
         var ordered_routes = [MKRoute]()
         
         var temp_source_venue_id = -1

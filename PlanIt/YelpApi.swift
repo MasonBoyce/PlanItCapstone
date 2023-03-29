@@ -17,7 +17,7 @@ struct Venue {
     var address: String?
     var latitude: Double?
     var longitude: Double?
-    var time_of_day: String? // 'Morning' | 'Afternoon' | 'Evening' ONLY
+    var time_of_day: String? // 'Morning' | 'Afternoon' | 'Evening' ONLY // NO 'Any' RIGHT NOW
     var selected: Bool? = false
 //    var selected: String?
 //    static let locations = [Venue(name:"Common")]
