@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
+    static let shared = LocationManager()
     private let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var didChangeAuthorization: ((CLAuthorizationStatus) -> Void)?

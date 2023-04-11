@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501876A929E5D50200A94FFD /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876A829E5D50200A94FFD /* Cache.swift */; };
 		50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */; };
 		50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A13291FE09900C3F272 /* CustomAnnotationView.swift */; };
 		506DFDEA29CE05E900D9FF18 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DFDE929CE05E900D9FF18 /* LocationManager.swift */; };
@@ -42,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		501876A629E5D3AA00A94FFD /* PlanIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		501876A829E5D50200A94FFD /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		50409A13291FE09900C3F272 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		506DFDE929CE05E900D9FF18 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -73,7 +76,6 @@
 		D3917C952993744F00B85086 /* SelectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionUIViewController.swift; sourceTree = "<group>"; };
 		D3C868392927F58E00045605 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3DDCD1729D152FD0017AFF5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		D3E370E029D2BF7200753AFF /* PlanIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PlanIt.app; path = "/Users/xuruochen/Library/CloudStorage/OneDrive-TulaneUniversity/Y4/S8/Planit/PlanItCapstone/PlanIt/build/Debug-iphoneos/PlanIt.app"; sourceTree = "<absolute>"; };
 		D3E4D84229D24D250020CF92 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		E1352E162999882C00401F30 /* TripSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				50D4807528FD995900F90294 /* PlanIt */,
+				501876A629E5D3AA00A94FFD /* PlanIt.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +165,7 @@
 				50CF942329154E8E00772D1C /* AppCoordinator.swift */,
 				507C5E0929204A4300020C49 /* UIImage+Extensions.swift */,
 				506DFDE929CE05E900D9FF18 /* LocationManager.swift */,
+				501876A829E5D50200A94FFD /* Cache.swift */,
 				5059DCAD2917E1AD0060E470 /* Welcome */,
 				50D4807F28FD995B00F90294 /* Assets.xcassets */,
 				D3C868392927F58E00045605 /* Info.plist */,
@@ -209,7 +213,7 @@
 			);
 			name = PlanIt;
 			productName = PlanIt;
-			productReference = D3E370E029D2BF7200753AFF /* PlanIt.app */;
+			productReference = 501876A629E5D3AA00A94FFD /* PlanIt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -275,6 +279,7 @@
 				508C47F1291E68ED009F89E0 /* MapCoordinator.swift in Sources */,
 				5097B566299BFECF00048435 /* SelectVenuesCoordinator.swift in Sources */,
 				5097B55B299B2FE800048435 /* SelectionCoordinator.swift in Sources */,
+				501876A929E5D50200A94FFD /* Cache.swift in Sources */,
 				50D45CCD2912837700CCBCA3 /* WelcomeModel.swift in Sources */,
 				5097B558299B2F9800048435 /* SelectionModel.swift in Sources */,
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,

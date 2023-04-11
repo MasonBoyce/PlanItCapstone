@@ -236,36 +236,9 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func saveButtonPressed(_ Sender:UIBarButtonItem){
 //        didTapButton(sender: RestaurantTableViewCell)
         if tableView.indexPathForSelectedRow != nil {
-            for x in data  {
-                if x.selected == true {
-                    selecteddata.insert(x, at: 0)
-                }
-            }
-            
-//                print (data [selectedIndexPath.row].selected)
-//            } else {
-//                nText = ""
-//            }
-            
-            //** NOT WORKING **//
-            //            if #available(iOS 15.0, *) {
-            //                if RestaurantTableViewCell?.myButton.isSelected == true {
-            //                    nText = restaurant.name
-            //                    print (data [selectedIndexPath.row].selected)
-            //                } else {
-            //                    nText = ""
-            //                }
-            //            } else {
-            //                nText = ""
-            //            }
-            
-            //** DEBUGGING **//
-            print ("🥺 Selecteddata Printed!")
-//            print (nText)
-            print (selecteddata)
+            selecteddata = data
         }
-//        self.present(SelectVenuesViewController(), animated: true)
-        model?.finishedSelectionTapped(selectedvenues: selecteddata)
+        model?.finishedSelectionTapped(venues: selecteddata)
         coordinator?.didSave()
         
     }

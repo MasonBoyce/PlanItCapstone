@@ -74,6 +74,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     //passes back the data to the 
     func didFinish(venues: [Venue]) {
         delegate?.didFinish(venues: venues)
+        
     }
     
     func didSave() {

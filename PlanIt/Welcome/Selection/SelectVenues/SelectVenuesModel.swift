@@ -13,11 +13,18 @@ class SelectVenuesModel {
     var viewController: SelectVenuesViewController?
     var coordinator: SelectVenuesCoordinator?
     var venues: [Venue] = []
+    var selectedVenues: [Venue] = []
    
    //sumbit button
-    func finishedSelectionTapped(selectedvenues: [Venue]) {
-       coordinator?.didFinish(venues: selectedvenues)
-//        print("selectVeneusModel",selectedvenues)
+    func finishedSelectionTapped(venues: [Venue]) {
+        for venue in venues {
+            if venue.selected {
+                selectedVenues.insert(venue, at: 0)
+            }
+        }
+        Cache.shared.set(searchQuery: coordinator?.categoryType ?? "", results: venues)
+       coordinator?.didFinish(venues: selectedVenues)
+//
    }
     
 }

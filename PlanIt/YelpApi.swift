@@ -18,7 +18,7 @@ struct Venue: Codable {
     var latitude: Double?
     var longitude: Double?
     var time_of_day: String? // 'Morning' | 'Afternoon' | 'Evening' ONLY // NO 'Any' RIGHT NOW
-    var selected: Bool? = false
+    var selected: Bool = false
 //    var selected: String?
 //    static let locations = [Venue(name:"Common")]
 }
@@ -37,10 +37,17 @@ class YelpApi{
 //    TUTORIAL By https://medium.com/@khansaryan/yelp-fusion-api-integration-af50dd186a6e
     
 //    var viewcontroller: SelectVenuesViewController?
+
     let apiKey: String = "mvMizN0RpyOsWy8v9KDxnYw_e-RARw_7NR-KhyHhnI8dgX3SYGKE-q2-9XVLEY12FAKiSEpSjYUzG6VLPpjwgQYfD5lmrTi18hvk7mDnrEL-bfL44X1-HLaQideNY3Yx"
     
     
     func searchVenues(searchQuery: String, latitude: Double, longitude: Double, completion: @escaping ([Venue]?, Error?) -> Void) {
+        
+        if let cachedResults = Cache.shared.get(searchQuery: searchQuery) {
+               // If the results are cached, return them immediately
+               completion(cachedResults, nil)
+               return
+           }
         
         let headers = ["Authorization": "Bearer \(apiKey)"]
         let parameters = ["term": searchQuery, "latitude": String(latitude), "longitude": String(longitude)]
@@ -69,6 +76,7 @@ class YelpApi{
             do {
                 let decoder = JSONDecoder()
                 let result = try decoder.decode(SearchResult.self, from: data)
+                Cache.shared.set(searchQuery: searchQuery, results: result.businesses)
                 completion(result.businesses, nil)
             } catch {
                 completion(nil, error)
@@ -81,6 +89,13 @@ class YelpApi{
     
     func retriveVenues(latitude: Double, longitude: Double, category: String, limit: Int, sortBy: String, locale:String, completionHandler: @escaping([Venue]?, Error?)-> Void ) {
        
+        if let cachedResults = Cache.shared.get(searchQuery: category) {
+               // If the results are cached, return them immediately
+                completionHandler(cachedResults, nil)
+            print(cachedResults)
+               return
+           }
+        
         let baseUrl = "https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&categories=\(category)&limit=\(limit)&sort_by=\(sortBy)&locale=\(locale)"
         
         let url: URL = URL(string: baseUrl)!
@@ -121,6 +136,7 @@ class YelpApi{
                     venuesList.append(venue)
                 
                 }
+                Cache.shared.set(searchQuery: category, results: venuesList)
                 completionHandler(venuesList,nil)
             } catch {
                 print("ERROR RIGHT HERE \(error)")
