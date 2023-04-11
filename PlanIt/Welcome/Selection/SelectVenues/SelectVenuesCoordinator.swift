@@ -110,8 +110,19 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
                 }
             }
         }
+        
+        
+//        let searchTerm = "Chipotle"
+//        yelpApi.searchVenues(searchQuery: searchTerm, latitude: latitude, longitude: longitude) {
+//            (response, error) in
+//                        if let response = response {
+//                            DispatchQueue.main.async {
+//                                self.venues = response
+//                                self.start()
+//                            }
+        }
+        
     }
     
     
     
-}
