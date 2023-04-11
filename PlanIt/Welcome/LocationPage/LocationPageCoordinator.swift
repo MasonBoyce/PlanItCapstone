@@ -13,9 +13,11 @@ class LocationPageCoordinator: Coordinator{
     var sCoordinator: SelectionCoordinator?
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
+    var locationManager: LocationManager
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,locationManager:LocationManager) {
         self.navigationController = navigationController
+        self.locationManager = locationManager
     }
     
     //Initializes view controller model and connects them.
@@ -29,13 +31,7 @@ class LocationPageCoordinator: Coordinator{
     }
     
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
-    
-    //** OPTIONAL - For Launch Screen Animation **//
-//    func launchAnimation(){
-//        let LaunchViewController  = storyboard.instantiateViewController(withIdentifier: "LaunchViewController") as! LaunchViewController
-//        navigationController.pushViewController(LaunchViewController , animated: true)
-//    }
-    
+        
     func goToLoginPage(){
          // Instantiate LoginViewController
         let LocationPageViewController  = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LocationPageViewController
