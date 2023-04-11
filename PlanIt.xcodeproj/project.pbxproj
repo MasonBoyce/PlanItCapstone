@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		501876A929E5D50200A94FFD /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876A829E5D50200A94FFD /* Cache.swift */; };
+		501876AE29E604BE00A94FFD /* LocationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876AD29E604BE00A94FFD /* LocationPageViewController.swift */; };
+		501876B229E604E100A94FFD /* LocationPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876B129E604E100A94FFD /* LocationPageCoordinator.swift */; };
+		501876B529E6051100A94FFD /* LocationPageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876B429E6051100A94FFD /* LocationPageProtocol.swift */; };
+		501876B929E6052100A94FFD /* LocationPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876B829E6052100A94FFD /* LocationPageModel.swift */; };
 		50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */; };
 		50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A13291FE09900C3F272 /* CustomAnnotationView.swift */; };
 		506DFDEA29CE05E900D9FF18 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DFDE929CE05E900D9FF18 /* LocationManager.swift */; };
@@ -45,6 +49,10 @@
 /* Begin PBXFileReference section */
 		501876A629E5D3AA00A94FFD /* PlanIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		501876A829E5D50200A94FFD /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		501876AD29E604BE00A94FFD /* LocationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPageViewController.swift; sourceTree = "<group>"; };
+		501876B129E604E100A94FFD /* LocationPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPageCoordinator.swift; sourceTree = "<group>"; };
+		501876B429E6051100A94FFD /* LocationPageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPageProtocol.swift; sourceTree = "<group>"; };
+		501876B829E6052100A94FFD /* LocationPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPageModel.swift; sourceTree = "<group>"; };
 		50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		50409A13291FE09900C3F272 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		506DFDE929CE05E900D9FF18 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -91,6 +99,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		501876AC29E6047C00A94FFD /* LocationPage */ = {
+			isa = PBXGroup;
+			children = (
+				501876AD29E604BE00A94FFD /* LocationPageViewController.swift */,
+				501876B129E604E100A94FFD /* LocationPageCoordinator.swift */,
+				501876B429E6051100A94FFD /* LocationPageProtocol.swift */,
+				501876B829E6052100A94FFD /* LocationPageModel.swift */,
+				5097B55F299B307B00048435 /* Selection */,
+			);
+			path = LocationPage;
+			sourceTree = "<group>";
+		};
 		50409A0E291FE07500C3F272 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +127,7 @@
 				50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */,
 				50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */,
 				50D45CD5291283B800CCBCA3 /* WelcomeProtocol.swift */,
-				5097B55F299B307B00048435 /* Selection */,
+				501876AC29E6047C00A94FFD /* LocationPage */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -285,14 +305,18 @@
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,
 				D3E4D84329D24D250020CF92 /* LaunchViewController.swift in Sources */,
 				5097B56F299BFF1300048435 /* SelectVenuesViewController.swift in Sources */,
+				501876B229E604E100A94FFD /* LocationPageCoordinator.swift in Sources */,
 				50DD17C5293E0F4E00528F66 /* YelpApi.swift in Sources */,
 				D353E4A629C3DB67004136B3 /* RestaurantTableViewCell.swift in Sources */,
 				50D45CD6291283B800CCBCA3 /* WelcomeProtocol.swift in Sources */,
+				501876B929E6052100A94FFD /* LocationPageModel.swift in Sources */,
 				D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */,
 				5097B561299B315900048435 /* SelectionProtocol.swift in Sources */,
 				507C5E0A29204A4300020C49 /* UIImage+Extensions.swift in Sources */,
 				50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */,
 				50CF942429154E8E00772D1C /* AppCoordinator.swift in Sources */,
+				501876B529E6051100A94FFD /* LocationPageProtocol.swift in Sources */,
+				501876AE29E604BE00A94FFD /* LocationPageViewController.swift in Sources */,
 				50D45CD3291283A100CCBCA3 /* WelcomeCoordinator.swift in Sources */,
 				50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */,
 				E1352E172999882C00401F30 /* TripSession.swift in Sources */,
