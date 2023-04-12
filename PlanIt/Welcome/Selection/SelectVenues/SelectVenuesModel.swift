@@ -14,6 +14,7 @@ class SelectVenuesModel {
     var coordinator: SelectVenuesCoordinator?
     var venues: [Venue] = []
     var selectedVenues: [Venue] = []
+    
    
    //sumbit button
     func finishedSelectionTapped(venues: [Venue]) {
@@ -22,7 +23,9 @@ class SelectVenuesModel {
                 selectedVenues.insert(venue, at: 0)
             }
         }
-        Cache.shared.set(searchQuery: coordinator?.categoryType ?? "", results: venues)
+        print(venues)
+            Cache.shared.set(searchQuery: coordinator?.categoryType ?? "", results: venues)
+        print(Cache.shared.cache)
        coordinator?.didFinish(venues: selectedVenues)
 //
    }

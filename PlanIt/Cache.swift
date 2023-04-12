@@ -10,7 +10,7 @@ import Foundation
 class  Cache {
     static let shared = Cache()
         
-        private var cache: [String: [Venue]] = [:]
+         var cache: [String: [Venue]] = [:]
         
         func get(searchQuery: String) -> [Venue]? {
             return cache[searchQuery]
