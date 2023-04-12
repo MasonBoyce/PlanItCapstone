@@ -97,7 +97,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         let latitude = currentCoordinate.latitude
         let longitude = currentCoordinate.longitude
         let category = categoryType
-        let limit = 8
+        let limit = 5
         let sortBy = "distance"
         let locale = "en_US"
         let yelpApi = YelpApi()
@@ -106,17 +106,21 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
             if let response = response {
                 DispatchQueue.main.async {
                     self.venues = response
-                    self.start()
+                    
                     // instantiate a trip session w/ self.venues, run algo, print results
                     // Can create functions in class/outside of this current func and call using self.
                     var session = TripSession(newVenues: self.venues)
                     var perms = session.get_venue_permutations()
-                    print("ALL")
+                    print("ALL PERMS")
                     print(perms)
-                    var (optimal_perm, optimal_cost) = session.find_optimal_venue_route_perm()
+                    session.start()
+                    var optimal_perm = session.optimal_venue_route
+                    var optimal_cost = session.cost_min
+                    //var (optimal_perm, optimal_cost) = session.find_optimal_venue_route_perm()
                     print("OPTIMAL")
                     print(optimal_perm)
                     print(optimal_cost)
+                    self.start()
                 }
             }
         }
