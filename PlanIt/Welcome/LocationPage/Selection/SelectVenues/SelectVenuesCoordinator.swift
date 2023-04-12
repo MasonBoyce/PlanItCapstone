@@ -49,8 +49,9 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
     func start() {
+    
         let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
-        let model: SelectVenuesModel = SelectVenuesModel()
+        let model: SelectVenuesModel = SelectVenuesModel(venues: venues)
         let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
         
         viewController.model = model
@@ -79,7 +80,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     
     func didSave() {
         let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
-        let model: SelectVenuesModel = SelectVenuesModel()
+        let model: SelectVenuesModel = SelectVenuesModel(venues: venues)
         let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
         
         viewController.model = model
@@ -87,7 +88,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         
         model.viewController = viewController
         model.coordinator = self
-        model.venues = self.venues
+        
         
 //        self.navigationController.popViewController(animated: true)
         self.navigationController.dismiss(animated: true, completion: nil)

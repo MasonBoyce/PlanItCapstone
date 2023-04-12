@@ -17,7 +17,10 @@ class  Cache {
         }
         
         func set(searchQuery: String, results: [Venue]) {
+            if !results.isEmpty {
             cache[searchQuery] = results
+            }
+            
         }
     
 }

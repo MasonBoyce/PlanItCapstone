@@ -92,7 +92,7 @@ class YelpApi{
         if let cachedResults = Cache.shared.get(searchQuery: category) {
                // If the results are cached, return them immediately
                 completionHandler(cachedResults, nil)
-            print(cachedResults)
+           
                return
            }
         

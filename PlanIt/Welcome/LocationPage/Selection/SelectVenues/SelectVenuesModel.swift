@@ -12,10 +12,14 @@ import MapKit
 class SelectVenuesModel {
     var viewController: SelectVenuesViewController?
     var coordinator: SelectVenuesCoordinator?
-    var venues: [Venue] = []
+    var venues: [Venue]
     var selectedVenues: [Venue] = []
    
    //sumbit button
+    init(venues: [Venue]){
+        self.venues = venues
+    }
+    
     func finishedSelectionTapped(venues: [Venue]) {
         for venue in venues {
             if venue.selected {
@@ -23,7 +27,7 @@ class SelectVenuesModel {
             }
         }
         print(venues)
-            Cache.shared.set(searchQuery: coordinator?.categoryType ?? "", results: venues)
+        Cache.shared.set(searchQuery: coordinator?.categoryType ?? "", results: venues)
         print(Cache.shared.cache)
        coordinator?.didFinish(venues: selectedVenues)
 //
