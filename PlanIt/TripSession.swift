@@ -271,7 +271,10 @@ class TripSession {
     }
     
     func find_optimal_route_order_fixed_ends() {
-        //
+        // set all venue pairs
+        // set all permutations of routes that AREN'T the start or end route
+        // calculate all routes (except for start->end –– SHOULD REQUIRE >2 VENUES)
+        // run exhaustive search algo but add start/end venues to each perm
     }
     
     func find_optimal_venue_route_perm() { // NO RETURN B/C IMPORTANT DATA GAINED ARE STORED IN GLOBAL VARS
