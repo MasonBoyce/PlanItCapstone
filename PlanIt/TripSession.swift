@@ -149,10 +149,10 @@ class TripSession {
             
             // Assign source->destination to route_matrix[source][destination]
             self.route_matrix[source_id][destination_id] = route
-            self.route_matrix[destination_id][source_id] = route
+            // self.route_matrix[destination_id][source_id] = route
             print(source_id, destination_id,"ROUTE COST IN:", route.expectedTravelTime)
             self.num_routes_calculated += 1
-            if self.num_routes_calculated >= self.all_venue_pairs.count {
+            if self.num_routes_calculated >= self.all_venue_pairs.count * 2 {
                 self.find_optimal_venue_route_perm()
             }
             //        let rect = route.polyline.boundingMapRect
@@ -251,6 +251,7 @@ class TripSession {
         for pair in all_venue_pairs {
             print("CALC ROUTE", pair.0, pair.1)
             calculate_route(source_id: pair.0, destination_id: pair.1)
+            calculate_route(source_id: pair.1, destination_id: pair.0) // Calculate both ways
             print(pair.0, pair.1,"ROUTE COST OUT:", route_matrix[pair.0][pair.1].expectedTravelTime)
         }
     }
@@ -267,6 +268,10 @@ class TripSession {
         set_all_venue_pairs()
         set_venue_permutations(k: venues.count, venues: venue_ids)
         calculate_routes()
+    }
+    
+    func find_optimal_route_order_fixed_ends() {
+        //
     }
     
     func find_optimal_venue_route_perm() { // NO RETURN B/C IMPORTANT DATA GAINED ARE STORED IN GLOBAL VARS
@@ -310,6 +315,7 @@ class TripSession {
         var temp_source_venue_id = -1
         var temp_destination_venue_id = -1
         
+        print("OPTIMAL VENUE ID PERM")
         print(optimal_venue_id_perm)
         for venue_id in optimal_venue_id_perm {
             print(id_to_venue_dict[venue_id]?.name, id_to_venue_dict[venue_id]?.address)
