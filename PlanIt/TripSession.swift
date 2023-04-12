@@ -153,7 +153,7 @@ class TripSession {
             print(source_id, destination_id,"ROUTE COST IN:", route.expectedTravelTime)
             self.num_routes_calculated += 1
             if self.num_routes_calculated >= self.all_venue_pairs.count * 2 {
-                self.find_optimal_venue_route_perm()
+                self.find_optimal_venue_route_perm() // change to a diff. algo later
             }
             //        let rect = route.polyline.boundingMapRect
             //
