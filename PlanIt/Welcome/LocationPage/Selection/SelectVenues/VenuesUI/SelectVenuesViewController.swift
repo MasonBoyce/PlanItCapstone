@@ -128,6 +128,10 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         restaurants.priceLabel?.text = restaurant.price
 //        restaurants.myButton?.isSelected = restaurant.selected ?? false
         restaurants.selectionStyle = .none
+//        print(restaurant)
+        if restaurant.selected {
+            restaurants.accessoryType = .checkmark
+        }
 //        let restaurants = table.dequeueReusableCell(withIdentifier: "restaurants", for: indexPath) as! CustomTableViewCell
 //        restaurants.textLabel?.text = data[indexPath.row]
         

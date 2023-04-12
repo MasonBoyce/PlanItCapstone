@@ -52,5 +52,181 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79318AAC-46AA-4DA3-81B5-C9826D2C6BD7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlanIt/Welcome/Selection/SelectVenues/VenuesUI/SelectVenuesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "79318AAC-46AA-4DA3-81B5-C9826D2C6BD7 - 54ee0e012d071f03"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanIt.SelectVenuesViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PlanIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuruochen/Library/CloudStorage/OneDrive-TulaneUniversity/Y4/S8/Planit/PlanItCapstone/PlanIt/PlanIt/Welcome/Selection/SelectVenues/VenuesUI/SelectVenuesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "1696">
+               </Location>
+               <Location
+                  uuid = "79318AAC-46AA-4DA3-81B5-C9826D2C6BD7 - 54ee0e012d071f03"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanIt.SelectVenuesViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PlanIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuruochen/Library/CloudStorage/OneDrive-TulaneUniversity/Y4/S8/Planit/PlanItCapstone/PlanIt/PlanIt/Welcome/Selection/SelectVenues/VenuesUI/SelectVenuesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "1856">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9C95675-6AED-4B03-8305-93036688E0E9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlanIt/Welcome/Selection/SelectVenues/VenuesUI/SelectVenuesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "34E8B961-5CA1-4E86-8F90-8617EC37F916"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlanIt/Welcome/Selection/SelectVenues/SelectVenuesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "finishedSelectionTapped(venues:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "34E8B961-5CA1-4E86-8F90-8617EC37F916 - d9176ba59c35b3f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanIt.SelectVenuesModel.finishedSelectionTapped(venues: Swift.Array&lt;PlanIt.Venue&gt;) -&gt; ()"
+                  moduleName = "PlanIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuruochen/Library/CloudStorage/OneDrive-TulaneUniversity/Y4/S8/Planit/PlanItCapstone/PlanIt/PlanIt/Welcome/Selection/SelectVenues/SelectVenuesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "1584">
+               </Location>
+               <Location
+                  uuid = "34E8B961-5CA1-4E86-8F90-8617EC37F916 - d9176ba59c35b391"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanIt.SelectVenuesModel.finishedSelectionTapped(venues: Swift.Array&lt;PlanIt.Venue&gt;) -&gt; ()"
+                  moduleName = "PlanIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuruochen/Library/CloudStorage/OneDrive-TulaneUniversity/Y4/S8/Planit/PlanItCapstone/PlanIt/PlanIt/Welcome/Selection/SelectVenues/SelectVenuesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "1608">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63D8E7E0-4DD3-4595-87D6-467F4D694D84"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlanIt/Welcome/Selection/SelectVenues/SelectVenuesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "finishedSelectionTapped(venues:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "63D8E7E0-4DD3-4595-87D6-467F4D694D84 - d9176ba59c35b3f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanIt.SelectVenuesModel.finishedSelectionTapped(venues: Swift.Array&lt;PlanIt.Venue&gt;) -&gt; ()"
+                  moduleName = "PlanIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuruochen/Library/CloudStorage/OneDrive-TulaneUniversity/Y4/S8/Planit/PlanItCapstone/PlanIt/PlanIt/Welcome/Selection/SelectVenues/SelectVenuesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "1784">
+               </Location>
+               <Location
+                  uuid = "63D8E7E0-4DD3-4595-87D6-467F4D694D84 - d9176ba59c35b3f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanIt.SelectVenuesModel.finishedSelectionTapped(venues: Swift.Array&lt;PlanIt.Venue&gt;) -&gt; ()"
+                  moduleName = "PlanIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuruochen/Library/CloudStorage/OneDrive-TulaneUniversity/Y4/S8/Planit/PlanItCapstone/PlanIt/PlanIt/Welcome/Selection/SelectVenues/SelectVenuesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "2723">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFE71D4E-BE22-41C5-81A0-8C6A23E1E477"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlanIt/YelpApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "searchVenues(searchQuery:latitude:longitude:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
