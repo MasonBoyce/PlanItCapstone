@@ -47,6 +47,6 @@ class WelcomeModel: WelcomeModelProtocol {
     }
     
     func doSomething() {
-        coordinator?.goToSelection(locationManager:locationManager)
+        coordinator?.goToSelection()
     }
 }

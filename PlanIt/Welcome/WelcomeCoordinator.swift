@@ -47,11 +47,12 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     }
     
     //Intilize mapCoordinator as a child coordinator then starts it
-    func goToSelection(locationManager: LocationManager) {
+    func goToSelection() {
         
-        let selectionCoordinator =  SelectionCoordinator(navigationController: navigationController,locationManager:locationManager)
-        selectionCoordinator.parentCoordinator = self
-        selectionCoordinator.start()
+        let locationPageCoordinator =  LocationPageCoordinator(navigationController: navigationController)
+        locationPageCoordinator.parentCoordinator = self
+        locationPageCoordinator.start()
+        
         
     }
     

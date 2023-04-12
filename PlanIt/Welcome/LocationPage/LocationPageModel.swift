@@ -10,6 +10,9 @@ import MapKit
 
 class LocationPageModel{
     var coordinator: LocationPageCoordinator?
+    var viewController: LocationPageViewController?
+    var coordinates: CLLocationCoordinate2D?
+    var error: Error?
     
     func geocodeAddress(_ address: String, completion: @escaping (CLLocationCoordinate2D?, Error?) -> Void) {
         let geocoder = CLGeocoder()
@@ -23,14 +26,25 @@ class LocationPageModel{
         }
     }
     
-//    let geocoder = Geocoder()
+    func goToSelection(transitType: MKDirectionsTransportType){
+        if viewController?.textField.text == ""{
+            viewController?.showAlert()
+        }else{
+            geocodeAddress(viewController!.textField.text!) { (coordinates, error) in
+                    if let error = error {
+                        print("Error geocoding address: \(error.localizedDescription)")
+                    } else if let coordinates = coordinates {
+                        LocationManager.shared.currentLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+                    }
+                }
+            Cache.shared.transitType = transitType
+        coordinator?.goToSelection()
+        }
+    }
+    }
+    
+
 //
 //    // Call the geocodeAddress function with the address "Paris, France"
-//    geocoder.geocodeAddress("Paris, France") { (coordinates, error) in
-//        if let error = error {
-//            print("Error geocoding address: \(error.localizedDescription)")
-//        } else if let coordinates = coordinates {
-//            self.locationManager.currentLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
-//        }
-//    }
-}
+    
+

@@ -20,10 +20,9 @@ class MapModel: MapModelProtocol {
     var currentCoordinate: CLLocationCoordinate2D
     var span: MKCoordinateSpan
     var region: MKCoordinateRegion
-    var transportType: MKDirectionsTransportType = .walking
+    var transportType: MKDirectionsTransportType?
     var venues: [Venue]
     var tripSession: TripSession?
-    var locationManager: LocationManager
     var optimal_route: [MKRoute]?
     var optimal_route_cost: Double?
     
@@ -32,12 +31,14 @@ class MapModel: MapModelProtocol {
     
     //MARK: FUNCTIONS
     
-    init(venues: [Venue], locationManager:LocationManager) {
-        self.locationManager = locationManager
-        currentCoordinate = locationManager.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+    init(venues: [Venue]) {
+        
+        currentCoordinate = LocationManager.shared.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
         self.venues = venues
+        
+        
        
         /*
         

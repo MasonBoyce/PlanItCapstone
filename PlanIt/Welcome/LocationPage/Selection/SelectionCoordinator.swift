@@ -14,11 +14,11 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
-    var locationManager:LocationManager
+    
 
-    init(navigationController: UINavigationController,locationManager:LocationManager) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.locationManager = locationManager
+        
     }
 
     //Initializes view controller model and connects them.
@@ -38,14 +38,14 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     }
 
     func goToSelectVenues(categoryType: String) {
-        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType, delegate: self, locationManager:locationManager)
+        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType, delegate: self)
         selectVenues.parentCoordinator = self
         
         children.append(selectVenues)
     }
     
     func goToMap(venues: [Venue]) {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController, venues: venues, locationManager: locationManager)
+        let mapCoordinator = MapCoordinator(navigationController: navigationController, venues: venues)
         mapCoordinator.parentCoordinator = self
         children.append(mapCoordinator)
         mapCoordinator.start()

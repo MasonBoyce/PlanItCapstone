@@ -16,11 +16,11 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var categoryType: String
-    var locationManager: LocationManager
+   
 
     
     var currentCoordinate: CLLocationCoordinate2D {
-         return locationManager.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+        return LocationManager.shared.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
     }
     
     var venues: [Venue] = []
@@ -36,11 +36,11 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
 //        print ("API called",isAPICalled)
 //        }
     
-    init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol,locationManager:LocationManager) {
+    init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol) {
         self.navigationController = navigationController
         self.categoryType = categoryType
         self.delegate = delegate
-        self.locationManager = locationManager
+       
         
         yelpAPICall()
     }

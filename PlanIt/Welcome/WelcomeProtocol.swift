@@ -17,7 +17,7 @@ protocol WelcomeModelProtocol: AnyObject {
 }
 
 protocol WelcomeCoordinatorProtocol: AnyObject {
-    func goToSelection(locationManager: LocationManager)
+    func goToSelection()
 }
 
 protocol Coordinator {
