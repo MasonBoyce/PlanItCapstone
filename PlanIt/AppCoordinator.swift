@@ -29,6 +29,7 @@ class AppCoordinator: Coordinator {
         children.append(welcomeCoordinator)
         welcomeCoordinator.start()
         
+        /*
         var venues = testTripSessionHardCoded(numVenues: 10)
         var session = TripSession(newVenues: venues)
         print("ALL")
@@ -38,7 +39,7 @@ class AppCoordinator: Coordinator {
         print("ALL TIMED PERMS")
         session.set_timed_permutations()
         print(session.all_time_group_perms)
-        
+        */
         
         
         //print(array_ex.permutations)
