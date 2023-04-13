@@ -24,7 +24,6 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         map.region = model?.region ?? MKCoordinateRegion(center: CLLocationCoordinate2D(), latitudinalMeters: 10.0, longitudinalMeters: 10.0)
         map.translatesAutoresizingMaskIntoConstraints = false
         
-        
         return map
     }()
     
@@ -61,7 +60,6 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         model?.annotations.forEach {
             mapView.addAnnotation($0)
             if prevAnnotation != nil {
-//                model?.createOverlay(sourceLocation: prevAnnotation!.coordinate, destinationLocation: $0.coordinate)
             }
             prevAnnotation = $0
         }

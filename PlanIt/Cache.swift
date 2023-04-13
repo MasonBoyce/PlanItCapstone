@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import MapKit
 
 class  Cache {
     static let shared = Cache()
         
-         var cache: [String: [Venue]] = [:]
+        var cache: [String: [Venue]] = [:]
+        var transitType: MKDirectionsTransportType?
         
         func get(searchQuery: String) -> [Venue]? {
             return cache[searchQuery]

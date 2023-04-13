@@ -22,23 +22,17 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
     //Old View Controller
-
+    
     
     func start() {
-         // The first time this coordinator started, is to launch login page.
-    goToLoginPage()
+        // The first time this coordinator started, is to launch login page.
+        goToLoginPage()
     }
     
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
     
-    //** OPTIONAL - For Launch Screen Animation **//
-//    func launchAnimation(){
-//        let LaunchViewController  = storyboard.instantiateViewController(withIdentifier: "LaunchViewController") as! LaunchViewController
-//        navigationController.pushViewController(LaunchViewController , animated: true)
-//    }
-    
     func goToLoginPage(){
-         // Instantiate LoginViewController
+        // Instantiate LoginViewController
         let WelcomeViewController  = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! WelcomeViewController
         let model = WelcomeModel()
         WelcomeViewController.model = model
@@ -47,11 +41,12 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol, Coordinator {
     }
     
     //Intilize mapCoordinator as a child coordinator then starts it
-    func goToSelection(locationManager: LocationManager) {
+    func goToSelection() {
         
-        let selectionCoordinator =  SelectionCoordinator(navigationController: navigationController,locationManager:locationManager)
-        selectionCoordinator.parentCoordinator = self
-        selectionCoordinator.start()
+        let locationPageCoordinator =  LocationPageCoordinator(navigationController: navigationController)
+        locationPageCoordinator.parentCoordinator = self
+        locationPageCoordinator.start()
+        
         
     }
     

@@ -21,21 +21,16 @@ class WelcomeModel: WelcomeModelProtocol {
         locationManager.didChangeAuthorization = { status in
             print(status)
             switch status {
-
+            
             case .authorizedWhenInUse:
                 print("🤩 Welcome to Planit!")
                 // Handle location access granted when in use
                 break
             case .denied, .restricted:
                 print("denied")
-
-//                locationManager.currentLocation = geocodeAddress("Paris,France", completion:  )
                 break
             case .notDetermined:
-                print("here")
-//
-                // Handle location access not yet determined
-
+            break
             case .authorizedAlways:
                 print("always")
                 // Handle location access authorized always
@@ -47,6 +42,6 @@ class WelcomeModel: WelcomeModelProtocol {
     }
     
     func doSomething() {
-        coordinator?.goToSelection(locationManager:locationManager)
+        coordinator?.goToSelection()
     }
 }

@@ -16,40 +16,23 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var categoryType: String
-    var locationManager: LocationManager
-
-    
     var currentCoordinate: CLLocationCoordinate2D {
-         return locationManager.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+        return LocationManager.shared.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
     }
-    
     var venues: [Venue] = []
     weak var delegate: SelectionDelegateProtocol?
     
-//    func callAPI() {
-//        if isAPICalled {
-//            print ("API not called",isAPICalled)
-//        }
-//        yelpAPICall()
-//        self.start()
-//        isAPICalled = true
-//        print ("API called",isAPICalled)
-//        }
-    
-    init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol,locationManager:LocationManager) {
+    init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol) {
         self.navigationController = navigationController
         self.categoryType = categoryType
         self.delegate = delegate
-        self.locationManager = locationManager
-        
         yelpAPICall()
     }
-   
     
     //Initializes view controller model and connects them.
     //Pushes the view controller to the top of the screen
     func start() {
-    
+        
         let storyboard = UIStoryboard.init(name: "SelectionUI", bundle: .main)
         let model: SelectVenuesModel = SelectVenuesModel(venues: venues)
         let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectVenues") as! SelectVenuesViewController
@@ -61,8 +44,8 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         model.coordinator = self
         model.venues = self.venues
         
-//        navigationController.modalTransitionStyle = .crossDissolve
-//        self.navigationController.pushViewController(viewController, animated: true)
+        //        navigationController.modalTransitionStyle = .crossDissolve
+        //        self.navigationController.pushViewController(viewController, animated: true)
         
         //** Navigationcontroller needs to be wrapped to be presented modally **//
         let navcontroller = UINavigationController(rootViewController: viewController)
@@ -72,7 +55,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         navcontroller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
     }
     
-    //passes back the data to the 
+    //passes back the data to the selectionpage
     func didFinish(venues: [Venue]) {
         delegate?.didFinish(venues: venues)
         
@@ -89,8 +72,6 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         model.viewController = viewController
         model.coordinator = self
         
-        
-//        self.navigationController.popViewController(animated: true)
         self.navigationController.dismiss(animated: true, completion: nil)
     }
     
@@ -127,18 +108,10 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
             }
         }
         
-        
-//        let searchTerm = "Chipotle"
-//        yelpApi.searchVenues(searchQuery: searchTerm, latitude: latitude, longitude: longitude) {
-//            (response, error) in
-//                        if let response = response {
-//                            DispatchQueue.main.async {
-//                                self.venues = response
-//                                self.start()
-//                            }
-        }
-        
+
     }
     
-    
-    
+}
+
+
+

@@ -13,41 +13,33 @@ class LocationPageCoordinator: Coordinator{
     var sCoordinator: SelectionCoordinator?
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
-    var locationManager: LocationManager
     
-    init(navigationController: UINavigationController,locationManager:LocationManager) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.locationManager = locationManager
     }
     
-    //Initializes view controller model and connects them.
-    //Pushes the view controller to the top of the screen
-    //Old View Controller
-
-    
     func start() {
-         // The first time this coordinator started, is to launch login page.
-    goToLoginPage()
+        // The first time this coordinator started, is to launch login page.
+        goToLoginPage()
     }
     
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
-        
+    
     func goToLoginPage(){
-         // Instantiate LoginViewController
-        let LocationPageViewController  = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LocationPageViewController
+        // Instantiate LoginViewController
+        let locationPageViewController  = LocationPageViewController()
         let model = LocationPageModel()
-        LocationPageViewController.model = model
+        locationPageViewController.model = model
+        model.viewController  = locationPageViewController
         model.coordinator = self
-        navigationController.pushViewController(LocationPageViewController , animated: true)
+        navigationController.pushViewController(locationPageViewController , animated: true)
     }
     
     //Intilize mapCoordinator as a child coordinator then starts it
-    func goToSelection(locationManager: LocationManager) {
-        
-        let selectionCoordinator =  SelectionCoordinator(navigationController: navigationController,locationManager:locationManager)
+    func goToSelection() {
+        let selectionCoordinator =  SelectionCoordinator(navigationController: navigationController)
         selectionCoordinator.parentCoordinator = self
         selectionCoordinator.start()
-        
     }
     
 }
