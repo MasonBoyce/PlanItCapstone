@@ -14,25 +14,19 @@ class LocationPageCoordinator: Coordinator{
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     
-    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    //Initializes view controller model and connects them.
-    //Pushes the view controller to the top of the screen
-    //Old View Controller
-
-    
     func start() {
-         // The first time this coordinator started, is to launch login page.
-    goToLoginPage()
+        // The first time this coordinator started, is to launch login page.
+        goToLoginPage()
     }
     
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
-        
+    
     func goToLoginPage(){
-         // Instantiate LoginViewController
+        // Instantiate LoginViewController
         let locationPageViewController  = LocationPageViewController()
         let model = LocationPageModel()
         locationPageViewController.model = model
@@ -43,11 +37,9 @@ class LocationPageCoordinator: Coordinator{
     
     //Intilize mapCoordinator as a child coordinator then starts it
     func goToSelection() {
-        
         let selectionCoordinator =  SelectionCoordinator(navigationController: navigationController)
         selectionCoordinator.parentCoordinator = self
         selectionCoordinator.start()
-        
     }
     
 }

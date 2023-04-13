@@ -21,34 +21,34 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     @IBOutlet weak var SearchTextView: UITextView?
     //
     @IBAction func SearchButton(_ sender: UIButton) {
-//** get text from text field **?//
-//        let nText = SearchTextField?.text
+        //** get text from text field **?//
+        //        let nText = SearchTextField?.text
         SearchTextView?.text = nText
-//** DEBUGGING **//
-//        print (nText)
-//        print ("HI")
-//        model?.yelpApiCall(categorytype: nText ?? "")
+        //** DEBUGGING **//
+        //        print (nText)
+        //        print ("HI")
+        //        model?.yelpApiCall(categorytype: nText ?? "")
     }
     
     @IBAction func restaurants(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "restaurants")
-//        coordinator?.callAPI()
-//        self.present(SelectVenuesViewController(), animated: true)
-//        performSegue(withIdentifier: "ShowTableview", sender: self)
+        //        coordinator?.callAPI()
+        //        self.present(SelectVenuesViewController(), animated: true)
+        //        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
     @IBAction func cafés(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "cafes")
-//        coordinator?.callAPI()
-//        self.present(SelectVenuesViewController(), animated: true)
-//        performSegue(withIdentifier: "ShowTableview", sender: self)
+        //        coordinator?.callAPI()
+        //        self.present(SelectVenuesViewController(), animated: true)
+        //        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
     @IBAction func gyms(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "gyms")
-//        coordinator?.callAPI()
-//        self.present(SelectVenuesViewController(), animated: true)
-//        performSegue(withIdentifier: "ShowTableview", sender: self)
+        //        coordinator?.callAPI()
+        //        self.present(SelectVenuesViewController(), animated: true)
+        //        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
@@ -64,7 +64,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         navigationItem.hidesBackButton = true
-//        SearchTextView?.text = CheckedItem
+        //        SearchTextView?.text = CheckedItem
         //                view.backgroundColor = .link
     }
     
@@ -73,5 +73,5 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         view.endEditing(true)
     }
     
-
+    
 }

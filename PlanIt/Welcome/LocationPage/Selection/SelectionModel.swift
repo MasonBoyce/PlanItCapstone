@@ -23,10 +23,10 @@ class SelectionModel: SelectionModelProtocol {
     }
     
     func goToMap() {
-        coordinator!.goToMap(venues: self.venues)
+        coordinator?.goToMap(venues: self.venues)
     }
     
+    
+}
 
-    }
-    
 

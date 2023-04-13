@@ -10,7 +10,6 @@
 		501876A929E5D50200A94FFD /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876A829E5D50200A94FFD /* Cache.swift */; };
 		501876AE29E604BE00A94FFD /* LocationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876AD29E604BE00A94FFD /* LocationPageViewController.swift */; };
 		501876B229E604E100A94FFD /* LocationPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876B129E604E100A94FFD /* LocationPageCoordinator.swift */; };
-		501876B529E6051100A94FFD /* LocationPageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876B429E6051100A94FFD /* LocationPageProtocol.swift */; };
 		501876B929E6052100A94FFD /* LocationPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501876B829E6052100A94FFD /* LocationPageModel.swift */; };
 		50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */; };
 		50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409A13291FE09900C3F272 /* CustomAnnotationView.swift */; };
@@ -51,7 +50,6 @@
 		501876A829E5D50200A94FFD /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		501876AD29E604BE00A94FFD /* LocationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPageViewController.swift; sourceTree = "<group>"; };
 		501876B129E604E100A94FFD /* LocationPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPageCoordinator.swift; sourceTree = "<group>"; };
-		501876B429E6051100A94FFD /* LocationPageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPageProtocol.swift; sourceTree = "<group>"; };
 		501876B829E6052100A94FFD /* LocationPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPageModel.swift; sourceTree = "<group>"; };
 		50409A0F291FE08C00C3F272 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		50409A13291FE09900C3F272 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 			children = (
 				501876AD29E604BE00A94FFD /* LocationPageViewController.swift */,
 				501876B129E604E100A94FFD /* LocationPageCoordinator.swift */,
-				501876B429E6051100A94FFD /* LocationPageProtocol.swift */,
 				501876B829E6052100A94FFD /* LocationPageModel.swift */,
 				5097B55F299B307B00048435 /* Selection */,
 			);
@@ -315,7 +312,6 @@
 				507C5E0A29204A4300020C49 /* UIImage+Extensions.swift in Sources */,
 				50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */,
 				50CF942429154E8E00772D1C /* AppCoordinator.swift in Sources */,
-				501876B529E6051100A94FFD /* LocationPageProtocol.swift in Sources */,
 				501876AE29E604BE00A94FFD /* LocationPageViewController.swift in Sources */,
 				50D45CD3291283A100CCBCA3 /* WelcomeCoordinator.swift in Sources */,
 				50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */,

@@ -16,6 +16,7 @@ class LocationPageModel{
     
     func geocodeAddress(_ address: String, completion: @escaping (CLLocationCoordinate2D?, Error?) -> Void) {
         let geocoder = CLGeocoder()
+        
         geocoder.geocodeAddressString(address) { (placemarks, error) in
             if let placemark = placemarks?.first {
                 let coordinates = placemark.location?.coordinate
@@ -27,19 +28,20 @@ class LocationPageModel{
     }
     
     func goToSelection(transitType: MKDirectionsTransportType){
+        
         if viewController?.textField.text == ""{
             viewController?.showAlert()
         }else{
             geocodeAddress(viewController?.textField.text ?? "paris") { (coordinates, error) in
-                    if let error = error {
-                        print("Error geocoding address: \(error.localizedDescription)")
-                    } else if let coordinates = coordinates {
-                        LocationManager.shared.currentLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
-                    }
+                if let error = error {
+                    print("Error geocoding address: \(error.localizedDescription)")
+                } else if let coordinates = coordinates {
+                    LocationManager.shared.currentLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
                 }
+            }
             Cache.shared.transitType = transitType
-        coordinator?.goToSelection()
+            coordinator?.goToSelection()
         }
     }
-    }
+}
 

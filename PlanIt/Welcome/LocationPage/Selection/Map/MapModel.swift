@@ -39,24 +39,24 @@ class MapModel: MapModelProtocol {
         self.venues = venues
         
         
-       
+        
         /*
-        
-        tripSession = TripSession(newVenues: venues)
-        (self.optimal_route, self.optimal_route_cost) = tripSession?.find_optimal_venue_route_perm()!!
-        
-        for route in optimal_route {
-            print(route.description)
-        }
-        
-        addOverlays(optimal_route)
-        
+         
+         tripSession = TripSession(newVenues: venues)
+         (self.optimal_route, self.optimal_route_cost) = tripSession?.find_optimal_venue_route_perm()!!
+         
+         for route in optimal_route {
+         print(route.description)
+         }
+         
+         addOverlays(optimal_route)
+         
          */
         
     }
     
     func viewDidLoad() {
-         
+        
     }
     
     func addAnnotation(annotation: CustomAnnotation) {
@@ -80,11 +80,11 @@ class MapModel: MapModelProtocol {
     }
     
     func addOverlays(routes: [MKRoute]) {
-            for route in routes {
-                let polyline = route.polyline
-                viewController?.mapView.addOverlay(polyline)
-            }
+        for route in routes {
+            let polyline = route.polyline
+            viewController?.mapView.addOverlay(polyline)
         }
+    }
     
     
 }

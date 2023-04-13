@@ -13,18 +13,13 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var venues: [Venue]  = []
-   
     
     init(navigationController: UINavigationController,venues: [Venue]) {
         self.navigationController = navigationController
         self.venues = venues
-        
     }
-    
-    //Initializes view controller model and connects them.
-    //Pushes the view controller to the top of the screen
+
     func start() {
-        
         let model: MapModel = MapModel(venues: self.venues)
         let viewController: MapViewController = MapViewController()
         viewController.model = model
