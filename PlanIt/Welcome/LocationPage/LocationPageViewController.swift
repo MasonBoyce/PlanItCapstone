@@ -93,6 +93,9 @@ class LocationPageViewController: UIViewController {
         
         walkingButton.isSelected = true
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         view.backgroundColor = .white
         view.addSubview(titleLabel)
         view.addSubview(textField)
@@ -194,5 +197,9 @@ class LocationPageViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
