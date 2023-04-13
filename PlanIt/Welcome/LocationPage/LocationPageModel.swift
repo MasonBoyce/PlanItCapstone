@@ -30,7 +30,7 @@ class LocationPageModel{
         if viewController?.textField.text == ""{
             viewController?.showAlert()
         }else{
-            geocodeAddress(viewController!.textField.text!) { (coordinates, error) in
+            geocodeAddress(viewController?.textField.text ?? "paris") { (coordinates, error) in
                     if let error = error {
                         print("Error geocoding address: \(error.localizedDescription)")
                     } else if let coordinates = coordinates {
@@ -42,9 +42,4 @@ class LocationPageModel{
         }
     }
     }
-    
-
-//
-//    // Call the geocodeAddress function with the address "Paris, France"
-    
 
