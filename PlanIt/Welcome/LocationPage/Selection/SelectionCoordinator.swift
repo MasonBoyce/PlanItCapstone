@@ -44,8 +44,8 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
         children.append(selectVenues)
     }
     
-    func goToMap(venues: [Venue]) {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController, venues: venues)
+    func goToMap(venues: [Venue], tripSession: TripSession) {
+        let mapCoordinator = MapCoordinator(navigationController: navigationController, venues: venues, tripSession: tripSession)
         mapCoordinator.parentCoordinator = self
         children.append(mapCoordinator)
         mapCoordinator.start()

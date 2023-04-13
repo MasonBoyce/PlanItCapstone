@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 
 class TripSession {
-    
     var venues: [Venue]
     var venue_ids: [Int]
     var optimal_venue_route: [Int]
@@ -24,6 +23,7 @@ class TripSession {
     var ordered_routes : [MKRoute]
     var cost_min : Double
     var num_routes_calculated : Int
+    
     
     init(newVenues: [Venue]) {
         venues = newVenues
@@ -264,10 +264,11 @@ class TripSession {
         }
     }
     
-    func start() {
+    func start(completion: @escaping () -> Void) {
         set_all_venue_pairs()
         set_venue_permutations(k: venues.count, venues: venue_ids)
         calculate_routes()
+        completion()
     }
     
     func find_optimal_route_order_fixed_ends() {

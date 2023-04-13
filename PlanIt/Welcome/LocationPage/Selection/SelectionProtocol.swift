@@ -20,7 +20,7 @@ protocol SelectionModelProtocol: AnyObject {
 
 protocol SelectionCoordinatorProtocol: AnyObject {
     func goToSelectVenues(categoryType: String)
-    func goToMap(venues: [Venue])
+    func goToMap(venues: [Venue], tripSession: TripSession)
 }
 
 protocol SelectionDelegateProtocol  :AnyObject {

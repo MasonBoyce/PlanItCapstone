@@ -214,3 +214,4 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         searchController.searchResultsUpdater = self
         //        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("text"), object: nil)
 }
+}

@@ -37,21 +37,11 @@ class MapModel: MapModelProtocol {
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
         self.venues = venues
-        
-        
-        
-        /*
          
-         tripSession = TripSession(newVenues: venues)
-         (self.optimal_route, self.optimal_route_cost) = tripSession?.find_optimal_venue_route_perm()!!
+       
+        optimal_route = tripSession?.ordered_routes
+        print("DOP",optimal_route)
          
-         for route in optimal_route {
-         print(route.description)
-         }
-         
-         addOverlays(optimal_route)
-         
-         */
         
     }
     
@@ -85,6 +75,8 @@ class MapModel: MapModelProtocol {
             viewController?.mapView.addOverlay(polyline)
         }
     }
+    
+    
     
     
 }

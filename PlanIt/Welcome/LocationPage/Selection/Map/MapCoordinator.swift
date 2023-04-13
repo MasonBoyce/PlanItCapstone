@@ -13,10 +13,12 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var venues: [Venue]  = []
+    var tripSession: TripSession?
     
-    init(navigationController: UINavigationController,venues: [Venue]) {
+    init(navigationController: UINavigationController,venues: [Venue],  tripSession: TripSession) {
         self.navigationController = navigationController
         self.venues = venues
+        self.tripSession = tripSession
     }
 
     func start() {
@@ -27,6 +29,9 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
         model.coordinator = self
         model.addAnnotations()
         navigationController.pushViewController(viewController, animated: true)
+        model.tripSession = tripSession
     }
+    
+    
     
 }

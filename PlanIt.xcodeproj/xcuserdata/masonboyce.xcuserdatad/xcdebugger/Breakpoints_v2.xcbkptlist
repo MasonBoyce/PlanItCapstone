@@ -7,65 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7706ECB5-2830-4A00-B222-7F4C0619C820"
-            shouldBeEnabled = "No"
+            uuid = "48049709-3C4A-4544-B07A-BE66429CB231"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/Selection/SelectVenues/VenuesUI/SelectVenuesViewController.swift"
+            filePath = "PlanIt/Welcome/LocationPage/Selection/SelectionModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "SelectVenuesViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "94C98090-16D5-4B65-8E91-C6E65C92EAAD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanIt/YelpApi.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "retriveVenues(latitude:longitude:category:limit:sortBy:locale:completionHandler:)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "goToMap()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "81AA1EC1-6C5C-4AEA-BDFA-BD9E062BBF8D"
-            shouldBeEnabled = "No"
+            uuid = "C1106015-36A1-49F0-89CF-48A1DF57963E"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/LocationPage/Selection/SelectVenues/SelectVenuesCoordinator.swift"
+            filePath = "PlanIt/Welcome/LocationPage/Selection/SelectionModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "start()"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "calculateIdealRoute(forVenues:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "459D280F-D3B3-402A-A947-80DD00234F08"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/WelcomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1"
-            endingLineNumber = "1"
-            landmarkName = "unknown"
-            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
