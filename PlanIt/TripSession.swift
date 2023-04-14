@@ -23,6 +23,8 @@ class TripSession {
     var ordered_routes : [MKRoute]
     var cost_min : Double
     var num_routes_calculated : Int
+    var start_venue_id: Int
+    var end_venue_id: Int
     
     
     init(newVenues: [Venue]) {
@@ -47,6 +49,15 @@ class TripSession {
         for (index, venue) in venues.enumerated(){
             id_to_venue_dict[index] = venue
             venue_ids.append(index)
+            
+            if venue.isStart {
+                start_venue_id = index
+            }
+            
+            if venue.isEnd {
+                end_venue_id = index
+            }
+            
             switch venue.time_of_day{
             case "Morning":
                 self.time_groups["Morning"]?.append(index)
@@ -58,6 +69,7 @@ class TripSession {
                 self.time_groups["Afternoon"]?.append(index)
                 self.all_time_group_perms["Afternoon"] = []
             // default should be 'any' once that's incorporated
+            
             }
         }
         
@@ -271,9 +283,26 @@ class TripSession {
         completion()
     }
     
+    func start_fixed_ends(completion: @escaping () -> Void) {
+        // sets all_venue_pairs as all pairs of routes that aren't (start,end) or (end,start)
+        set_all_venue_pairs()
+        all_venue_pairs = all_venue_pairs.filter{$0 != (start_venue_id, end_venue_id) || $0 != (end_venue_id, start_venue_id)}
+        
+        // sets all_venue_permutations as all permutations of routes that AREN'T the start or end route
+        var trimmed_venues = venue_ids.filter{$0 != start_venue_id || $0 != end_venue_id}
+        set_venue_permutations(k: venues.count - 2, venues: trimmed_venues)
+        
+        calculate_routes()
+    }
+    
     func find_optimal_route_order_fixed_ends() {
-        // set all venue pairs
-        // set all permutations of routes that AREN'T the start or end route
+        
+        if venues.count == 2 {
+            ordered_routes.append(route_matrix[start_venue_id][end_venue_id])
+            return // b/c that's the entire trip – maybe we should require users to select at least 3 venues?
+        }
+        
+        
         // calculate all routes (except for start->end –– SHOULD REQUIRE >2 VENUES)
         // run exhaustive search algo but add start/end venues to each perm
     }
@@ -289,6 +318,11 @@ class TripSession {
          */
         
         let num_venues = venue_ids.count
+        
+        if num_venues == 2 {
+            ordered_routes.append(route_matrix[venue_ids[0]][venue_ids[1]])
+            return
+        }
         
         var source_id = -1
         var destination_id = -1
