@@ -49,11 +49,14 @@ class ResultsVC: UIViewController {
 //    }
 //}
 
-class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate , UISearchResultsUpdating{
+class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate , UISearchResultsUpdating, UISearchBarDelegate{
     
-    let searchController = UISearchController(searchResultsController: ResultsVC())
+    let searchController = UISearchController(searchResultsController: nil)
+    
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
     
     //** If connected to UInvaigationController, Dismiss (nestedview); If not, POP (swipeback)**//
@@ -71,6 +74,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     //retrive Veneus
     var data = [Venue]()
     var selecteddata : [Venue] = []
+    var currentDataSource : [Venue] = []
     //    var data: Array <String>?
     
     //    init model?.venues{
@@ -83,15 +87,34 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     
     
+    
     @IBOutlet var tableView: UITableView!
     //** Search Functionality **//
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return
         }
-        let vc = searchController.searchResultsController as? ResultsVC
-        //        vc?.view.backgroundColor = .blue
+//        let vc = searchController.searchResultsController as? ResultsVC
+//                vc?.view.backgroundColor = UIColor(red: 177, green: 226, blue: 252, alpha: 0)
     }
+    
+//    func filterCurrentDataSource(searchTerm: String){
+//        if searchTerm.count > 0 {
+//            
+//            currentDataSource = 
+//            
+//            let filteredResults = currentDataSource.filter {  $0.replacingOccurrences(of: " ", with: "").lowercased().contains(searchTerm.replacingOccurrences(of: " ", with: "").lowercased())  }
+//            
+//            currentDataSource = filteredResults
+//            tableview.reloadData()
+//            
+//        }
+//    }
+//    
+//    func restoreCurrentDataSource (){
+//        currentDataSoruce = orginalDataSource
+//        tableview.reloadData()
+//    }
     
     //Required TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -212,7 +235,28 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         data = coordinator?.venues ?? []
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+//        searchController.obscuresBackgroundDuringPresentation = false
         //        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("text"), object: nil)
     }
+    
+    func sortBasedOnSegmentPressed() {
+        switch sortSegmentedControl.selectedSegmentIndex{
+        case 0: //closest
+            tableView.reloadData()
+        case 1: //A-Z
+            data.sort(by: {$0.name! < $1.name!})
+        case 2: //cheap
+            data.sort(by: {$0.price ?? "a" < $1.price ?? "z"})
+        default:
+            print ("sort error")
+        }
+        tableView.reloadData()
+    }
+    
+    @IBAction func sortSegementPressed(_ sender: UISegmentedControl) {
+        sortBasedOnSegmentPressed()
+    }
+    
 }
 

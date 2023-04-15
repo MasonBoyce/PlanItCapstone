@@ -22,7 +22,7 @@ class LocationPageViewController: UIViewController {
         label.text = "Choose Vacation Location"
         label.font = UIFont.boldSystemFont(ofSize: 28)
         label.textAlignment = .center
-        label.textColor = .black
+//        label.textColor = .black
         return label
     }()
     
@@ -40,11 +40,12 @@ class LocationPageViewController: UIViewController {
         button.setTitle("Walking", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.white, for: .selected)
-        button.backgroundColor = .black
+        button.backgroundColor = .systemGray
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.setImage (UIImage(systemName: "figure.walk.motion")?.withTintColor(.black,renderingMode: (.alwaysOriginal)), for: .normal)
         return button
     }()
     
@@ -59,6 +60,7 @@ class LocationPageViewController: UIViewController {
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.setImage (UIImage(systemName: "cablecar.fill")?.withTintColor(.black,renderingMode: (.alwaysOriginal)), for: .normal)
         return button
     }()
     
@@ -73,6 +75,7 @@ class LocationPageViewController: UIViewController {
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.setImage (UIImage(systemName: "car.fill")?.withTintColor(.black,renderingMode: (.alwaysOriginal)), for: .normal)
         return button
     }()
     
@@ -80,7 +83,8 @@ class LocationPageViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Submit", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+//        button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+        button.backgroundColor = .systemBlue
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(goToSelection), for: .touchUpInside)
@@ -95,8 +99,9 @@ class LocationPageViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        navigationItem.hidesBackButton = true
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(titleLabel)
         view.addSubview(textField)
         view.addSubview(walkingButton)
@@ -165,7 +170,7 @@ class LocationPageViewController: UIViewController {
             transitButton.isSelected = false
             drivingButton.isSelected = false
             
-            walkingButton.backgroundColor = .black
+            walkingButton.backgroundColor = .systemGray
             transitButton.backgroundColor = .white
             drivingButton.backgroundColor = .white
             
@@ -177,7 +182,7 @@ class LocationPageViewController: UIViewController {
             drivingButton.isSelected = false
             
             walkingButton.backgroundColor = .white
-            transitButton.backgroundColor = .black
+            transitButton.backgroundColor = .systemGray
             drivingButton.backgroundColor = .white
             
         } else if sender == drivingButton {
@@ -188,7 +193,7 @@ class LocationPageViewController: UIViewController {
             
             walkingButton.backgroundColor = .white
             transitButton.backgroundColor = .white
-            drivingButton.backgroundColor = .black
+            drivingButton.backgroundColor = .systemGray
         }
     }
     

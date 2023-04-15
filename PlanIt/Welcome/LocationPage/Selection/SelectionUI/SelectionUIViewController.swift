@@ -51,6 +51,27 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         //        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
+    @IBAction func Desserts(_ sender: UIButton) {
+        model?.goToSelectVenues(categoryType: "desserts")
+    }
+        
+    @IBAction func Bars(_ sender: UIButton) {
+        model?.goToSelectVenues(categoryType: "bars")
+    }
+    
+    @IBAction func Pharmacy(_ sender: UIButton) {
+        model?.goToSelectVenues(categoryType: "pharmacy")
+    }
+    
+    @IBAction func Parks(_ sender: UIButton) {
+        model?.goToSelectVenues(categoryType: "parks")
+    }
+    
+    @IBAction func Museums(_ sender: UIButton) {
+        model?.goToSelectVenues(categoryType: "museums")
+    }
+    
+    
     @IBAction func didTapMapButton(_ sender: UIButton) {
         model?.goToMap()
     }
