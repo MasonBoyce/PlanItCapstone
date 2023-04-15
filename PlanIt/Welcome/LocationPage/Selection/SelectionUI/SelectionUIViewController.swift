@@ -10,9 +10,10 @@ import UIKit
 
 var nText: String?
 
-class SelectionUIViewController: UIViewController, SelectionUIViewControllerProtocol {
+class SelectionUIViewController: UIViewController, SelectionUIViewControllerProtocol, UITextFieldDelegate, UIGestureRecognizerDelegate {
     var model: SelectionModel?
     var coordinator: SelectVenuesCoordinator?
+    var viewcontroller: SelectVenuesViewController?
     
     //* Catch Data passed from TableView*//
     var CheckedItem: String!
@@ -22,7 +23,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     //
     @IBAction func SearchButton(_ sender: UIButton) {
         //** get text from text field **?//
-        //        let nText = SearchTextField?.text
+        let nText = SearchTextField?.text
         SearchTextView?.text = nText
         //** DEBUGGING **//
         //        print (nText)
@@ -73,7 +74,11 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
-        model?.goToMap()
+        if selectedVenues.isEmpty == true {
+            viewcontroller?.showAlert()
+        } else {
+            model?.goToMap()
+        }
     }
     
     override func viewDidLoad() {
@@ -82,17 +87,30 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         SearchTextField?.autocorrectionType = .no
         SearchTextField?.borderStyle = .roundedRect
         SearchTextField?.textAlignment = .center
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        self.SearchTextField?.delegate = self
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+//        view.addGestureRecognizer(tap)
         navigationItem.hidesBackButton = true
         //        SearchTextView?.text = CheckedItem
         //                view.backgroundColor = .link
     }
     
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        SearchTextField!.resignFirstResponder()
+        performAction()
+        return true
     }
+    
+    func performAction() {
+        //action events
+        let nText = SearchTextField?.text
+        SearchTextView?.text = nText
+    }
+    
+//    @objc func dismissKeyboard() {
+//        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+//        view.endEditing(true)
+//    }
     
     
 }

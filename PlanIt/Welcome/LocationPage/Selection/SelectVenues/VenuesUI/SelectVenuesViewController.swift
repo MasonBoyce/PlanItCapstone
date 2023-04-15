@@ -254,6 +254,13 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         tableView.reloadData()
     }
     
+    func showAlert() {
+        let alertController = UIAlertController(title: "No Venues", message: "Please select at least one venue to calculate", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func sortSegementPressed(_ sender: UISegmentedControl) {
         sortBasedOnSegmentPressed()
     }

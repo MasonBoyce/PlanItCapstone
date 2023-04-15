@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class LocationPageViewController: UIViewController {
+class LocationPageViewController: UIViewController, UITextFieldDelegate {
     var model: LocationPageModel?
     
     
@@ -94,6 +94,8 @@ class LocationPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.textField.delegate = self
         
         walkingButton.isSelected = true
         
@@ -198,10 +200,14 @@ class LocationPageViewController: UIViewController {
     }
     
     func showAlert() {
-        let alertController = UIAlertController(title: "Incomplete", message: "Enter in a location please.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let alertController = UIAlertController(title: "Incomplete Address 🥺", message: "Please enter a valid Location", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "My Bad", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
     
     @objc func dismissKeyboard() {
