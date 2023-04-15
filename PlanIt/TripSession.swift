@@ -46,6 +46,9 @@ class TripSession {
         //time_groups["Any"] = [Int]()
         all_time_group_perms = [String: [[Int]]]()
         
+        start_venue_id = -1
+        end_venue_id = -1
+        
         for (index, venue) in venues.enumerated(){
             id_to_venue_dict[index] = venue
             venue_ids.append(index)
@@ -286,6 +289,11 @@ class TripSession {
     func start_fixed_ends(completion: @escaping () -> Void) {
         // sets all_venue_pairs as all pairs of routes that aren't (start,end) or (end,start)
         set_all_venue_pairs()
+        
+        if start_venue_id < 0 || end_venue_id < 0 {
+            return // idk, this should prob trigger the regular start(...) though???
+        }
+        
         all_venue_pairs = all_venue_pairs.filter{$0 != (start_venue_id, end_venue_id) || $0 != (end_venue_id, start_venue_id)}
         
         // sets all_venue_permutations as all permutations of routes that AREN'T the start or end route
@@ -302,6 +310,56 @@ class TripSession {
             return // b/c that's the entire trip – maybe we should require users to select at least 3 venues?
         }
         
+        // NEXT STEPS: just copy process from the below one but each perm should start/end w/ start/end venue
+        // NOTE: important to loop thru smaller perms but w/ adding the start/end costs each time
+        
+        var source_id = -1
+        var destination_id = -1
+        var curr_cost_sum = 0.0
+        // var cost_min = Double.infinity
+        var optimal_venue_id_perm: [Int] = []
+        
+        let all_perms = all_venue_permutations
+        
+        var num_venues = venue_ids.count - 2 // venues to loop through, which excludes start and end
+        
+        print("CYCLING THROUGH PERMS")
+        for venue_id_perm in all_perms {
+            
+            // Calculate start to first of perm cost, currend perm cost, then last of perm to end cost
+            curr_cost_sum = curr_cost_sum + get_route_cost(source_id: start_venue_id, destination_id: venue_id_perm[0])
+            for venue_id_spot in (0 ... num_venues - 2) {
+                source_id = venue_id_perm[venue_id_spot]
+                destination_id = venue_id_perm[venue_id_spot + 1]
+                curr_cost_sum = curr_cost_sum + get_route_cost(source_id: source_id, destination_id: destination_id)
+            }
+            curr_cost_sum = curr_cost_sum + get_route_cost(source_id: venue_id_perm[num_venues-1], destination_id: end_venue_id)
+            
+            if curr_cost_sum < cost_min {
+                optimal_venue_id_perm = venue_id_perm
+                cost_min = curr_cost_sum
+            }
+            
+            curr_cost_sum = 0.0
+        }
+        
+        var temp_source_venue_id = -1
+        var temp_destination_venue_id = -1
+        
+        print("OPTIMAL VENUE ID PERM")
+        print(optimal_venue_id_perm)
+        for venue_id in optimal_venue_id_perm {
+            print(id_to_venue_dict[venue_id]?.name as Any, id_to_venue_dict[venue_id]?.address as Any)
+        }
+        for venue_index in (0 ... optimal_venue_id_perm.count - 2) {
+            temp_source_venue_id = optimal_venue_id_perm[venue_index]
+            temp_destination_venue_id = optimal_venue_id_perm[venue_index + 1]
+            print(temp_source_venue_id, terminator: "")
+            print(temp_destination_venue_id, terminator: ", cost: ")
+            print(route_matrix[temp_source_venue_id][temp_destination_venue_id].expectedTravelTime)
+            //ordered_routes.append(route_matrix[temp_source_venue_id][temp_destination_venue_id])
+            ordered_routes.append(get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
+        }
         
         // calculate all routes (except for start->end –– SHOULD REQUIRE >2 VENUES)
         // run exhaustive search algo but add start/end venues to each perm
