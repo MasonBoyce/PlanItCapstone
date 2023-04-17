@@ -36,19 +36,27 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     
     //MARK: - Search Handler.
     @IBAction func searchHandler(_ sender: UITextField!) {
-        if let searchText = sender.text {
-            searchResults = buttonTitles.filter{$0.lowercased().contains(searchText.lowercased())
-            }
-        }
-        let nText = SearchTextField?.text
-        SearchTextView?.text = nText
+//        if let searchText = sender.text {
+//            searchResults = buttonTitles.filter{$0.lowercased().contains(searchText.lowercased())}
+//            let nText = buttonTitles.joined(separator:"-")
+//            SearchTextView?.text = nText
+//        }
+//        let nText = sender.text
+//        SearchTextView?.text = nText
 //        print("WHAT THE FUCK", buttonTitles)
     }
     
     @IBAction func SearchButton(_ sender: UIButton) {
+//        if ((SearchTextField!.text?.isEmpty) != nil) {
+//            self.categoryAlert()
+//        } else {
+        model?.goToSelectVenues(categoryType: SearchTextField!.text ?? "")
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+//        }
         //** get text from text field **?//
-        let nText = SearchTextField?.text
-        SearchTextView?.text = nText
+//        let nText = SearchTextField?.text
+//        SearchTextView?.text = nText
         //** DEBUGGING **//
         //        print (nText)
         //        print ("HI")
@@ -204,12 +212,21 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     
     func performAction() {
         //action events
-        let nText = SearchTextField?.text
-        SearchTextView?.text = nText
+//        let nText = SearchTextField?.text
+//        SearchTextView?.text = nText
     }
     
     func showAlert() {
         let alertController = UIAlertController(title: "No Venues", message: "Please select at least one venue to calculate", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+        let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
+    }
+    
+    func categoryAlert() {
+        let alertController = UIAlertController(title: "Empty search", message: "Please enter desired catgory to continue", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
