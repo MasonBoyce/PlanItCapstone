@@ -41,7 +41,7 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.white, for: .selected)
         button.backgroundColor = .systemGray
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 30
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -56,7 +56,7 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.white, for: .selected)
         button.backgroundColor = .white
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 30
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -71,7 +71,7 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.white, for: .selected)
         button.backgroundColor = .white
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 30
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -86,7 +86,7 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
 //        button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
         button.backgroundColor = .systemBlue
         button.setTitleColor(UIColor.white, for: .normal)
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(goToSelection), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -98,6 +98,26 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         self.textField.delegate = self
         
         walkingButton.isSelected = true
+        
+        walkingButton.layer.shadowColor = UIColor.systemGray.cgColor
+        walkingButton.layer.shadowRadius = 8
+        walkingButton.layer.shadowOpacity = 1
+        walkingButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+        
+        transitButton.layer.shadowColor = UIColor.systemGray.cgColor
+        transitButton.layer.shadowRadius = 8
+        transitButton.layer.shadowOpacity = 1
+        transitButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+        
+        drivingButton.layer.shadowColor = UIColor.systemGray.cgColor
+        drivingButton.layer.shadowRadius = 8
+        drivingButton.layer.shadowOpacity = 1
+        drivingButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+        
+        submitButton.layer.shadowColor = UIColor.systemGray.cgColor
+        submitButton.layer.shadowRadius = 8
+        submitButton.layer.shadowOpacity = 1
+        submitButton.layer.shadowOffset = CGSize(width: 0, height: 1)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)

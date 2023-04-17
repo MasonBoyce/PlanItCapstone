@@ -39,6 +39,7 @@
                                     <segment title="Distance"/>
                                     <segment title="A-Z"/>
                                     <segment title="$"/>
+                                    <segment title="Rating"/>
                                 </segments>
                                 <connections>
                                     <action selector="sortSegementPressed:" destination="V14-16-VGV" eventType="valueChanged" id="lsW-gi-xsa"/>

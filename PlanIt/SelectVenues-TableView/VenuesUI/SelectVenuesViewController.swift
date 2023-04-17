@@ -67,6 +67,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         }else{
             navigationController?.popViewController(animated: true)
         }
+        let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
     }
     
     var model: SelectVenuesModel?
@@ -127,6 +129,49 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         restaurants.delegate = self
         restaurants.myLabel?.text = restaurant.name
         restaurants.priceLabel?.text = restaurant.price
+//        restaurants.addressLabel?.text = String(restaurant.distance! * 0.000621) + " mi"
+//        restaurants.addressLabel?.text = restaurant.short_loc
+        restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + restaurant.short_loc!
+//        restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + round (restaurant.distance) + " · " + restaurant.short_loc!
+//      print ("WHAT", restaurant.distance)
+//        print ("HOW", restaurant.title)
+        
+        //** STATUS **//
+//        if restaurant.is_closed! {
+//            restaurants.statusLabel?.text = "closed"
+//            restaurants.statusLabel?.textColor = .systemRed
+//        }
+//        else {
+//            restaurants.statusLabel?.text = "open"
+//            restaurants.statusLabel?.textColor = .systemGreen
+//        }
+        
+        //** RATING **//
+        if 0 == restaurant.rating! {
+            restaurants.ratingLabel?.text = "☆☆☆☆☆"
+            restaurants.ratingLabel?.textColor = .systemBrown
+        }
+        else if 0...1 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★☆☆☆☆"
+            restaurants.ratingLabel?.textColor = .systemYellow
+        }
+        else if 1...2 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★★☆☆☆"
+            restaurants.ratingLabel?.textColor = .systemYellow
+        }
+        else if 2...3 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★★★☆☆"
+            restaurants.ratingLabel?.textColor = .systemYellow
+        }
+        else if 3...4 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★★★★☆"
+            restaurants.ratingLabel?.textColor = .systemOrange
+        }
+        else if 4...5 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★★★★★"
+            restaurants.ratingLabel?.textColor = .systemRed
+        }
+        
         //        restaurants.myButton?.isSelected = restaurant.selected ?? false
         restaurants.selectionStyle = .none
         //        print(restaurant)
@@ -201,6 +246,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         }
         model?.finishedSelectionTapped(venues: selecteddata)
         coordinator?.didSave()
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+                    generator.impactOccurred()
         
     }
     
@@ -243,11 +290,13 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     func sortBasedOnSegmentPressed() {
         switch sortSegmentedControl.selectedSegmentIndex{
         case 0: //closest
-            tableView.reloadData()
+            data.sort(by: {$0.distance! < $1.distance!})
         case 1: //A-Z
             data.sort(by: {$0.name! < $1.name!})
         case 2: //cheap
             data.sort(by: {$0.price ?? "a" < $1.price ?? "z"})
+        case 3: //rating
+            data.sort(by: {$0.rating! > $1.rating!})
         default:
             print ("sort error")
         }
@@ -263,6 +312,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func sortSegementPressed(_ sender: UISegmentedControl) {
         sortBasedOnSegmentPressed()
+        let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
     }
     
 }

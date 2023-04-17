@@ -103,7 +103,6 @@
 				501876AD29E604BE00A94FFD /* LocationPageViewController.swift */,
 				501876B129E604E100A94FFD /* LocationPageCoordinator.swift */,
 				501876B829E6052100A94FFD /* LocationPageModel.swift */,
-				5097B55F299B307B00048435 /* Selection */,
 			);
 			path = LocationPage;
 			sourceTree = "<group>";
@@ -124,7 +123,6 @@
 				50D45CCF2912838C00CCBCA3 /* WelcomeViewController.swift */,
 				50D45CCC2912837700CCBCA3 /* WelcomeModel.swift */,
 				50D45CD5291283B800CCBCA3 /* WelcomeProtocol.swift */,
-				501876AC29E6047C00A94FFD /* LocationPage */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -141,20 +139,18 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-		5097B55F299B307B00048435 /* Selection */ = {
+		5097B55F299B307B00048435 /* Selection-MainPage */ = {
 			isa = PBXGroup;
 			children = (
 				D3917C9729937BA700B85086 /* SelectionUI */,
 				5097B557299B2F9800048435 /* SelectionModel.swift */,
 				5097B55A299B2FE800048435 /* SelectionCoordinator.swift */,
 				5097B560299B315900048435 /* SelectionProtocol.swift */,
-				508C47EC291E68BD009F89E0 /* Map */,
-				5097B564299BFE9D00048435 /* SelectVenues */,
 			);
-			path = Selection;
+			path = "Selection-MainPage";
 			sourceTree = "<group>";
 		};
-		5097B564299BFE9D00048435 /* SelectVenues */ = {
+		5097B564299BFE9D00048435 /* SelectVenues-TableView */ = {
 			isa = PBXGroup;
 			children = (
 				D31C2DE229A95296005658B2 /* VenuesUI */,
@@ -162,7 +158,7 @@
 				5097B565299BFECF00048435 /* SelectVenuesCoordinator.swift */,
 				5097B56B299BFEEC00048435 /* SelectVenuesProtocol.swift */,
 			);
-			path = SelectVenues;
+			path = "SelectVenues-TableView";
 			sourceTree = "<group>";
 		};
 		50D4806A28FD995900F90294 = {
@@ -184,6 +180,10 @@
 				506DFDE929CE05E900D9FF18 /* LocationManager.swift */,
 				501876A829E5D50200A94FFD /* Cache.swift */,
 				5059DCAD2917E1AD0060E470 /* Welcome */,
+				501876AC29E6047C00A94FFD /* LocationPage */,
+				5097B55F299B307B00048435 /* Selection-MainPage */,
+				5097B564299BFE9D00048435 /* SelectVenues-TableView */,
+				508C47EC291E68BD009F89E0 /* Map */,
 				50D4807F28FD995B00F90294 /* Assets.xcassets */,
 				D3C868392927F58E00045605 /* Info.plist */,
 				D3DDCD1729D152FD0017AFF5 /* Launch Screen.storyboard */,
