@@ -41,7 +41,8 @@ class MapModel: MapModelProtocol {
     
     func viewDidLoad() {
         optimal_route = tripSession?.ordered_routes
-        print("DOP",optimal_route)        addOverlays(routes: optimal_route!)
+        print("DOP",optimal_route)
+        addOverlays(routes: optimal_route!)
        
     }
     
