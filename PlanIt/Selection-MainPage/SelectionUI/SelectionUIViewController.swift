@@ -120,7 +120,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         if selectedVenues.isEmpty {
             self.showAlert()
         } else {
-            model?.goToMap()
+            model?.calculateIdealRoute()
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
         }
