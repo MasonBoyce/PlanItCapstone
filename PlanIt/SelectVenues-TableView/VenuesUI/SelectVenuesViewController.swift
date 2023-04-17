@@ -51,6 +51,8 @@ class ResultsVC: UIViewController {
 
 class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate , UISearchResultsUpdating, UISearchBarDelegate{
     
+    var filtered = [Venue]()
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     
@@ -93,9 +95,13 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var tableView: UITableView!
     //** Search Functionality **//
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {
+        guard let searchText = searchController.searchBar.text else {
             return
         }
+        let filtered = data.filter{$0.name!.lowercased().contains(searchText.lowercased())}
+        self.filtered = filtered.isEmpty ? data : filtered
+        tableView.reloadData()
+        
 //        let vc = searchController.searchResultsController as? ResultsVC
 //                vc?.view.backgroundColor = UIColor(red: 177, green: 226, blue: 252, alpha: 0)
     }
@@ -120,12 +126,19 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     //Required TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        if filtered.isEmpty{
+            return data.count
+        } else {
+            return filtered.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let restaurants = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
-        let restaurant = data [indexPath.row]
+        var restaurant = data [indexPath.row]
+        if filtered.isEmpty == false {
+            restaurant = filtered [indexPath.row]
+        }
         restaurants.delegate = self
         restaurants.myLabel?.text = restaurant.name
         restaurants.priceLabel?.text = restaurant.price
@@ -290,15 +303,32 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     func sortBasedOnSegmentPressed() {
         switch sortSegmentedControl.selectedSegmentIndex{
         case 0: //closest
-            data.sort(by: {$0.distance! < $1.distance!})
+            if filtered.isEmpty {
+                data.sort(by: {$0.distance! < $1.distance!})
+            }
+            else {
+                filtered.sort(by: {$0.distance! < $1.distance!})
+            }
         case 1: //A-Z
-            data.sort(by: {$0.name! < $1.name!})
+            if filtered.isEmpty {
+                data.sort(by: {$0.name! < $1.name!})
+            } else {
+                filtered.sort(by: {$0.name! < $1.name!})
+            }
         case 2: //cheap
-            data.sort(by: {$0.price ?? "a" < $1.price ?? "z"})
+            if filtered.isEmpty {
+                data.sort(by: {$0.price ?? "a" < $1.price ?? "z"})
+            } else {
+                filtered.sort(by: {$0.price ?? "a" < $1.price ?? "z"})
+            }
         case 3: //rating
-            data.sort(by: {$0.rating! > $1.rating!})
+            if filtered.isEmpty {
+                data.sort(by: {$0.rating! > $1.rating!})
+            } else{
+                filtered.sort(by: {$0.rating! > $1.rating!})
+            }            
         default:
-            print ("sort error")
+            print ("⛔️ SORT ERROR")
         }
         tableView.reloadData()
     }
@@ -317,4 +347,6 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
 }
+
+//    filtered = data.filter{$0.name!.lowercased().contains(searchText.lowercased())
 
