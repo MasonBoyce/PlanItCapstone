@@ -14,14 +14,14 @@ import CoreGraphics
 
 class MapViewController: UIViewController, MapViewControllerProtocol {
     var welcomeLabel: UILabel?
-    var model: MapModelProtocol?
+    var model: MapModel?
     
     //MARK: View Elements
     
     //Sets intial Map with region and adds annotations from model
     lazy var mapView: MKMapView = {
         let map = MKMapView()
-        map.region = model?.region ?? MKCoordinateRegion(center: CLLocationCoordinate2D(), latitudinalMeters: 10.0, longitudinalMeters: 10.0)
+//        map.region = model?.region ?? MKCoordinateRegion(center: CLLocationCoordinate2D(), latitudinalMeters: 10.0, longitudinalMeters: 10.0)
         map.translatesAutoresizingMaskIntoConstraints = false
         
         return map

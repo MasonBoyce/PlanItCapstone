@@ -169,7 +169,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         //** RATING **//
         if 0 == restaurant.rating! {
             restaurants.ratingLabel?.text = "☆☆☆☆☆"
-            restaurants.ratingLabel?.textColor = .systemBrown
+            restaurants.ratingLabel?.textColor = .systemYellow
         }
         else if 0...1 ~= restaurant.rating! {
             restaurants.ratingLabel?.text = "★☆☆☆☆"
