@@ -15,7 +15,7 @@ protocol SelectionUIViewControllerProtocol: AnyObject {
 protocol SelectionModelProtocol: AnyObject {
     func goToSelectVenues(categoryType: String)
     func update(venues: [Venue])
-    func goToMap()
+    
 }
 
 protocol SelectionCoordinatorProtocol: AnyObject {

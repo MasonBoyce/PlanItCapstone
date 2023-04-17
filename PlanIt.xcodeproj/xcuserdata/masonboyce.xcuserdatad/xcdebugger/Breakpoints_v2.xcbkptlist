@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "48049709-3C4A-4544-B07A-BE66429CB231"
+            uuid = "3EFBD266-B504-44BB-8CAA-BBDC8C9BE28C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/LocationPage/Selection/SelectionModel.swift"
+            filePath = "PlanIt/Welcome/LocationPage/Selection/Map/MapModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "goToMap()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C1106015-36A1-49F0-89CF-48A1DF57963E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanIt/Welcome/LocationPage/Selection/SelectionModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "calculateIdealRoute(forVenues:completion:)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "addOverlays(routes:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

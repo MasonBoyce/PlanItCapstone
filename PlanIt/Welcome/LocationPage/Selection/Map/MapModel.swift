@@ -37,16 +37,12 @@ class MapModel: MapModelProtocol {
         span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         region = MKCoordinateRegion(center: currentCoordinate, span: span)
         self.venues = venues
-         
-       
-        optimal_route = tripSession?.ordered_routes
-        print("DOP",optimal_route)
-         
-        
     }
     
     func viewDidLoad() {
-        
+        optimal_route = tripSession?.ordered_routes
+        print("DOP",optimal_route)        addOverlays(routes: optimal_route!)
+       
     }
     
     func addAnnotation(annotation: CustomAnnotation) {
@@ -71,7 +67,11 @@ class MapModel: MapModelProtocol {
     
     func addOverlays(routes: [MKRoute]) {
         for route in routes {
+            print("DOP",route.expectedTravelTime)
+            
             let polyline = route.polyline
+            print("DOP",polyline)
+            
             viewController?.mapView.addOverlay(polyline)
         }
     }

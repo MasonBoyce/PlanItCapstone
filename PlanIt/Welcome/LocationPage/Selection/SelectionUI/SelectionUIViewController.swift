@@ -52,7 +52,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     }
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
-        model?.goToMap()
+        model?.calculateIdealRoute()
     }
     
     override func viewDidLoad() {
