@@ -14,10 +14,16 @@ class WelcomeViewController: UIViewController {
     var model: WelcomeModelProtocol?
     var coordinator: WelcomeCoordinatorProtocol?
     
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var Planit: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    Planit.layer.shadowColor = UIColor.black.cgColor
+    Planit.layer.shadowRadius = 8
+    Planit.layer.shadowOpacity = 1
+    Planit.layer.shadowOffset = CGSize(width: 0, height: 1)
     }
     
     func setStatusBarBackgroundColor(color: UIColor) {
@@ -31,6 +37,8 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func didTapButton() {
         model?.doSomething()
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+                    generator.impactOccurred()
     }
     
 }

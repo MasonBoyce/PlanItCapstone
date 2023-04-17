@@ -19,7 +19,10 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet var myLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     //    @IBOutlet var myImageView: UIImageView!
-    
+    @IBOutlet var statusLabel: UILabel!
+    @IBOutlet var ratingLabel: UILabel!
+//    @IBOutlet var distanceLabel: UILabel!
+//    @IBOutlet var addressLabel: UILabel!
     
     
     //** Switch && Label **//

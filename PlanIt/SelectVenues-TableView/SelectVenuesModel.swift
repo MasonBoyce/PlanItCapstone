@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 import MapKit
 
+var selectedVenues: [Venue] = []
+
 class SelectVenuesModel {
     var viewController: SelectVenuesViewController?
     var coordinator: SelectVenuesCoordinator?
     var venues: [Venue]
-    var selectedVenues: [Venue] = []
     
    
     init(venues: [Venue]){

@@ -49,11 +49,16 @@ class ResultsVC: UIViewController {
 //    }
 //}
 
-class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate , UISearchResultsUpdating{
+class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate , UISearchResultsUpdating, UISearchBarDelegate{
     
-    let searchController = UISearchController(searchResultsController: ResultsVC())
+    var filtered = [Venue]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
     
     //** If connected to UInvaigationController, Dismiss (nestedview); If not, POP (swipeback)**//
@@ -64,6 +69,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         }else{
             navigationController?.popViewController(animated: true)
         }
+        let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
     }
     
     var model: SelectVenuesModel?
@@ -71,6 +78,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     //retrive Veneus
     var data = [Venue]()
     var selecteddata : [Venue] = []
+    var currentDataSource : [Venue] = []
     //    var data: Array <String>?
     
     //    init model?.venues{
@@ -83,27 +91,107 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     
     
+    
     @IBOutlet var tableView: UITableView!
     //** Search Functionality **//
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {
+        guard let searchText = searchController.searchBar.text else {
             return
         }
-        let vc = searchController.searchResultsController as? ResultsVC
-        //        vc?.view.backgroundColor = .blue
+        let filtered = data.filter{$0.name!.lowercased().contains(searchText.lowercased())}
+        self.filtered = filtered.isEmpty ? data : filtered
+        tableView.reloadData()
+        
+//        let vc = searchController.searchResultsController as? ResultsVC
+//                vc?.view.backgroundColor = UIColor(red: 177, green: 226, blue: 252, alpha: 0)
     }
+    
+//    func filterCurrentDataSource(searchTerm: String){
+//        if searchTerm.count > 0 {
+//            
+//            currentDataSource = 
+//            
+//            let filteredResults = currentDataSource.filter {  $0.replacingOccurrences(of: " ", with: "").lowercased().contains(searchTerm.replacingOccurrences(of: " ", with: "").lowercased())  }
+//            
+//            currentDataSource = filteredResults
+//            tableview.reloadData()
+//            
+//        }
+//    }
+//    
+//    func restoreCurrentDataSource (){
+//        currentDataSoruce = orginalDataSource
+//        tableview.reloadData()
+//    }
     
     //Required TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        if filtered.isEmpty{
+            return data.count
+        } else {
+            return filtered.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let restaurants = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
-        let restaurant = data [indexPath.row]
+        var restaurant = data [indexPath.row]
+        if filtered.isEmpty == false {
+            restaurant = filtered [indexPath.row]
+        }
         restaurants.delegate = self
         restaurants.myLabel?.text = restaurant.name
         restaurants.priceLabel?.text = restaurant.price
+//        let converted = String(restaurant.distance).converted(to: UnitLength.miles)
+//        restaurants.distanceLabel?.text = String(round(100 * restaurant.distance! * 0.000621371) / 100) + " mi"
+//        restaurants.addressLabel?.text = restaurant.short_loc
+        
+        //** Needs improvement : print ADDRESS (2 , 3, city, state) if busniness misses address 1 **//
+        if ((restaurant.short_loc?.isEmpty) == nil){
+            restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ")" + " · " +  String(round(100 * restaurant.distance! * 0.000621371) / 100) + " mi"
+        } else {
+            restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + String(round(100 * restaurant.distance! * 0.000621371) / 100) + " mi" + " · " + restaurant.short_loc!
+        }
+//        restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + round (restaurant.distance) + " · " + restaurant.short_loc!
+//      print ("WHAT", restaurant.distance)
+//        print ("HOW", restaurant.title)
+        
+        //** STATUS **//
+//        if restaurant.is_closed! {
+//            restaurants.statusLabel?.text = "closed"
+//            restaurants.statusLabel?.textColor = .systemRed
+//        }
+//        else {
+//            restaurants.statusLabel?.text = "open"
+//            restaurants.statusLabel?.textColor = .systemGreen
+//        }
+        
+        //** RATING **//
+        if 0 == restaurant.rating! {
+            restaurants.ratingLabel?.text = "☆☆☆☆☆"
+            restaurants.ratingLabel?.textColor = .systemBrown
+        }
+        else if 0...1 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★☆☆☆☆"
+            restaurants.ratingLabel?.textColor = .systemYellow
+        }
+        else if 1...2 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★★☆☆☆"
+            restaurants.ratingLabel?.textColor = .systemYellow
+        }
+        else if 2...3 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★★★☆☆"
+            restaurants.ratingLabel?.textColor = .systemYellow
+        }
+        else if 3...4 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★★★★☆"
+            restaurants.ratingLabel?.textColor = .systemOrange
+        }
+        else if 4...5 ~= restaurant.rating! {
+            restaurants.ratingLabel?.text = "★★★★★"
+            restaurants.ratingLabel?.textColor = .systemRed
+        }
+        
         //        restaurants.myButton?.isSelected = restaurant.selected ?? false
         restaurants.selectionStyle = .none
         //        print(restaurant)
@@ -178,6 +266,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         }
         model?.finishedSelectionTapped(venues: selecteddata)
         coordinator?.didSave()
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+                    generator.impactOccurred()
         
     }
     
@@ -212,7 +302,52 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         data = coordinator?.venues ?? []
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+//        searchController.obscuresBackgroundDuringPresentation = false
         //        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("text"), object: nil)
     }
+    
+    func sortBasedOnSegmentPressed() {
+        switch sortSegmentedControl.selectedSegmentIndex{
+        case 0: //closest
+            if filtered.isEmpty {
+                data.sort(by: {$0.distance! < $1.distance!})
+            }
+            else {
+                filtered.sort(by: {$0.distance! < $1.distance!})
+            }
+        case 1: //A-Z
+            if filtered.isEmpty {
+                data.sort(by: {$0.name! < $1.name!})
+            } else {
+                filtered.sort(by: {$0.name! < $1.name!})
+            }
+        case 2: //cheap
+            if filtered.isEmpty {
+                data.sort(by: {$0.price ?? "a" < $1.price ?? "z"})
+            } else {
+                filtered.sort(by: {$0.price ?? "a" < $1.price ?? "z"})
+            }
+        case 3: //rating
+            if filtered.isEmpty {
+                data.sort(by: {$0.rating! > $1.rating!})
+            } else{
+                filtered.sort(by: {$0.rating! > $1.rating!})
+            }
+        default:
+            print ("⛔️ SORT ERROR")
+        }
+        tableView.reloadData()
+    }
+    
+    
+    @IBAction func sortSegementPressed(_ sender: UISegmentedControl) {
+        sortBasedOnSegmentPressed()
+        let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
+    }
+    
 }
+
+//    filtered = data.filter{$0.name!.lowercased().contains(searchText.lowercased())
 
