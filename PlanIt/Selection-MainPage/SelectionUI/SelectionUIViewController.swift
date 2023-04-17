@@ -12,8 +12,10 @@ var nText: String?
 
 class SelectionUIViewController: UIViewController, SelectionUIViewControllerProtocol, UITextFieldDelegate, UIGestureRecognizerDelegate {
     var model: SelectionModel?
-    var coordinator: SelectVenuesCoordinator?
-    var viewcontroller: SelectVenuesViewController?
+//    var coordinator: SelectVenuesCoordinator?
+//    var viewcontroller: SelectVenuesViewController?
+    var buttonTitles = [String] ()
+    var searchResults = [String] ()
     
     //* Catch Data passed from TableView*//
     var CheckedItem: String!
@@ -32,6 +34,17 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     @IBOutlet weak var Museum: UIButton!
     @IBOutlet weak var More: UIButton!
     
+    //MARK: - Search Handler.
+    @IBAction func searchHandler(_ sender: UITextField!) {
+        if let searchText = sender.text {
+            searchResults = buttonTitles.filter{$0.lowercased().contains(searchText.lowercased())
+            }
+        }
+        let nText = SearchTextField?.text
+        SearchTextView?.text = nText
+//        print("WHAT THE FUCK", buttonTitles)
+    }
+    
     @IBAction func SearchButton(_ sender: UIButton) {
         //** get text from text field **?//
         let nText = SearchTextField?.text
@@ -46,6 +59,8 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         model?.goToSelectVenues(categoryType: "restaurants")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
+        //add to array upon button click//
+        buttonTitles.insert(sender.title(for: .normal)!, at: 0)
         //        coordinator?.callAPI()
         //        self.present(SelectVenuesViewController(), animated: true)
         //        performSegue(withIdentifier: "ShowTableview", sender: self)
@@ -55,50 +70,59 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         model?.goToSelectVenues(categoryType: "cafes")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
+        buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func gyms(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "gyms")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
+        buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Desserts(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "desserts")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
+        buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
         
     @IBAction func Bars(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "bars")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
+        buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Pharmacy(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "pharmacy")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
+        buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Parks(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "parks")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
+        buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Museums(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "museums")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
+        buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
-        if selectedVenues.isEmpty == true {
-            viewcontroller?.showAlert()
+        if selectedVenues.isEmpty {
+            self.showAlert()
         } else {
             model?.goToMap()
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
         }
     }
     
@@ -182,6 +206,15 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         //action events
         let nText = SearchTextField?.text
         SearchTextView?.text = nText
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(title: "No Venues", message: "Please select at least one venue to calculate", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+        let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
     }
     
 //    @objc func dismissKeyboard() {

@@ -42,6 +42,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="location"/>
                                 <connections>
                                     <action selector="SearchInput:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pzR-Vu-uD9"/>
+                                    <action selector="searchHandler:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="k66-5W-XfG"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="NXF-DH-ImR">

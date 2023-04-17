@@ -142,9 +142,16 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         restaurants.delegate = self
         restaurants.myLabel?.text = restaurant.name
         restaurants.priceLabel?.text = restaurant.price
-//        restaurants.addressLabel?.text = String(restaurant.distance! * 0.000621) + " mi"
+//        let converted = String(restaurant.distance).converted(to: UnitLength.miles)
+//        restaurants.distanceLabel?.text = String(round(100 * restaurant.distance! * 0.000621371) / 100) + " mi"
 //        restaurants.addressLabel?.text = restaurant.short_loc
-        restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + restaurant.short_loc!
+        
+        //** Needs improvement : print ADDRESS (2 , 3, city, state) if busniness misses address 1 **//
+        if ((restaurant.short_loc?.isEmpty) == nil){
+            restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ")" + " · " +  String(round(100 * restaurant.distance! * 0.000621371) / 100) + " mi"
+        } else {
+            restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + String(round(100 * restaurant.distance! * 0.000621371) / 100) + " mi" + " · " + restaurant.short_loc!
+        }
 //        restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + round (restaurant.distance) + " · " + restaurant.short_loc!
 //      print ("WHAT", restaurant.distance)
 //        print ("HOW", restaurant.title)
@@ -326,19 +333,13 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
                 data.sort(by: {$0.rating! > $1.rating!})
             } else{
                 filtered.sort(by: {$0.rating! > $1.rating!})
-            }            
+            }
         default:
             print ("⛔️ SORT ERROR")
         }
         tableView.reloadData()
     }
     
-    func showAlert() {
-        let alertController = UIAlertController(title: "No Venues", message: "Please select at least one venue to calculate", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
     
     @IBAction func sortSegementPressed(_ sender: UISegmentedControl) {
         sortBasedOnSegmentPressed()
