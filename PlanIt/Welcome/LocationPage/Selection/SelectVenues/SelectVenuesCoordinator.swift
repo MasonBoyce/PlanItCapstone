@@ -80,7 +80,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         let latitude = currentCoordinate.latitude
         let longitude = currentCoordinate.longitude
         let category = categoryType
-        let limit = 5
+        let limit = 30
         let sortBy = "distance"
         let locale = "en_US"
         let yelpApi = YelpApi()
