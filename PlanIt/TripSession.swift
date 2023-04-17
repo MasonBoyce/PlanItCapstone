@@ -326,8 +326,7 @@ class TripSession {
         var temp_source_venue_id = -1
         var temp_destination_venue_id = -1
         
-//        print("OPTIMAL VENUE ID PERM")
-//        print(optimal_venue_id_perm)
+
         for venue_id in optimal_venue_id_perm {
 //            print(id_to_venue_dict[venue_id]?.name, id_to_venue_dict[venue_id]?.address)
         }
@@ -412,17 +411,11 @@ class TripSession {
         var temp_source_venue_id = -1
         var temp_destination_venue_id = -1
         
-//        print(optimal_venue_id_perm)
         for venue_index in (0 ... optimal_venue_id_perm.count - 2) {
             temp_source_venue_id = optimal_venue_id_perm[venue_index]
             temp_destination_venue_id = optimal_venue_id_perm[venue_index + 1]
-//            print(temp_source_venue_id, terminator: "")
-//            print(temp_destination_venue_id)
-            //ordered_routes.append(route_matrix[temp_source_venue_id][temp_destination_venue_id])
             ordered_routes.append(get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
         }
-        
-        // return (ordered_routes, cost_min) // GLOBAL VARS NOW
     }
     
 }

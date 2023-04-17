@@ -17,8 +17,6 @@ protocol MapViewControllerProtocol: AnyObject {
 protocol MapModelProtocol: AnyObject {
     var annotations: [CustomAnnotation] { get set }
     var currentCoordinate: CLLocationCoordinate2D { get set }
-//    var span: MKCoordinateSpan { get set }
-//    var region: MKCoordinateRegion? { get set }
     func viewDidLoad()
 }
 

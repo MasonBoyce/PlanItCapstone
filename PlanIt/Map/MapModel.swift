@@ -10,15 +10,10 @@ import UIKit
 import MapKit
 
 class MapModel: MapModelProtocol {
-    
-    
-    
     //MARK: Model Variables
-    
     var viewController: MapViewControllerProtocol?
     var coordinator: MapCoordinatorProtocol?
     var sController: SelectionUIViewController?
-    
     var currentCoordinate: CLLocationCoordinate2D
     var region: MKCoordinateRegion?
     var transportType: MKDirectionsTransportType?
@@ -36,15 +31,11 @@ class MapModel: MapModelProtocol {
         currentCoordinate = LocationManager.shared.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
        
         self.venues = venues
-        
-        
-        
     }
     
     func viewDidLoad() {
         optimal_route = tripSession?.ordered_routes
         addOverlays(routes: optimal_route!)
-       
     }
     
     func addAnnotation(annotation: CustomAnnotation) {
@@ -61,20 +52,17 @@ class MapModel: MapModelProtocol {
             let venueLatitude: Double = venue.latitude ?? 0.0
             let venueLongitude: Double = venue.longitude ?? 0.0
             let venueName: String = venue.name ?? "Unknown"
-            
             let annotation = CustomAnnotation(index: index, coordinate: CLLocationCoordinate2D(latitude: venueLatitude, longitude: venueLongitude), title: venueName, subtitle: nil)
             
             annotations.append(annotation)
             index += 1
-            print(venueLatitude,venueLongitude)
+
             minLatitude = min(minLatitude, venueLatitude)
             maxLatitude = max(maxLatitude, venueLatitude)
             minLongitude = min(minLongitude, venueLongitude)
             maxLongitude = max(maxLongitude, venueLongitude)
-            print("DOPmin,max",minLatitude,maxLatitude)
-            print("DOPmin,max long",minLongitude,maxLongitude)
             
-                    }
+        }
             
         let buffer = 0.006
         viewController?.updateAnnotations(annotations: annotations)
@@ -82,8 +70,6 @@ class MapModel: MapModelProtocol {
         let centerLongitude = (minLongitude + maxLongitude) / 2
         let centerCoordinate = CLLocationCoordinate2D(latitude: centerLatitude, longitude: centerLongitude)
         let span = MKCoordinateSpan(latitudeDelta: maxLatitude - minLatitude + buffer, longitudeDelta: maxLongitude - minLongitude + buffer)
-//        print("DOP",span)
-//        print("DOP",centerLatitude,centerLongitude,centerCoordinate)
         let region = MKCoordinateRegion(center: centerCoordinate, span: span)
         viewController?.mapView.setRegion(region, animated: true)
     }
@@ -91,11 +77,7 @@ class MapModel: MapModelProtocol {
     
     func addOverlays(routes: [MKRoute]) {
         for route in routes {
-           
-            
             let polyline = route.polyline
-            
-            
             viewController?.mapView.addOverlay(polyline)
         }
     }

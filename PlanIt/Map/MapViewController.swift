@@ -10,18 +10,14 @@ import UIKit
 import MapKit
 import CoreGraphics
 
-
-
 class MapViewController: UIViewController, MapViewControllerProtocol {
     var welcomeLabel: UILabel?
     var model: MapModel?
-    
     //MARK: View Elements
     
     //Sets intial Map with region and adds annotations from model
     lazy var mapView: MKMapView = {
         let map = MKMapView()
-//        map.region = model?.region ?? MKCoordinateRegion(center: CLLocationCoordinate2D(), latitudinalMeters: 10.0, longitudinalMeters: 10.0)
         map.translatesAutoresizingMaskIntoConstraints = false
         
         return map
@@ -69,6 +65,7 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
 
 //MARK: Extensions
 //Takes in annotations when created and creates the view for it
+
 func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     //make sure it is of the component CustomAnnotation
     guard let annotation = annotation as? CustomAnnotation else {
@@ -87,20 +84,44 @@ func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnota
     
     //Set a custom image for the annotationView
     let size = CGSize(width: 30, height: 30)
+    
     switch annotation.index {
     case 0:
-        var image1 = UIImage(named: "number1")
-        image1 = image1?.resizeUI(size: size)
-        annotationView?.image = image1
-        
+        var image = UIImage(named: "number1")
+        image = image?.resizeUI(size: size)
+        annotationView?.image = image
     case 1:
-        var image2 = UIImage(named: "number2")
-        image2 = image2?.resizeUI(size: size)
-        annotationView?.image = image2
+        var image = UIImage(named: "number2")
+        image = image?.resizeUI(size: size)
+        annotationView?.image = image
+    case 2:
+        var image = UIImage(named: "number3")
+        image = image?.resizeUI(size: size)
+        annotationView?.image = image
+    case 3:
+        var image = UIImage(named: "number4")
+        image = image?.resizeUI(size: size)
+        annotationView?.image = image
+    case 4:
+        var image = UIImage(named: "number5")
+        image = image?.resizeUI(size: size)
+        annotationView?.image = image
+    case 5:
+        var image = UIImage(named: "number6")
+        image = image?.resizeUI(size: size)
+        annotationView?.image = image
+    case 6:
+        var image = UIImage(named: "number7")
+        image = image?.resizeUI(size: size)
+        annotationView?.image = image
+    case 7:
+        var image = UIImage(named: "number8")
+        image = image?.resizeUI(size: size)
+        annotationView?.image = image
     default:
-        var image3 = UIImage(named: "number3")
-        image3 = image3?.resizeUI(size: size)
-        annotationView?.image = image3
+        var image = UIImage(named: "number9")
+        image = image?.resizeUI(size: size)
+        annotationView?.image = image
     }
     
     return annotationView
