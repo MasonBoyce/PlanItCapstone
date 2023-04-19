@@ -195,6 +195,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         //        restaurants.myButton?.isSelected = restaurant.selected ?? false
         restaurants.selectionStyle = .none
         //        print(restaurant)
+        restaurants.accessoryType = .none
         if restaurant.selected {
             restaurants.accessoryType = .checkmark
         }
