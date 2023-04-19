@@ -23,6 +23,8 @@ struct Venue: Codable {
     var review_count: Int?
     var time_of_day: String? // 'Morning' | 'Afternoon' | 'Evening' ONLY // NO 'Any' RIGHT NOW
     var selected: Bool = false
+    var isStart: Bool = false
+    var isEnd: Bool = false
 //    var selected: String?
 //    static let locations = [Venue(name:"Common")]
 }
