@@ -80,11 +80,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         let latitude = currentCoordinate.latitude
         let longitude = currentCoordinate.longitude
         let category = categoryType
-<<<<<<< HEAD:PlanIt/Welcome/LocationPage/Selection/SelectVenues/SelectVenuesCoordinator.swift
         let limit = 30
-=======
-        let limit = 50
->>>>>>> main:PlanIt/SelectVenues-TableView/SelectVenuesCoordinator.swift
         let sortBy = "distance"
         let locale = "en_US"
         let yelpApi = YelpApi()

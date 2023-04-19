@@ -84,6 +84,8 @@ class TripSession {
         
         optimal_venue_id_route = [Int]()
         
+        optimal_venue_route = [Venue]()
+        
         ordered_routes = [MKRoute]()
         
         cost_min = Double.infinity
