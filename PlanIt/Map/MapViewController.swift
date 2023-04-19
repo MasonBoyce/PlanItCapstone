@@ -55,13 +55,11 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         var prevAnnotation: CustomAnnotation?
         model?.annotations.forEach {
             mapView.addAnnotation($0)
-            if prevAnnotation != nil {
-            }
-            prevAnnotation = $0
+           
         }
     }
     
-}
+
 
 //MARK: Extensions
 //Takes in annotations when created and creates the view for it
@@ -99,35 +97,41 @@ func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnota
         image = image?.resizeUI(size: size)
         annotationView?.image = image
     case 3:
-        var image = UIImage(named: "number4")
-        image = image?.resizeUI(size: size)
-        annotationView?.image = image
+        print("hello")
+//        var image = UIImage(named: "number4")
+//        image = image?.resizeUI(size: size)
+//        annotationView?.image = image
     case 4:
-        var image = UIImage(named: "number5")
-        image = image?.resizeUI(size: size)
-        annotationView?.image = image
+        print("hello")
+//        var image = UIImage(named: "number5")
+//        image = image?.resizeUI(size: size)
+//        annotationView?.image = image
     case 5:
-        var image = UIImage(named: "number6")
-        image = image?.resizeUI(size: size)
-        annotationView?.image = image
+        print("hello")
+//        var image = UIImage(named: "number6")
+//        image = image?.resizeUI(size: size)
+//        annotationView?.image = image
     case 6:
-        var image = UIImage(named: "number7")
-        image = image?.resizeUI(size: size)
-        annotationView?.image = image
+        print("hello")
+//        var image = UIImage(named: "number7")
+//        image = image?.resizeUI(size: size)
+//        annotationView?.image = image
     case 7:
-        var image = UIImage(named: "number8")
-        image = image?.resizeUI(size: size)
-        annotationView?.image = image
+        print("hello")
+//        var image = UIImage(named: "number8")
+//        image = image?.resizeUI(size: size)
+//        annotationView?.image = image
     default:
-        var image = UIImage(named: "number9")
-        image = image?.resizeUI(size: size)
-        annotationView?.image = image
+        print("hello")
+//        var image = UIImage(named: "number9")
+//        image = image?.resizeUI(size: size)
+//        annotationView?.image = image
     }
     
     return annotationView
 }
 
-
+}
 //MARK: Extensions
 
 //Draws the line for the directions

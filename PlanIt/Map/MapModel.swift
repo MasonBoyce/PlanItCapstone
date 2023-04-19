@@ -22,6 +22,7 @@ class MapModel: MapModelProtocol {
     var optimal_route: [MKRoute]?
     var optimal_route_cost: Double?
     
+    
     //Setting up custom annotations preinputed values
     var annotations: [CustomAnnotation] = []
     
@@ -29,7 +30,7 @@ class MapModel: MapModelProtocol {
     
     init(venues: [Venue]) {
         currentCoordinate = LocationManager.shared.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
-       
+        
         self.venues = venues
     }
     
