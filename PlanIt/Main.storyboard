@@ -17,8 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background tinted" translatesAutoresizingMaskIntoConstraints="NO" id="bOY-sP-5vd">
-                                <rect key="frame" x="-560" y="0.0" width="1500" height="906"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Background tinted" id="bOY-sP-5vd">
+                                <rect key="frame" x="-820" y="-22" width="1532" height="940"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <constraints>
@@ -27,54 +28,42 @@
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLANIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haH-ah-n6n">
-                                <rect key="frame" x="127" y="2176" width="155" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="155" id="HY6-X4-k6P"/>
-                                    <constraint firstAttribute="height" constant="33" id="hjA-Sr-rJB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="25"/>
-                                <color key="textColor" red="0.97558122629999999" green="1" blue="0.92438494140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="2" height="-2"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imu-th-7RW">
-                                <rect key="frame" x="104.5" y="694" width="200" height="55"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" id="Q2k-Ai-ZAi">
+                                <rect key="frame" x="76" y="208" width="261" height="296"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Imu-th-7RW">
+                                <rect key="frame" x="107" y="634" width="201" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="j50-RP-rYA"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Planit"/>
+                                <buttonConfiguration key="configuration" style="filled" subtitle="" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Planit">
+                                            <attributes>
+                                                <font key="NSFont" size="25" name="Futura-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="Button:" destination="hUI-75-aZU" eventType="touchUpInside" id="BeI-nU-zH0"/>
                                     <action selector="didTapButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7BY-zb-T6C"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="icon" id="Q2k-Ai-ZAi">
-                                <rect key="frame" x="100" y="345" width="208" height="296"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.094117647058823528" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="bOY-sP-5vd" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="-560" id="6La-jv-gCN"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Imu-th-7RW" secondAttribute="bottom" constant="113" id="7Be-xb-jHE"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Imu-th-7RW" secondAttribute="trailing" constant="109.5" id="KvV-hv-Ib8"/>
-                            <constraint firstItem="bOY-sP-5vd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Nd6-Fw-gQg"/>
-                            <constraint firstItem="haH-ah-n6n" firstAttribute="top" secondItem="bOY-sP-5vd" secondAttribute="bottom" constant="1270" id="ZMB-Xh-OCv"/>
-                            <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="aGj-mP-Axo"/>
-                            <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="200.70933795565225" id="d8m-tm-TS7"/>
-                            <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="dVn-rA-hEq"/>
-                            <constraint firstItem="Imu-th-7RW" firstAttribute="centerX" secondItem="haH-ah-n6n" secondAttribute="centerX" id="ps0-uT-4D3"/>
-                            <constraint firstItem="Imu-th-7RW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="104.5" id="tGn-BH-jel"/>
-                            <constraint firstItem="Q2k-Ai-ZAi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="102.70513634139706" id="vkE-Jx-g34"/>
-                            <constraint firstItem="haH-ah-n6n" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="2176" id="yrf-4c-DQF"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="SpW-p2-3Sh"/>
+                    <connections>
+                        <outlet property="Planit" destination="Imu-th-7RW" id="8vT-EI-Cm9"/>
+                        <outlet property="icon" destination="Q2k-Ai-ZAi" id="Yi0-gN-QCU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="hUI-75-aZU" userLabel="Exit" sceneMemberID="exit"/>

@@ -10,16 +10,12 @@ import UIKit
 import MapKit
 
 class MapModel: MapModelProtocol {
-    
     //MARK: Model Variables
-    
     var viewController: MapViewControllerProtocol?
     var coordinator: MapCoordinatorProtocol?
     var sController: SelectionUIViewController?
-    
     var currentCoordinate: CLLocationCoordinate2D
-    var span: MKCoordinateSpan
-    var region: MKCoordinateRegion
+    var region: MKCoordinateRegion?
     var transportType: MKDirectionsTransportType?
     var venues: [Venue]
     var tripSession: TripSession?
@@ -32,21 +28,14 @@ class MapModel: MapModelProtocol {
     //MARK: FUNCTIONS
     
     init(venues: [Venue]) {
-        
         currentCoordinate = LocationManager.shared.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
-        span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        region = MKCoordinateRegion(center: currentCoordinate, span: span)
-        self.venues = venues
-         
        
-        optimal_route = tripSession?.ordered_routes
-        print("DOP",optimal_route)
-         
-        
+        self.venues = venues
     }
     
     func viewDidLoad() {
-        
+        optimal_route = tripSession?.ordered_routes
+        addOverlays(routes: optimal_route!)
     }
     
     func addAnnotation(annotation: CustomAnnotation) {
@@ -55,19 +44,36 @@ class MapModel: MapModelProtocol {
     
     func addAnnotations() {
         var index = 0
+        var minLatitude = 10000.0
+        var maxLatitude = -1000000.0
+        var minLongitude = 100000.0
+        var maxLongitude = -100000.0
         for venue in venues {
-            print("MASON BOYCE",venue)
             let venueLatitude: Double = venue.latitude ?? 0.0
             let venueLongitude: Double = venue.longitude ?? 0.0
             let venueName: String = venue.name ?? "Unknown"
-            
             let annotation = CustomAnnotation(index: index, coordinate: CLLocationCoordinate2D(latitude: venueLatitude, longitude: venueLongitude), title: venueName, subtitle: nil)
             
             annotations.append(annotation)
             index += 1
+
+            minLatitude = min(minLatitude, venueLatitude)
+            maxLatitude = max(maxLatitude, venueLatitude)
+            minLongitude = min(minLongitude, venueLongitude)
+            maxLongitude = max(maxLongitude, venueLongitude)
+            
         }
+            
+        let buffer = 0.006
         viewController?.updateAnnotations(annotations: annotations)
+        let centerLatitude = (minLatitude + maxLatitude) / 2
+        let centerLongitude = (minLongitude + maxLongitude) / 2
+        let centerCoordinate = CLLocationCoordinate2D(latitude: centerLatitude, longitude: centerLongitude)
+        let span = MKCoordinateSpan(latitudeDelta: maxLatitude - minLatitude + buffer, longitudeDelta: maxLongitude - minLongitude + buffer)
+        let region = MKCoordinateRegion(center: centerCoordinate, span: span)
+        viewController?.mapView.setRegion(region, animated: true)
     }
+    
     
     func addOverlays(routes: [MKRoute]) {
         for route in routes {

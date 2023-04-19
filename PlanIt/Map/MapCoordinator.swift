@@ -30,6 +30,11 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
         model.addAnnotations()
         navigationController.pushViewController(viewController, animated: true)
         model.tripSession = tripSession
+        let optimal_route = tripSession?.ordered_routes
+        for route in optimal_route!{
+            print("DOP",route.expectedTravelTime)
+        }
+       
     }
     
     

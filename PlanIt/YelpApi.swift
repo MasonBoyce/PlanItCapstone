@@ -17,6 +17,10 @@ struct Venue: Codable {
     var address: String?
     var latitude: Double?
     var longitude: Double?
+    var image_url: String?
+    var title: String?
+    var short_loc: String?
+    var review_count: Int?
     var time_of_day: String? // 'Morning' | 'Afternoon' | 'Evening' ONLY // NO 'Any' RIGHT NOW
     var selected: Bool = false
     var isStart: Bool = false
@@ -134,7 +138,10 @@ class YelpApi{
                     venue.address = address?.joined(separator: "\n")
                     venue.latitude = business.value(forKeyPath: "coordinates.latitude") as? Double
                     venue.longitude = business.value(forKeyPath: "coordinates.longitude") as? Double
-                    
+                    venue.image_url = business.value(forKey: "image_url") as? String
+                    venue.title = business.value(forKeyPath: "categories.title") as? String
+                    venue.short_loc = business.value(forKeyPath: "location.address1") as? String
+                    venue.review_count = business.value(forKey: "review_count") as? Int
                     venuesList.append(venue)
                 
                 }

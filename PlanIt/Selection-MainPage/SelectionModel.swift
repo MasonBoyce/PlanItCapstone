@@ -22,30 +22,30 @@ class SelectionModel: SelectionModelProtocol {
         self.venues += venues
     }
     
-    func goToMap() {
-        calculateIdealRoute(forVenues: venues) { tripSession in
+    
+    
+    func goToMap(tripSession: TripSession) {
+        self.coordinator?.goToMap(venues: self.venues, tripSession: tripSession)
+        
             // The trip session algorithm has finished, so you can now open the map
-            self.coordinator?.goToMap(venues: self.venues, tripSession: tripSession)
-        }
+            
+        
         
     }
     
-    func calculateIdealRoute(forVenues venues: [Venue], completion: @escaping (TripSession) -> Void) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let tripSession = TripSession(newVenues: venues)
-            
+    func calculateIdealRoute() {
+        
+        let tripSession = TripSession(newVenues: self.venues, model: self)
+        tripSession.start()
             
             // Call the completion handler once the algorithm is finished
-            DispatchQueue.main.async {
-                tripSession.start(){
-                    completion(tripSession)
-                }
-                
-                
-            }
+           
             
-        }
+                
+            
+        
     }
+
+
+
 }
-
-
