@@ -12,8 +12,8 @@ import MapKit
 class TripSession {
     var venues: [Venue]
     var venue_ids: [Int]
-    var optimal_venue_id_route: [Int]
-    var optimal_venue_route: [Venue]
+    var optimal_venue_id_order: [Int]
+    var optimal_venue_order: [Venue]
     var cost_matrix: [[Double]]
     var route_matrix: [[MKRoute]] // to store entire route objs in matrix
     var id_to_venue_dict: [Int: Venue]
@@ -82,9 +82,9 @@ class TripSession {
         
         all_venue_pairs = [(Int, Int)]()
         
-        optimal_venue_id_route = [Int]()
+        optimal_venue_id_order = [Int]()
         
-        optimal_venue_route = [Venue]()
+        optimal_venue_order = [Venue]()
         
         ordered_routes = [MKRoute]()
         
@@ -149,10 +149,10 @@ class TripSession {
         var route = MKRoute()
         if source_id > destination_id {
             print("REVERSE ROUTE")
-            calculate_route(source_id: source_id, destination_id: destination_id) // b/c have been using reversed to get cost
+            route = route_matrix[destination_id][source_id] // get reversed route
+        } else {
+            route = route_matrix[source_id][destination_id] // get normal route
         }
-        route = route_matrix[source_id][destination_id] // get normal route cost
-        
         //var route = route_matrix[source_id][destination_id]
         /*
         var travel_check = route.expectedTravelTime
@@ -197,7 +197,9 @@ class TripSession {
             
             // Assign source->destination to route_matrix[source][destination]
             self.route_matrix[source_id][destination_id] = route
-            // self.route_matrix[destination_id][source_id] = route
+            //self.route_matrix[destination_id][source_id] = route // forward and backward are same route
+            // ABOVE LINE ^^ not necessary b/c get_route_costs ensures only forward pair's cost is grabbed
+            
             print(source_id, destination_id,"ROUTE COST IN:", route.expectedTravelTime)
             self.num_routes_calculated += 1
 
@@ -206,7 +208,7 @@ class TripSession {
             //    self.find_optimal_venue_route_perm() // change to a diff. algo later
             
             // BOTH WAYS
-            if self.num_routes_calculated >= self.all_venue_pairs.count * 2 {
+            if self.num_routes_calculated >= self.all_venue_pairs.count { // * 2 if forward and backward pairs
                 self.find_optimal_venue_route_perm()// change to a diff. algo later
                 
             }
@@ -304,11 +306,12 @@ class TripSession {
     
     func calculate_routes() {
         for pair in all_venue_pairs {
-//            print("CALC ROUTE", pair.0, pair.1)
+            //print("CALC ROUTE", pair.0, pair.1)
+            // Only calculate forward
             calculate_route(source_id: pair.0, destination_id: pair.1)
             // calculate_route(source_id: pair.1, destination_id: pair.0) // Calculate both ways
             print(pair.0, pair.1,"ROUTE COST OUT:", route_matrix[pair.0][pair.1].expectedTravelTime)
-            calculate_route(source_id: pair.1, destination_id: pair.0) // Calculate both ways
+            //calculate_route(source_id: pair.1, destination_id: pair.0) // Calculate both ways
 //            print(pair.0, pair.1,"ROUTE COST OUT:", route_matrix[pair.0][pair.1].expectedTravelTime)
         }
         
@@ -392,31 +395,38 @@ class TripSession {
         var temp_source_venue_id = -1
         var temp_destination_venue_id = -1
         
+        optimal_venue_id_order = optimal_venue_id_perm
+        
         print("OPTIMAL VENUE ID PERM")
         print(optimal_venue_id_perm)
         for venue_id in optimal_venue_id_perm {
             print(id_to_venue_dict[venue_id]?.name as Any, id_to_venue_dict[venue_id]?.address as Any)
+            optimal_venue_order.append(id_to_venue_dict[venue_id] ?? Venue())
         }
         
         var temp_route = MKRoute()
-        var count = 0
+        //var count = 0
         for venue_index in (0 ... optimal_venue_id_perm.count - 2) {
             temp_source_venue_id = optimal_venue_id_perm[venue_index]
             temp_destination_venue_id = optimal_venue_id_perm[venue_index + 1]
             print(temp_source_venue_id, terminator: "")
             print(temp_destination_venue_id, terminator: ", cost: ")
-            print(route_matrix[temp_source_venue_id][temp_destination_venue_id].expectedTravelTime)
+            print(get_route_cost(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
             
             //ordered_routes.append(route_matrix[temp_source_venue_id][temp_destination_venue_id])
             temp_route = get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id)
+            /*
             while temp_route.expectedTravelTime == 0 {
                 print("wait",count)
                 count += 1
                 temp_route = get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id)
             }
+             */
             ordered_routes.append(temp_route)
             //ordered_routes.append(get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
         }
+        
+        // DO WE NEED model?.goToMap(tripSession: self) HERE ?????????????
         
         // calculate all routes (except for start->end –– SHOULD REQUIRE >2 VENUES)
         // run exhaustive search algo but add start/end venues to each perm
@@ -472,12 +482,14 @@ class TripSession {
 
         print("OPTIMAL VENUE ID PERM")
         print(optimal_venue_id_perm)
+        optimal_venue_id_order = optimal_venue_id_perm
         var counter = 0
         
         
         for venue_id in optimal_venue_id_perm {
-//            print(id_to_venue_dict[venue_id]?.name, id_to_venue_dict[venue_id]?.address)
+            optimal_venue_order.append(id_to_venue_dict[venue_id] ?? Venue())
         }
+        
         var temp_route = MKRoute()
         for venue_index in (0 ... optimal_venue_id_perm.count - 2) {
             temp_source_venue_id = optimal_venue_id_perm[venue_index]
@@ -487,11 +499,13 @@ class TripSession {
 //            print(route_matrix[temp_source_venue_id][temp_destination_venue_id].expectedTravelTime)
             //ordered_routes.append(route_matrix[temp_source_venue_id][temp_destination_venue_id])
             temp_route = get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id)
+            /*
             while temp_route.expectedTravelTime == 0 {
                 print("wait",counter)
                 counter += 1
                 temp_route = get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id)
             }
+             */
             ordered_routes.append(temp_route)
             // ordered_routes.append(get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
         }
