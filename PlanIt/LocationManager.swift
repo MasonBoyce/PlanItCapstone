@@ -14,8 +14,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var didChangeAuthorization: ((CLAuthorizationStatus) -> Void)?
+    var destinationLoaction: CLLocationCoordinate2D?
     var authorizationStatus: CLAuthorizationStatus {
         return CLLocationManager.authorizationStatus()
+        
     }
     
     override init() {

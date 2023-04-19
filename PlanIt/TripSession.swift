@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 
+
 class TripSession {
     var venues: [Venue]
     var venue_ids: [Int]
@@ -26,7 +27,7 @@ class TripSession {
     var model: SelectionModel?
     
     
-    init(newVenues: [Venue],model: SelectionModel) {
+    init(newVenues: [Venue], model: SelectionModel) {
         venues = newVenues
         
         let num_venues = venues.count
@@ -136,7 +137,7 @@ class TripSession {
         let directionRequest = MKDirections.Request()
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationItem
-        directionRequest.transportType = .walking
+        directionRequest.transportType = Cache.shared.transitType!
         
         let direction = MKDirections(request: directionRequest)
         
@@ -149,6 +150,7 @@ class TripSession {
             }
             
             let route = response.routes[0]
+            route.steps
             
             // Assign source->destination to route_matrix[source][destination]
             self.route_matrix[source_id][destination_id] = route

@@ -29,7 +29,7 @@ class MapModel: MapModelProtocol {
     //MARK: FUNCTIONS
     
     init(venues: [Venue]) {
-        currentCoordinate = LocationManager.shared.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+        currentCoordinate = LocationManager.shared.destinationLoaction ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
         
         self.venues = venues
     }

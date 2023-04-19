@@ -36,7 +36,7 @@ class LocationPageModel{
                 if let error = error {
                     print("Error geocoding address: \(error.localizedDescription)")
                 } else if let coordinates = coordinates {
-                    LocationManager.shared.currentLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+                    LocationManager.shared.destinationLoaction = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
                 }
             }
             Cache.shared.transitType = transitType

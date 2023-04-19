@@ -17,7 +17,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     var children: [Coordinator] = []
     var categoryType: String
     var currentCoordinate: CLLocationCoordinate2D {
-        return LocationManager.shared.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
+        return LocationManager.shared.destinationLoaction ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
     }
     var venues: [Venue] = []
     weak var delegate: SelectionDelegateProtocol?

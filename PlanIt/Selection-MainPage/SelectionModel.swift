@@ -26,26 +26,11 @@ class SelectionModel: SelectionModelProtocol {
     
     func goToMap(tripSession: TripSession) {
         self.coordinator?.goToMap(venues: self.venues, tripSession: tripSession)
-        
             // The trip session algorithm has finished, so you can now open the map
-            
-        
-        
     }
     
     func calculateIdealRoute() {
-        
         let tripSession = TripSession(newVenues: self.venues, model: self)
         tripSession.start()
-            
-            // Call the completion handler once the algorithm is finished
-           
-            
-                
-            
-        
     }
-
-
-
 }
