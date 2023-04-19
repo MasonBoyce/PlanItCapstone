@@ -81,51 +81,36 @@ func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnota
     }
     
     //Set a custom image for the annotationView
-    let size = CGSize(width: 30, height: 30)
+    let configuration = UIImage.SymbolConfiguration(pointSize: 37.5)
     
     switch annotation.index {
     case 0:
-        var image = UIImage(named: "number1")
-        image = image?.resizeUI(size: size)
+        
+        let image = UIImage(systemName: "1.circle.fill", withConfiguration: configuration)
+        
+
         annotationView?.image = image
     case 1:
-        var image = UIImage(named: "number2")
-        image = image?.resizeUI(size: size)
+        let image = UIImage(systemName: "2.circle.fill", withConfiguration: configuration)
         annotationView?.image = image
     case 2:
-        var image = UIImage(named: "number3")
-        image = image?.resizeUI(size: size)
+        let image = UIImage(systemName: "3.circle.fill", withConfiguration: configuration)
         annotationView?.image = image
     case 3:
-        print("hello")
-//        var image = UIImage(named: "number4")
-//        image = image?.resizeUI(size: size)
-//        annotationView?.image = image
+        let image = UIImage(systemName: "4.circle.fill", withConfiguration: configuration)
+        annotationView?.image = image
     case 4:
-        print("hello")
-//        var image = UIImage(named: "number5")
-//        image = image?.resizeUI(size: size)
-//        annotationView?.image = image
+        let image = UIImage(systemName: "5.circle.fill", withConfiguration: configuration)
+        annotationView?.image = image
     case 5:
-        print("hello")
-//        var image = UIImage(named: "number6")
-//        image = image?.resizeUI(size: size)
-//        annotationView?.image = image
+        let image = UIImage(systemName: "6.circle.fill", withConfiguration: configuration)
+        annotationView?.image = image
     case 6:
-        print("hello")
-//        var image = UIImage(named: "number7")
-//        image = image?.resizeUI(size: size)
-//        annotationView?.image = image
-    case 7:
-        print("hello")
-//        var image = UIImage(named: "number8")
-//        image = image?.resizeUI(size: size)
-//        annotationView?.image = image
+        let image = UIImage(systemName: "7.circle.fill", withConfiguration: configuration)
+        annotationView?.image = image
     default:
-        print("hello")
-//        var image = UIImage(named: "number9")
-//        image = image?.resizeUI(size: size)
-//        annotationView?.image = image
+        let image = UIImage(systemName: "8.circle.fill", withConfiguration: configuration)
+        annotationView?.image = image
     }
     
     return annotationView
