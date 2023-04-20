@@ -19,7 +19,7 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Choose Vacation Location"
+        label.text = "Where are you going?"
         label.font = UIFont.boldSystemFont(ofSize: 28)
         label.textAlignment = .center
 //        label.textColor = .black
@@ -29,8 +29,9 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
     let textField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Enter location"
+        textField.placeholder = "Enter desired location..."
         textField.borderStyle = .roundedRect
+        textField.textAlignment = .center
         return textField
     }()
     
@@ -52,7 +53,7 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
     let transitButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Transit", for: .normal)
+        button.setTitle("Cycling", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.white, for: .selected)
         button.backgroundColor = .white
@@ -60,7 +61,7 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        button.setImage (UIImage(systemName: "cablecar.fill")?.withTintColor(.black,renderingMode: (.alwaysOriginal)), for: .normal)
+        button.setImage (UIImage(systemName: "bicycle")?.withTintColor(.black,renderingMode: (.alwaysOriginal)), for: .normal)
         return button
     }()
     

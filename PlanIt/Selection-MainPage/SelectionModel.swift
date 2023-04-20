@@ -30,6 +30,9 @@ class SelectionModel: SelectionModelProtocol {
     }
     
     func calculateIdealRoute() {
+        if venues.count <= 2 {
+            goToMap(tripSession: TripSession(newVenues: self.venues, model: self))
+        }
         let tripSession = TripSession(newVenues: self.venues, model: self)
         tripSession.start()
     }

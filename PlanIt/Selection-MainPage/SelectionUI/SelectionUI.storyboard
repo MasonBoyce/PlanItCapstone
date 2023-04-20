@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QpL-Yw-vhq">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
@@ -16,7 +16,7 @@
             <objects>
                 <navigationController id="QpL-Yw-vhq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="S7h-Vf-aH6">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -32,12 +32,20 @@
             <objects>
                 <viewController storyboardIdentifier="SelectionUI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SelectionUIViewController" customModule="PlanIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Desired Categories ..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="4Hz-cB-ODq">
-                                <rect key="frame" x="18" y="230" width="310" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHu-3L-lag">
+                                <rect key="frame" x="17" y="183" width="355" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Desired Categories ..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="4Hz-cB-ODq">
+                                <rect key="frame" x="14" y="243" width="292" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" textContentType="location"/>
                                 <connections>
@@ -46,14 +54,14 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="NXF-DH-ImR">
-                                <rect key="frame" x="341" y="230" width="51" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="325" y="243" width="48" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Search"/>
                                 <buttonConfiguration key="configuration" style="gray" cornerStyle="capsule">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="🔎">
+                                        <fragment content="🔍">
                                             <attributes>
                                                 <font key="NSFont" size="15" name="AppleColorEmoji"/>
                                                 <font key="NSOriginalFont" size="15" name="Futura-Bold"/>
@@ -68,15 +76,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Tax-5y-Vmz">
-                                <rect key="frame" x="18" y="281" width="119" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="291" width="105" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Restaurants">
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <imageReference key="image" image="takeoutbag.and.cup.and.straw.fill" catalog="system" symbolScale="default"/>
                                 </state>
                                 <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
-                                    <imageReference key="image" image="takeoutbag.and.cup.and.straw.fill" catalog="system" symbolScale="large" variableValue="0.0"/>
+                                    <imageReference key="image" image="takeoutbag.and.cup.and.straw.fill" catalog="system" symbolScale="large"/>
                                     <attributedString key="attributedTitle">
                                         <fragment content="Restaurant">
                                             <attributes>
@@ -91,8 +99,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="TjZ-mJ-bv5">
-                                <rect key="frame" x="144" y="281" width="119" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="144" y="291" width="105" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
                                     <imageReference key="image" image="cup.and.saucer.fill" catalog="system" symbolScale="large"/>
@@ -110,11 +118,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Fic-fz-RrT">
-                                <rect key="frame" x="273" y="281" width="119" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="266" y="291" width="105" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
-                                    <imageReference key="image" image="figure.gymnastics" catalog="system" symbolScale="large"/>
+                                <buttonConfiguration key="configuration" style="gray" image="figure.gymnastics" catalog="system" imagePlacement="top" imagePadding="10" cornerStyle="large">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Gym">
                                             <attributes>
@@ -129,15 +136,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="tVV-Zb-HtV">
-                                <rect key="frame" x="18" y="382" width="119" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="388" width="105" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Restaurants">
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <imageReference key="image" image="takeoutbag.and.cup.and.straw.fill" catalog="system" symbolScale="default"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
-                                    <imageReference key="image" image="snowflake" catalog="system" symbolScale="large"/>
+                                <buttonConfiguration key="configuration" style="gray" image="snowflake" catalog="system" imagePlacement="top" imagePadding="10" cornerStyle="large">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Dessert">
                                             <attributes>
@@ -152,11 +158,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="BqT-gB-XdN">
-                                <rect key="frame" x="144" y="382" width="119" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="144" y="388" width="105" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
-                                    <imageReference key="image" image="pills.fill" catalog="system" symbolScale="large"/>
+                                <buttonConfiguration key="configuration" style="gray" image="pills.fill" catalog="system" imagePlacement="top" imagePadding="10" cornerStyle="large">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Pharmacy">
                                             <attributes>
@@ -172,11 +177,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Cq1-vD-8w6">
-                                <rect key="frame" x="273" y="382" width="119" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="266" y="388" width="105" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
-                                    <imageReference key="image" image="wineglass.fill" catalog="system" symbolScale="large"/>
+                                <buttonConfiguration key="configuration" style="gray" image="wineglass.fill" catalog="system" imagePlacement="top" imagePadding="10" cornerStyle="large">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Bar">
                                             <attributes>
@@ -192,8 +196,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="j9b-i2-71Q">
-                                <rect key="frame" x="18" y="482" width="119" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="483" width="105" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Restaurants">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -215,11 +219,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vjZ-BV-Jmk">
-                                <rect key="frame" x="144" y="482" width="119" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="144" y="483" width="105" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
-                                    <imageReference key="image" image="building.columns.fill" catalog="system" symbolScale="large"/>
+                                <buttonConfiguration key="configuration" style="gray" image="building.columns.fill" catalog="system" imagePlacement="top" imagePadding="10" cornerStyle="large">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Museum">
                                             <attributes>
@@ -234,36 +237,28 @@
                                     <action selector="Museums:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="q3X-Mb-CB7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ZOU-pS-9R3">
-                                <rect key="frame" x="273" y="482" width="119" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ZOU-pS-9R3" userLabel="Bookstore">
+                                <rect key="frame" x="266" y="483" width="105" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
-                                    <imageReference key="image" image="ellipsis" catalog="system" symbolScale="large"/>
+                                <buttonConfiguration key="configuration" style="gray" image="books.vertical.fill" catalog="system" imagePlacement="top" imagePadding="10" cornerStyle="large">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="More">
+                                        <fragment content="Bookstores">
                                             <attributes>
                                                 <font key="NSFont" size="16" name="Avenir-Book"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="gyms:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gMX-L1-vw2"/>
+                                    <action selector="Bookstores:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qEe-bO-VP8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHu-3L-lag">
-                                <rect key="frame" x="19" y="172" width="375" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1I9-G2-Pn7">
-                                <rect key="frame" x="147" y="609" width="119" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <rect key="frame" x="137" y="625" width="112" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="MapView">
@@ -288,15 +283,6 @@
                                     <action selector="didTapMapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fks-fh-ET5"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" editable="NO" textAlignment="center" layoutManager="textKit1" id="W4F-8k-Vri">
-                                <rect key="frame" x="19" y="85" width="375" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" lookupSuggestion="YES"/>
-                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1QR-od-NoS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -307,18 +293,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="Bar" destination="Cq1-vD-8w6" id="XUv-jG-cqM"/>
+                        <outlet property="Bookstore" destination="ZOU-pS-9R3" id="3IJ-ka-SJY"/>
                         <outlet property="Café" destination="TjZ-mJ-bv5" id="LzV-LE-Gbk"/>
                         <outlet property="Categories" destination="OHu-3L-lag" id="3Q9-98-RQC"/>
                         <outlet property="Dessert" destination="tVV-Zb-HtV" id="ZYM-GT-lro"/>
                         <outlet property="Gym" destination="Fic-fz-RrT" id="ON0-8a-SGH"/>
-                        <outlet property="More" destination="ZOU-pS-9R3" id="vQA-sa-0mS"/>
                         <outlet property="Museum" destination="vjZ-BV-Jmk" id="aGI-lP-aQz"/>
                         <outlet property="Park" destination="j9b-i2-71Q" id="J3z-eI-Mib"/>
                         <outlet property="Pharmacy" destination="BqT-gB-XdN" id="tSd-jg-D7Q"/>
                         <outlet property="Planit" destination="1I9-G2-Pn7" id="Zi7-lK-igf"/>
                         <outlet property="Restaurant" destination="Tax-5y-Vmz" id="eUi-Lk-KeP"/>
                         <outlet property="SearchTextField" destination="4Hz-cB-ODq" id="2RH-cZ-xg7"/>
-                        <outlet property="SearchTextView" destination="W4F-8k-Vri" id="Ry2-ji-QLs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -337,9 +322,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="books.vertical.fill" catalog="system" width="128" height="110"/>
         <image name="building.columns.fill" catalog="system" width="128" height="112"/>
         <image name="cup.and.saucer.fill" catalog="system" width="128" height="91"/>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="figure.gymnastics" catalog="system" width="128" height="100"/>
         <image name="pills.fill" catalog="system" width="128" height="104"/>
         <image name="snowflake" catalog="system" width="119" height="128"/>

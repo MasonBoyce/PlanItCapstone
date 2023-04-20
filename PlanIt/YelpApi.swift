@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Venue: Codable {
+struct Venue: Codable, Hashable{
     var name: String?
     var yelpID: String?
     var internalID: Int?

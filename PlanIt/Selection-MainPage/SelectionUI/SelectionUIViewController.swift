@@ -21,7 +21,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     var CheckedItem: String!
     
     @IBOutlet weak var SearchTextField: UITextField?
-    @IBOutlet weak var SearchTextView: UITextView?
+//    @IBOutlet weak var SearchTextView: UITextView?
     @IBOutlet weak var Planit: UIButton!
     @IBOutlet weak var Categories: UILabel!
     @IBOutlet weak var Restaurant: UIButton!
@@ -32,7 +32,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     @IBOutlet weak var Bar: UIButton!
     @IBOutlet weak var Park: UIButton!
     @IBOutlet weak var Museum: UIButton!
-    @IBOutlet weak var More: UIButton!
+    @IBOutlet weak var Bookstore: UIButton!
     
     //MARK: - Search Handler.
     @IBAction func searchHandler(_ sender: UITextField!) {
@@ -47,13 +47,13 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     }
     
     @IBAction func SearchButton(_ sender: UIButton) {
-//        if ((SearchTextField!.text?.isEmpty) != nil) {
-//            self.categoryAlert()
-//        } else {
-        model?.goToSelectVenues(categoryType: SearchTextField!.text ?? "")
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.success)
-//        }
+        if (SearchTextField!.text!.isEmpty == false) {
+            model?.goToSelectVenues(categoryType: SearchTextField!.text ?? "")
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+        } else {
+            self.categoryAlert()
+        }
         //** get text from text field **?//
 //        let nText = SearchTextField?.text
 //        SearchTextView?.text = nText
@@ -102,7 +102,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
-    @IBAction func Pharmacy(_ sender: UIButton) {
+    @IBAction func Pharmacies(_ sender: UIButton) {
         model?.goToSelectVenues(categoryType: "pharmacy")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
@@ -123,11 +123,25 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
+    @IBAction func Bookstores (_ sender: UIButton) {
+        model?.goToSelectVenues(categoryType: "bookstores")
+        let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.success)
+        buttonTitles.insert(sender.title(for: .normal)!, at: 0)
+    }
+    
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
-        if selectedVenues.isEmpty {
+        if selectedVenues.isEmpty{
             self.showAlert()
-        } else {
+        }
+        else if selectedVenues.count > 8 {
+            self.venueMaxAlert()
+        }
+        else if selectedVenues.count <= 2 && selectedVenues.count > 0 {
+            self.venueMinAlert()
+        }
+        else {
             model?.calculateIdealRoute()
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
@@ -192,10 +206,10 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         Museum.layer.shadowOpacity = 1
         Museum.layer.shadowOffset = CGSize(width: 2, height: 2)
         
-        More.layer.shadowColor = UIColor.systemGray.cgColor
-        More.layer.shadowRadius = 3
-        More.layer.shadowOpacity = 1
-        More.layer.shadowOffset = CGSize(width: 2, height: 2)
+        Bookstore.layer.shadowColor = UIColor.systemGray.cgColor
+        Bookstore.layer.shadowRadius = 3
+        Bookstore.layer.shadowOpacity = 1
+        Bookstore.layer.shadowOffset = CGSize(width: 2, height: 2)
         
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 //        view.addGestureRecognizer(tap)
@@ -229,6 +243,32 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         let alertController = UIAlertController(title: "Empty search", message: "Please enter desired catgory to continue", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+        let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
+    }
+    
+    func venueMaxAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Please enter less than 7 veneus", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+        let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
+    }
+    
+    func proceed() {
+        model?.calculateIdealRoute()
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+    
+    func venueMinAlert() {
+        let alertController = UIAlertController(title: "Less Than Three Venues Selected", message: "You have only selected two or less veneue. Still want to Proceed?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let proceedAction = UIAlertAction(title: "Proceed", style: .default, handler:  {(alert: UIAlertAction!) in self.proceed()})
+        alertController.addAction(cancelAction)
+        alertController.addAction(proceedAction)
         present(alertController, animated: true, completion: nil)
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.error)

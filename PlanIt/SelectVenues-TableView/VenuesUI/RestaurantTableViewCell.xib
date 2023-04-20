@@ -18,21 +18,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzz-pT-TOL">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pzz-pT-TOL">
                         <rect key="frame" x="10" y="24" width="22" height="22"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="22" id="YK0-Kv-JNX"/>
-                            <constraint firstAttribute="height" constant="22" id="ynS-hI-fvv"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" image="info.circle" catalog="system"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkU-uM-Zzi">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kkU-uM-Zzi">
                         <rect key="frame" x="42" y="10" width="238" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="Vac-aI-QEl"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="qpb-e4-Mch"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask"/>
                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -51,33 +45,14 @@
                         <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87i-Cd-O0X">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="87i-Cd-O0X">
                         <rect key="frame" x="284" y="25" width="30" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="6XA-jp-LMr"/>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="8BH-jF-zfS"/>
-                            <constraint firstAttribute="width" constant="30" id="C5m-Ft-UCZ"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="uB1-C2-1la"/>
-                            <constraint firstAttribute="height" constant="20" id="wjh-Qh-k1I"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="xwP-kz-tvw"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
                         <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4bm-pl-VSN"/>
-                    <constraint firstItem="kkU-uM-Zzi" firstAttribute="leading" secondItem="pzz-pT-TOL" secondAttribute="trailing" constant="10" id="BTf-ZT-FIg"/>
-                    <constraint firstItem="87i-Cd-O0X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="LEh-a1-Nld"/>
-                    <constraint firstItem="pzz-pT-TOL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="TyL-EU-32U"/>
-                    <constraint firstAttribute="bottom" secondItem="pzz-pT-TOL" secondAttribute="bottom" constant="23" id="W1y-uq-xND"/>
-                    <constraint firstAttribute="bottom" secondItem="87i-Cd-O0X" secondAttribute="bottom" constant="24" id="Xxn-G9-tvb"/>
-                    <constraint firstItem="87i-Cd-O0X" firstAttribute="leading" secondItem="kkU-uM-Zzi" secondAttribute="trailing" constant="4" id="fNa-nb-nkI"/>
-                    <constraint firstAttribute="bottom" secondItem="kkU-uM-Zzi" secondAttribute="bottom" constant="29" id="nNn-vB-VbF"/>
-                    <constraint firstAttribute="trailing" secondItem="87i-Cd-O0X" secondAttribute="trailing" constant="6" id="vM1-xv-2vi"/>
-                    <constraint firstItem="pzz-pT-TOL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="yAc-UA-iwd"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

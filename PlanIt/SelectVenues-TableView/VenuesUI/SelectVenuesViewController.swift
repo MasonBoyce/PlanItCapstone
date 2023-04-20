@@ -214,29 +214,35 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     }
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            //            cell.backgroundColor = UIColor(red: 0, green: 252, blue: 0, alpha: 0.1)
-            cell.backgroundColor = .systemGray3
-            UIView.animate(withDuration: 0.2, animations: {
-                tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
-            })
-            if cell.isSelected {
-                data[indexPath.row].selected = !(data [indexPath.row].selected ?? false)
-            }
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        //        tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 252, green: 0, blue: 0, alpha: 0.1)
+        //tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 0, green: 252, blue: 0, alpha: 0.1)
         tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
         UIView.animate(withDuration: 0.2, animations: {
             tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
         })
+        //** TODO: Make it an resusable extension **//
+        data[indexPath.row].selected = !(data [indexPath.row].selected)
+        if data[indexPath.row].selected == true {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        }
+    }
+        
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        //tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 252, green: 0, blue: 0, alpha: 0.1)
+        tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
+        UIView.animate(withDuration: 0.2, animations: {
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
+        })
+        data[indexPath.row].selected = !(data [indexPath.row].selected)
+        if data[indexPath.row].selected == true {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        }
     }
     
-    /*switch auxiliary*/
+    //*switch auxiliary*//
     //    @objc func didChangeSwitch(_ sender: UISwitch){
     //        if sender.isOn {
     //            print ("Turned On")
@@ -246,9 +252,6 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     //        }
     //    }
     
-
-    
-
     
     //** Prepare Segue **//
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -44,12 +44,13 @@ class MapModel: MapModelProtocol {
     }
     
     func addAnnotations() {
+        let venueSet = Set(venues)
         var index = 0
         var minLatitude = 10000.0
         var maxLatitude = -1000000.0
         var minLongitude = 100000.0
         var maxLongitude = -100000.0
-        for venue in venues {
+        for venue in venueSet {
             let venueLatitude: Double = venue.latitude ?? 0.0
             let venueLongitude: Double = venue.longitude ?? 0.0
             let venueName: String = venue.name ?? "Unknown"

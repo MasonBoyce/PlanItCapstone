@@ -23,6 +23,18 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         return map
     }()
     
+    let submitButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Results in ListView", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+//        button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+        button.backgroundColor = .systemBlue
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.layer.cornerRadius = 20
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     //MARK: Functions
     
     //sets up view
@@ -31,6 +43,17 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         super.viewDidLoad()
         model?.viewDidLoad()
         mapView.delegate = self
+        submitButton.layer.shadowColor = UIColor.systemGray.cgColor
+        submitButton.layer.shadowRadius = 8
+        submitButton.layer.shadowOpacity = 1
+        submitButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+        view.addSubview(submitButton)
+        NSLayoutConstraint.activate([
+            submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
+            submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
+            submitButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            submitButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     required init?(coder: NSCoder) {

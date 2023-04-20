@@ -22,8 +22,9 @@ class SelectVenuesModel {
     }
     
     func finishedSelectionTapped(venues: [Venue]) {
+        selectedVenues = []
         for venue in venues {
-            if venue.selected {
+            if venue.selected && selectedVenues.contains(venue) == false {
                 selectedVenues.insert(venue, at: 0)
             }
         }
