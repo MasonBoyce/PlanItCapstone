@@ -12,6 +12,7 @@ import MapKit
 
 class LocationPageViewController: UIViewController, UITextFieldDelegate {
     var model: LocationPageModel?
+    var coordinator: LocationPageCoordinator?
     
     
     var selectedTravelType: MKDirectionsTransportType?
@@ -225,6 +226,26 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         let okAction = UIAlertAction(title: "My Bad", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func proceed() {
+        LocationManager.shared.destinationLoaction = CLLocationCoordinate2D(latitude: model?.coordinates?.latitude ?? 29.9407, longitude: model?.coordinates?.longitude ?? -90.1203)
+//        print ("WHERE THE FUCK", LocationManager.shared.destinationLoaction!)
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        coordinator?.goToSelection()
+        print ("I AM HERE")
+    }
+    
+    func LocationAlert() {
+        let alertController = UIAlertController(title: "Location not recognized", message: "Do you want to proceed with your current location?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let proceedAction = UIAlertAction(title: "Use current Location", style: .default, handler:  {(alert: UIAlertAction!) in self.proceed()})
+        alertController.addAction(proceedAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+        let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

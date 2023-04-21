@@ -28,15 +28,16 @@ class LocationPageModel{
     }
     
     func goToSelection(transitType: MKDirectionsTransportType){
-        
         if viewController?.textField.text == ""{
             viewController?.showAlert()
-        }else{
+        } else {
             geocodeAddress(viewController?.textField.text ?? "paris") { (coordinates, error) in
                 if let error = error {
                     print("Error geocoding address: \(error.localizedDescription)")
+//                    self.viewController?.LocationAlert()
                 } else if let coordinates = coordinates {
                     LocationManager.shared.destinationLoaction = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
+//                    self.coordinator?.goToSelection()
                 }
             }
             Cache.shared.transitType = transitType

@@ -52,7 +52,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         self.navigationController.present(navcontroller, animated: true, completion: nil)
         navcontroller.isToolbarHidden = false
         navcontroller.isNavigationBarHidden = false
-        navcontroller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//        navcontroller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
     }
     
     //passes back the data to the selectionpage

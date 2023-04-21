@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import UIKit
+
+//Coordinator for the Welcome Page
+class ResultCoordinator {
+    
+}

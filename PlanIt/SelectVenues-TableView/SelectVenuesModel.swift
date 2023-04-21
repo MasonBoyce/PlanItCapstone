@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 
-var selectedVenues: [Venue] = []
+var newselectedVenues: [Venue] = []
 
 class SelectVenuesModel {
     var viewController: SelectVenuesViewController?
@@ -22,14 +22,14 @@ class SelectVenuesModel {
     }
     
     func finishedSelectionTapped(venues: [Venue]) {
-        selectedVenues = []
+        newselectedVenues = []
         for venue in venues {
-            if venue.selected && selectedVenues.contains(venue) == false {
-                selectedVenues.insert(venue, at: 0)
+            if venue.selected {
+                newselectedVenues.insert(venue, at: 0)
             }
         }
         Cache.shared.set(searchQuery: coordinator?.categoryType ?? "", results: venues)
-        coordinator?.didFinish(venues: selectedVenues)
+        coordinator?.didFinish(venues: newselectedVenues)
     }
     
 }

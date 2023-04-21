@@ -77,7 +77,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     var coordinator: SelectVenuesCoordinator?
     //retrive Veneus
     var data = [Venue]()
-    var selecteddata : [Venue] = []
+    var celldata : [Venue] = []
     var currentDataSource : [Venue] = []
     //    var data: Array <String>?
     
@@ -221,11 +221,21 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         })
         //** TODO: Make it an resusable extension **//
         data[indexPath.row].selected = !(data [indexPath.row].selected)
+//        print ("That Sucks", data[indexPath.row].selected)
         if data[indexPath.row].selected == true {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         }
+        //** Change accesorytype to opposite instead of checking selection boolean **//
+//        if let cell = tableView.cellForRow(at: indexPath) {
+//            if cell.accessoryType == .checkmark{
+//                cell.accessoryType = .none
+//            }
+//            else{
+//                cell.accessoryType = .checkmark
+//            }
+//        }
     }
         
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -235,11 +245,20 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
             tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
         })
         data[indexPath.row].selected = !(data [indexPath.row].selected)
+//        print ("That Rocks", data[indexPath.row].selected)
         if data[indexPath.row].selected == true {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         }
+//        if let cell = tableView.cellForRow(at: indexPath) {
+//            if cell.accessoryType == .checkmark{
+//                cell.accessoryType = .none
+//            }
+//            else{
+//                cell.accessoryType = .checkmark
+//            }
+//        }
     }
     
     //*switch auxiliary*//
@@ -266,9 +285,9 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func saveButtonPressed(_ Sender:UIBarButtonItem){
         //        didTapButton(sender: RestaurantTableViewCell)
         if tableView.indexPathForSelectedRow != nil {
-            selecteddata = data
+            celldata = data
         }
-        model?.finishedSelectionTapped(venues: selecteddata)
+        model?.finishedSelectionTapped(venues: celldata)
         coordinator?.didSave()
         let generator = UIImpactFeedbackGenerator(style: .heavy)
                     generator.impactOccurred()

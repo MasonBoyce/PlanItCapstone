@@ -132,13 +132,17 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
-        if selectedVenues.isEmpty{
+        print("⭐️ FinalVenues:", model?.venues ?? "❗️ SelectionModel Error")
+//        print ("⭐️ NewSelectedVenues:", newselectedVenues)
+//        let trip: TripSession?
+//        if trip!.venues.isEmpty{
+        if model!.venues.isEmpty{
             self.showAlert()
         }
-        else if selectedVenues.count > 8 {
+        else if model!.venues.count > 8 {
             self.venueMaxAlert()
         }
-        else if selectedVenues.count <= 2 && selectedVenues.count > 0 {
+        else if model!.venues.count <= 2 && model!.venues.count > 0 {
             self.venueMinAlert()
         }
         else {

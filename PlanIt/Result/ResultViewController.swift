@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import UIKit
+import MapKit
+
+class ResultViewController: UIViewController {
+    @IBOutlet weak var Bookstore: UIButton!
+    override func viewDidLoad() {
+    }
+}

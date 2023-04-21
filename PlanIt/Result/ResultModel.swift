@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import UIKit
+import MapKit
+
+class ResultModel {
+    var viewController: ResultViewController?
+    var coordinator: ResultCoordinator?
+    
+
+    
+}
+
