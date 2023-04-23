@@ -13,6 +13,7 @@ import MapKit
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ResultTableViewCellDelegate {
     
     
+    @IBOutlet weak var screenshot: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var model: ResultModel?
@@ -46,4 +47,16 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    @IBAction func screenshot(_ sender: Any) {
+            //Create the UIImage
+            guard let layer = UIApplication.shared.keyWindow?.layer else { return }
+            let renderer = UIGraphicsImageRenderer(size: layer.frame.size)
+            let image = renderer.image(actions: { context in
+                layer.render(in: context.cgContext)
+            })
+            
+            //Save it to the camera roll
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
 }

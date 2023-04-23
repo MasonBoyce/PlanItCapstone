@@ -44,6 +44,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Save to Album" cornerStyle="capsule">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="screenshot:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FnZ-eb-7ag"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -57,6 +60,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Za6-EE-MUZ"/>
                     <connections>
+                        <outlet property="Screenshot" destination="Fuk-pg-HF1" id="AqN-uj-ziz"/>
+                        <outlet property="screenshot" destination="Fuk-pg-HF1" id="D0s-cK-9TQ"/>
                         <outlet property="tableView" destination="KdG-ea-nFn" id="Txz-YL-fXc"/>
                         <outlet property="view" destination="KdG-ea-nFn" id="ys0-V2-Kkx"/>
                     </connections>
