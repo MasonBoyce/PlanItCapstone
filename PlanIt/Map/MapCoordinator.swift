@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MapCoordinator: MapCoordinatorProtocol, Coordinator {
+class MapCoordinator: Coordinator {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
@@ -37,6 +37,12 @@ class MapCoordinator: MapCoordinatorProtocol, Coordinator {
        
     }
     
+    func goToResult() {
+        let resultCoordinator = ResultCoordinator(navigationController: navigationController)
+        resultCoordinator.parentCoordinator = self
+        resultCoordinator.start()
+//        children.append(resultCoordinator)
+    }
     
     
 }

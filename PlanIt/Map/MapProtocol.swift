@@ -20,6 +20,6 @@ protocol MapModelProtocol: AnyObject {
     func viewDidLoad()
 }
 
-protocol MapCoordinatorProtocol: AnyObject {
-    
-}
+//protocol MapCoordinatorProtocol: AnyObject {
+//    
+//}

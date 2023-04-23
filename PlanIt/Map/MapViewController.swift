@@ -32,8 +32,15 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 20
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(goToResult), for: .touchUpInside)
         return button
     }()
+    
+    @objc private func goToResult() {
+            model?.goToResult()
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+                    generator.impactOccurred()
+    }
     
     //MARK: Functions
     

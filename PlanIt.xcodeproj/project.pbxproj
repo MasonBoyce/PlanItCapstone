@@ -37,6 +37,9 @@
 		D324EFB72923463A00B8AFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D324EFB62923463A00B8AFB3 /* Main.storyboard */; };
 		D353E4A629C3DB67004136B3 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353E4A429C3DB67004136B3 /* RestaurantTableViewCell.swift */; };
 		D353E4A729C3DB67004136B3 /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D353E4A529C3DB67004136B3 /* RestaurantTableViewCell.xib */; };
+		D375CD9D29F2DD880072EE54 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375CD9C29F2DD880072EE54 /* ResultViewController.swift */; };
+		D375CDA229F356530072EE54 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375CDA029F356530072EE54 /* ResultTableViewCell.swift */; };
+		D375CDA329F356530072EE54 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D375CDA129F356530072EE54 /* ResultTableViewCell.xib */; };
 		D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3917C952993744F00B85086 /* SelectionUIViewController.swift */; };
 		D3B7314029B2937D004D4E4D /* SelectionUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3917C932993732100B85086 /* SelectionUI.storyboard */; };
 		D3B7314129B29457004D4E4D /* SelectVenues.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D31C2DE329A952A4005658B2 /* SelectVenues.storyboard */; };
@@ -45,7 +48,6 @@
 		D3E6CFEB29F07FB400FA1B73 /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E6CFEA29F07FB400FA1B73 /* Result.storyboard */; };
 		D3E6CFED29F07FE900FA1B73 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E6CFEC29F07FE900FA1B73 /* ResultModel.swift */; };
 		D3E6CFEF29F07FF600FA1B73 /* ResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E6CFEE29F07FF600FA1B73 /* ResultCoordinator.swift */; };
-		D3E6CFF229F0801900FA1B73 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E6CFF129F0801900FA1B73 /* ResultViewController.swift */; };
 		E1352E172999882C00401F30 /* TripSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1352E162999882C00401F30 /* TripSession.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,9 @@
 		D324EFB62923463A00B8AFB3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D353E4A429C3DB67004136B3 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		D353E4A529C3DB67004136B3 /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
+		D375CD9C29F2DD880072EE54 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		D375CDA029F356530072EE54 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		D375CDA129F356530072EE54 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		D3917C932993732100B85086 /* SelectionUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectionUI.storyboard; sourceTree = "<group>"; };
 		D3917C952993744F00B85086 /* SelectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionUIViewController.swift; sourceTree = "<group>"; };
 		D3C868392927F58E00045605 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,7 +95,6 @@
 		D3E6CFEA29F07FB400FA1B73 /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
 		D3E6CFEC29F07FE900FA1B73 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		D3E6CFEE29F07FF600FA1B73 /* ResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCoordinator.swift; sourceTree = "<group>"; };
-		D3E6CFF129F0801900FA1B73 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		E1352E162999882C00401F30 /* TripSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,9 +230,11 @@
 			isa = PBXGroup;
 			children = (
 				D3E6CFEA29F07FB400FA1B73 /* Result.storyboard */,
-				D3E6CFF129F0801900FA1B73 /* ResultViewController.swift */,
+				D375CD9C29F2DD880072EE54 /* ResultViewController.swift */,
 				D3E6CFEC29F07FE900FA1B73 /* ResultModel.swift */,
 				D3E6CFEE29F07FF600FA1B73 /* ResultCoordinator.swift */,
+				D375CDA029F356530072EE54 /* ResultTableViewCell.swift */,
+				D375CDA129F356530072EE54 /* ResultTableViewCell.xib */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -292,6 +298,7 @@
 			files = (
 				D3DDCD1829D152FD0017AFF5 /* Launch Screen.storyboard in Resources */,
 				D3B7314129B29457004D4E4D /* SelectVenues.storyboard in Resources */,
+				D375CDA329F356530072EE54 /* ResultTableViewCell.xib in Resources */,
 				D3B7314029B2937D004D4E4D /* SelectionUI.storyboard in Resources */,
 				D353E4A729C3DB67004136B3 /* RestaurantTableViewCell.xib in Resources */,
 				50D4808028FD995B00F90294 /* Assets.xcassets in Resources */,
@@ -319,6 +326,7 @@
 				5097B566299BFECF00048435 /* SelectVenuesCoordinator.swift in Sources */,
 				5097B55B299B2FE800048435 /* SelectionCoordinator.swift in Sources */,
 				501876A929E5D50200A94FFD /* Cache.swift in Sources */,
+				D375CDA229F356530072EE54 /* ResultTableViewCell.swift in Sources */,
 				50D45CCD2912837700CCBCA3 /* WelcomeModel.swift in Sources */,
 				5097B558299B2F9800048435 /* SelectionModel.swift in Sources */,
 				508C47EE291E68D6009F89E0 /* MapViewController.swift in Sources */,
@@ -339,7 +347,7 @@
 				50D45CD3291283A100CCBCA3 /* WelcomeCoordinator.swift in Sources */,
 				50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */,
 				E1352E172999882C00401F30 /* TripSession.swift in Sources */,
-				D3E6CFF229F0801900FA1B73 /* ResultViewController.swift in Sources */,
+				D375CD9D29F2DD880072EE54 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

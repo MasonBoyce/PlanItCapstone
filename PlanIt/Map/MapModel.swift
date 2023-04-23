@@ -12,7 +12,7 @@ import MapKit
 class MapModel: MapModelProtocol {
     //MARK: Model Variables
     var viewController: MapViewControllerProtocol?
-    var coordinator: MapCoordinatorProtocol?
+    var coordinator: MapCoordinator?
     var sController: SelectionUIViewController?
     var currentCoordinate: CLLocationCoordinate2D
     var region: MKCoordinateRegion?
@@ -37,6 +37,10 @@ class MapModel: MapModelProtocol {
     func viewDidLoad() {
         optimal_route = tripSession?.ordered_routes
         addOverlays(routes: optimal_route!)
+    }
+    
+    func goToResult() {
+        coordinator?.goToResult()
     }
     
     func addAnnotation(annotation: CustomAnnotation) {

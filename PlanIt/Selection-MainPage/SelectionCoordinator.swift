@@ -37,6 +37,8 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
         navigationController.pushViewController(viewController, animated: true)
     }
     
+    //** TODO - Result Error Handler with category **//
+//    func goToSelectVenues(categoryType: String, completion: @escaping ([String]?, Error?) -> Void) {
     func goToSelectVenues(categoryType: String) {
         let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType, delegate: self)
         selectVenues.parentCoordinator = self

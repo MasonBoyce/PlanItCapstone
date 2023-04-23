@@ -278,6 +278,15 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
                     generator.notificationOccurred(.error)
     }
     
+    func noMatchAlert() {
+        let alertController = UIAlertController(title: "Error", message: "No match from category search from yelp", preferredStyle: .alert)
+        let tryagainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+        alertController.addAction(tryagainAction)
+        present(alertController, animated: true, completion: nil)
+        let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
+    }
+    
 //    @objc func dismissKeyboard() {
 //        //Causes the view (or one of its embedded text fields) to resign the first responder status.
 //        view.endEditing(true)
