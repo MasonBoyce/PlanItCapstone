@@ -113,11 +113,9 @@ func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnota
     let configuration = UIImage.SymbolConfiguration(pointSize: 37.5)
     
     switch annotation.index {
+    
     case 0:
-        
         let image = UIImage(systemName: "1.circle.fill", withConfiguration: configuration)
-        
-
         annotationView?.image = image
     case 1:
         let image = UIImage(systemName: "2.circle.fill", withConfiguration: configuration)
@@ -141,7 +139,6 @@ func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnota
         let image = UIImage(systemName: "8.circle.fill", withConfiguration: configuration)
         annotationView?.image = image
     }
-    
     return annotationView
 }
 

@@ -20,9 +20,7 @@ class MapModel: MapModelProtocol {
     var venues: [Venue]
     var tripSession: TripSession?
     var optimal_route: [MKRoute]?
-    var optimal_route_cost: Double?
-    
-    
+    var optimal_route_cost: Double?    
     
     //Setting up custom annotations preinputed values
     var annotations: [CustomAnnotation] = []
@@ -81,12 +79,13 @@ class MapModel: MapModelProtocol {
             
         }
             
-        let buffer = 0.006
+        let latBuffer = (maxLatitude - minLatitude) * 1.1
+        let longBuffer =  (maxLongitude - minLongitude) * 1.1
         viewController?.updateAnnotations(annotations: annotations)
         let centerLatitude = (minLatitude + maxLatitude) / 2
         let centerLongitude = (minLongitude + maxLongitude) / 2
         let centerCoordinate = CLLocationCoordinate2D(latitude: centerLatitude, longitude: centerLongitude)
-        let span = MKCoordinateSpan(latitudeDelta: maxLatitude - minLatitude + buffer, longitudeDelta: maxLongitude - minLongitude + buffer)
+        let span = MKCoordinateSpan(latitudeDelta: maxLatitude - minLatitude + latBuffer, longitudeDelta: maxLongitude - minLongitude + longBuffer)
         let region = MKCoordinateRegion(center: centerCoordinate, span: span)
         viewController?.mapView.setRegion(region, animated: true)
     }
@@ -97,8 +96,5 @@ class MapModel: MapModelProtocol {
             viewController?.mapView.addOverlay(polyline)
         }
     }
-    
-    
-    
     
 }

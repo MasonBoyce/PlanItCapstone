@@ -21,9 +21,13 @@ class SelectionModel  {
 //    }
     }
     
-    func update(venues: [Venue]) {
-        //TODO: CHECK IF I IN VENUES
-        self.venues += venues
+    func update(newVenues: [Venue]) {
+        for venue in newVenues {
+            if !self.venues.contains(venue){
+                self.venues.append(venue)
+            }
+        }
+        
     }
     
     func goToMap(tripSession: TripSession) {
@@ -33,7 +37,6 @@ class SelectionModel  {
     
     func calculateIdealRoute() {
         if venues.count <= 2 {
-            
             goToMap(tripSession: TripSession(newVenues: self.venues, model: self))
         }
         let tripSession = TripSession(newVenues: self.venues, model: self)

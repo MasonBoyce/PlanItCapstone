@@ -30,9 +30,6 @@ class MapCoordinator: Coordinator {
         
         navigationController.pushViewController(viewController, animated: true)
         model.tripSession = tripSession
-       
-        
-       
     }
     
     func goToResult() {

@@ -53,7 +53,7 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     }
     
     func finish(venues: [Venue]) {
-        self.model?.update(venues: venues)
+        self.model?.update(newVenues: venues)
     }
 }
 

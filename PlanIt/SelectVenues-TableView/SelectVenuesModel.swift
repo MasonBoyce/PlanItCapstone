@@ -15,7 +15,6 @@ class SelectVenuesModel {
     var viewController: SelectVenuesViewController?
     var coordinator: SelectVenuesCoordinator?
     var venues: [Venue]
-    
    
     init(venues: [Venue]){
         self.venues = venues
