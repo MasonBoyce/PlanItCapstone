@@ -14,6 +14,7 @@ protocol ResultTableViewCellDelegate: AnyObject {
 class ResultTableViewCell: UITableViewCell {
     
     weak var delegate: ResultTableViewCellDelegate?
+    var tripses : TripSession?
 
     @IBOutlet weak var TravelLabel: UILabel!
     @IBOutlet weak var NameLabel: UILabel!
