@@ -13,6 +13,7 @@ class ResultModel {
     var viewController: ResultViewController?
     var coordinator: ResultCoordinator?
     var tripSession: TripSession
+    var transitType = Cache.shared.transitType
     
     init(tripSession: TripSession) {
         self.tripSession = tripSession
