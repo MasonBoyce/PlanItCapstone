@@ -63,17 +63,8 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         //        model?.yelpApiCall(categorytype: nText ?? "")
     }
     
-    
     @IBAction func restaurants(_ sender: UIButton) {
-        if #available(iOS 15.0, *) {
-            Restaurant.configuration?.showsActivityIndicator = true
-            self.model?.goToSelectVenues(categoryType: "restaurants")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.Restaurant.configuration?.showsActivityIndicator = false
-            })
-        } else {
-            model?.goToSelectVenues(categoryType: "restaurants")
-        }
+        model?.goToSelectVenues(categoryType: "restaurants")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         //add to array upon button click//
@@ -83,130 +74,57 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         //        performSegue(withIdentifier: "ShowTableview", sender: self)
     }
     
-//    func finish (completed: restaurants) {
-//        if #available(iOS 15.0, *) {
-//            self.Restaurant.configuration?.showsActivityIndicator = false
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//        completed()
-//        }
-    
     @IBAction func cafés(_ sender: UIButton) {
-        if #available(iOS 15.0, *) {
-            Café.configuration?.showsActivityIndicator = true
-            self.model?.goToSelectVenues(categoryType: "cafes")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.Café.configuration?.showsActivityIndicator = false
-            })
-        } else {
-            self.model?.goToSelectVenues(categoryType: "cafes")
-        }
+        model?.goToSelectVenues(categoryType: "cafes")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func gyms(_ sender: UIButton) {
-        if #available(iOS 15.0, *) {
-            Gym.configuration?.showsActivityIndicator = true
-            self.model?.goToSelectVenues(categoryType: "gyms")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.Gym.configuration?.showsActivityIndicator = false
-            })
-        } else {
-            self.model?.goToSelectVenues(categoryType: "gyms")
-        }
+        model?.goToSelectVenues(categoryType: "gyms")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Desserts(_ sender: UIButton) {
-        if #available(iOS 15.0, *) {
-            Dessert.configuration?.showsActivityIndicator = true
-            self.model?.goToSelectVenues(categoryType: "desserts")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.Dessert.configuration?.showsActivityIndicator = false
-            })
-        } else {
-            self.model?.goToSelectVenues(categoryType: "desserts")
-        }
+        model?.goToSelectVenues(categoryType: "desserts")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
         
     @IBAction func Bars(_ sender: UIButton) {
-        if #available(iOS 15.0, *) {
-            Bar.configuration?.showsActivityIndicator = true
-            self.model?.goToSelectVenues(categoryType: "bars")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.Bar.configuration?.showsActivityIndicator = false
-            })
-        } else {
-            self.model?.goToSelectVenues(categoryType: "bars")
-        }
+        model?.goToSelectVenues(categoryType: "bars")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Pharmacies(_ sender: UIButton) {
-        if #available(iOS 15.0, *) {
-            Pharmacy.configuration?.showsActivityIndicator = true
-            self.model?.goToSelectVenues(categoryType: "pharmacy")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.Pharmacy.configuration?.showsActivityIndicator = false
-            })
-        } else {
-            self.model?.goToSelectVenues(categoryType: "pharmacy")
-        }
+        model?.goToSelectVenues(categoryType: "pharmacy")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Parks(_ sender: UIButton) {
-        if #available(iOS 15.0, *) {
-            Park.configuration?.showsActivityIndicator = true
-            self.model?.goToSelectVenues(categoryType: "parks")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.Park.configuration?.showsActivityIndicator = false
-            })
-        } else {
-            self.model?.goToSelectVenues(categoryType: "parks")
-        }
+        model?.goToSelectVenues(categoryType: "parks")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Museums(_ sender: UIButton) {
-        if #available(iOS 15.0, *) {
-            Museum.configuration?.showsActivityIndicator = true
-            self.model?.goToSelectVenues(categoryType: "museums")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.Museum.configuration?.showsActivityIndicator = false
-            })
-        } else {
-            self.model?.goToSelectVenues(categoryType: "museums")
-        }
+        model?.goToSelectVenues(categoryType: "museums")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Bookstores (_ sender: UIButton) {
-        if #available(iOS 15.0, *) {
-            Bookstore.configuration?.showsActivityIndicator = true
-            self.model?.goToSelectVenues(categoryType: "bookstores")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.Bookstore.configuration?.showsActivityIndicator = false
-            })
-        } else {
-            self.model?.goToSelectVenues(categoryType: "bookstores")
-        }
+        model?.goToSelectVenues(categoryType: "bookstores")
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
@@ -368,19 +286,6 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.error)
     }
-    
-//    func goToTableView(_ completion: @escaping (String, Error?) -> Void) {
-//        let geocoder = CLGeocoder()
-//
-//        geocoder.geocodeAddressString(address) { (placemarks, error) in
-//            if let placemark = placemarks?.first {
-//                let coordinates = placemark.location?.coordinate
-//                completion(coordinates, nil)
-//            } else {
-//                completion(nil, error)
-//            }
-//        }
-//    }
     
 //    @objc func dismissKeyboard() {
 //        //Causes the view (or one of its embedded text fields) to resign the first responder status.

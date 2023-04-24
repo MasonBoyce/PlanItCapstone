@@ -96,7 +96,6 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        completer.delegate = self
         
         self.textField.delegate = self
         
@@ -171,27 +170,6 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         transitButton.addTarget(self, action: #selector(selectTravelType(sender:)), for: .touchUpInside)
         drivingButton.addTarget(self, action: #selector(selectTravelType(sender:)), for: .touchUpInside)
     }
-    
-// TODO: AUTOCOMPLETE **//
-//    private let completer = MKLocalSearchCompleter()
-//
-//    @objc private func textFieldDidChange(_:) {
-//        // 1
-//        if textField == originTextField {
-//          textField.text = ""
-//        }
-//        // 2
-//        guard let query = textField.contents else {
-//          hideSuggestionView(animated: true)
-//          // 3
-//          if completer.isSearching {
-//            completer.cancel()
-//          }
-//          return
-//        }
-//        // 4
-//        completer.queryFragment = query
-//    }
     
     @objc private func goToSelection() {
         
@@ -278,20 +256,3 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 }
-
-//extension LocationPageViewController: MKLocalSearchCompleterDelegate {
-//  func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-//    guard let firstResult = completer.results.first else {
-//      return
-//    }
-//
-//    showSuggestion(firstResult.title)
-//  }
-//
-//  func completer(
-//    _ completer: MKLocalSearchCompleter,
-//    didFailWithError error: Error
-//  ) {
-//    print("Error suggesting a location: \(error.localizedDescription)")
-//  }
-//}
