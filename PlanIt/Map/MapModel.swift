@@ -17,7 +17,7 @@ class MapModel: MapModelProtocol {
     var currentCoordinate: CLLocationCoordinate2D
     var region: MKCoordinateRegion?
     var transportType: MKDirectionsTransportType?
-    var venues: [Venue]
+    
     var tripSession: TripSession?
     var optimal_route: [MKRoute]?
     var optimal_route_cost: Double?    
@@ -27,10 +27,9 @@ class MapModel: MapModelProtocol {
     
     //MARK: FUNCTIONS
     
-    init(venues: [Venue]) {
+    init() {
         currentCoordinate = LocationManager.shared.destinationLoaction ?? LocationManager.shared.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
         
-        self.venues = venues
     }
     
     func viewDidLoad() {
@@ -52,9 +51,9 @@ class MapModel: MapModelProtocol {
         let venuesFromTripSession: [Venue]
         
         if  tripSession?.optimal_venue_order == [] {
-            venuesFromTripSession = venues
+            venuesFromTripSession = Cache.shared.selectedVenues
         } else {
-            venuesFromTripSession = tripSession?.optimal_venue_order ?? venues
+            venuesFromTripSession = tripSession?.optimal_venue_order ?? Cache.shared.selectedVenues
         }
     
         var index = 0
@@ -76,7 +75,6 @@ class MapModel: MapModelProtocol {
             maxLatitude = max(maxLatitude, venueLatitude)
             minLongitude = min(minLongitude, venueLongitude)
             maxLongitude = max(maxLongitude, venueLongitude)
-            
         }
             
         let latBuffer = (maxLatitude - minLatitude) * 1.1

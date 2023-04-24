@@ -20,12 +20,12 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         return LocationManager.shared.destinationLoaction ?? LocationManager.shared.currentLocation?.coordinate ??  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
     }
     var venues: [Venue] = []
-    weak var delegate: SelectionDelegateProtocol?
     
-    init(navigationController: UINavigationController, categoryType: String, delegate: SelectionDelegateProtocol) {
+    
+    init(navigationController: UINavigationController, categoryType: String) {
         self.navigationController = navigationController
         self.categoryType = categoryType
-        self.delegate = delegate
+        
         yelpAPICall()
     }
     
@@ -57,8 +57,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     
     //passes back the data to the selectionpage
     func didFinish(venues: [Venue]) {
-        delegate?.didFinish(venues: venues)
-        
+        Cache.shared.updateSelectedVenues(category: categoryType, newVenues: venues)
     }
     
     func didSave() {

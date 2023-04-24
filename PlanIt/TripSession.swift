@@ -30,8 +30,8 @@ class TripSession {
     var model: SelectionModel?
     
     
-    init(newVenues: [Venue], model: SelectionModel) {
-        venues = newVenues
+    init(model: SelectionModel) {
+        venues = Cache.shared.selectedVenues
         
         let num_venues = venues.count
         

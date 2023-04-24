@@ -39,27 +39,19 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     //** TODO - Result Error Handler with category **//
 //    func goToSelectVenues(categoryType: String, completion: @escaping ([String]?, Error?) -> Void) {
     func goToSelectVenues(categoryType: String) {
-        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType, delegate: self)
+        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType)
         selectVenues.parentCoordinator = self
         
         children.append(selectVenues)
     }
     
-    func goToMap(venues: [Venue], tripSession: TripSession) {
-        let mapCoordinator = MapCoordinator(navigationController: navigationController, venues: venues, tripSession: tripSession)
+    func goToMap(tripSession: TripSession) {
+        let mapCoordinator = MapCoordinator(navigationController: navigationController,tripSession: tripSession)
         mapCoordinator.parentCoordinator = self
         children.append(mapCoordinator)
         mapCoordinator.start()
     }
     
-    func finish(venues: [Venue]) {
-        self.model?.update(newVenues: venues)
-    }
 }
 
-extension SelectionCoordinator: SelectionDelegateProtocol {
-    func didFinish(venues: [Venue]) {
-        self.finish(venues: venues)
-    }
-}
 

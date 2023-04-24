@@ -27,7 +27,7 @@ class SelectVenuesModel {
                 newselectedVenues.insert(venue, at: 0)
             }
         }
-        Cache.shared.set(searchQuery: coordinator?.categoryType ?? "", results: venues)
+        Cache.shared.setYelp(searchQuery: coordinator?.categoryType ?? "", results: venues)
         coordinator?.didFinish(venues: newselectedVenues)
     }
     

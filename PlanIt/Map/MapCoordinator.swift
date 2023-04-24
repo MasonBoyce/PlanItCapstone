@@ -12,17 +12,16 @@ class MapCoordinator: Coordinator {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
-    var venues: [Venue]  = []
     var tripSession: TripSession
     
-    init(navigationController: UINavigationController,venues: [Venue],  tripSession: TripSession) {
+    init(navigationController: UINavigationController,  tripSession: TripSession) {
         self.navigationController = navigationController
-        self.venues = venues
+        
         self.tripSession = tripSession
     }
 
     func start() {
-        let model: MapModel = MapModel(venues: self.venues)
+        let model: MapModel = MapModel()
         let viewController: MapViewController = MapViewController()
         viewController.model = model
         model.viewController = viewController

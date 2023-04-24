@@ -51,7 +51,7 @@ class YelpApi{
     
     func searchVenues(searchQuery: String, latitude: Double, longitude: Double, completion: @escaping ([Venue]?, Error?) -> Void) {
         
-        if let cachedResults = Cache.shared.get(searchQuery: searchQuery) {
+        if let cachedResults = Cache.shared.getYelp(searchQuery: searchQuery) {
                // If the results are cached, return them immediately
                completion(cachedResults, nil)
                return
@@ -84,7 +84,7 @@ class YelpApi{
             do {
                 let decoder = JSONDecoder()
                 let result = try decoder.decode(SearchResult.self, from: data)
-                Cache.shared.set(searchQuery: searchQuery, results: result.businesses)
+                Cache.shared.setYelp(searchQuery: searchQuery, results: result.businesses)
                 completion(result.businesses, nil)
             } catch {
                 completion(nil, error)
@@ -97,7 +97,7 @@ class YelpApi{
     
     func retriveVenues(latitude: Double, longitude: Double, category: String, limit: Int, sortBy: String, locale:String, completionHandler: @escaping([Venue]?, Error?)-> Void ) {
        
-        if let cachedResults = Cache.shared.get(searchQuery: category) {
+        if let cachedResults = Cache.shared.getYelp(searchQuery: category) {
                // If the results are cached, return them immediately
                 completionHandler(cachedResults, nil)
            
@@ -147,7 +147,7 @@ class YelpApi{
                     venuesList.append(venue)
                 
                 }
-                Cache.shared.set(searchQuery: category, results: venuesList)
+                Cache.shared.setYelp(searchQuery: category, results: venuesList)
                 completionHandler(venuesList,nil)
             } catch {
                 print("ERROR RIGHT HERE \(error)")
