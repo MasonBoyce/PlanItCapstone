@@ -14,6 +14,7 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
+    var sViewController: SelectionUIViewController?
     
     
     init(navigationController: UINavigationController) {
@@ -44,6 +45,11 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
         selectVenues.parentCoordinator = self
         
         children.append(selectVenues)
+        if #available(iOS 15.0, *) {
+            sViewController?.Restaurant.configuration?.showsActivityIndicator = false
+        } else {
+            return
+        }
     }
     
     func goToMap(venues: [Venue], tripSession: TripSession) {
