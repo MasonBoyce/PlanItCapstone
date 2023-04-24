@@ -23,6 +23,7 @@ class MapModel: MapModelProtocol {
     var optimal_route_cost: Double?
     
     
+    
     //Setting up custom annotations preinputed values
     var annotations: [CustomAnnotation] = []
     
@@ -36,7 +37,9 @@ class MapModel: MapModelProtocol {
     
     func viewDidLoad() {
         optimal_route = tripSession?.ordered_routes
+        addAnnotations()
         addOverlays(routes: optimal_route!)
+        
     }
     
     func goToResult() {
@@ -48,13 +51,14 @@ class MapModel: MapModelProtocol {
     }
     
     func addAnnotations() {
-        let venueSet = Set(venues)
+        let venuesFromTripSession = tripSession?.optimal_venue_order
+        print("DOPE",venuesFromTripSession)
         var index = 0
         var minLatitude = 10000.0
         var maxLatitude = -1000000.0
         var minLongitude = 100000.0
         var maxLongitude = -100000.0
-        for venue in venueSet {
+        for venue in venuesFromTripSession ?? [] {
             let venueLatitude: Double = venue.latitude ?? 0.0
             let venueLongitude: Double = venue.longitude ?? 0.0
             let venueName: String = venue.name ?? "Unknown"

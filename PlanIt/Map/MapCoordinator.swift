@@ -27,7 +27,7 @@ class MapCoordinator: Coordinator {
         viewController.model = model
         model.viewController = viewController
         model.coordinator = self
-        model.addAnnotations()
+        
         navigationController.pushViewController(viewController, animated: true)
         model.tripSession = tripSession
         let optimal_route = tripSession?.ordered_routes
