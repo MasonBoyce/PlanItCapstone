@@ -32,6 +32,7 @@ class LocationPageCoordinator: Coordinator{
         locationPageViewController.model = model
         model.viewController  = locationPageViewController
         model.coordinator = self
+        locationPageViewController.coordinator = self
         navigationController.pushViewController(locationPageViewController , animated: true)
     }
     

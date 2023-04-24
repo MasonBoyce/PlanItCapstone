@@ -229,7 +229,7 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
     }
     
     func proceed() {
-        LocationManager.shared.destinationLoaction = CLLocationCoordinate2D(latitude: model?.coordinates?.latitude ?? 29.9407, longitude: model?.coordinates?.longitude ?? -90.1203)
+        LocationManager.shared.destinationLoaction = LocationManager.shared.currentLocation?.coordinate
 //        print ("WHERE THE FUCK", LocationManager.shared.destinationLoaction!)
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)

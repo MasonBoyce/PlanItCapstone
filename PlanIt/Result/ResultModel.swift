@@ -12,6 +12,11 @@ import MapKit
 class ResultModel {
     var viewController: ResultViewController?
     var coordinator: ResultCoordinator?
+    var tripSession: TripSession
+    
+    init(tripSession: TripSession) {
+        self.tripSession = tripSession
+    }
     
 
     

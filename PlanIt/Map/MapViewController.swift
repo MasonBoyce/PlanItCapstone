@@ -85,7 +85,6 @@ class MapViewController: UIViewController, MapViewControllerProtocol {
         var prevAnnotation: CustomAnnotation?
         model?.annotations.forEach {
             mapView.addAnnotation($0)
-           
         }
     }
     

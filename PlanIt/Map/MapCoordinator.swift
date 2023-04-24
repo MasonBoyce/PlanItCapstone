@@ -13,7 +13,7 @@ class MapCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var venues: [Venue]  = []
-    var tripSession: TripSession?
+    var tripSession: TripSession
     
     init(navigationController: UINavigationController,venues: [Venue],  tripSession: TripSession) {
         self.navigationController = navigationController
@@ -30,15 +30,13 @@ class MapCoordinator: Coordinator {
         
         navigationController.pushViewController(viewController, animated: true)
         model.tripSession = tripSession
-        let optimal_route = tripSession?.ordered_routes
-        for route in optimal_route!{
-            print("DOP",route.expectedTravelTime)
-        }
+       
+        
        
     }
     
     func goToResult() {
-        let resultCoordinator = ResultCoordinator(navigationController: navigationController)
+        let resultCoordinator = ResultCoordinator(navigationController: navigationController, tripSession: tripSession)
         resultCoordinator.parentCoordinator = self
         resultCoordinator.start()
 //        children.append(resultCoordinator)
