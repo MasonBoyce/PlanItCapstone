@@ -15,6 +15,7 @@ class  Cache {
         var transitType: MKDirectionsTransportType?
         
         func get(searchQuery: String) -> [Venue]? {
+            
             return cache[searchQuery]
         }
         

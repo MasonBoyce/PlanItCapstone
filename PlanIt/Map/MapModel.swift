@@ -51,15 +51,21 @@ class MapModel: MapModelProtocol {
     }
     
     func addAnnotations() {
-        let venuesFromTripSession = tripSession?.optimal_venue_order ?? venues
-        print("FOGGY",venues)
+        let venuesFromTripSession: [Venue]
+        
+        if  tripSession?.optimal_venue_order == [] {
+            venuesFromTripSession = venues
+        } else {
+            venuesFromTripSession = tripSession?.optimal_venue_order ?? venues
+        }
+    
         var index = 0
         var minLatitude = 10000.0
         var maxLatitude = -1000000.0
         var minLongitude = 100000.0
         var maxLongitude = -100000.0
+        
         for venue in venuesFromTripSession {
-            print("FOGGY HERE")
             let venueLatitude: Double = venue.latitude ?? 0.0
             let venueLongitude: Double = venue.longitude ?? 0.0
             let venueName: String = venue.name ?? "Unknown"
@@ -84,7 +90,6 @@ class MapModel: MapModelProtocol {
         let region = MKCoordinateRegion(center: centerCoordinate, span: span)
         viewController?.mapView.setRegion(region, animated: true)
     }
-    
     
     func addOverlays(routes: [MKRoute]) {
         for route in routes {

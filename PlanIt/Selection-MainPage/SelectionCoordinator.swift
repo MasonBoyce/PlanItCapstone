@@ -10,7 +10,7 @@ import UIKit
 
 class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     
-    var model: SelectionModelProtocol?
+    var model: SelectionModel?
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
@@ -18,7 +18,6 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        
     }
     
     //Initializes view controller model and connects them.

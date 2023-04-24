@@ -9,20 +9,22 @@ import Foundation
 import MapKit
 
 
-class SelectionModel: SelectionModelProtocol {
+class SelectionModel  {
     var viewController: SelectionUIViewControllerProtocol?
-    var coordinator: SelectionCoordinatorProtocol?
+    var coordinator: SelectionCoordinator?
     var venues: [Venue] = []
     
     func goToSelectVenues(categoryType: String){
-        coordinator?.goToSelectVenues(categoryType: categoryType)
+//        YelpApi.shared.retriveVenues(latitude: LocationManager.shared.destinationLoaction!.latitude, longitude: LocationManager.shared.destinationLoaction!.longitude, category: categoryType, limit: 20, sortBy: "distance", locale: "en_US"){_,_ in
+                                     
+            self.coordinator?.goToSelectVenues(categoryType: categoryType)
+//    }
     }
     
     func update(venues: [Venue]) {
+        //TODO: CHECK IF I IN VENUES
         self.venues += venues
     }
-    
-    
     
     func goToMap(tripSession: TripSession) {
         self.coordinator?.goToMap(venues: self.venues, tripSession: tripSession)
@@ -31,9 +33,11 @@ class SelectionModel: SelectionModelProtocol {
     
     func calculateIdealRoute() {
         if venues.count <= 2 {
+            
             goToMap(tripSession: TripSession(newVenues: self.venues, model: self))
         }
         let tripSession = TripSession(newVenues: self.venues, model: self)
         tripSession.start()
     }
 }
+

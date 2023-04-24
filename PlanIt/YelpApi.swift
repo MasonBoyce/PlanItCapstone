@@ -43,6 +43,8 @@ class YelpApi{
 //    TUTORIAL By https://medium.com/@khansaryan/yelp-fusion-api-integration-af50dd186a6e
     
 //    var viewcontroller: SelectVenuesViewController?
+    
+    static let shared = YelpApi()
 
     let apiKey: String = "mvMizN0RpyOsWy8v9KDxnYw_e-RARw_7NR-KhyHhnI8dgX3SYGKE-q2-9XVLEY12FAKiSEpSjYUzG6VLPpjwgQYfD5lmrTi18hvk7mDnrEL-bfL44X1-HLaQideNY3Yx"
     

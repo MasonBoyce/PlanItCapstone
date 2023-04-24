@@ -48,7 +48,8 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     
     @IBAction func SearchButton(_ sender: UIButton) {
         if (SearchTextField!.text!.isEmpty == false) {
-            model?.goToSelectVenues(categoryType: SearchTextField!.text ?? "")
+            //BMASON
+            model?.goToSelectVenues(categoryType: SearchTextField!.text ?? "") 
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.success)
         } else {

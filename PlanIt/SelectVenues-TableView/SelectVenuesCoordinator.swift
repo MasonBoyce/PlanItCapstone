@@ -83,7 +83,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         let limit = 50
         let sortBy = "distance"
         let locale = "en_US"
-        let yelpApi = YelpApi()
+        let yelpApi = YelpApi.shared
         yelpApi.retriveVenues(latitude: latitude, longitude: longitude, category: category, limit: limit, sortBy: sortBy, locale: locale) {
             (response, error) in
             if let response = response {
