@@ -46,15 +46,20 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.register(nib, forCellReuseIdentifier: "ResultTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.contentInset = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0);
     }
     
     @IBAction func screenshot(_ sender: Any) {
             //Create the UIImage
+            self.screenshot.isHidden = true
+            self.navigationController?.navigationBar.isHidden = true
             guard let layer = UIApplication.shared.keyWindow?.layer else { return }
             let renderer = UIGraphicsImageRenderer(size: layer.frame.size)
             let image = renderer.image(actions: { context in
                 layer.render(in: context.cgContext)
             })
+            self.screenshot.isHidden = false
+            self.navigationController?.navigationBar.isHidden = false
             
             //Save it to the camera roll
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
