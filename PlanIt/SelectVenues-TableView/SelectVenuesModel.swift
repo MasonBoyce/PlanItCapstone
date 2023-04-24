@@ -18,16 +18,18 @@ class SelectVenuesModel {
    
     init(venues: [Venue]){
         self.venues = venues
+//        print("FUCK",venues)
     }
     
-    func finishedSelectionTapped(venues: [Venue]) {
+    func finishedSelectionTapped(newVenues: [Venue]) {
+//        print("FUCK",venues)
         newselectedVenues = []
-        for venue in venues {
+        for venue in newVenues {
             if venue.selected {
                 newselectedVenues.insert(venue, at: 0)
             }
         }
-        Cache.shared.setYelp(searchQuery: coordinator?.categoryType ?? "", results: venues)
+        Cache.shared.setYelp(searchQuery: coordinator?.categoryType ?? "", results: newVenues)
         coordinator?.didFinish(venues: newselectedVenues)
     }
     

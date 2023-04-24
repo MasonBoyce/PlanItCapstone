@@ -56,8 +56,8 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     }
     
     //passes back the data to the selectionpage
-    func didFinish(venues: [Venue]) {
-        Cache.shared.updateSelectedVenues(category: categoryType, newVenues: venues)
+    func didFinish(venues newVenues: [Venue]) {
+        Cache.shared.updateSelectedVenues(category: categoryType, newVenues: newVenues)
     }
     
     func didSave() {

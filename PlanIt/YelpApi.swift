@@ -25,8 +25,8 @@ struct Venue: Codable, Hashable{
     var selected: Bool = false
     var isStart: Bool = false
     var isEnd: Bool = false
-//    var selected: String?
-//    static let locations = [Venue(name:"Common")]
+
+
 }
 
 

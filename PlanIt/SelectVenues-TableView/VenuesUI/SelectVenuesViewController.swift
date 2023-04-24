@@ -78,7 +78,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     //retrive Veneus
     var data = [Venue]()
     var celldata : [Venue] = []
-    var currentDataSource : [Venue] = []
+//   var resultData : [Venue] = []
     //    var data: Array <String>?
     
     //    init model?.venues{
@@ -203,13 +203,16 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        
         return "Ignore"
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+       
         if editingStyle == UITableViewCell.EditingStyle.delete {
             data.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+//            nt("fuckers af",data)
         }
     }
   
@@ -288,10 +291,12 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func saveButtonPressed(_ Sender:UIBarButtonItem){
         //        didTapButton(sender: RestaurantTableViewCell)
+        
         if tableView.indexPathForSelectedRow != nil {
             celldata = data
         }
-        model?.finishedSelectionTapped(venues: celldata)
+//        print("FUCKERs", celldata)
+        model?.finishedSelectionTapped(newVenues: data)
         coordinator?.didSave()
         let generator = UIImpactFeedbackGenerator(style: .heavy)
                     generator.impactOccurred()
