@@ -41,8 +41,14 @@
                                 <rect key="frame" x="83" y="725" width="227" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Save to Album" cornerStyle="capsule">
-                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Save to Album">
+                                            <attributes>
+                                                <font key="NSFont" size="20" name="Futura-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="screenshot:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FnZ-eb-7ag"/>

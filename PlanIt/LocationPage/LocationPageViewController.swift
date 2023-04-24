@@ -181,6 +181,8 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         }else {
             model?.goToSelection(transitType: .automobile)
         }
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
         
     }
     
@@ -226,6 +228,8 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         let okAction = UIAlertAction(title: "My Bad", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
+        let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
     }
     
     func proceed() {

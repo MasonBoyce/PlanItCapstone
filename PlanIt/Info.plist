@@ -52,6 +52,8 @@
 	<string>We need Location Permission to provide venue listing based on your current location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need Location Permission to provide venue listing based on your current location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need photo access to save the planned trip to your phone</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -72,8 +74,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need photo access to save the planned trip to your phone</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

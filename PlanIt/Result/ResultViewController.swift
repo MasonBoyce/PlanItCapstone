@@ -94,6 +94,8 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //Save it to the camera roll
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }
     

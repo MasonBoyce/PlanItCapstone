@@ -216,7 +216,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 0, green: 252, blue: 0, alpha: 0.1)
         tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
         })
         //** TODO: Make it an resusable extension **//
@@ -224,6 +224,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        print ("That Sucks", data[indexPath.row].selected)
         if data[indexPath.row].selected == true {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         }
@@ -248,6 +250,8 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
 //        print ("That Rocks", data[indexPath.row].selected)
         if data[indexPath.row].selected == true {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         }
