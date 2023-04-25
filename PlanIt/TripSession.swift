@@ -358,6 +358,10 @@ class TripSession {
         
         if venues.count == 2 {
             ordered_routes.append(route_matrix[start_venue_id][end_venue_id])
+            optimal_venue_id_order.append(start_venue_id)
+            optimal_venue_id_order.append(end_venue_id)
+            optimal_venue_order.append(id_to_venue_dict[start_venue_id] ?? Venue())
+            optimal_venue_order.append(id_to_venue_dict[end_venue_id] ?? Venue())
             return // b/c that's the entire trip – maybe we should require users to select at least 3 venues?
         }
         
