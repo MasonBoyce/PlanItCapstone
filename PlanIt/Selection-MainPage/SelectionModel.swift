@@ -33,9 +33,9 @@ class SelectionModel  {
         }
         let tripSession = TripSession(model: self)
         Cache.shared.hasFixedEndPoints = true
-        print("FUCKER",Cache.shared.selectedVenues[2],Cache.shared.selectedVenues[3])
-        tripSession.start_venue_id = 2
-        tripSession.end_venue_id = 3
+//        print("FUCKER",Cache.shared.selectedVenues[2],Cache.shared.selectedVenues[3])
+        tripSession.start_venue_id = Cache.shared.startID ?? -1
+        tripSession.end_venue_id = Cache.shared.endId ?? -1
         tripSession.start_fixed_ends()
         //tripSession.start()
     }
