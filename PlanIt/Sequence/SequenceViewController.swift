@@ -16,7 +16,11 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var endTableView: UITableView!
     
-    @IBAction func didTapSave(_ sender: Any) {
+    @IBAction func didTapSave(_ sender: UIButton) {
+        let isPresentingInPushMode = presentingViewController is UINavigationController
+        if isPresentingInPushMode == false {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     var model: SequenceModel?

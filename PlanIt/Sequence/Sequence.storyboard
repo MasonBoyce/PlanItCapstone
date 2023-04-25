@@ -89,7 +89,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="didTapSave:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="udx-62-LdE"/>
+                                    <action selector="didTapSave:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ffj-OR-VvA"/>
                                 </connections>
                             </button>
                         </subviews>
