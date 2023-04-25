@@ -18,8 +18,8 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func didTapSave(_ sender: UIButton) {
         let isPresentingInPushMode = presentingViewController is UINavigationController
-        if isPresentingInPushMode == false {
-            navigationController?.popViewController(animated: true)
+        if isPresentingInPushMode {
+            dismiss(animated: true, completion: nil)
         }
     }
     
