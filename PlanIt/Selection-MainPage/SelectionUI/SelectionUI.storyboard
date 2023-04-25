@@ -170,9 +170,21 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUP-gx-iry">
-                                <rect key="frame" x="143" y="737" width="126" height="34"/>
+                                <rect key="frame" x="121" y="701" width="150" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" imagePadding="10" cornerStyle="capsule">
+                                    <imageReference key="image" image="list.clipboard.fill" catalog="system" symbolScale="small"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sequence">
+                                            <attributes>
+                                                <font key="NSFont" size="14" name="Futura-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="didTapSequence:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RiK-CI-xVb"/>
                                 </connections>
@@ -227,6 +239,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="books.vertical.fill" catalog="system" width="128" height="110"/>
+        <image name="building.columns.fill" catalog="system" width="128" height="112"/>
+        <image name="cup.and.saucer.fill" catalog="system" width="128" height="91"/>
+        <image name="figure.gymnastics" catalog="system" width="128" height="100"/>
+        <image name="list.clipboard.fill" catalog="system" width="103" height="128"/>
+        <image name="pills.fill" catalog="system" width="128" height="104"/>
+        <image name="snowflake" catalog="system" width="119" height="128"/>
         <image name="takeoutbag.and.cup.and.straw.fill" catalog="system" width="128" height="109"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
