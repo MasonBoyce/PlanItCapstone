@@ -22,11 +22,12 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func didTapSave(_ sender: UIButton) {
         if (start ?? -1 < 0 || end ?? -1 < 0 ) || start == end {
             orderAlert()
-        }
-        let isPresentingInPushMode = presentingViewController is UINavigationController
-        model!.save()
-        if isPresentingInPushMode {
-            dismiss(animated: true, completion: nil)
+        } else {
+            let isPresentingInPushMode = presentingViewController is UINavigationController
+            model!.save()
+            if isPresentingInPushMode {
+                dismiss(animated: true, completion: nil)
+            }
         }
     }
     

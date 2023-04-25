@@ -57,7 +57,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     }
     
     @IBAction func SearchButton(_ sender: UIButton) {
-        self.showSpinner()
+//        self.showSpinner()
         if (SearchTextField!.text!.isEmpty == false) {
             //BMASON
             model?.goToSelectVenues(categoryType: SearchTextField!.text ?? "") {}
