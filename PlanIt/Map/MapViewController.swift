@@ -141,6 +141,54 @@ func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnota
     }
     return annotationView
 }
+    
+//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+//            var overlappingAnnotations: Set<MKAnnotation> = Set()
+//
+//            for view in views {
+//                if view.annotation == nil {
+//                    continue
+//                }
+//
+//                let annotationPoint = mapView.convert(view.annotation!.coordinate, toPointTo: mapView)
+//                let collisionRect = CGRect(x: annotationPoint.x, y: annotationPoint.y, width: 1, height: 1)
+//
+//                for otherView in mapView.visibleAnnotations(in: collisionRect) {
+//                    if otherView !== view && view.frame.intersects(otherView.frame) {
+//                        overlappingAnnotations.insert(view.annotation!)
+//                        overlappingAnnotations.insert(otherView.annotation!)
+//                    }
+//                }
+//            }
+//
+//            // Handle overlapping annotations as needed
+//            for annotation in overlappingAnnotations {
+//                // Custom handling logic here
+//                print("Collision detected between annotations: \(annotation)")
+//            }
+//        }
+//
+//        // Implement this delegate method to customize the appearance of the annotations
+//        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//            // Check if the annotation is overlapping
+//            let overlapping = mapView.annotations.filter({ $0.coordinate.latitude == annotation.coordinate.latitude &&
+//                                                           $0.coordinate.longitude == annotation.coordinate.longitude }).count > 1
+//
+//            if overlapping {
+//                // Create a custom annotation view for overlapping annotations
+//                let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "OverlappingAnnotation")
+//                annotationView.image = UIImage(named: "overlapping_annotation_icon")
+//                annotationView.canShowCallout = false
+//                return annotationView
+//            } else {
+//                // Create a default annotation view for non-overlapping annotations
+//                let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Annotation")
+//                annotationView.animatesDrop = true
+//                annotationView.canShowCallout = true
+//                return annotationView
+//            }
+//        }
+//    }
 
 }
 //MARK: Extensions
