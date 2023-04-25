@@ -29,30 +29,46 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
     var data = [Venue] ()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        if data.count == 0 {
+            return 1
+        } else {
+            return data.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.startTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "startCell", for: indexPath)
-            let celldata = data [indexPath.row]
-            cell.textLabel?.text = celldata.name
-            cell.accessoryType = .none
-            cell.selectionStyle = .none
-            if celldata.isStart {
-                cell.accessoryType = .checkmark
+            cell.textLabel?.textAlignment = .center
+            if data.isEmpty == true {
+                cell.textLabel?.text = "No Selected Venues"
+                tableView.allowsSelection = false;
+            } else {
+                let celldata = data [indexPath.row]
+                cell.textLabel?.text = celldata.name
+                cell.accessoryType = .none
+                cell.selectionStyle = .none
+                if celldata.isStart {
+                    cell.accessoryType = .checkmark
+                }
             }
             return cell
         }
 
         if tableView == self.endTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "endCell", for: indexPath)
-            let celldata = data [indexPath.row]
-            cell.textLabel?.text = celldata.name
-            cell.accessoryType = .none
-            cell.selectionStyle = .none
-            if celldata.isEnd {
-                cell.accessoryType = .checkmark
+            cell.textLabel?.textAlignment = .center
+            if data.isEmpty == true {
+                cell.textLabel?.text = "No Selected Venues"
+                tableView.allowsSelection = false;
+            } else {
+                let celldata = data [indexPath.row]
+                cell.textLabel?.text = celldata.name
+                cell.accessoryType = .none
+                cell.selectionStyle = .none
+                if celldata.isEnd {
+                    cell.accessoryType = .checkmark
+                }
             }
             return cell
         }
