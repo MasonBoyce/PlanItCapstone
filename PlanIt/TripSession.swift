@@ -417,7 +417,8 @@ class TripSession {
         var temp_source_venue_id = -1
         var temp_destination_venue_id = -1
         
-        optimal_venue_id_order = optimal_venue_id_perm
+        // Add starting and ending venues into the optimal venue id order
+        optimal_venue_id_order = [start_venue_id] + optimal_venue_id_perm + [end_venue_id]
         
         print("OPTIMAL VENUE ID PERM")
         print(optimal_venue_id_perm)
