@@ -234,11 +234,9 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
     
     func proceed() {
         LocationManager.shared.destinationLoaction = LocationManager.shared.currentLocation?.coordinate
-//        print ("WHERE THE FUCK", LocationManager.shared.destinationLoaction!)
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
         coordinator?.goToSelection()
-        print ("I AM HERE")
     }
     
     func LocationAlert() {

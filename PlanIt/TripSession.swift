@@ -456,6 +456,7 @@ class TripSession {
             optimal_venue_id_order.append(venue_ids[1])
             optimal_venue_order.append(id_to_venue_dict[venue_ids[0]] ?? Venue())
             optimal_venue_order.append(id_to_venue_dict[venue_ids[1]] ?? Venue())
+            model?.goToMap(tripSession: self)
             return
         }
         

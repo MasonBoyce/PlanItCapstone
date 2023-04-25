@@ -27,11 +27,12 @@ class SelectionModel  {
     }
     
     func calculateIdealRoute() {
-        if Cache.shared.selectedVenues.count <= 2 {
+        if Cache.shared.selectedVenues.count <= 1 {
             goToMap(tripSession: TripSession(model: self))
         }
         let tripSession = TripSession(model: self)
         tripSession.start()
+        
     }
 }
 

@@ -133,16 +133,18 @@ class YelpApi{
                     var venue = Venue()
                     venue.rating = business.value(forKey: "rating") as? Float
                     venue.review_count = business.value(forKey: "review_count") as? Int
-                    if venue.rating == 0.0 || venue.review_count ?? 0 <= 2  {
+                    venue.is_closed = business.value(forKey: "is_closed") as? Bool
+                    venue.address = address?.joined(separator: "\n")
+                    if venue.rating == 0.0 || venue.review_count ?? 0 <= 2 || venue.is_closed == true || ((venue.address?.contains("\n")) != true) {
                         continue
                     }
                     venue.name = business.value(forKey: "name") as? String
                     venue.internalID = business.value(forKey: "id") as? Int
                     
                     venue.price = business.value(forKey: "price") as? String
-                    venue.is_closed = business.value(forKey: "is_closed") as? Bool
+                    
                     venue.distance = business.value(forKey: "distance") as? Double
-                    venue.address = address?.joined(separator: "\n")
+                    
                     venue.latitude = business.value(forKeyPath: "coordinates.latitude") as? Double
                     venue.longitude = business.value(forKeyPath: "coordinates.longitude") as? Double
                     venue.image_url = business.value(forKey: "image_url") as? String
