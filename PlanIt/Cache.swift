@@ -18,18 +18,18 @@ class  Cache {
     var hasFixedEndPoints: Bool = false
     var startID: Int?
     var endId: Int?
-
+    
     func getYelp(searchQuery: String) -> [Venue]? {
         
         return cache[searchQuery]
     }
     
     func setYelp(searchQuery: String, results: [Venue]) {
-
+        
         if !results.isEmpty {
             cache[searchQuery] = results
-               
-                }
+            
+        }
         
     }
     
@@ -40,7 +40,7 @@ class  Cache {
     }
     
     func updateSelectedVenues() {
-    
+        
         self.selectedVenues = []
         for (_, venues) in categoryToSelectedVenues{
             for venue in venues {
