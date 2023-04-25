@@ -32,12 +32,12 @@ class SelectionModel  {
             goToMap(tripSession: TripSession(model: self))
         }
         let tripSession = TripSession(model: self)
-//        Cache.shared.hasFixedEndPoints = true
-//        print("FUCKER",Cache.shared.selectedVenues[2],Cache.shared.selectedVenues[3])
-//        tripSession.start_venue_id = 2
-//        tripSession.end_venue_id = 3
-        tripSession.start()
-        
+        Cache.shared.hasFixedEndPoints = true
+        print("FUCKER",Cache.shared.selectedVenues[2],Cache.shared.selectedVenues[3])
+        tripSession.start_venue_id = 2
+        tripSession.end_venue_id = 3
+        tripSession.start_fixed_ends()
+        //tripSession.start()
     }
     
     func goToSequence() {
