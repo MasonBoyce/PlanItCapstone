@@ -41,6 +41,10 @@
 		D375CDA229F356530072EE54 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375CDA029F356530072EE54 /* ResultTableViewCell.swift */; };
 		D375CDA329F356530072EE54 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D375CDA129F356530072EE54 /* ResultTableViewCell.xib */; };
 		D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3917C952993744F00B85086 /* SelectionUIViewController.swift */; };
+		D3B236A729F74FD400EECFA2 /* Sequence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B236A629F74FD400EECFA2 /* Sequence.storyboard */; };
+		D3B236AA29F752CE00EECFA2 /* SequenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B236A929F752CE00EECFA2 /* SequenceViewController.swift */; };
+		D3B236AC29F752DC00EECFA2 /* SequenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B236AB29F752DC00EECFA2 /* SequenceCoordinator.swift */; };
+		D3B236AE29F752EA00EECFA2 /* SequenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B236AD29F752EA00EECFA2 /* SequenceModel.swift */; };
 		D3B7314029B2937D004D4E4D /* SelectionUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3917C932993732100B85086 /* SelectionUI.storyboard */; };
 		D3B7314129B29457004D4E4D /* SelectVenues.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D31C2DE329A952A4005658B2 /* SelectVenues.storyboard */; };
 		D3DDCD1829D152FD0017AFF5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DDCD1729D152FD0017AFF5 /* Launch Screen.storyboard */; };
@@ -89,6 +93,10 @@
 		D375CDA129F356530072EE54 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		D3917C932993732100B85086 /* SelectionUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectionUI.storyboard; sourceTree = "<group>"; };
 		D3917C952993744F00B85086 /* SelectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionUIViewController.swift; sourceTree = "<group>"; };
+		D3B236A629F74FD400EECFA2 /* Sequence.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sequence.storyboard; sourceTree = "<group>"; };
+		D3B236A929F752CE00EECFA2 /* SequenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceViewController.swift; sourceTree = "<group>"; };
+		D3B236AB29F752DC00EECFA2 /* SequenceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceCoordinator.swift; sourceTree = "<group>"; };
+		D3B236AD29F752EA00EECFA2 /* SequenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceModel.swift; sourceTree = "<group>"; };
 		D3C868392927F58E00045605 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3DDCD1729D152FD0017AFF5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D3E4D84229D24D250020CF92 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +203,7 @@
 				501876AC29E6047C00A94FFD /* LocationPage */,
 				5097B55F299B307B00048435 /* Selection-MainPage */,
 				5097B564299BFE9D00048435 /* SelectVenues-TableView */,
+				D3B236A829F752AF00EECFA2 /* Sequence */,
 				508C47EC291E68BD009F89E0 /* Map */,
 				D3E6CFF029F07FFC00FA1B73 /* Result */,
 				50D4807F28FD995B00F90294 /* Assets.xcassets */,
@@ -224,6 +233,17 @@
 				D3917C932993732100B85086 /* SelectionUI.storyboard */,
 			);
 			path = SelectionUI;
+			sourceTree = "<group>";
+		};
+		D3B236A829F752AF00EECFA2 /* Sequence */ = {
+			isa = PBXGroup;
+			children = (
+				D3B236A629F74FD400EECFA2 /* Sequence.storyboard */,
+				D3B236A929F752CE00EECFA2 /* SequenceViewController.swift */,
+				D3B236AB29F752DC00EECFA2 /* SequenceCoordinator.swift */,
+				D3B236AD29F752EA00EECFA2 /* SequenceModel.swift */,
+			);
+			path = Sequence;
 			sourceTree = "<group>";
 		};
 		D3E6CFF029F07FFC00FA1B73 /* Result */ = {
@@ -304,6 +324,7 @@
 				50D4808028FD995B00F90294 /* Assets.xcassets in Resources */,
 				D3E6CFEB29F07FB400FA1B73 /* Result.storyboard in Resources */,
 				D324EFB72923463A00B8AFB3 /* Main.storyboard in Resources */,
+				D3B236A729F74FD400EECFA2 /* Sequence.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,11 +362,14 @@
 				D3917C962993744F00B85086 /* SelectionUIViewController.swift in Sources */,
 				5097B561299B315900048435 /* SelectionProtocol.swift in Sources */,
 				507C5E0A29204A4300020C49 /* UIImage+Extensions.swift in Sources */,
+				D3B236AA29F752CE00EECFA2 /* SequenceViewController.swift in Sources */,
+				D3B236AE29F752EA00EECFA2 /* SequenceModel.swift in Sources */,
 				50409A14291FE09900C3F272 /* CustomAnnotationView.swift in Sources */,
 				50CF942429154E8E00772D1C /* AppCoordinator.swift in Sources */,
 				501876AE29E604BE00A94FFD /* LocationPageViewController.swift in Sources */,
 				50D45CD3291283A100CCBCA3 /* WelcomeCoordinator.swift in Sources */,
 				50409A10291FE08C00C3F272 /* CustomAnnotation.swift in Sources */,
+				D3B236AC29F752DC00EECFA2 /* SequenceCoordinator.swift in Sources */,
 				E1352E172999882C00401F30 /* TripSession.swift in Sources */,
 				D375CD9D29F2DD880072EE54 /* ResultViewController.swift in Sources */,
 			);

@@ -33,6 +33,16 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     @IBOutlet weak var Park: UIButton!
     @IBOutlet weak var Museum: UIButton!
     @IBOutlet weak var Bookstore: UIButton!
+    @IBOutlet weak var Sequence: UIButton!
+    
+    @IBOutlet weak var loadingView: UIView! {
+      didSet {
+        loadingView.layer.cornerRadius = 6
+      }
+    }
+
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     
     //MARK: - Search Handler.
     @IBAction func searchHandler(_ sender: UITextField!) {
@@ -47,14 +57,16 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     }
     
     @IBAction func SearchButton(_ sender: UIButton) {
+        self.showSpinner()
         if (SearchTextField!.text!.isEmpty == false) {
             //BMASON
-            model?.goToSelectVenues(categoryType: SearchTextField!.text ?? "") 
+            model?.goToSelectVenues(categoryType: SearchTextField!.text ?? "") {}
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.success)
         } else {
             self.categoryAlert()
         }
+//        self.hideSpinner()
         //** get text from text field **?//
 //        let nText = SearchTextField?.text
 //        SearchTextView?.text = nText
@@ -65,7 +77,11 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     }
     
     @IBAction func restaurants(_ sender: UIButton) {
-        model?.goToSelectVenues(categoryType: "restaurants")
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.showSpinner()
+//        }
+            self.model?.goToSelectVenues(categoryType: "restaurants") {}
+        
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         //add to array upon button click//
@@ -76,56 +92,64 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     }
     
     @IBAction func cafés(_ sender: UIButton) {
-        model?.goToSelectVenues(categoryType: "cafes")
+        self.showSpinner()
+        model?.goToSelectVenues(categoryType: "cafes") {}
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func gyms(_ sender: UIButton) {
-        model?.goToSelectVenues(categoryType: "gyms")
+        self.showSpinner()
+        model?.goToSelectVenues(categoryType: "gyms") {}
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Desserts(_ sender: UIButton) {
-        model?.goToSelectVenues(categoryType: "desserts")
+        self.showSpinner()
+        model?.goToSelectVenues(categoryType: "desserts") {}
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
         
     @IBAction func Bars(_ sender: UIButton) {
-        model?.goToSelectVenues(categoryType: "bars")
+        self.showSpinner()
+        model?.goToSelectVenues(categoryType: "bars") {}
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Pharmacies(_ sender: UIButton) {
-        model?.goToSelectVenues(categoryType: "pharmacy")
+        self.showSpinner()
+        model?.goToSelectVenues(categoryType: "pharmacy") {}
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Parks(_ sender: UIButton) {
-        model?.goToSelectVenues(categoryType: "parks")
+        self.showSpinner()
+        model?.goToSelectVenues(categoryType: "parks") {}
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Museums(_ sender: UIButton) {
-        model?.goToSelectVenues(categoryType: "museums")
+        self.showSpinner()
+        model?.goToSelectVenues(categoryType: "museums") {}
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
     }
     
     @IBAction func Bookstores (_ sender: UIButton) {
-        model?.goToSelectVenues(categoryType: "bookstores")
+        self.showSpinner()
+        model?.goToSelectVenues(categoryType: "bookstores") {}
         let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
         buttonTitles.insert(sender.title(for: .normal)!, at: 0)
@@ -133,6 +157,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     
     
     @IBAction func didTapMapButton(_ sender: UIButton) {
+//        self.showSpinner()
 //        print ("⭐️ NewSelectedVenues:", newselectedVenues)
 //        let trip: TripSession?
 //        if trip!.venues.isEmpty{
@@ -150,10 +175,28 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
         }
+//        self.hideSpinner()
     }
+    
+    @IBAction func didTapSequence(_ sender: Any) {
+        model?.goToSequence()
+    }
+    
+    func showSpinner() {
+        activityIndicator.startAnimating()
+        loadingView.isHidden = false
+
+    }
+
+    func hideSpinner() {
+        activityIndicator.stopAnimating()
+        loadingView.isHidden = true
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideSpinner()
         SearchTextField?.returnKeyType = .search
         SearchTextField?.autocorrectionType = .no
         SearchTextField?.borderStyle = .roundedRect

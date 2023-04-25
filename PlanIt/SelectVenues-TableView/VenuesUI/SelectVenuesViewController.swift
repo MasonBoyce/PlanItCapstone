@@ -52,6 +52,7 @@ class ResultsVC: UIViewController {
 class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectVenuesViewControllerProtocol, RestaurantTableViewCellDelegate , UISearchResultsUpdating, UISearchBarDelegate{
     
     var filtered = [Venue]()
+    var sViewController: SelectionUIViewController?
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -148,9 +149,9 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
         
         //** Needs improvement : print ADDRESS (2 , 3, city, state) if busniness misses address 1 **//
         if ((restaurant.short_loc?.isEmpty) == nil){
-            restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ")" + " · " +  String(round(100 * restaurant.distance! * 0.000621371) / 100) + " mi"
+            restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ")" + " · " +  String(round(10 * restaurant.distance! * 0.000621371) / 10) + " mi"
         } else {
-            restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + String(round(100 * restaurant.distance! * 0.000621371) / 100) + " mi" + " · " + restaurant.short_loc!
+            restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + String(round(10 * restaurant.distance! * 0.000621371) / 10) + " mi" + " · " + restaurant.short_loc!
         }
 //        restaurants.statusLabel?.text = "(" + String(restaurant.review_count ?? 0) + ") · " + round (restaurant.distance) + " · " + restaurant.short_loc!
 //      print ("WHAT", restaurant.distance)
@@ -327,6 +328,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sViewController!.hideSpinner()
         let nib = UINib(nibName: "RestaurantTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "RestaurantTableViewCell")
         tableView.delegate = self

@@ -18,8 +18,9 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var model: ResultModel?
     var coordinator: ResultCoordinator?
+    var timedata = [Double] ()
     //retrive Veneus
-    var resultdata = [Venue]()
+    var resultdata = [Venue] ()
     var routedata = [MKRoute] ()
     var transitdata = MKDirectionsTransportType ()
     
@@ -30,15 +31,29 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableViewCell", for: indexPath) as! ResultTableViewCell
         let celldata = resultdata [indexPath.row]
+        let celltimedata = timedata [indexPath.row]
+        let finaldata = round (1 * celltimedata / 60) / 1
         //        var traveldata = routedata [indexPath.row]
         cell.delegate = self
         cell.NameLabel.text = celldata.name
         if transitdata == .walking {
-            cell.TravelLabel.text = "🚶" + " ↓ 10 Mins"
+            if String(Int(finaldata)) == "0" || String(Int(finaldata)) == "1" {
+                cell.TravelLabel.text = "🚶" + " ↓ " + String(Int(finaldata)) + " min"
+            } else{
+                cell.TravelLabel.text = "🚶" + " ↓ " + String(Int(finaldata)) + " mins"
+            }
         } else if transitdata == .transit {
-            cell.TravelLabel.text = "🚲" + " ↓ 10 Mins"
+            if String(Int(finaldata)) == "0" || String(Int(finaldata)) == "1" {
+                cell.TravelLabel.text = "🚶" + " ↓ " + String(Int(finaldata)) + " min"
+            } else {
+                cell.TravelLabel.text = "🚲" + " ↓ " + String(Int(finaldata)) + " mins"
+            }
         } else {
-            cell.TravelLabel.text = "🚗" + " ↓ 10 Mins"
+            if String(Int(finaldata)) == "0" || String(Int(finaldata)) == "1" {
+                cell.TravelLabel.text = "🚶" + " ↓ " + String(Int(finaldata)) + " min"
+            } else {
+                cell.TravelLabel.text = "🚗" + " ↓ " + String(Int(finaldata)) + " mins"
+            }
         }
         if tableView.isLast(for: indexPath) {
             cell.TravelLabel.text = ""
@@ -64,7 +79,12 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //        tableView.contentInset = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0);
         resultdata = model?.tripSession.optimal_venue_order ?? []
         routedata = model?.tripSession.ordered_routes ?? []
+        for route in model!.tripSession.ordered_routes {
+            timedata.insert(route.expectedTravelTime, at: 0)
+        }
+        timedata.append(0)
         transitdata = Cache.shared.transitType!
+        
         
     }
     

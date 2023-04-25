@@ -166,7 +166,7 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="Pharmacy:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eDW-73-2fu"/>
+                                    <action selector="Pharmacies:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KuJ-aO-H7z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Cq1-vD-8w6">
@@ -271,6 +271,26 @@
                                     <action selector="didTapMapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fks-fh-ET5"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MqD-Og-cXu">
+                                <rect key="frame" x="146" y="376" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="B7O-xB-yk8">
+                                        <rect key="frame" x="40" y="40" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUP-gx-iry">
+                                <rect key="frame" x="143" y="699" width="101" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sequence" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="didTapSequence:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RiK-CI-xVb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1QR-od-NoS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -292,11 +312,22 @@
                         <outlet property="Planit" destination="1I9-G2-Pn7" id="Zi7-lK-igf"/>
                         <outlet property="Restaurant" destination="Tax-5y-Vmz" id="eUi-Lk-KeP"/>
                         <outlet property="SearchTextField" destination="4Hz-cB-ODq" id="2RH-cZ-xg7"/>
+                        <outlet property="Sequence" destination="PUP-gx-iry" id="BOn-kE-XrE"/>
+                        <outlet property="activityIndicator" destination="B7O-xB-yk8" id="Gva-s1-WFM"/>
+                        <outlet property="loadingView" destination="MqD-Og-cXu" id="Ijj-Ru-IpE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="42.028985507246382" y="-11.383928571428571"/>
+        </scene>
+        <!--Sequence-->
+        <scene sceneID="p2y-Ha-K5n">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1jB-iR-XbH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="Sequence" referencedIdentifier="Sequence" id="Q7w-Ri-GgY" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="692" y="33"/>
         </scene>
         <!--SelectVenues-->
         <scene sceneID="GJe-ec-hWm">

@@ -13,6 +13,7 @@ var newselectedVenues: [Venue] = []
 
 class SelectVenuesModel {
     var viewController: SelectVenuesViewController?
+    var sViewController: SelectionUIViewController?
     var coordinator: SelectVenuesCoordinator?
     var venues: [Venue]
    
