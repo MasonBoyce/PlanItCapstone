@@ -15,4 +15,14 @@ class SequenceModel {
     var transitType = Cache.shared.transitType
     
     
+    func save() {
+        Cache.shared.startID = viewController?.start ?? -1
+        Cache.shared.endId = viewController?.end ?? -1
+        
+        
+        Cache.shared.hasFixedEndPoints = true
+        
+    }
+    
+    
 }

@@ -16,8 +16,12 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var endTableView: UITableView!
     
+    var start: Int?
+    var end: Int?
+    
     @IBAction func didTapSave(_ sender: UIButton) {
         let isPresentingInPushMode = presentingViewController is UINavigationController
+        model!.save()
         if isPresentingInPushMode {
             dismiss(animated: true, completion: nil)
         }
@@ -84,6 +88,7 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
             })
             //** TODO: Make it an resusable extension **//
             data[indexPath.row].isStart = !(data [indexPath.row].isStart)
+            start = indexPath.row
             //        print ("That Sucks", data[indexPath.row].selected)
             if data[indexPath.row].isStart == true {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
@@ -101,6 +106,7 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
             })
             //** TODO: Make it an resusable extension **//
             data[indexPath.row].isEnd = !(data [indexPath.row].isEnd)
+            end = indexPath.row
             //        print ("That Sucks", data[indexPath.row].selected)
             if data[indexPath.row].isEnd == true {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark

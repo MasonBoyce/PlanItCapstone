@@ -26,6 +26,7 @@ class SequenceCoordinator: Coordinator{
         model.viewController  = SequenceViewController
         model.coordinator = self
         
+        
         let navcontroller = UINavigationController(rootViewController: SequenceViewController)
         self.navigationController.present(navcontroller, animated: true, completion: nil)
     }

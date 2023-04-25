@@ -37,11 +37,11 @@ class SelectionModel  {
         tripSession.start_venue_id = 2
         tripSession.end_venue_id = 3
         tripSession.start_fixed_ends()
-        
     }
     
     func goToSequence() {
         self.coordinator?.goToSequence()
     }
 }
+
 

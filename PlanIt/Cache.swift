@@ -16,6 +16,8 @@ class  Cache {
     var selectedVenues: [Venue] = []
     private var categoryToSelectedVenues: [String: [Venue]] = [:]
     var hasFixedEndPoints: Bool = false
+    var startID: Int?
+    var endId: Int?
 
     func getYelp(searchQuery: String) -> [Venue]? {
         
