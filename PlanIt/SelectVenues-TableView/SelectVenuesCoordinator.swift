@@ -16,16 +16,17 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var categoryType: String
+    var sViewController: SelectionUIViewController
     var currentCoordinate: CLLocationCoordinate2D {
         return LocationManager.shared.destinationLoaction ?? LocationManager.shared.currentLocation?.coordinate ??  CLLocationCoordinate2D(latitude: 29.9407, longitude: -90.1203)
     }
     var venues: [Venue] = []
     
     
-    init(navigationController: UINavigationController, categoryType: String) {
+    init(navigationController: UINavigationController, categoryType: String,sViewController: SelectionUIViewController) {
         self.navigationController = navigationController
         self.categoryType = categoryType
-        
+        self.sViewController = sViewController
         yelpAPICall()
     }
     
@@ -41,6 +42,7 @@ class SelectVenuesCoordinator: SelectVenuesCoordinatorProtocol, Coordinator {
         viewController.coordinator = self
         
         model.viewController = viewController
+        viewController.sViewController = self.sViewController
         model.coordinator = self
         model.venues = self.venues
         

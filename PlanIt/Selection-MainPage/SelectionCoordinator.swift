@@ -14,6 +14,7 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
+    var viewController: SelectionUIViewController?
     
     
     init(navigationController: UINavigationController) {
@@ -25,21 +26,21 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
     
     let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
     func start() {
-        let viewController  = storyboard.instantiateViewController(withIdentifier: "SelectionUI") as! SelectionUIViewController
+        viewController  = storyboard.instantiateViewController(withIdentifier: "SelectionUI") as! SelectionUIViewController
         let model: SelectionModel = SelectionModel()
         
-        viewController.model = model
+        viewController?.model = model
         model.viewController = viewController
         model.coordinator = self
         self.model =  model
         
-        navigationController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController!, animated: true)
     }
     
     //** TODO - Result Error Handler with category **//
 //    func goToSelectVenues(categoryType: String, completion: @escaping ([String]?, Error?) -> Void) {
     func goToSelectVenues(categoryType: String) {
-        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType)
+        let selectVenues = SelectVenuesCoordinator(navigationController: navigationController, categoryType: categoryType, sViewController: viewController! )
         selectVenues.parentCoordinator = self
         
         children.append(selectVenues)
@@ -50,6 +51,12 @@ class SelectionCoordinator: Coordinator, SelectionCoordinatorProtocol {
         mapCoordinator.parentCoordinator = self
         children.append(mapCoordinator)
         mapCoordinator.start()
+    }
+    
+    func goToSequence() {
+        let sequenceCoordinator = SequenceCoordinator(navigationController: navigationController)
+        sequenceCoordinator.parentCoordinator = self
+        sequenceCoordinator.start()
     }
     
 }

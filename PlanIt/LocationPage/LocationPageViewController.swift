@@ -238,7 +238,6 @@ class LocationPageViewController: UIViewController, UITextFieldDelegate {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
         coordinator?.goToSelection()
-        print ("I AM HERE")
     }
     
     func LocationAlert() {

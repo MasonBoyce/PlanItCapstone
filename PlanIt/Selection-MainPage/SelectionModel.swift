@@ -15,9 +15,10 @@ class SelectionModel  {
     
   
     
-    func goToSelectVenues(categoryType: String){
+    func goToSelectVenues(categoryType: String, completion: @escaping () -> Void){
 
-            self.coordinator?.goToSelectVenues(categoryType: categoryType)
+        self.coordinator?.goToSelectVenues(categoryType: categoryType)
+        completion()
     }
     
     
@@ -32,6 +33,10 @@ class SelectionModel  {
         }
         let tripSession = TripSession(model: self)
         tripSession.start()
+    }
+    
+    func goToSequence() {
+        self.coordinator?.goToSequence()
     }
 }
 
