@@ -33,6 +33,11 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "startCell", for: indexPath)
             let celldata = data [indexPath.row]
             cell.textLabel?.text = celldata.name
+            cell.accessoryType = .none
+            cell.selectionStyle = .none
+            if celldata.isStart {
+                cell.accessoryType = .checkmark
+            }
             return cell
         }
 
@@ -40,31 +45,51 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "endCell", for: indexPath)
             let celldata = data [indexPath.row]
             cell.textLabel?.text = celldata.name
+            cell.accessoryType = .none
+            cell.selectionStyle = .none
+            if celldata.isEnd {
+                cell.accessoryType = .checkmark
+            }
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 0, green: 252, blue: 0, alpha: 0.1)
-        tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
-        UIView.animate(withDuration: 0.2, animations: {
-            tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
-        })
-        //** TODO: Make it an resusable extension **//
-        data[indexPath.row].selected = !(data [indexPath.row].selected)
-//        print ("That Sucks", data[indexPath.row].selected)
-        if data[indexPath.row].selected == true {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.success)
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        }
-        if data[indexPath.row].selected == false {
-            print ("SELECTED", data[indexPath.row])
+        if tableView == self.startTableView {
+            //tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 0, green: 252, blue: 0, alpha: 0.1)
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
+            UIView.animate(withDuration: 0.2, animations: {
+                tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
+            })
+            //** TODO: Make it an resusable extension **//
+            data[indexPath.row].isStart = !(data [indexPath.row].isStart)
+            //        print ("That Sucks", data[indexPath.row].selected)
+            if data[indexPath.row].isStart == true {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+            } else {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            }
         }
         
+        if tableView == self.endTableView {
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
+            UIView.animate(withDuration: 0.2, animations: {
+                tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
+            })
+            //** TODO: Make it an resusable extension **//
+            data[indexPath.row].isEnd = !(data [indexPath.row].isEnd)
+            //        print ("That Sucks", data[indexPath.row].selected)
+            if data[indexPath.row].isEnd == true {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+            } else {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            }
+        }
         //** Change accesorytype to opposite instead of checking selection boolean **//
 //        if let cell = tableView.cellForRow(at: indexPath) {
 //            if cell.accessoryType == .checkmark{
@@ -78,30 +103,45 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
         
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         //tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 252, green: 0, blue: 0, alpha: 0.1)
-        tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
-        UIView.animate(withDuration: 0.2, animations: {
-            tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
-        })
-        data[indexPath.row].selected = !(data [indexPath.row].selected)
-//        print ("That Rocks", data[indexPath.row].selected)
-        if data[indexPath.row].selected == true {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.success)
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        if tableView == self.startTableView {
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
+            UIView.animate(withDuration: 0.2, animations: {
+                tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
+            })
+            data[indexPath.row].isStart = !(data [indexPath.row].isStart)
+            //        print ("That Rocks", data[indexPath.row].selected)
+            if data[indexPath.row].isStart == true {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+            } else {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            }
         }
-        if data[indexPath.row].selected == false {
-            print ("DESELECTED", data[indexPath.row])
+
+        if tableView == self.endTableView {
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
+            UIView.animate(withDuration: 0.2, animations: {
+                tableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
+            })
+            data[indexPath.row].isEnd = !(data [indexPath.row].isEnd)
+            //        print ("That Rocks", data[indexPath.row].selected)
+            if data[indexPath.row].isEnd == true {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+            } else {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            }
         }
-//        if let cell = tableView.cellForRow(at: indexPath) {
-//            if cell.accessoryType == .checkmark{
-//                cell.accessoryType = .none
-//            }
-//            else{
-//                cell.accessoryType = .checkmark
-//            }
-//        }
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.accessoryType == .checkmark{
+                cell.accessoryType = .none
+            }
+            else{
+                cell.accessoryType = .checkmark
+            }
+        }
     }
     
     override func viewDidLoad() {
