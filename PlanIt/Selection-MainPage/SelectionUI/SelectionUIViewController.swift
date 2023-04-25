@@ -37,7 +37,7 @@ class SelectionUIViewController: UIViewController, SelectionUIViewControllerProt
     
     @IBOutlet weak var loadingView: UIView! {
       didSet {
-        loadingView.layer.cornerRadius = 6
+        loadingView.layer.cornerRadius = 24
       }
     }
 
