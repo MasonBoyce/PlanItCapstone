@@ -15,6 +15,7 @@ class  Cache {
     var transitType: MKDirectionsTransportType?
     var selectedVenues: [Venue] = []
     private var categoryToSelectedVenues: [String: [Venue]] = [:]
+    var hasFixedEndPoints: Bool = false
 
     func getYelp(searchQuery: String) -> [Venue]? {
         

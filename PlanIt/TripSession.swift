@@ -211,8 +211,11 @@ class TripSession {
             
             // BOTH WAYS
             if self.num_routes_calculated >= self.all_venue_pairs.count { // * 2 if forward and backward pairs
-                self.find_optimal_venue_route_perm()// change to a diff. algo later
-                
+                if Cache.shared.hasFixedEndPoints{
+                    self.find_optimal_route_order_fixed_ends()
+                }else {
+                    self.find_optimal_venue_route_perm()
+                }
             }
             //        let rect = route.polyline.boundingMapRect
             //
@@ -338,7 +341,7 @@ class TripSession {
     }
     
     func start_fixed_ends(completion: @escaping () -> Void) {
-        // sets all_venue_pairs as all pairs of routes that aren't (start,end) or (end,start)
+        // sof rets all_venue_pairs as all pairs outes that aren't (start,end) or (end,start)
         set_all_venue_pairs()
         
         if start_venue_id < 0 || end_venue_id < 0 {
@@ -432,7 +435,8 @@ class TripSession {
             //ordered_routes.append(get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
         }
         
-        // DO WE NEED model?.goToMap(tripSession: self) HERE ?????????????
+        model?.goToMap(tripSession: self)
+        
         
         // calculate all routes (except for start->end –– SHOULD REQUIRE >2 VENUES)
         // run exhaustive search algo but add start/end venues to each perm
