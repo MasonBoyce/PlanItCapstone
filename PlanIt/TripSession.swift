@@ -358,9 +358,21 @@ class TripSession {
         }
         
 //        all_venue_pairs = all_venue_pairs.filter{$0 != (start_venue_id, end_venue_id) || $0 != (end_venue_id, start_venue_id)}
-        
+        print("start id",start_venue_id)
+        print("end id", end_venue_id)
         // sets all_venue_permutations as all permutations of routes that AREN'T the start or end route
-        var trimmed_venues = venue_ids.filter{$0 != start_venue_id || $0 != end_venue_id}
+        var trimmed_venues = venue_ids
+        if let index = trimmed_venues.firstIndex(of: start_venue_id) {
+            print("index",index)
+            trimmed_venues.remove(at: index)
+        }
+        if let index = trimmed_venues.firstIndex(of: end_venue_id) {
+            print("index",index)
+            trimmed_venues.remove(at: index)
+        }
+        //trimmed_venues = venue_ids.filter{$0 != start_venue_id || $0 != end_venue_id}
+        print("TRIMMED",trimmed_venues)
+        print("STILL GOOD",venue_ids)
         set_venue_permutations(k: venues.count - 2, venues: trimmed_venues)
         
         calculate_routes()
@@ -376,6 +388,7 @@ class TripSession {
     func find_optimal_route_order_fixed_ends() {
         
         if venues.count == 2 {
+            print("VENUE COUNT 2")
             ordered_routes.append(route_matrix[start_venue_id][end_venue_id])
             optimal_venue_id_order.append(start_venue_id)
             optimal_venue_id_order.append(end_venue_id)
@@ -399,7 +412,7 @@ class TripSession {
         
         print("CYCLING THROUGH PERMS")
         for venue_id_perm in all_perms {
-            
+            print("NEW PERM",venue_id_perm)
             // Calculate start to first of perm cost, currend perm cost, then last of perm to end cost
             curr_cost_sum = curr_cost_sum + get_route_cost(source_id: start_venue_id, destination_id: venue_id_perm[0])
             for venue_id_spot in (0 ... num_venues - 2) {
@@ -419,7 +432,7 @@ class TripSession {
         
         var temp_source_venue_id = -1
         var temp_destination_venue_id = -1
-        
+        print("VENUE_ID_PERM",optimal_venue_id_perm)
         // Add starting and ending venues into the optimal venue id order
         optimal_venue_id_order = [start_venue_id] + optimal_venue_id_perm + [end_venue_id]
         
