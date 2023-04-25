@@ -91,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="TjZ-mJ-bv5">
-                                <rect key="frame" x="144" y="291" width="105" height="80"/>
+                                <rect key="frame" x="142" y="291" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" image="cup.and.saucer.fill" catalog="system" imagePlacement="top" imagePadding="10" cornerStyle="large">
@@ -153,7 +153,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="BqT-gB-XdN">
-                                <rect key="frame" x="144" y="388" width="105" height="80"/>
+                                <rect key="frame" x="142" y="388" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
@@ -217,7 +217,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vjZ-BV-Jmk">
-                                <rect key="frame" x="144" y="483" width="105" height="80"/>
+                                <rect key="frame" x="142" y="483" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">

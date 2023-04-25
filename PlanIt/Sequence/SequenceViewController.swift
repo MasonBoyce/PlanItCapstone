@@ -20,6 +20,9 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
     var end: Int?
     
     @IBAction func didTapSave(_ sender: UIButton) {
+        if (start ?? -1 < 0 || end ?? -1 < 0 ) || start == end {
+            orderAlert()
+        }
         let isPresentingInPushMode = presentingViewController is UINavigationController
         model!.save()
         if isPresentingInPushMode {
@@ -128,6 +131,7 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
     }
         
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        start = -1
         //tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor(red: 252, green: 0, blue: 0, alpha: 0.1)
         if tableView == self.startTableView {
             tableView.cellForRow(at: indexPath)?.backgroundColor = .systemGray3
@@ -136,6 +140,7 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
             })
             data[indexPath.row].isStart = !(data [indexPath.row].isStart)
             //        print ("That Rocks", data[indexPath.row].selected)
+            
             if data[indexPath.row].isStart == true {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
                 let generator = UINotificationFeedbackGenerator()
@@ -152,6 +157,7 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
             })
             data[indexPath.row].isEnd = !(data [indexPath.row].isEnd)
             //        print ("That Rocks", data[indexPath.row].selected)
+            end = nil
             if data[indexPath.row].isEnd == true {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
                 let generator = UINotificationFeedbackGenerator()
@@ -178,6 +184,15 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
         startTableView.dataSource = self
         endTableView.delegate = self
         endTableView.dataSource = self
+    }
+    
+    func orderAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Please select both start and end location", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+        let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
     }
     
 }
