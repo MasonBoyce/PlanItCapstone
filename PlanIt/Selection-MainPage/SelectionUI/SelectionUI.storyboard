@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QpL-Yw-vhq">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QpL-Yw-vhq">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,7 +16,7 @@
             <objects>
                 <navigationController id="QpL-Yw-vhq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="S7h-Vf-aH6">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -31,11 +32,11 @@
             <objects>
                 <viewController storyboardIdentifier="SelectionUI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SelectionUIViewController" customModule="PlanIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHu-3L-lag">
-                                <rect key="frame" x="17" y="192" width="376" height="51"/>
+                                <rect key="frame" x="17" y="183" width="355" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="35"/>
                                 <nil key="textColor"/>
@@ -43,7 +44,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Desired Categories ..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="4Hz-cB-ODq">
-                                <rect key="frame" x="15" y="256" width="307" height="34"/>
+                                <rect key="frame" x="14" y="243" width="291" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" textContentType="location"/>
@@ -53,113 +54,210 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="NXF-DH-ImR">
-                                <rect key="frame" x="342" y="256" width="49" height="33"/>
+                                <rect key="frame" x="324" y="243" width="47" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Search"/>
+                                <state key="normal" title="🔍"/>
+                                <buttonConfiguration key="configuration" style="gray" title="🔍" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="SearchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xoM-Oz-0Mo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Tax-5y-Vmz">
-                                <rect key="frame" x="18" y="308" width="105" height="80"/>
+                                <rect key="frame" x="16" y="291" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Restaurants">
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <imageReference key="image" image="takeoutbag.and.cup.and.straw.fill" catalog="system" symbolScale="default"/>
                                 </state>
+                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
+                                    <imageReference key="image" image="takeoutbag.and.cup.and.straw.fill" catalog="system" symbolScale="large"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Restaurant">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Avenir-Book"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="restaurants:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AhH-KI-bgI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="TjZ-mJ-bv5">
-                                <rect key="frame" x="155" y="308" width="105" height="80"/>
+                                <rect key="frame" x="144" y="291" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="cup.and.saucer.fill" catalog="system" imagePlacement="top" imagePadding="10" cornerStyle="large">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Café">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Avenir-Book"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="cafés:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Imy-8f-pDe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Fic-fz-RrT">
-                                <rect key="frame" x="285" y="308" width="105" height="80"/>
+                                <rect key="frame" x="265" y="291" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
+                                    <imageReference key="image" image="figure.gymnastics" catalog="system" symbolScale="large"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Gym">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Avenir-Book"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="gyms:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LAM-bH-GG9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="tVV-Zb-HtV">
-                                <rect key="frame" x="18" y="410" width="105" height="80"/>
+                                <rect key="frame" x="16" y="388" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Restaurants">
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <imageReference key="image" image="takeoutbag.and.cup.and.straw.fill" catalog="system" symbolScale="default"/>
                                 </state>
+                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
+                                    <imageReference key="image" image="snowflake" catalog="system" symbolScale="large"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Dessert">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Avenir-Book"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="Desserts:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ilx-Rh-dye"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="BqT-gB-XdN">
-                                <rect key="frame" x="155" y="410" width="105" height="80"/>
+                                <rect key="frame" x="144" y="388" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
+                                    <imageReference key="image" image="pills.fill" catalog="system" symbolScale="large"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Pharmacy">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Avenir-Book"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="Pharmacies:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KuJ-aO-H7z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Cq1-vD-8w6">
-                                <rect key="frame" x="285" y="410" width="105" height="80"/>
+                                <rect key="frame" x="265" y="388" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
+                                    <imageReference key="image" image="wineglass.fill" catalog="system" symbolScale="large"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Bar">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Avenir-Book"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="Bars:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AO6-Ui-d1E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="j9b-i2-71Q">
-                                <rect key="frame" x="18" y="510" width="105" height="80"/>
+                                <rect key="frame" x="16" y="483" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Restaurants">
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <imageReference key="image" image="takeoutbag.and.cup.and.straw.fill" catalog="system" symbolScale="default"/>
                                 </state>
+                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
+                                    <imageReference key="image" image="tree.fill" catalog="system" symbolScale="large"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Park">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Avenir-Book"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="Parks:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vC8-Zn-Ods"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vjZ-BV-Jmk">
-                                <rect key="frame" x="155" y="510" width="105" height="80"/>
+                                <rect key="frame" x="144" y="483" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
+                                    <imageReference key="image" image="building.columns.fill" catalog="system" symbolScale="large"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Museum">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Avenir-Book"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="Museums:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="q3X-Mb-CB7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ZOU-pS-9R3" userLabel="Bookstore">
-                                <rect key="frame" x="285" y="510" width="105" height="80"/>
+                                <rect key="frame" x="265" y="483" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" imagePlacement="top" imagePadding="10" cornerStyle="large">
+                                    <imageReference key="image" image="books.vertical.fill" catalog="system" symbolScale="large"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Bookstore">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Avenir-Book"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="Bookstores:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qEe-bO-VP8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1I9-G2-Pn7">
-                                <rect key="frame" x="147" y="657" width="118" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="PLANIT">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapMapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fks-fh-ET5"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MqD-Og-cXu">
-                                <rect key="frame" x="156" y="398" width="100" height="100"/>
+                                <rect key="frame" x="145" y="376" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="B7O-xB-yk8">
@@ -170,11 +268,45 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUP-gx-iry">
-                                <rect key="frame" x="143" y="737" width="126" height="34"/>
+                                <rect key="frame" x="124" y="715" width="142" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" imagePadding="10" cornerStyle="capsule">
+                                    <imageReference key="image" image="list.clipboard.fill" catalog="system" symbolScale="small"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sequence">
+                                            <attributes>
+                                                <font key="NSFont" size="14" name="Futura-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="didTapSequence:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RiK-CI-xVb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1I9-G2-Pn7">
+                                <rect key="frame" x="140" y="638" width="112" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="PLANIT">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="PLANIT">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="Futura-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapMapButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fks-fh-ET5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -227,12 +359,21 @@
         </scene>
     </scenes>
     <resources>
+        <image name="books.vertical.fill" catalog="system" width="128" height="110"/>
+        <image name="building.columns.fill" catalog="system" width="128" height="112"/>
+        <image name="cup.and.saucer.fill" catalog="system" width="128" height="91"/>
+        <image name="figure.gymnastics" catalog="system" width="128" height="100"/>
+        <image name="list.clipboard.fill" catalog="system" width="103" height="128"/>
+        <image name="pills.fill" catalog="system" width="128" height="104"/>
+        <image name="snowflake" catalog="system" width="119" height="128"/>
         <image name="takeoutbag.and.cup.and.straw.fill" catalog="system" width="128" height="109"/>
+        <image name="tree.fill" catalog="system" width="128" height="118"/>
+        <image name="wineglass.fill" catalog="system" width="95" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
