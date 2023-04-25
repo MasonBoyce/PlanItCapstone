@@ -212,6 +212,8 @@ class TripSession {
             // BOTH WAYS
             if self.num_routes_calculated >= self.all_venue_pairs.count { // * 2 if forward and backward pairs
                 self.find_optimal_venue_route_perm()// change to a diff. algo later
+                // self.find_optimal_route_order_fixed_ends()
+                // self.find_time_of_day_route_perm()
                 
             }
             //        let rect = route.polyline.boundingMapRect
@@ -328,13 +330,20 @@ class TripSession {
         }
     }
     
-    func start() {
+    func start_time_of_day() {
         set_all_venue_pairs()
         print("PAIRS",all_venue_pairs)
-        set_venue_permutations(k: venues.count, venues: venue_ids)
+        /*
+        var size = 0
+        var time_venues = [0]
+        for time in all_time_group_perms.keys{
+            size = time_groups[time]?.count ?? 0
+            time_venues = time_groups[time] ?? []
+            set_indiv_time_perm(k: size, time: time, venues: time_venues)
+        }
+         */
+        set_timed_permutations()
         calculate_routes()
-        
-        
     }
     
     func start_fixed_ends(completion: @escaping () -> Void) {
@@ -351,6 +360,13 @@ class TripSession {
         var trimmed_venues = venue_ids.filter{$0 != start_venue_id || $0 != end_venue_id}
         set_venue_permutations(k: venues.count - 2, venues: trimmed_venues)
         
+        calculate_routes()
+    }
+    
+    func start() {
+        set_all_venue_pairs()
+        print("PAIRS",all_venue_pairs)
+        set_venue_permutations(k: venues.count, venues: venue_ids)
         calculate_routes()
     }
     
@@ -464,7 +480,6 @@ class TripSession {
         var curr_cost_sum = 0.0
         // var cost_min = Double.infinity
         var optimal_venue_id_perm: [Int] = []
-        var temp = -1
         
         let all_perms = all_venue_permutations
         
@@ -493,7 +508,6 @@ class TripSession {
         print("OPTIMAL VENUE ID PERM")
         print(optimal_venue_id_perm)
         optimal_venue_id_order = optimal_venue_id_perm
-        var counter = 0
         
         
         for venue_id in optimal_venue_id_perm {
@@ -544,6 +558,7 @@ class TripSession {
         var destination_id = -1
         var time_group_perms: [[Int]] = []
         
+        /*
         // Calculate all time-relevant routes
         for time in all_time_group_perms.keys {
             time_group_perms = all_time_group_perms[time] ?? []
@@ -555,6 +570,7 @@ class TripSession {
                 }
             }
         }
+         */
         
         // Grab time-bucket perms
         var morning_perms = all_time_group_perms["Morning"]
@@ -617,11 +633,21 @@ class TripSession {
             ordered_routes.append(temp_route)
             //ordered_routes.append(get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
             */
+        
+        optimal_venue_id_order = optimal_venue_id_perm
+        
+        for venue_id in optimal_venue_id_perm {
+            optimal_venue_order.append(id_to_venue_dict[venue_id] ?? Venue())
+        }
+        
         for venue_index in (0 ... optimal_venue_id_perm.count - 2) {
             temp_source_venue_id = optimal_venue_id_perm[venue_index]
             temp_destination_venue_id = optimal_venue_id_perm[venue_index + 1]
             ordered_routes.append(get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
         }
+        
+        // DO WE NEED model?.goToMap(tripSession: self) HERE ?????????????
+        
     }
     
 }
