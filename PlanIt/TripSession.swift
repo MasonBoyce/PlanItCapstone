@@ -531,6 +531,15 @@ class TripSession {
         //var time_group_perms_dict = get_time_group_perms()
         let num_venues = venue_ids.count
         
+        if num_venues == 2 {
+            ordered_routes.append(route_matrix[venue_ids[0]][venue_ids[1]])
+            optimal_venue_id_order.append(venue_ids[0])
+            optimal_venue_id_order.append(venue_ids[1])
+            optimal_venue_order.append(id_to_venue_dict[venue_ids[0]] ?? Venue())
+            optimal_venue_order.append(id_to_venue_dict[venue_ids[1]] ?? Venue())
+            return
+        }
+        
         var source_id = -1
         var destination_id = -1
         var time_group_perms: [[Int]] = []
