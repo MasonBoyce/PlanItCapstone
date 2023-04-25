@@ -349,7 +349,7 @@ class TripSession {
         calculate_routes()
     }
     
-    func start_fixed_ends(completion: @escaping () -> Void) {
+    func start_fixed_ends() {
         // sof rets all_venue_pairs as all pairs outes that aren't (start,end) or (end,start)
         set_all_venue_pairs()
         
@@ -357,7 +357,7 @@ class TripSession {
             return // idk, this should prob trigger the regular start(...) though???
         }
         
-        all_venue_pairs = all_venue_pairs.filter{$0 != (start_venue_id, end_venue_id) || $0 != (end_venue_id, start_venue_id)}
+//        all_venue_pairs = all_venue_pairs.filter{$0 != (start_venue_id, end_venue_id) || $0 != (end_venue_id, start_venue_id)}
         
         // sets all_venue_permutations as all permutations of routes that AREN'T the start or end route
         var trimmed_venues = venue_ids.filter{$0 != start_venue_id || $0 != end_venue_id}
@@ -448,8 +448,9 @@ class TripSession {
                 temp_route = get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id)
             }
              */
+            print("FUCKER",temp_route)
             ordered_routes.append(temp_route)
-            //ordered_routes.append(get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
+            ordered_routes.append(get_route(source_id: temp_source_venue_id, destination_id: temp_destination_venue_id))
         }
         
         model?.goToMap(tripSession: self)

@@ -89,7 +89,9 @@ class MapModel: MapModelProtocol {
     }
     
     func addOverlays(routes: [MKRoute]) {
+        
         for route in routes {
+            print("FUCKER",route.expectedTravelTime)
             let polyline = route.polyline
             viewController?.mapView.addOverlay(polyline)
         }

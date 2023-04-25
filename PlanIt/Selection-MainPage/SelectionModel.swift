@@ -36,7 +36,7 @@ class SelectionModel  {
         print("FUCKER",Cache.shared.selectedVenues[2],Cache.shared.selectedVenues[3])
         tripSession.start_venue_id = 2
         tripSession.end_venue_id = 3
-        tripSession.start()
+        tripSession.start_fixed_ends()
         
     }
     
