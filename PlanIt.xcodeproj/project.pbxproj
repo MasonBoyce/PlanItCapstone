@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,6 +47,8 @@
 		D3B236AE29F752EA00EECFA2 /* SequenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B236AD29F752EA00EECFA2 /* SequenceModel.swift */; };
 		D3B7314029B2937D004D4E4D /* SelectionUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3917C932993732100B85086 /* SelectionUI.storyboard */; };
 		D3B7314129B29457004D4E4D /* SelectVenues.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D31C2DE329A952A4005658B2 /* SelectVenues.storyboard */; };
+		D3D5E4DE29FE0D55001708E2 /* Screenshots in Frameworks */ = {isa = PBXBuildFile; productRef = D3D5E4DD29FE0D55001708E2 /* Screenshots */; };
+		D3D5E4E129FE13D1001708E2 /* FloatingSegmentedControl in Frameworks */ = {isa = PBXBuildFile; productRef = D3D5E4E029FE13D1001708E2 /* FloatingSegmentedControl */; };
 		D3DDCD1829D152FD0017AFF5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DDCD1729D152FD0017AFF5 /* Launch Screen.storyboard */; };
 		D3E4D84329D24D250020CF92 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E4D84229D24D250020CF92 /* LaunchViewController.swift */; };
 		D3E6CFEB29F07FB400FA1B73 /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E6CFEA29F07FB400FA1B73 /* Result.storyboard */; };
@@ -111,6 +113,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3D5E4DE29FE0D55001708E2 /* Screenshots in Frameworks */,
+				D3D5E4E129FE13D1001708E2 /* FloatingSegmentedControl in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +279,10 @@
 			dependencies = (
 			);
 			name = PlanIt;
+			packageProductDependencies = (
+				D3D5E4DD29FE0D55001708E2 /* Screenshots */,
+				D3D5E4E029FE13D1001708E2 /* FloatingSegmentedControl */,
+			);
 			productName = PlanIt;
 			productReference = 501876A629E5D3AA00A94FFD /* PlanIt.app */;
 			productType = "com.apple.product-type.application";
@@ -302,6 +310,10 @@
 				Base,
 			);
 			mainGroup = 50D4806A28FD995900F90294;
+			packageReferences = (
+				D3D5E4DC29FE0D55001708E2 /* XCRemoteSwiftPackageReference "Screenshots" */,
+				D3D5E4DF29FE13D1001708E2 /* XCRemoteSwiftPackageReference "FloatingSegmentedControl" */,
+			);
 			productRefGroup = 50D4806A28FD995900F90294;
 			projectDirPath = "";
 			projectRoot = "";
@@ -562,6 +574,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3D5E4DC29FE0D55001708E2 /* XCRemoteSwiftPackageReference "Screenshots" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dequin-cl/Screenshots.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		D3D5E4DF29FE13D1001708E2 /* XCRemoteSwiftPackageReference "FloatingSegmentedControl" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/darioGzlez/FloatingSegmentedControl.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3D5E4DD29FE0D55001708E2 /* Screenshots */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3D5E4DC29FE0D55001708E2 /* XCRemoteSwiftPackageReference "Screenshots" */;
+			productName = Screenshots;
+		};
+		D3D5E4E029FE13D1001708E2 /* FloatingSegmentedControl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3D5E4DF29FE13D1001708E2 /* XCRemoteSwiftPackageReference "FloatingSegmentedControl" */;
+			productName = FloatingSegmentedControl;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 50D4806B28FD995900F90294 /* Project object */;
 }

@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "floatingsegmentedcontrol",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/darioGzlez/FloatingSegmentedControl.git",
+      "state" : {
+        "revision" : "8db73e9de2126c437b6eda1feb44856c415e7598",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "screenshots",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dequin-cl/Screenshots.git",
+      "state" : {
+        "revision" : "ac8084c53f693656e778ccbc13e351144fd9a46a",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}

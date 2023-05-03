@@ -383,5 +383,7 @@ class SelectVenuesViewController: UIViewController, UITableViewDelegate, UITable
     
 }
 
+
+
 //    filtered = data.filter{$0.name!.lowercased().contains(searchText.lowercased())
 

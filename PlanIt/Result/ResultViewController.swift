@@ -9,6 +9,7 @@ import Foundation
 import Foundation
 import UIKit
 import MapKit
+import Screenshots
 
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ResultTableViewCellDelegate {
     
@@ -104,16 +105,23 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //Create the UIImage
         self.screenshot.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
-        guard let layer = UIApplication.shared.keyWindow?.layer else { return }
-        let renderer = UIGraphicsImageRenderer(size: layer.frame.size)
-        let image = renderer.image(actions: { context in
-            layer.render(in: context.cgContext)
-        })
+        
+//        tableView.contentOffset = CGPointMake(0.0, 0.0)
+//        tableView.frame = CGRectMake(0, 0.0, tableView.contentSize.width, tableView.contentSize.height)
+//        guard let layer = tableView?.layer else { return }
+
+//        guard let layer = UIApplication.shared.keyWindow?.layer else { return }
+//        let renderer = UIGraphicsImageRenderer(size: layer.frame.size)
+//        let image = renderer.image(actions: { context in
+//            layer.render(in: context.cgContext)
+//        })
+        
+        let image = tableView.screenshot
         self.screenshot.isHidden = false
         self.navigationController?.navigationBar.isHidden = false
         
         //Save it to the camera roll
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
     }

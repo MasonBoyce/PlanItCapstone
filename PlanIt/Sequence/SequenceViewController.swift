@@ -9,6 +9,7 @@ import Foundation
 import Foundation
 import UIKit
 import MapKit
+import QuartzCore
 
 class SequenceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,6 +19,7 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
     
     var start: Int?
     var end: Int?
+    var selectedIndexes = [[IndexPath.init(row: 0, section: 0)], [IndexPath.init(row: 0, section: 1)]]
     
     @IBAction func didTapSave(_ sender: UIButton) {
         if (start ?? -1 < 0 || end ?? -1 < 0 ) || start == end {
@@ -94,8 +96,11 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
             data[indexPath.row].isStart = !(data [indexPath.row].isStart)
             start = indexPath.row
             //        print ("That Sucks", data[indexPath.row].selected)
+            let cell = tableView.cellForRow(at: indexPath)
+                // If current cell is not present in selectedIndexes
             if data[indexPath.row].isStart == true {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                self.selectedIndexes[indexPath.section].removeAll()
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.success)
             } else {
@@ -167,14 +172,6 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
                 tableView.cellForRow(at: indexPath)?.accessoryType = .none
             }
         }
-        if let cell = tableView.cellForRow(at: indexPath) {
-            if cell.accessoryType == .checkmark{
-                cell.accessoryType = .none
-            }
-            else{
-                cell.accessoryType = .checkmark
-            }
-        }
     }
     
     override func viewDidLoad() {
@@ -185,6 +182,10 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
         startTableView.dataSource = self
         endTableView.delegate = self
         endTableView.dataSource = self
+        startTableView.allowsMultipleSelection = false
+        endTableView.allowsMultipleSelection = false
+        startTableView.cornerRadius = 20
+        endTableView.cornerRadius = 20
     }
     
     func orderAlert() {
@@ -196,6 +197,20 @@ class SequenceViewController: UIViewController, UITableViewDelegate, UITableView
                     generator.notificationOccurred(.error)
     }
     
+}
+
+
+
+extension UITableView {
+     public var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = true
+        }
+    }
 }
 
 
